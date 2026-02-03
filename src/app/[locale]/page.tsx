@@ -1,96 +1,92 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default function HomePage() {
   const t = useTranslations('home');
-  const tNav = useTranslations('nav');
-  const tCommon = useTranslations('common');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-stone-100">
-      {/* Temporary Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-playfair font-bold text-amber-900">
-              Anıtya Cave House
-            </div>
-            <div className="flex gap-6 text-sm">
-              <Link href="/" className="hover:text-amber-700">{tNav('home')}</Link>
-              <Link href="/rooms" className="hover:text-amber-700">{tNav('rooms')}</Link>
-              <Link href="/gallery" className="hover:text-amber-700">{tNav('gallery')}</Link>
-              <Link href="/blog" className="hover:text-amber-700">{tNav('blog')}</Link>
-              <Link href="/contact" className="hover:text-amber-700">{tNav('contact')}</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen flex flex-col">
+      <Header />
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold text-amber-900 leading-tight">
-            {t('hero.title')}
-          </h1>
-          <p className="text-xl text-stone-600">
-            {t('hero.subtitle')}
-          </p>
-          <div className="pt-4">
-            <Link
-              href="/booking"
-              className="inline-block bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-800 transition-colors"
-            >
-              {t('hero.cta')}
-            </Link>
+      <section className="relative bg-gradient-to-br from-amber-50 via-stone-50 to-amber-100 py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-8 max-w-5xl mx-auto">
+            <Badge variant="secondary" className="mb-4 bg-amber-100 text-amber-900 border-amber-200">
+              ⭐ Airbnb Superhost
+            </Badge>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-amber-900 leading-tight">
+              {t('hero.title')}
+            </h1>
+            <p className="text-lg md:text-xl text-stone-700 max-w-3xl mx-auto leading-relaxed">
+              {t('hero.subtitle')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <Button asChild size="lg" className="bg-amber-700 hover:bg-amber-800 text-lg px-8 py-6">
+                <Link href="/booking">{t('hero.cta')}</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-amber-700 text-amber-900 hover:bg-amber-50">
+                <Link href="/rooms">Odalarımızı Görüntüle</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-20">
-        <h2 className="text-4xl font-playfair font-bold text-center text-amber-900 mb-12">
-          {t('features.title')}
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="container mx-auto px-4 py-20 md:py-28">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-playfair font-bold text-amber-900 mb-4">
+            {t('features.title')}
+          </h2>
+          <p className="text-stone-600 max-w-2xl mx-auto">
+            Kapadokya'nın eşsiz atmosferinde, modern konforu tarihi dokuyla birleştiriyoruz
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {['authentic', 'location', 'superhost', 'luxury'].map((feature) => (
-            <div key={feature} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <h3 className="text-xl font-semibold text-amber-900 mb-3">
-                {t(`features.${feature}.title`)}
-              </h3>
-              <p className="text-stone-600">
-                {t(`features.${feature}.description`)}
-              </p>
-            </div>
+            <Card key={feature} className="border-amber-100 hover:border-amber-300 transition-all hover:shadow-xl group">
+              <CardContent className="p-8">
+                <div className="text-4xl mb-4">
+                  {feature === 'authentic' && '🏛️'}
+                  {feature === 'location' && '📍'}
+                  {feature === 'superhost' && '⭐'}
+                  {feature === 'luxury' && '✨'}
+                </div>
+                <h3 className="text-xl font-semibold text-amber-900 mb-3 group-hover:text-amber-700 transition-colors">
+                  {t(`features.${feature}.title`)}
+                </h3>
+                <p className="text-stone-600 leading-relaxed">
+                  {t(`features.${feature}.description`)}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-amber-900 text-white py-20">
-        <div className="container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-4xl font-playfair font-bold">
+      <section className="relative bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white py-20 md:py-28">
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
+        <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-playfair font-bold">
             {t('cta.title')}
           </h2>
-          <p className="text-xl text-amber-100">
+          <p className="text-lg md:text-xl text-amber-100 max-w-2xl mx-auto">
             {t('cta.subtitle')}
           </p>
-          <Link
-            href="/booking"
-            className="inline-block bg-white text-amber-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-50 transition-colors"
-          >
-            {t('cta.button')}
-          </Link>
+          <Button asChild size="lg" variant="secondary" className="bg-white text-amber-900 hover:bg-amber-50 text-lg px-10 py-6">
+            <Link href="/booking">{t('cta.button')}</Link>
+          </Button>
         </div>
       </section>
 
-      {/* Temporary Footer */}
-      <footer className="bg-stone-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-stone-300">
-            © 2026 Anıtya Cave House. {tCommon('welcome')}
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
