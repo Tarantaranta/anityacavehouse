@@ -1,0 +1,68 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "contact": "Contact",
+    "about": "About"
+  },
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "booking": "Booking"
+  },
+  "home": {
+    "hero": {
+      "title": "Authentic Cave House Experience in the Heart of Cappadocia",
+      "subtitle": "Experience history and luxury together at Anitya Cave House",
+      "cta": "Check Availability"
+    },
+    "features": {
+      "title": "Why Anitya Cave House?",
+      "authentic": {
+        "title": "Authentic Cave Rooms",
+        "description": "Traditional cave rooms carved into century-old rocks"
+      },
+      "location": {
+        "title": "Perfect Location",
+        "description": "5 minutes to Göreme center, closest point to hot air balloons"
+      },
+      "superhost": {
+        "title": "Airbnb Superhost",
+        "description": "Superhost status with excellent ratings from our guests"
+      },
+      "luxury": {
+        "title": "Modern Comfort",
+        "description": "Modern hotel comfort and luxury amenities in historic setting"
+      }
+    },
+    "rooms": {
+      "title": "Our Rooms",
+      "subtitle": "Discover our cave rooms, each with unique design"
+    },
+    "testimonials": {
+      "title": "What Our Guests Say",
+      "subtitle": "Reviews from guests who stayed at Anitya Cave House"
+    },
+    "cta": {
+      "title": "Ready for an Unforgettable Experience?",
+      "subtitle": "Experience the cave house in Cappadocia's enchanting atmosphere",
+      "button": "Book Now"
+    }
+  },
+  "footer": {
+    "description": "Experience history and comfort together in our authentic cave hotel located in Göreme, in the heart of Cappadocia.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterText": "Stay updated with special offers and news",
+    "subscribe": "Subscribe",
+    "rights": "All rights reserved"
+  }
+}

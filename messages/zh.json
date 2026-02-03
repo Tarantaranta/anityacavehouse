@@ -1,0 +1,68 @@
+{
+  "common": {
+    "welcome": "欢迎",
+    "bookNow": "立即预订",
+    "learnMore": "了解更多",
+    "viewDetails": "查看详情",
+    "contact": "联系我们",
+    "about": "关于我们"
+  },
+  "nav": {
+    "home": "首页",
+    "rooms": "客房",
+    "gallery": "画廊",
+    "blog": "博客",
+    "about": "关于",
+    "contact": "联系",
+    "booking": "预订"
+  },
+  "home": {
+    "hero": {
+      "title": "卡帕多西亚中心的正宗洞穴酒店体验",
+      "subtitle": "在安尼提亚洞穴酒店体验历史与奢华的完美结合",
+      "cta": "查看可用性"
+    },
+    "features": {
+      "title": "为什么选择安尼提亚洞穴酒店？",
+      "authentic": {
+        "title": "正宗洞穴房间",
+        "description": "在百年岩石中雕刻的传统洞穴房间"
+      },
+      "location": {
+        "title": "完美位置",
+        "description": "距格雷梅中心5分钟，最靠近热气球的地点"
+      },
+      "superhost": {
+        "title": "Airbnb超赞房东",
+        "description": "凭借客人的优秀评价获得超赞房东地位"
+      },
+      "luxury": {
+        "title": "现代舒适",
+        "description": "历史环境中的现代酒店舒适和豪华设施"
+      }
+    },
+    "rooms": {
+      "title": "我们的客房",
+      "subtitle": "探索我们独特设计的洞穴房间"
+    },
+    "testimonials": {
+      "title": "客人评价",
+      "subtitle": "曾在安尼提亚洞穴酒店住宿的客人评论"
+    },
+    "cta": {
+      "title": "准备好难忘的体验了吗？",
+      "subtitle": "在卡帕多西亚迷人的氛围中体验洞穴酒店",
+      "button": "立即预订"
+    }
+  },
+  "footer": {
+    "description": "在我们位于卡帕多西亚中心格雷梅的正宗洞穴酒店中，体验历史与舒适的完美结合。",
+    "quickLinks": "快速链接",
+    "contactInfo": "联系信息",
+    "followUs": "关注我们",
+    "newsletter": "新闻通讯",
+    "newsletterText": "获取特别优惠和新闻",
+    "subscribe": "订阅",
+    "rights": "版权所有"
+  }
+}

@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anıtya Cave House - Official Website
 
-## Getting Started
+Modern, çok dilli (TR/EN/ZH) Next.js 15 tabanlı Kapadokya mağara otel web sitesi.
 
-First, run the development server:
+## 🏗️ Teknoloji Stack
+
+- **Framework:** Next.js 15 (App Router, React Server Components)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4 + Shadcn/ui
+- **Animations:** Framer Motion
+- **Internationalization:** next-intl (Türkçe, İngilizce, Çince)
+- **Forms:** React Hook Form + Zod
+- **Database:** PostgreSQL + Prisma ORM
+- **Payment:** iyzico (TR), Stripe (International)
+- **Booking:** Airbnb iCal Integration
+- **Deployment:** Vercel
+
+## 🚀 Hızlı Başlangıç
+
+### Gereksinimler
+
+- Node.js >= 20.9.0
+- npm veya yarn
+- PostgreSQL (production için)
+
+### Kurulum
 
 ```bash
+# Bağımlılıkları yükle
+npm install
+
+# Environment variables ayarla
+cp .env.example .env.local
+# .env.local dosyasını düzenle
+
+# Development sunucusunu başlat
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Proje Yapısı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+anityacavehouse/
+├── src/
+│   ├── app/
+│   │   ├── [locale]/          # Çoklu dil route'ları
+│   │   │   ├── page.tsx       # Ana sayfa
+│   │   │   ├── rooms/         # Odalar
+│   │   │   ├── booking/       # Rezervasyon
+│   │   │   ├── gallery/       # Galeri
+│   │   │   ├── blog/          # Blog
+│   │   │   └── contact/       # İletişim
+│   │   └── api/               # API routes
+│   ├── components/
+│   │   ├── ui/                # Shadcn components
+│   │   ├── layout/            # Layout components
+│   │   └── sections/          # Homepage sections
+│   ├── i18n/                  # i18n konfigürasyonu
+│   ├── lib/                   # Utilities
+│   └── middleware.ts          # i18n middleware
+├── messages/                  # Translation dosyaları
+│   ├── tr.json
+│   ├── en.json
+│   └── zh.json
+├── public/                    # Static assets
+├── prisma/                    # Database schema
+└── anitya_old_website_files/  # Eski site içerikleri (referans)
+```
 
-## Learn More
+## 🌍 Çoklu Dil Desteği
 
-To learn more about Next.js, take a look at the following resources:
+Site 3 dilde desteklenmektedir:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🇹🇷 Türkçe (varsayılan): `/tr/*`
+- 🇬🇧 İngilizce: `/en/*`
+- 🇨🇳 Çince: `/zh/*`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Translation dosyaları `messages/` klasöründe bulunur.
 
-## Deploy on Vercel
+## 🎨 Shadcn/ui Componentleri
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Temel UI componentlerini eklemek için:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add calendar
+# ... daha fazlası
+```
+
+## 📅 Airbnb Entegrasyonu
+
+3 ayrı Airbnb takvimi iCal formatında senkronize edilir:
+
+1. Oda 1: `AIRBNB_CALENDAR_1_URL`
+2. Oda 2: `AIRBNB_CALENDAR_2_URL`
+3. Oda 3: `AIRBNB_CALENDAR_3_URL`
+
+Senkronizasyon her 15 dakikada bir otomatik olarak çalışır.
+
+## 💳 Ödeme Sistemi
+
+- **Yurt İçi (TR):** iyzico 3D Secure
+- **Yurt Dışı:** Airbnb'ye yönlendirme veya Stripe
+
+## 🔒 Güvenlik
+
+- PCI-DSS Level 1 compliant (iyzico)
+- SSL/TLS (Vercel otomatik)
+- KVKK ve GDPR uyumlu
+- Rate limiting
+- Environment variables
+
+## 📊 SEO Optimizasyonu
+
+- Next.js Metadata API
+- Dynamic sitemap.xml
+- Schema.org JSON-LD
+- hreflang tags (çoklu dil)
+- Open Graph tags
+- Core Web Vitals optimization
+
+## 🧪 Komutlar
+
+```bash
+# Development
+npm run dev
+
+# Production build
+npm run build
+
+# Production başlat
+npm run start
+
+# Linting
+npm run lint
+
+# Prisma
+npx prisma generate       # Generate client
+npx prisma migrate dev    # Run migrations
+npx prisma studio         # Database GUI
+```
+
+## 📝 TODO Listesi
+
+Detaylı proje görevleri için [TODO.md](./TODO.md) dosyasına bakın.
+
+## 🤝 Katkıda Bulunma
+
+1. Fork yapın
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Commit yapın (`git commit -m 'feat: Add amazing feature'`)
+4. Push yapın (`git push origin feature/amazing-feature`)
+5. Pull Request açın
+
+## 📄 Lisans
+
+© 2026 Anıtya Cave House. Tüm hakları saklıdır.
+
+## 📞 İletişim
+
+- **Website:** https://anityacavehouse.com
+- **Email:** info@anityacavehouse.com
+- **Airbnb:** [Anıtya Cave House](https://www.airbnb.com/...)
+- **Instagram:** [@anityacavehouse](https://instagram.com/anityacavehouse)
+
+## 🙏 Teşekkürler
+
+- [Next.js](https://nextjs.org/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [next-intl](https://next-intl.dev/)
+- [Vercel](https://vercel.com/)
+
+---
+
+**Proje Durumu:** 🚧 Geliştirme Aşamasında
+
+**Son Güncelleme:** 3 Şubat 2026

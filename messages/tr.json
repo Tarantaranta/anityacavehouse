@@ -1,0 +1,68 @@
+{
+  "common": {
+    "welcome": "Hoş Geldiniz",
+    "bookNow": "Hemen Rezervasyon Yap",
+    "learnMore": "Daha Fazla Bilgi",
+    "viewDetails": "Detayları Görüntüle",
+    "contact": "İletişim",
+    "about": "Hakkımızda"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "rooms": "Odalar",
+    "gallery": "Galeri",
+    "blog": "Blog",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "booking": "Rezervasyon"
+  },
+  "home": {
+    "hero": {
+      "title": "Kapadokya'nın Kalbinde Mağara Ev Deneyimi",
+      "subtitle": "Anıtya Cave House'da tarihi ve lüksü bir arada yaşayın",
+      "cta": "Müsaitliği Kontrol Et"
+    },
+    "features": {
+      "title": "Neden Anıtya Cave House?",
+      "authentic": {
+        "title": "Otantik Mağara Odalar",
+        "description": "Yüzyıllık kayalara oyulmuş geleneksel mağara odalar"
+      },
+      "location": {
+        "title": "Mükemmel Konum",
+        "description": "Göreme merkezine 5 dakika, sıcak hava balonlarına en yakın nokta"
+      },
+      "superhost": {
+        "title": "Airbnb Superhost",
+        "description": "Konuklarımızdan aldığımız mükemmel puanlarla Superhost statüsü"
+      },
+      "luxury": {
+        "title": "Modern Konfor",
+        "description": "Tarihi dokuda modern otel konforu ve lüks olanaklar"
+      }
+    },
+    "rooms": {
+      "title": "Odalarımız",
+      "subtitle": "Her biri eşsiz tasarıma sahip mağara odalarımızı keşfedin"
+    },
+    "testimonials": {
+      "title": "Misafirlerimiz Ne Diyor?",
+      "subtitle": "Anıtya Cave House'da konaklayan misafirlerimizin yorumları"
+    },
+    "cta": {
+      "title": "Unutulmaz Bir Deneyim İçin Hazır Mısınız?",
+      "subtitle": "Kapadokya'nın büyüleyici atmosferinde mağara ev deneyimini yaşayın",
+      "button": "Hemen Rezervasyon Yapın"
+    }
+  },
+  "footer": {
+    "description": "Kapadokya'nın kalbinde, Göreme'de yer alan otantik mağara otelimizde tarihi ve konforu bir arada yaşayın.",
+    "quickLinks": "Hızlı Bağlantılar",
+    "contactInfo": "İletişim Bilgileri",
+    "followUs": "Bizi Takip Edin",
+    "newsletter": "Bülten",
+    "newsletterText": "Özel fırsatlar ve haberlerden haberdar olun",
+    "subscribe": "Abone Ol",
+    "rights": "Tüm hakları saklıdır"
+  }
+}
