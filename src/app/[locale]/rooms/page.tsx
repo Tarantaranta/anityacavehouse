@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -15,7 +15,7 @@ interface PageProps {
 
 export default async function RoomsPage({ params }: PageProps) {
   const { locale } = await params;
-  const t = useTranslations('rooms');
+  const t = await getTranslations('rooms');
 
   return (
     <div className="min-h-screen flex flex-col">
