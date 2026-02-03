@@ -23,6 +23,7 @@ export interface Room {
   amenities: string[];
   featured: boolean;
   airbnbCalendarId?: string;
+  airbnbIcalUrl?: string; // Airbnb'den takvim çekmek için iCal URL
 }
 
 export const rooms: Room[] = [
@@ -64,6 +65,7 @@ export const rooms: Room[] = [
     ],
     featured: true,
     airbnbCalendarId: '1',
+    airbnbIcalUrl: 'https://www.airbnb.com.tr/calendar/ical/2953140.ics?t=e34ecaef1bfe47aeb7795495699b29ab',
   },
   {
     id: '2',
