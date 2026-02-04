@@ -44,3 +44,6 @@ next-env.d.ts
 # old website files (large image files - keep locally only)
 anitya_old_website_files/images/
 anitya_old_website_files/data/*.sql
+
+# public old site images (should not be committed)
+public/images/old-site/
