@@ -1,0 +1,27 @@
+{
+  "homepage": {},
+  "rooms": [
+    {
+      "id": "cave-suite",
+      "title": "Cave Suite",
+      "description": "a:5:{i:1;a:0:{}i:3;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:425:\\\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\\";s:6:\\\"filter\\\";b:0;}i:5;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:0:\\\"\\\";s:6:\\\"filter\\\";b:0;}i:6;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:554:\\\"\n\n\n\n\t\n\n\n\n\n\n\n\n\n\n\n\n\\\";s:6:\\\"filter\\\";b:0;}s:12:\\\"_multiwidget\\\";i:1;}"
+    },
+    {
+      "id": "dublex-stone-suite",
+      "title": "Dublex Stone Suite",
+      "description": "a:5:{i:1;a:0:{}i:3;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:425:\\\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\\";s:6:\\\"filter\\\";b:0;}i:5;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:0:\\\"\\\";s:6:\\\"filter\\\";b:0;}i:6;a:3:{s:5:\\\"title\\\";s:0:\\\"\\\";s:4:\\\"text\\\";s:554:\\\"\n\n\n\n\t\n\n\n\n\n\n\n\n\n\n\n\n\\\";s:6:\\\"filter\\\";b:0;}s:12:\\\"_multiwidget\\\";i:1;}"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Such a warm and well equipped cave! Our host could not be more helpful, the lighting and technology is superb and the view from the terrasse is breathtaking. The area is so beautiful and there is lots to see and do. Thank you for an excellent stay."
+    },
+    {
+      "id": 2,
+      "text": "Unique space! I highly recommend staying here if you want to enjoy Cappadocia in the perfect way that it should be. There are many cave houses to stay in, but the hospitality that these hosts provided was outstanding to me. If I’m ever back in the park I know where I’m staying!"
+    }
+  ],
+  "about": {},
+  "meta": {}
+}
