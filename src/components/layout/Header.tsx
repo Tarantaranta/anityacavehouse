@@ -30,9 +30,9 @@ export function Header() {
             <Image
               src="/images/logo.png"
               alt="Anıtya Cave House Logo"
-              width={180}
-              height={40}
-              className="h-10 w-auto"
+              width={200}
+              height={50}
+              className="h-12 w-auto"
               priority
             />
           </Link>
