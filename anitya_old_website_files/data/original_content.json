@@ -1,0 +1,145 @@
+{
+  "homepage": {
+    "hero_title": "Welcome To Anitya Cave House",
+    "hero_subtitle": "Modern Life In Historic Caves...",
+    "hero_description": "Experiencing to live in a cave which had kept all the histories and life energies in it and feeling the strength-softness-peace all together will be unforgettable. It has changed our life, we are learning a lot and we would like to share this special feeling with you. We would be glad to welcome you in our house with an open heart and full of love…",
+    "video_url": "https://youtu.be/a4bHzjG_7Zs"
+  },
+  "rooms": [
+    {
+      "id": "dublex-stone-suite",
+      "slug": "dublex-stone-suite",
+      "title": "Dublex Stone Suite",
+      "description": "A duplex stone house of 35 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation.",
+      "features": [
+        "A duplex stone house of 35 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation.",
+        "Fully built and decorated with handmade, antique and traditional furnitures.",
+        "Many traditional Turkish carpets in the Suit.",
+        "With a saloon, fully equipped kitchen, bathroom, bedroom and a scenic terrace.",
+        "Duplex Stone Suit is a perfect house for couples and families.",
+        "There is one full size double bed and it is possible to open the couch in the saloon to accomodate 2 more people. Good for up to max. 4 people.",
+        "Kitchen with cooker, fridge, kettle, coffee machine and all the other kitchen equipment for cooking available. Guests can use the kitchen as they wish. And we can provide your other needs for cooking.",
+        "Herbal teas, filter coffee, Turkish coffee, black tea and spices are provided.",
+        "Breakfast is included.",
+        "Optional dinner will be provided for the guests.",
+        "Saloon with a wonderful view of pigeon valleys, Ishak Castle and Erciyes Mountain, the door is opening to scenic terrace.",
+        "With 37'' 3D led smart internet TV (your mobile devices, tablets, computers can connect to the TV). Guests can watch films, listen to their own music, can use big screen for their plannings etc.",
+        "Unlimited free wireless connection in the entire house.",
+        "There is 24 hours continuous hot water.",
+        "Shampoo, soap, hair conditioner, hair dryer, towels are provided.",
+        "From the terrace you will see sunrise just near one of the creator of Cappadocia, the great Erciyes Mountain. You can see the special Cappadocian surface/landscape with some traditional village houses and Ishak Castle.",
+        "You can enjoy your traditional breakfast/dinner or barbecue on the terrace with some traditional homemade Cappadocia wine. We serve the traditional breakfast in a restaurant in the center of Ortahisar, which is 5 minutes away from the hotel."
+      ],
+      "capacity": 4,
+      "size": "35 m²",
+      "images": [
+        "DSC_5601.jpg",
+        "DSC_5603.jpg",
+        "DSC_5693.jpg",
+        "DSC_5695.jpg"
+      ]
+    },
+    {
+      "id": "cave-suite",
+      "slug": "cave-suite",
+      "title": "Cave Suite",
+      "description": "A cavehouse of 80 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation. Fully built and decorated with handmade, antique and traditional furnitures.",
+      "features": [
+        "A cavehouse of 80 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation. Fully built and decorated with handmade, antique and traditional furnitures.",
+        "The traditional Turkish carpets lay on the ground for your comfort.",
+        "With a saloon, fully equipped kitchen, bathroom, bedroom and a scenic terrace, Cave Suit is a perfect cavehouse for couples and families. There is one full size double bed, a special sitting/sleeping cave in saloon (can be closed with a curtain) and for crowded families or groups it is possible to open the couch in the saloon to accomodate 2 more people. Good for up to max. 6 people in the house.",
+        "Kitchen with oven, cooker, big fridge, kettle, coffee machine, orange juicer and all the other kitchen equipment for cooking available. Guests can use the kitchen as they wish.",
+        "Herbal teas, filter coffee, Turkish coffee, black tea and spices are provided.",
+        "Breakfast included.",
+        "Optional dinner will be provided for the guests.",
+        "Saloon with 106 cm. 3D led smart internet TV, Sony Blueray/DVD player Home theater system (your mobile devices, tablets, computers can connect the player by bluetooth-wifi). Guests can watch films, listen to their own music, can use big screen for their plannings etc.",
+        "Also there are some selected Anatolian music CD's and DVD's for our guests.",
+        "Unlimited free wireless connection in the entire house.",
+        "There is 24 hours hot water and a bathtub to relax at the end of a tiring day. Shampoo, soap, hair conditioner, hair dryer, towels are provided.",
+        "For keeping the cave atmosphere, lights had been adjusted properly, also it is possible to enjoy the cave with day lights and possible to improve for practical reasons.",
+        "From the terrace you will see sunrise just near one of the creator of Cappadocia, the great Erciyes Mountain. You can see the special Cappadocian surface/landscape with some traditional village houses and Ishak Castle.",
+        "You can enjoy your traditional breakfast/dinner or barbecue services on the terrace with some traditional homemade Cappadocian wine."
+      ],
+      "capacity": 6,
+      "size": "80 m²",
+      "images": [
+        "cave.jpg",
+        "cavesuit1.jpg",
+        "cavesuit2.jpg",
+        "cavesuitanaekran.jpg",
+        "DSC_0654.jpg",
+        "DSC_3108.jpg"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "title": "Testimonial #1",
+      "text": "Such a warm and well equipped cave! Our host could not be more helpful, the lighting and technology is superb and the view from the terrasse is breathtaking. The area is so beautiful and there is lots to see and do. Thank you for an excellent stay.",
+      "author": "Guest",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "Testimonial #2",
+      "text": "Unique space! I highly recommend staying here if you want to enjoy Cappadocia in the perfect way that it should be. There are many cave houses to stay in, but the hospitality that these hosts provided was outstanding to me. If I'm ever back in the park I know where I'm staying!",
+      "author": "Guest",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "title": "Testimonial #3",
+      "text": "We loved our winter stay in Cappadochia and Anitya Cave House was the perfect home base for us. Our family of three loved staying in quiet Ortahisar, rather than one of the more touristy towns in the region. Every morning we were served a diverse and delicious Turkish breakfast with many kinds of cheese, walnuts, bread, the best honey I've ever had, dried apricots, fresh raisins, fresh apricot jam, two kinds of olives, halvah, hot tea, and more. Never in my life have I experienced such kindness, generosity and service! The folks at Anitya Cave House are just incredible.",
+      "author": "Guest",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "email": "info@anityacavehouse.com",
+    "location": "Ortahisar, Cappadocia, Turkey"
+  },
+  "images": {
+    "logo": "anityalogon.png",
+    "slider": [
+      "01.jpg",
+      "09.jpg",
+      "11.jpg"
+    ],
+    "gallery_categories": {
+      "rooms": [
+        "DSC_0654.jpg",
+        "DSC_3108.jpg",
+        "DSC_5601.jpg",
+        "DSC_5603.jpg",
+        "DSC_5693.jpg",
+        "DSC_5695.jpg",
+        "DSC_5696.jpg",
+        "DSC_5713.jpg",
+        "cave.jpg",
+        "cavesuit1.jpg",
+        "cavesuit2.jpg",
+        "cavesuitanaekran.jpg"
+      ],
+      "exterior": [
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "07.jpg",
+        "08.jpg"
+      ],
+      "views": [
+        "1.jpg",
+        "2.jpg",
+        "3-1.jpg",
+        "4.jpg",
+        "10.jpg",
+        "12.jpg",
+        "13.jpg",
+        "14.jpg",
+        "15.jpg"
+      ]
+    }
+  }
+}
