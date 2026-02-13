@@ -5,59 +5,242 @@
     "learnMore": "Learn More",
     "viewDetails": "View Details",
     "contact": "Contact",
-    "about": "About"
+    "about": "About",
+    "more": "more.."
   },
   "nav": {
     "home": "Home",
     "rooms": "Rooms",
+    "experiences": "Experiences",
     "gallery": "Gallery",
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "booking": "Booking"
+    "booking": "Book Now"
   },
   "home": {
     "hero": {
-      "title": "Welcome To Anitya Cave House",
-      "subtitle": "Modern Life In Historic Caves...",
-      "description": "Experiencing to live in a cave which had kept all the histories and life energies in it and feeling the strength-softness-peace all together will be unforgettable. It has changed our life, we are learning a lot and we would like to share this special feeling with you. We would be glad to welcome you in our house with an open heart and full of love…",
-      "cta": "Check Availability"
-    },
-    "features": {
-      "title": "Why Anitya Cave House?",
-      "authentic": {
-        "title": "Authentic Cave Rooms",
-        "description": "Traditional cave rooms carved into century-old rocks"
+      "h1": "The same sun. The same stone. Thousands of years.",
+      "h2": "In the heart of Cappadocia, independent suite homes where time slows down.",
+      "body": "Those who carved the stone to create life, who prayed, who thought, who kept silent…\nFrom the Hittites to today, this light has never faded.\n\nAnitya Cave House consists of three private suite homes,\nwith no shared spaces, dedicated entirely to guests,\nlocated within these ancient stones.",
+      "trust": {
+        "superhost": "12+ Years Airbnb Superhost",
+        "reviews": "1046+ Verified Guest Reviews"
       },
-      "location": {
-        "title": "Perfect Location",
-        "description": "5 minutes to Göreme center, closest point to hot air balloons"
-      },
-      "superhost": {
-        "title": "Airbnb Superhost",
-        "description": "Superhost status with excellent ratings from our guests"
-      },
-      "luxury": {
-        "title": "Modern Comfort",
-        "description": "Modern hotel comfort and luxury amenities in historic setting"
+      "cta": {
+        "availability": "Check Availability",
+        "exploreSuites": "Explore Suite Homes"
       }
     },
-    "rooms": {
-      "title": "Our Rooms",
-      "subtitle": "Discover our cave rooms, each with unique design"
+    "identity": {
+      "title": "Not a hotel. No shared spaces. Yours alone.",
+      "text": "Anitya Cave House is not a hotel.\nIt consists of three independent suite homes with no shared spaces,\nlocated within the same structure.\n\n• 2 cave suites\n• 1 stone suite\n\nEach suite has:\n• Its own entrance\n• Its own private terrace\n• Its own fully equipped kitchen\n• Its own living area and bedroom\n\nOne of the suite homes also has a separate salon area.\n\nThese are not lived-in spaces.\nAll are prepared exclusively for guests."
     },
-    "testimonials": {
-      "title": "What Our Guests Say",
-      "subtitle": "Reviews from guests who stayed at Anitya Cave House"
+    "balloon": {
+      "title": "Can you see balloons from the terrace?",
+      "text": "Yes.\nWeather permitting, it is possible to watch hot air balloons from our private terraces in the early morning hours.\n\nSunrise in Cappadocia is experienced with silence, stone, and balloons floating in the sky.\n\nFor many of our guests, this is the most unforgettable moment of the day."
     },
-    "cta": {
-      "title": "Ready for an Unforgettable Experience?",
-      "subtitle": "Experience the cave house in Cappadocia's enchanting atmosphere",
-      "button": "Book Now"
+    "terrace": {
+      "title": "Terrace view",
+      "text": "From our private terraces, you can see:\n• Cappadocia's unique rock formations\n• Valleys and pigeon houses\n• Stone houses of Ortahisar town\n• Mount Erciyes in the distance on clear days\n\nThe view offers both the natural and settled texture of Cappadocia together."
+    },
+    "suiteExperience": {
+      "title": "Not a room, an independent home",
+      "text": "Staying at Anitya means experiencing not just a room,\nbut an independent home that belongs to you.\n\n• Silence\n• Privacy\n• Your own rhythm\n• Your own kitchen\n• Your own terrace\n\nYou share no space with anyone.\nYou set the pace of your day."
+    },
+    "kitchen": {
+      "title": "Fully equipped kitchen in every suite",
+      "text": "All our suite homes have fully equipped kitchens.\n\nThis is not just comfort;\nit's freedom and independence.\n\n• For long-stay guests\n• For guests with children\n• For those who want to maintain their own dietary routines\n\nAnitya is for those who prefer home comfort over hotel breakfast schedules."
+    },
+    "breakfast": {
+      "title": "Breakfast and dining options",
+      "text": "Anitya Cave House does not have a fixed breakfast service.\n\nInstead:\n• Restaurants offering excellent breakfast within a 2-minute walk\n• Many different options within a 4-5 minute walk, from traditional Turkish breakfast to world cuisine\n\nBreakfast and meals can also be ordered from restaurants in Ortahisar center to the suite homes.\n\nOur guests choose to have breakfast outside if they wish,\nor at home, at their own pace."
+    },
+    "location": {
+      "title": "Walking distance to Ortahisar center",
+      "text": "Anitya Cave House is approximately a 5-minute walk to the center of Ortahisar town.\n\nAway from the crowds of Göreme,\nyet right in the center of Cappadocia.\n\nOrtahisar is one of the most authentic settlements in Cappadocia,\nwith its history, stone architecture, and tranquility."
+    },
+    "finalCta": {
+      "title": "For those who want to live Cappadocia like home",
+      "text": "Anitya Cave House is for those who choose not crowded hotels,\nbut silence, space, and independence.",
+      "cta": "Make a Reservation"
     }
   },
+  "about": {
+    "title": "About Anitya Cave House",
+    "content": "In the heart of Cappadocia, Ortahisar Village, which has been a homeland for Hittites, Persians, Romans, Byzantines, Seljuks, Ottoman Empire since 1800 BC's, Anitya houses are the caves which had remained from this rich history.\n\nExperiencing to live in a cave which had kept all the histories and life energies in it and feeling the strength-softness-peace all together will be unforgettable. It has changed our life, we are learning a lot and we would like to share this special feeling with you.\n\nWe would be glad to welcome you in our house with an open heart and full of love…"
+  },
+  "rooms": {
+    "caveSuite": {
+      "title": "Cave Suite",
+      "subtitle": "CAVE SUITE WITH TERRACE",
+      "description": "A cavehouse of 80 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation. Fully built and decorated with handmade, antique and traditional furnitures.",
+      "specifications": {
+        "beds": "Queen bed in the bedroom, a double bed in the mini cave area for sitting/sleeping and a sofa at the saloon convertable into a double bed.",
+        "size": "90 m²",
+        "capacity": "Max 6 guests",
+        "house": "Master bedroom, large living room with TV, study corner, a minicave for sitting/sleeping, kitchen with dining table and one bathroom.",
+        "decoration": "Fully built and decorated with handmade, antique and traditional furniture. The traditional Turkish carpets lay on the ground for your comfort.",
+        "location": "Private original cave suite with huge windows and scenic terrace",
+        "bathrooms": "24 hour hot water with a bathtub",
+        "extraBed": "One sofa, convertible into a double bed in the saloon. A double bed in the mini cave area for sitting/sleeping. Crib provided. One more extra bed can be provided to the saloon.",
+        "terrace": "A private sitting area and dining table with the breathtaking scenery of Erciyes Mountain (in clear sky) and Ishak Castle with Cappadocia landscape and Ortahisar village houses."
+      },
+      "amenities": {
+        "houseAmenities": [
+          "Non-smoking",
+          "Free wireless internet access",
+          "Living room",
+          "Study table and corner",
+          "Kitchen",
+          "Flat screen 3D LED Smart TV",
+          "Sony Blueray Home Theater System",
+          "Central heating",
+          "Hair dryer",
+          "Towels and complimentary slippers",
+          "Shampoo, Hair Conditioner, Soap",
+          "Free safe deposit box",
+          "Controllable lightning",
+          "Tap water drinkable",
+          "A big terrace area"
+        ],
+        "kitchen": [
+          "Oven",
+          "Cooker",
+          "Big fridge",
+          "Kettle",
+          "Coffee Machine",
+          "Toaster",
+          "All kitchen equipment for cooking and eating",
+          "Herbal Teas, Filter Coffee, Turkish coffee, Black Tea, Oil for cooking, Dish Soap, Spices are all available for the use of our guests."
+        ],
+        "guestServices": [
+          "Traditional Turkish Breakfast service is provided",
+          "Free wireless internet access in common areas; terraces",
+          "Crib, feeding chair provided",
+          "Main laundry room for guests' use, with iron and ironing board, laundry hanger",
+          "Free sightseeing maps of Cappadocia with guidance",
+          "Helping for all needs and arranging, reserving activities in the region."
+        ]
+      },
+      "specialNote": "Anitya Cave House is a special private boutique hotel which doesn't have 7/24 reception and restaurant service. Staffs are ready to come in all other needs.",
+      "note": "Please contact for room rates"
+    },
+    "dublexStoneSuite": {
+      "title": "Dublex Stone Suite",
+      "subtitle": "DUPLEX STONE SUITE",
+      "description": "A duplex stone house of 35 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation.",
+      "specifications": {
+        "beds": "Queen bed in the bedroom, a sofa at the saloon",
+        "size": "40 m²",
+        "capacity": "Max 4 guests",
+        "house": "Bedroom and bathroom at downstairs, Living room with TV, Kitchen and Terrace at main floor.",
+        "decoration": "Fully built and decorated with handmade, antique and traditional furniture. The traditional Turkish carpets lay on the ground for your comfort.",
+        "location": "Private stone duplex suite with many windows and scenic terrace.",
+        "bathrooms": "24 hour hot water with shower.",
+        "extraBed": "One sofa, convertible into a double bed in the saloon. Crib provided. One more extra bed can be provided to the saloon.",
+        "terrace": "A private sitting area and dining table with the breathtaking scenery of Erciyes Mountain (in clear sky) and Ishak Castle with Cappadocia landscape and Ortahisar village houses."
+      },
+      "amenities": {
+        "houseAmenities": [
+          "Non-smoking",
+          "Free wireless internet access",
+          "Living room",
+          "Dining table and can be used as study table as well",
+          "Kitchen",
+          "Flat screen LED TV",
+          "Central heating",
+          "Hair dryer",
+          "Towels and complimentary slippers",
+          "Shampoo, Hair Conditioner, Soap",
+          "Free safe deposit box",
+          "Tap water drinkable",
+          "A big terrace area"
+        ],
+        "kitchen": [
+          "Cooker",
+          "Fridge",
+          "Kettle",
+          "Coffee Machine",
+          "All kitchen equipment for cooking and eating",
+          "Herbal Teas, Filter Coffee, Turkish coffee, Black Tea, Oil for cooking, Dish Soap",
+          "Spices are all ready for guests' use"
+        ],
+        "guestServices": [
+          "Traditional Turkish Breakfast service is provided",
+          "Free wireless internet access in common areas; terraces",
+          "Crib, feeding chair provided",
+          "Main laundry room for guests' use, with iron and ironing board, laundry hanger",
+          "Free sightseeing maps of Cappadocia with guidance",
+          "Helping for all needs and arranging, reserving activities in the region."
+        ]
+      },
+      "specialNote": "Anitya Cave House is a special private boutique hotel which doesn't have 7/24 reception and restaurant service. Staffs are ready to come in all other needs.",
+      "note": "Please contact for room rates"
+    }
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Such a warm and well equipped cave! Our host could not be more helpful, the lighting and technology is superb and the view from the terrasse is breathtaking. The area is so beautiful and there is lots to see and do. Thank you for an excellent stay.",
+      "author": "Guest",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "text": "Unique space! I highly recommend staying here if you want to enjoy Cappadocia in the perfect way that it should be. There are many cave houses to stay in, but the hospitality that these hosts provided was outstanding to me. If I'm ever back in the park I know where I'm staying!",
+      "author": "Guest",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "text": "We loved our winter stay in Cappadochia and Anitya Cave House was the perfect home base for us. Our family of three loved staying in quiet Ortahisar, rather than one of the more touristy towns in the region. Every morning we were served a diverse and delicious Turkish breakfast with many kinds of cheese, walnuts, bread, the best honey I've ever had, dried apricots, fresh raisins, fresh apricot jam, two kinds of olives, halvah, hot tea, and more. Never in my life have I experienced such kindness, generosity and service! The folks at Anitya Cave House are just incredible.",
+      "author": "Guest",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "title": "Contact Details",
+    "heading": "Get In Touch",
+    "form": {
+      "fullName": "Full Name",
+      "guests": "Number of Guests",
+      "checkIn": "Check In",
+      "checkOut": "Check Out",
+      "room": "Room Interested In",
+      "email": "Your Email",
+      "phone": "Phone Number",
+      "requirements": "Special Requirements",
+      "submit": "Get In Touch"
+    },
+    "info": {
+      "email": "info@anityacavehouse.com",
+      "phone": "+90(544) 494 68 14",
+      "whatsapp": "+90(544) 494 68 14",
+      "address": "Ortahisar Urgup Cappadocia",
+      "fullAddress": "1 Eski Mahalle, Ortahisar, Urgup, Nevsehir"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "categories": {
+      "rooms": "Room photos",
+      "exterior": "Exterior photos",
+      "views": "Views and scenery"
+    }
+  },
+  "reviews": {
+    "title": "What Our Guests Say",
+    "subtitle": "Read reviews from travelers around the world who experienced the magic of Anıtya Cave House",
+    "viewAllReviews": "View All Reviews on Airbnb",
+    "verifiedGuests": "verified guests"
+  },
+  "experiences": {
+    "title": "Cappadocia Experiences",
+    "subtitle": "Carefully selected activities for unforgettable memories"
+  },
   "footer": {
-    "description": "Experience history and comfort together in our authentic cave hotel located in Göreme, in the heart of Cappadocia.",
+    "description": "Experience the historical texture with comfort in our independent cave and stone suite houses located in Ortahisar, in the heart of Cappadocia.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Information",
     "followUs": "Follow Us",

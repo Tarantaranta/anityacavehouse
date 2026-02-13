@@ -1,67 +1,251 @@
 {
   "common": {
     "welcome": "Hoş Geldiniz",
-    "bookNow": "Hemen Rezervasyon Yap",
+    "bookNow": "Rezervasyon Yap",
     "learnMore": "Daha Fazla Bilgi",
     "viewDetails": "Detayları Görüntüle",
     "contact": "İletişim",
-    "about": "Hakkımızda"
+    "about": "Hakkımızda",
+    "more": "devamı.."
   },
   "nav": {
     "home": "Ana Sayfa",
     "rooms": "Odalar",
+    "experiences": "Deneyimler",
     "gallery": "Galeri",
     "blog": "Blog",
     "about": "Hakkımızda",
     "contact": "İletişim",
-    "booking": "Rezervasyon"
+    "booking": "Rezervasyon Yap"
   },
   "home": {
     "hero": {
-      "title": "Kapadokya'nın Kalbinde Mağara Ev Deneyimi",
-      "subtitle": "Anıtya Cave House'da tarihi ve lüksü bir arada yaşayın",
-      "cta": "Müsaitliği Kontrol Et"
-    },
-    "features": {
-      "title": "Neden Anıtya Cave House?",
-      "authentic": {
-        "title": "Otantik Mağara Odalar",
-        "description": "Yüzyıllık kayalara oyulmuş geleneksel mağara odalar"
+      "h1": "Aynı güneş. Aynı taş. Binlerce yıl.",
+      "h2": "Kapadokya'nın kalbinde, zamanın yavaşladığı bağımsız suite evler.",
+      "body": "Taşı oyarak yaşam kuranlar, dua edenler, düşünenler, susanlar…\nHititlerden bugüne bu ışık hiç kaybolmadı.\n\nAnitya Cave House, bu kadim taşların içinde yer alan,\nortak alanı olmayan, tamamen misafirlere ayrılmış üç özel suite evden oluşur.",
+      "trust": {
+        "superhost": "12+ Yıl Airbnb Superhost",
+        "reviews": "1046+ Doğrulanmış Misafir Yorumu"
       },
-      "location": {
-        "title": "Mükemmel Konum",
-        "description": "Göreme merkezine 5 dakika, sıcak hava balonlarına en yakın nokta"
-      },
-      "superhost": {
-        "title": "Airbnb Superhost",
-        "description": "Konuklarımızdan aldığımız mükemmel puanlarla Superhost statüsü"
-      },
-      "luxury": {
-        "title": "Modern Konfor",
-        "description": "Tarihi dokuda modern otel konforu ve lüks olanaklar"
+      "cta": {
+        "availability": "Müsaitlik Durumunu Kontrol Et",
+        "exploreSuites": "Suite Evleri Keşfet"
       }
     },
-    "rooms": {
-      "title": "Odalarımız",
-      "subtitle": "Her biri eşsiz tasarıma sahip mağara odalarımızı keşfedin"
+    "identity": {
+      "title": "Otel değil. Ortak alan yok. Sadece size ait.",
+      "text": "Anitya Cave House bir otel değildir.\nAynı yapının içinde yer alan, ortak alanı olmayan üç bağımsız suite evden oluşur.\n\n• 2 adet mağara suite\n• 1 adet taş suite\n\nHer suite:\n• Kendi girişine sahiptir\n• Kendi özel terasına sahiptir\n• Kendi donanımlı mutfağına sahiptir\n• Kendi oturma alanına ve yatak odasına sahiptir\n\nSuite evlerden biri ayrıca ayrı bir salon alanına sahiptir.\n\nBu evler yaşanan alanlar değildir.\nTamamı yalnızca misafirler için hazırlanmıştır."
     },
-    "testimonials": {
-      "title": "Misafirlerimiz Ne Diyor?",
-      "subtitle": "Anıtya Cave House'da konaklayan misafirlerimizin yorumları"
+    "balloon": {
+      "title": "Terastan balonlar görünüyor mu?",
+      "text": "Evet.\nHava koşullarına bağlı olarak, sabah erken saatlerde özel teraslarımızdan sıcak hava balonlarını izlemek mümkündür.\n\nKapadokya'da gün doğumu;\nsessizlik, taş ve gökyüzünde süzülen balonlarla yaşanır.\nBirçok misafirimiz için günün en unutulmaz anı budur."
     },
-    "cta": {
-      "title": "Unutulmaz Bir Deneyim İçin Hazır Mısınız?",
-      "subtitle": "Kapadokya'nın büyüleyici atmosferinde mağara ev deneyimini yaşayın",
-      "button": "Hemen Rezervasyon Yapın"
+    "terrace": {
+      "title": "Teras manzarası",
+      "text": "Özel teraslarımızdan;\n• Kapadokya'nın eşsiz kaya oluşumlarını\n• Vadileri ve güvercinlikleri\n• Ortahisar kasabasının taş evlerini\n• Açık havalarda, uzakta Erciyes Dağı'nı görmek mümkündür.\n\nManzara, Kapadokya'nın doğal ve yerleşik dokusunu bir arada sunar."
+    },
+    "suiteExperience": {
+      "title": "Bir oda değil, bağımsız bir ev",
+      "text": "Anitya'da konaklamak, bir odayı değil;\nsize ait bağımsız bir evi deneyimlemek demektir.\n\n• Sessizlik\n• Mahremiyet\n• Kendi ritminiz\n• Kendi mutfağınız\n• Kendi terasınız\n\nKimseyle alan paylaşmazsınız.\nGünün temposunu siz belirlersiniz."
+    },
+    "kitchen": {
+      "title": "Her suite'te donanımlı mutfak",
+      "text": "Tüm suite evlerimizde tam donanımlı mutfaklar bulunmaktadır.\n\nBu, sadece bir konfor değil;\nözgürlük ve bağımsızlıktır.\n\n• Uzun süreli konaklayanlar için\n• Çocuklu misafirler için\n• Kendi beslenme düzenini korumak isteyenler için\n\nAnitya, otel kahvaltısı temposu yerine\nev rahatlığını tercih edenler içindir."
+    },
+    "breakfast": {
+      "title": "Kahvaltı ve yemek seçenekleri",
+      "text": "Anitya Cave House'da sabit bir kahvaltı servisi bulunmaz.\n\nBunun yerine:\n• 2 dakikalık yürüme mesafesinde, çok iyi kahvaltı sunan restoranlar\n• 4–5 dakikalık yürüme mesafesinde, geleneksel Türk kahvaltısından dünya mutfağına kadar birçok farklı seçenek\n\nOrtahisar merkezindeki restoranlardan,\nsuite evlere kahvaltı ve yemek siparişi de verilebilmektedir.\n\nMisafirlerimiz, dilerlerse kahvaltılarını dışarıda,\ndilerlerse evlerinde, kendi ritimlerinde yapmayı tercih eder."
+    },
+    "location": {
+      "title": "Ortahisar merkezine yürüme mesafesinde",
+      "text": "Anitya Cave House,\nOrtahisar kasabasının merkezine yaklaşık 5 dakikalık yürüme mesafesindedir.\n\nGöreme'nin kalabalığından uzakta,\nancak Kapadokya'nın tam merkezinde yer alır.\n\nOrtahisar;\ntarihi, taş mimarisi ve sakinliğiyle Kapadokya'nın en özgün yerleşimlerinden biridir."
+    },
+    "finalCta": {
+      "title": "Kapadokya'yı bir ev gibi yaşamak isteyenler için",
+      "text": "Anitya Cave House,\nkalabalık otelleri değil,\nsessizliği, alanı ve bağımsızlığı seçenler içindir.",
+      "cta": "Rezervasyon Yap"
     }
   },
+  "about": {
+    "title": "Anitya Cave House Hakkında",
+    "content": "Kapadokya'nın kalbinde, M.Ö. 1800'lerden beri Hititler, Persler, Romalılar, Bizanslılar, Selçuklular ve Osmanlı İmparatorluğu'na ev sahipliği yapmış Ortahisar Köyü'nde, Anitya evleri bu zengin tarihten kalan mağaralardır.\n\nİçinde tüm tarihleri ve yaşam enerjilerini barındıran bir mağarada yaşamayı deneyimlemek ve güç-yumuşaklık-huzuru hep birlikte hissetmek unutulmaz olacak. Hayatımızı değiştirdi, çok şey öğreniyoruz ve bu özel duyguyu sizinle paylaşmak istiyoruz.\n\nSizi evimizde açık bir kalp ve dolu dolu sevgiyle karşılamaktan mutluluk duyarız…"
+  },
+  "rooms": {
+    "caveSuite": {
+      "title": "Mağara Süit",
+      "subtitle": "TERASLI MAĞARA SÜİT",
+      "description": "Manzaralı teraslı, tam donanımlı 80 metrekarelik bir mağara ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır. Tamamen el yapımı, antika ve geleneksel mobilyalarla inşa edilmiş ve dekore edilmiştir.",
+      "specifications": {
+        "beds": "Yatak odasında queen yatak, oturma/uyuma için mini mağara alanında çift kişilik yatak ve salonda çift kişilik yatağa dönüştürülebilen bir kanepe.",
+        "size": "90 m²",
+        "capacity": "Maksimum 6 misafir",
+        "house": "Ana yatak odası, TV'li geniş oturma odası, çalışma köşesi, oturma/uyuma için bir mini mağara, yemek masası olan mutfak ve bir banyo.",
+        "decoration": "Tamamen el yapımı, antika ve geleneksel mobilyalarla inşa edilmiş ve dekore edilmiştir. Geleneksel Türk halıları konforunuz için yerde serilmiştir.",
+        "location": "Büyük pencereli ve manzaralı teraslı özel orijinal mağara süit",
+        "bathrooms": "Küvetli 24 saat sıcak su",
+        "extraBed": "Salonda çift kişilik yatağa dönüştürülebilen bir kanepe. Oturma/uyuma için mini mağara alanında çift kişilik yatak. Bebek karyolası sağlanır. Salona bir ekstra yatak daha eklenebilir.",
+        "terrace": "Erciyes Dağı'nın (açık havada), Ishak Kalesi'nin, Cappadocia manzarasının ve Ortahisar köyü evlerinin nefes kesici manzarasına sahip özel oturma alanı ve yemek masası."
+      },
+      "amenities": {
+        "houseAmenities": [
+          "Sigara içilmez",
+          "Ücretsiz kablosuz internet erişimi",
+          "Oturma odası",
+          "Çalışma masası ve köşesi",
+          "Mutfak",
+          "Düz ekran 3D LED Smart TV",
+          "Sony Blueray Ev Sinema Sistemi",
+          "Merkezi ısıtma",
+          "Saç kurutma makinesi",
+          "Havlu ve ücretsiz terlikler",
+          "Şampuan, Saç Kremi, Sabun",
+          "Ücretsiz güvenlik kasası",
+          "Ayarlanabilir aydınlatma",
+          "Musluk suyu içilebilir",
+          "Geniş teras alanı"
+        ],
+        "kitchen": [
+          "Fırın",
+          "Ocak",
+          "Büyük buzdolabı",
+          "Su ısıtıcısı",
+          "Kahve Makinesi",
+          "Ekmek Kızartma Makinesi",
+          "Yemek pişirmek ve yemek için tüm mutfak ekipmanları",
+          "Bitkisel Çaylar, Filtre Kahve, Türk kahvesi, Siyah Çay, Yemeklik Yağ, Bulaşık Deterjanı, Baharatlar misafirlerimizin kullanımı için mevcuttur."
+        ],
+        "guestServices": [
+          "Geleneksel Türk Kahvaltısı servisi sunulmaktadır",
+          "Ortak alanlarda ücretsiz kablosuz internet erişimi; teraslar",
+          "Bebek karyolası, mama sandalyesi sağlanır",
+          "Ütü ve ütü masası, çamaşır askısı ile misafirlerin kullanımı için ana çamaşırhane",
+          "Rehberlikli ücretsiz Kapadokya gezilecek yerler haritaları",
+          "Bölgedeki tüm ihtiyaçlar için yardım, aktivitelerin düzenlenmesi ve rezervasyonu."
+        ]
+      },
+      "specialNote": "Anitya Cave House, 7/24 resepsiyon ve restoran hizmeti olmayan özel bir butik oteldir. Personel diğer tüm ihtiyaçlar için hazırdır.",
+      "note": "Oda fiyatları için lütfen iletişime geçiniz"
+    },
+    "dublexStoneSuite": {
+      "title": "Dubleks Taş Süit",
+      "subtitle": "DUBLEKS TAŞ SÜİT",
+      "description": "Manzaralı teraslı, tam donanımlı 35 metrekarelik dubleks taş ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır.",
+      "specifications": {
+        "beds": "Yatak odasında queen yatak, salonda bir kanepe",
+        "size": "40 m²",
+        "capacity": "Maksimum 4 misafir",
+        "house": "Alt katta yatak odası ve banyo, Ana katta TV'li oturma odası, Mutfak ve Teras.",
+        "decoration": "Tamamen el yapımı, antika ve geleneksel mobilyalarla inşa edilmiş ve dekore edilmiştir. Geleneksel Türk halıları konforunuz için yerde serilmiştir.",
+        "location": "Birçok pencereli ve manzaralı teraslı özel taş dubleks süit.",
+        "bathrooms": "Duşlu 24 saat sıcak su.",
+        "extraBed": "Salonda çift kişilik yatağa dönüştürülebilen bir kanepe. Bebek karyolası sağlanır. Salona bir ekstra yatak daha eklenebilir.",
+        "terrace": "Erciyes Dağı'nın (açık havada), Ishak Kalesi'nin, Cappadocia manzarasının ve Ortahisar köyü evlerinin nefes kesici manzarasına sahip özel oturma alanı ve yemek masası."
+      },
+      "amenities": {
+        "houseAmenities": [
+          "Sigara içilmez",
+          "Ücretsiz kablosuz internet erişimi",
+          "Oturma odası",
+          "Yemek masası ve çalışma masası olarak da kullanılabilir",
+          "Mutfak",
+          "Düz ekran LED TV",
+          "Merkezi ısıtma",
+          "Saç kurutma makinesi",
+          "Havlu ve ücretsiz terlikler",
+          "Şampuan, Saç Kremi, Sabun",
+          "Ücretsiz güvenlik kasası",
+          "Musluk suyu içilebilir",
+          "Geniş teras alanı"
+        ],
+        "kitchen": [
+          "Ocak",
+          "Buzdolabı",
+          "Su ısıtıcısı",
+          "Kahve Makinesi",
+          "Yemek pişirmek ve yemek için tüm mutfak ekipmanları",
+          "Bitkisel Çaylar, Filtre Kahve, Türk kahvesi, Siyah Çay, Yemeklik Yağ, Bulaşık Deterjanı",
+          "Baharatlar misafirlerin kullanımı için hazırdır"
+        ],
+        "guestServices": [
+          "Geleneksel Türk Kahvaltısı servisi sunulmaktadır",
+          "Ortak alanlarda ücretsiz kablosuz internet erişimi; teraslar",
+          "Bebek karyolası, mama sandalyesi sağlanır",
+          "Ütü ve ütü masası, çamaşır askısı ile misafirlerin kullanımı için ana çamaşırhane",
+          "Rehberlikli ücretsiz Kapadokya gezilecek yerler haritaları",
+          "Bölgedeki tüm ihtiyaçlar için yardım, aktivitelerin düzenlenmesi ve rezervasyonu."
+        ]
+      },
+      "specialNote": "Anitya Cave House, 7/24 resepsiyon ve restoran hizmeti olmayan özel bir butik oteldir. Personel diğer tüm ihtiyaçlar için hazırdır.",
+      "note": "Oda fiyatları için lütfen iletişime geçiniz"
+    }
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Çok sıcak ve tam donanımlı bir mağara! Ev sahibimiz daha yardımsever olamazdı, aydınlatma ve teknoloji mükemmel ve terastaki manzara nefes kesici. Bölge çok güzel ve görülecek ve yapılacak çok şey var. Mükemmel konaklamak için teşekkür ederiz.",
+      "author": "Misafir",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "text": "Eşsiz bir mekan! Kapadokya'yı olması gerektiği mükemmel şekilde yaşamak istiyorsanız burada kalmanızı şiddetle tavsiye ederim. Kalınacak birçok mağara evi var, ancak bu ev sahiplerinin sağladığı misafirperverlik benim için olağanüstüydü. Eğer bir daha buraya gelirsem nerede kalacağımı biliyorum!",
+      "author": "Misafir",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "text": "Kapadokya'daki kış konaklamanın tadını çıkardık ve Anitya Cave House bizim için mükemmel bir üs oldu. Üç kişilik ailemiz, bölgedeki daha turistik kasabalardan ziyade sakin Ortahisar'da kalmayı çok sevdi. Her sabah bize birçok peynir çeşidi, ceviz, ekmek, hayatımda tattığım en iyi bal, kuru kayısı, taze üzüm, taze kayısı reçeli, iki tür zeytin, helva, sıcak çay ve daha fazlasıyla çeşitli ve lezzetli bir Türk kahvaltısı servis edildi. Hayatımda bu kadar nezaket, cömertlik ve hizmet hiç deneyimlemedim! Anitya Cave House'daki insanlar inanılmaz.",
+      "author": "Misafir",
+      "rating": 5
+    }
+  ],
+  "contact": {
+    "title": "İletişim Bilgileri",
+    "heading": "Bize Ulaşın",
+    "form": {
+      "fullName": "Ad Soyad",
+      "guests": "Misafir Sayısı",
+      "checkIn": "Giriş Tarihi",
+      "checkOut": "Çıkış Tarihi",
+      "room": "İlgilendiğiniz Oda",
+      "email": "E-posta Adresiniz",
+      "phone": "Telefon Numarası",
+      "requirements": "Özel İstekler",
+      "submit": "İletişime Geç"
+    },
+    "info": {
+      "email": "info@anityacavehouse.com",
+      "phone": "+90(544) 494 68 14",
+      "whatsapp": "+90(544) 494 68 14",
+      "address": "Ortahisar Ürgüp Kapadokya",
+      "fullAddress": "1 Eski Mahalle, Ortahisar, Ürgüp, Nevşehir"
+    }
+  },
+  "gallery": {
+    "title": "Galeri",
+    "categories": {
+      "rooms": "Oda fotoğrafları",
+      "exterior": "Dış mekan fotoğrafları",
+      "views": "Manzara ve görüntüler"
+    }
+  },
+  "reviews": {
+    "title": "Misafirlerimiz Ne Diyor",
+    "subtitle": "Anıtya Cave House'un büyüsünü deneyimleyen dünyanın dört bir yanından gezginlerin yorumlarını okuyun",
+    "viewAllReviews": "Airbnb'de Tüm Yorumları Görüntüle",
+    "verifiedGuests": "doğrulanmış misafir"
+  },
+  "experiences": {
+    "title": "Kapadokya Deneyimleri",
+    "subtitle": "Unutulmaz anılar için özenle seçilmiş aktiviteler"
+  },
   "footer": {
-    "description": "Kapadokya'nın kalbinde, Göreme'de yer alan otantik mağara otelimizde tarihi ve konforu bir arada yaşayın.",
+    "description": "Kapadokya'nın kalbinde, Ortahisar'da yer alan bağımsız mağara ve taş suite evlerimizde, tarihi dokuyu konforla birlikte yaşayın.",
     "quickLinks": "Hızlı Bağlantılar",
     "contactInfo": "İletişim Bilgileri",
     "followUs": "Bizi Takip Edin",
     "newsletter": "Bülten",
-    "newsletterText": "Özel fırsatlar ve haberlerden haberdar olun",
+    "newsletterText": "Özel teklifler ve haberlerden haberdar olun",
     "subscribe": "Abone Ol",
     "rights": "Tüm hakları saklıdır"
   }

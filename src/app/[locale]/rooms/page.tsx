@@ -73,33 +73,31 @@ export default async function RoomsPage({ params }: PageProps) {
                   </div>
                   <div className="flex items-center gap-1">
                     <Maximize className="h-4 w-4" />
-                    <span>{room.size}m²</span>
+                    <span>{room.size}</span>
                   </div>
                 </div>
 
-                {/* Price */}
+                {/* Price - Contact for rates */}
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-amber-900">
-                    ${room.pricePerNight}
+                  <span className="text-lg font-semibold text-amber-900">
+                    Contact for rates
                   </span>
-                  <span className="text-stone-600">/ gece</span>
                 </div>
 
                 {/* Amenities Preview */}
                 <div className="flex flex-wrap gap-2">
-                  {room.amenities.slice(0, 4).map((amenity) => (
-                    <Badge key={amenity} variant="secondary" className="text-xs">
-                      {amenity === 'wifi' && '📶 WiFi'}
-                      {amenity === 'breakfast' && '🍳 Kahvaltı'}
-                      {amenity === 'king-bed' && '🛏️ King Yatak'}
-                      {amenity === 'double-bed' && '🛏️ Çift Kişilik'}
-                      {amenity === 'jacuzzi' && '🛁 Jakuzi'}
-                      {amenity === 'balcony' && '🏞️ Balkon'}
+                  {room.amenities.houseAmenities.slice(0, 4).map((amenity, index) => (
+                    <Badge key={index} variant="secondary" className="text-xs">
+                      {amenity.includes('WiFi') && '📶'}
+                      {amenity.includes('TV') && '📺'}
+                      {amenity.includes('Kitchen') && '🍳'}
+                      {amenity.includes('heating') && '🔥'}
+                      {amenity.slice(0, 20)}...
                     </Badge>
                   ))}
-                  {room.amenities.length > 4 && (
+                  {room.amenities.houseAmenities.length > 4 && (
                     <Badge variant="outline" className="text-xs">
-                      +{room.amenities.length - 4} daha
+                      +{room.amenities.houseAmenities.length - 4} more
                     </Badge>
                   )}
                 </div>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Editor - localStorage Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 200px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        button.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        button.danger {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        textarea {
+            width: 100%;
+            min-height: 400px;
+            background: #1a1a2e;
+            color: #00ff00;
+            border: 2px solid #667eea;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            border-radius: 8px;
+            resize: vertical;
+        }
+        .status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .success {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+        .info {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+        }
+        .warning {
+            background: #cce5ff;
+            border: 2px solid #004085;
+            color: #004085;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            background: white;
+            color: #667eea;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        ol, ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        .code-block {
+            background: #1a1a2e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        .badge-tr { background: #ff6b6b; color: white; }
+        .badge-en { background: #4ecdc4; color: white; }
+        .badge-zh { background: #ffe66d; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Visual Editor Manager</h1>
+        <p class="subtitle">localStorage Export & CSS Generator Tool</p>
+
+        <!-- Quick Actions Card -->
+        <div class="card">
+            <h2>🚀 Quick Actions</h2>
+            <div class="button-group">
+                <button onclick="extractData()">
+                    📦 Extract Data
+                </button>
+                <button onclick="copyJSON()" class="success">
+                    📋 Copy JSON
+                </button>
+                <button onclick="generateCSS()" class="secondary">
+                    🎨 Generate CSS
+                </button>
+                <button onclick="copyCSSCode()" class="secondary">
+                    📋 Copy CSS
+                </button>
+            </div>
+            <div id="status"></div>
+        </div>
+
+        <!-- Statistics Card -->
+        <div class="card" id="statsCard" style="display: none;">
+            <h2>📊 Statistics</h2>
+            <div class="stats" id="stats"></div>
+        </div>
+
+        <!-- Tabs for JSON and CSS -->
+        <div class="card">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('json')">JSON Data</button>
+                <button class="tab" onclick="switchTab('css')">Generated CSS</button>
+                <button class="tab" onclick="switchTab('help')">Help & Instructions</button>
+            </div>
+
+            <!-- JSON Tab -->
+            <div id="jsonTab" class="tab-content active">
+                <h3 style="margin-bottom: 10px; color: #667eea;">📝 Exported JSON Data</h3>
+                <textarea id="jsonOutput" readonly placeholder="Click 'Extract Data' button to load localStorage data..."></textarea>
+            </div>
+
+            <!-- CSS Tab -->
+            <div id="cssTab" class="tab-content">
+                <h3 style="margin-bottom: 10px; color: #667eea;">🎨 Generated CSS (for globals.css)</h3>
+                <textarea id="cssOutput" readonly placeholder="Click 'Generate CSS' button to create cross-browser fallback CSS..."></textarea>
+            </div>
+
+            <!-- Help Tab -->
+            <div id="helpTab" class="tab-content">
+                <h3 style="margin-bottom: 15px; color: #667eea;">📖 How to Use</h3>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #764ba2; margin-bottom: 10px;">🎯 Workflow:</h4>
+                    <ol>
+                        <li><strong>Edit your design</strong> using Visual Editor on the main site</li>
+                        <li><strong>Open this page</strong>: <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">localhost:3000/get-localstorage.html</code></li>
+                        <li><strong>Click "Extract Data"</strong> to load all localStorage data</li>
+                        <li><strong>Click "Generate CSS"</strong> to create fallback CSS code</li>
+                        <li><strong>Copy the CSS</strong> and paste it into <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">src/app/globals.css</code></li>
+                        <li><strong>Test in all browsers</strong> - design will be consistent!</li>
+                    </ol>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #764ba2; margin-bottom: 10px;">🔧 Features:</h4>
+                    <ul>
+                        <li><strong>Multi-language Support:</strong> Automatically detects TR, EN, ZH localStorage</li>
+                        <li><strong>CSS Generation:</strong> Creates language-specific fallback CSS with <code>!important</code></li>
+                        <li><strong>Cross-browser:</strong> Ensures same design in Chrome, Safari, Firefox, Edge</li>
+                        <li><strong>Statistics:</strong> Shows element count per language</li>
+                        <li><strong>One-click Copy:</strong> Easy clipboard integration</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #764ba2; margin-bottom: 10px;">💡 Tips:</h4>
+                    <ul>
+                        <li>Keep this page bookmarked for quick access</li>
+                        <li>Use after every major design change</li>
+                        <li>The generated CSS goes in the <code>@layer utilities</code> section of globals.css</li>
+                        <li>Visual Editor will still override these styles when active</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let extractedData = {};
+        let extractedJSON = '';
+        let generatedCSS = '';
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function extractData() {
+            const statusDiv = document.getElementById('status');
+            const jsonOutput = document.getElementById('jsonOutput');
+            const statsCard = document.getElementById('statsCard');
+            const statsDiv = document.getElementById('stats');
+
+            try {
+                const allLocales = ['tr', 'en', 'zh'];
+                const result = {};
+                let foundCount = 0;
+
+                allLocales.forEach(locale => {
+                    const key = `anitya-visual-editor-v2-${locale}`;
+                    const data = localStorage.getItem(key);
+                    if (data) {
+                        result[locale] = JSON.parse(data);
+                        foundCount++;
+                    }
+                });
+
+                if (foundCount === 0) {
+                    statusDiv.innerHTML = '<div class="error">❌ No localStorage data found! Make sure you have used Visual Editor first.</div>';
+                    jsonOutput.value = '';
+                    statsCard.style.display = 'none';
+                    return;
+                }
+
+                extractedData = result;
+                extractedJSON = JSON.stringify(result, null, 2);
+                jsonOutput.value = extractedJSON;
+
+                statusDiv.innerHTML = `<div class="success">✅ Success! Found data for ${foundCount} language(s).</div>`;
+
+                // Generate statistics
+                let statsHTML = '';
+                let totalElements = 0;
+
+                allLocales.forEach(locale => {
+                    const count = result[locale] ? Object.keys(result[locale]).length : 0;
+                    totalElements += count;
+                    if (count > 0) {
+                        const badgeClass = `badge-${locale}`;
+                        statsHTML += `
+                            <div class="stat-card">
+                                <div class="stat-number">${count}</div>
+                                <div class="stat-label"><span class="badge ${badgeClass}">${locale.toUpperCase()}</span>Elements</div>
+                            </div>
+                        `;
+                    }
+                });
+
+                statsHTML += `
+                    <div class="stat-card">
+                        <div class="stat-number">${totalElements}</div>
+                        <div class="stat-label">Total Elements</div>
+                    </div>
+                `;
+
+                statsDiv.innerHTML = statsHTML;
+                statsCard.style.display = 'block';
+
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                console.error(error);
+            }
+        }
+
+        function copyJSON() {
+            const statusDiv = document.getElementById('status');
+            const jsonOutput = document.getElementById('jsonOutput');
+
+            if (!extractedJSON) {
+                statusDiv.innerHTML = '<div class="error">❌ No data to copy! Click "Extract Data" first.</div>';
+                return;
+            }
+
+            try {
+                jsonOutput.select();
+                document.execCommand('copy');
+
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(extractedJSON);
+                }
+
+                statusDiv.innerHTML = '<div class="success">✅ JSON copied to clipboard!</div>';
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ Copy failed: ${error.message}</div>`;
+            }
+        }
+
+        function generateCSS() {
+            const statusDiv = document.getElementById('status');
+            const cssOutput = document.getElementById('cssOutput');
+
+            if (!extractedJSON) {
+                statusDiv.innerHTML = '<div class="warning">⚠️ Please extract data first!</div>';
+                extractData();
+                return;
+            }
+
+            try {
+                let css = `/* =================================================================
+   CROSS-BROWSER FALLBACK STYLES - AUTO-GENERATED
+   Generated: ${new Date().toLocaleString()}
+   ================================================================= */\n\n`;
+
+                const locales = { tr: 'TURKISH', en: 'ENGLISH', zh: 'CHINESE' };
+
+                Object.entries(extractedData).forEach(([locale, elements]) => {
+                    css += `  /* ${locales[locale]} (${locale.toUpperCase()}) */\n`;
+
+                    Object.entries(elements).forEach(([id, data]) => {
+                        const s = data.style;
+                        const langSelector = locale === 'tr'
+                            ? `:lang(${locale}) .editable-${id},\n  html:not([lang]) .editable-${id}`
+                            : `:lang(${locale}) .editable-${id}`;
+
+                        css += `  ${langSelector} {\n`;
+
+                        // Transform
+                        if (s.x || s.y || s.scale !== 1 || s.rotation) {
+                            css += `    transform: translate(${s.x || 0}px, ${s.y || 0}px) scale(${s.scale || 1}) rotate(${s.rotation || 0}deg) !important;\n`;
+                        }
+
+                        // Visual properties
+                        if (s.opacity !== undefined && s.opacity !== 1) css += `    opacity: ${s.opacity} !important;\n`;
+                        if (s.zIndex !== undefined && s.zIndex !== 1) css += `    z-index: ${s.zIndex} !important;\n`;
+
+                        // Typography
+                        if (s.fontSize) css += `    font-size: ${s.fontSize} !important;\n`;
+                        if (s.fontWeight) css += `    font-weight: ${s.fontWeight} !important;\n`;
+                        if (s.fontFamily) css += `    font-family: ${s.fontFamily} !important;\n`;
+                        if (s.color) css += `    color: ${s.color} !important;\n`;
+                        if (s.textAlign) css += `    text-align: ${s.textAlign} !important;\n`;
+                        if (s.lineHeight) css += `    line-height: ${s.lineHeight} !important;\n`;
+                        if (s.letterSpacing) css += `    letter-spacing: ${s.letterSpacing} !important;\n`;
+
+                        // Effects
+                        if (s.textShadow) css += `    text-shadow: ${s.textShadow} !important;\n`;
+                        if (s.boxShadow) css += `    box-shadow: ${s.boxShadow} !important;\n`;
+                        if (s.backdropBlur) css += `    backdrop-filter: blur(${s.backdropBlur}) !important;\n    -webkit-backdrop-filter: blur(${s.backdropBlur}) !important;\n`;
+
+                        // Layout
+                        if (s.backgroundColor) css += `    background-color: ${s.backgroundColor} !important;\n`;
+                        if (s.borderRadius) css += `    border-radius: ${s.borderRadius} !important;\n`;
+
+                        css += `  }\n`;
+
+                        // Child elements (for typography)
+                        const childProps = [];
+                        if (s.fontSize) childProps.push(`font-size: ${s.fontSize} !important`);
+                        if (s.fontWeight) childProps.push(`font-weight: ${s.fontWeight} !important`);
+                        if (s.fontFamily) childProps.push(`font-family: ${s.fontFamily} !important`);
+                        if (s.color) childProps.push(`color: ${s.color} !important`);
+                        if (s.textAlign) childProps.push(`text-align: ${s.textAlign} !important`);
+                        if (s.lineHeight) childProps.push(`line-height: ${s.lineHeight} !important`);
+                        if (s.letterSpacing) childProps.push(`letter-spacing: ${s.letterSpacing} !important`);
+                        if (s.textShadow) childProps.push(`text-shadow: ${s.textShadow} !important`);
+
+                        if (childProps.length > 0) {
+                            css += `  ${langSelector} * {\n`;
+                            childProps.forEach(prop => {
+                                css += `    ${prop};\n`;
+                            });
+                            css += `  }\n`;
+                        }
+
+                        css += `\n`;
+                    });
+
+                    css += `\n`;
+                });
+
+                generatedCSS = css;
+                cssOutput.value = css;
+
+                statusDiv.innerHTML = '<div class="success">✅ CSS generated! Switch to "Generated CSS" tab or click "Copy CSS".</div>';
+
+                // Auto-switch to CSS tab
+                switchTab('css');
+                document.querySelectorAll('.tab')[1].classList.add('active');
+
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ CSS generation failed: ${error.message}</div>`;
+                console.error(error);
+            }
+        }
+
+        function copyCSSCode() {
+            const statusDiv = document.getElementById('status');
+            const cssOutput = document.getElementById('cssOutput');
+
+            if (!generatedCSS) {
+                statusDiv.innerHTML = '<div class="warning">⚠️ Please generate CSS first!</div>';
+                generateCSS();
+                return;
+            }
+
+            try {
+                cssOutput.select();
+                document.execCommand('copy');
+
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(generatedCSS);
+                }
+
+                statusDiv.innerHTML = '<div class="success">✅ CSS copied to clipboard! Paste it into src/app/globals.css</div>';
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ Copy failed: ${error.message}</div>`;
+            }
+        }
+
+        // Auto-extract on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('status').innerHTML = '<div class="info">👋 Welcome! Click "Extract Data" to start.</div>';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

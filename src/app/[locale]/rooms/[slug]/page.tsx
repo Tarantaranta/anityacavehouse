@@ -11,11 +11,6 @@ import { rooms, getRoomBySlug } from '@/data/rooms';
 import {
   Users,
   Maximize,
-  Wifi,
-  Coffee,
-  Bath,
-  Wind,
-  Shield,
   ChevronLeft,
   CheckCircle2
 } from 'lucide-react';
@@ -29,21 +24,6 @@ export async function generateStaticParams() {
     slug: room.slug,
   }));
 }
-
-const amenityIcons: Record<string, any> = {
-  wifi: { icon: Wifi, label: { tr: 'WiFi', en: 'WiFi', zh: 'WiFi' } },
-  breakfast: { icon: Coffee, label: { tr: 'Kahvaltı Dahil', en: 'Breakfast Included', zh: '含早餐' } },
-  jacuzzi: { icon: Bath, label: { tr: 'Jakuzi', en: 'Jacuzzi', zh: '按摩浴缸' } },
-  heating: { icon: Wind, label: { tr: 'Merkezi Isıtma', en: 'Central Heating', zh: '中央供暖' } },
-  safe: { icon: Shield, label: { tr: 'Kasa', en: 'Safe', zh: '保险箱' } },
-  'king-bed': { icon: CheckCircle2, label: { tr: 'King Size Yatak', en: 'King Size Bed', zh: '特大床' } },
-  'double-bed': { icon: CheckCircle2, label: { tr: 'Çift Kişilik Yatak', en: 'Double Bed', zh: '双人床' } },
-  minibar: { icon: CheckCircle2, label: { tr: 'Minibar', en: 'Minibar', zh: '迷你吧' } },
-  balcony: { icon: CheckCircle2, label: { tr: 'Balkon', en: 'Balcony', zh: '阳台' } },
-  'two-bedrooms': { icon: CheckCircle2, label: { tr: 'İki Yatak Odası', en: 'Two Bedrooms', zh: '两间卧室' } },
-  'sofa-bed': { icon: CheckCircle2, label: { tr: 'Kanepe Yatak', en: 'Sofa Bed', zh: '沙发床' } },
-  kitchen: { icon: CheckCircle2, label: { tr: 'Mutfak', en: 'Kitchen', zh: '厨房' } },
-};
 
 export default async function RoomDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
@@ -144,26 +124,47 @@ export default async function RoomDetailPage({ params }: PageProps) {
               <h2 className="text-2xl font-playfair font-bold text-amber-900 mb-6">
                 Oda Olanakları
               </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {room.amenities.map((amenity) => {
-                  const amenityData = amenityIcons[amenity] || {
-                    icon: CheckCircle2,
-                    label: { tr: amenity, en: amenity, zh: amenity },
-                  };
-                  const Icon = amenityData.icon;
 
-                  return (
-                    <div
-                      key={amenity}
-                      className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
-                    >
-                      <Icon className="h-5 w-5 text-amber-700 flex-shrink-0" />
-                      <span className="text-stone-700">
-                        {amenityData.label[locale as keyof typeof amenityData.label]}
-                      </span>
-                    </div>
-                  );
-                })}
+              {/* House Amenities */}
+              <h3 className="text-lg font-semibold text-amber-800 mb-3">Ev Olanakları</h3>
+              <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                {room.amenities.houseAmenities.map((amenity: string) => (
+                  <div
+                    key={amenity}
+                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{amenity}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Kitchen */}
+              <h3 className="text-lg font-semibold text-amber-800 mb-3">Mutfak</h3>
+              <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                {room.amenities.kitchen.map((amenity: string) => (
+                  <div
+                    key={amenity}
+                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{amenity}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Guest Services */}
+              <h3 className="text-lg font-semibold text-amber-800 mb-3">Misafir Hizmetleri</h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {room.amenities.guestServices.map((amenity: string) => (
+                  <div
+                    key={amenity}
+                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{amenity}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -215,7 +216,7 @@ export default async function RoomDetailPage({ params }: PageProps) {
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>Airbnb Superhost güvencesi</span>
+                    <span>12+ Years Airbnb Superhost güvencesi</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />

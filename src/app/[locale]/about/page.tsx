@@ -33,7 +33,7 @@ export default function AboutPage() {
   ];
 
   const achievements = [
-    { icon: Star, text: 'Airbnb Superhost', year: '2020-2026' },
+    { icon: Star, text: '12+ Years Airbnb Superhost', year: '2020-2026' },
     { icon: Award, text: '4.9/5.0 Misafir Puanı', year: '500+ Yorum' },
     { icon: Users, text: '2000+ Mutlu Misafir', year: 'Son 3 yıl' },
   ];
