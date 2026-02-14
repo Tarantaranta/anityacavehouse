@@ -30,7 +30,7 @@ export default function BookingPage() {
 
   const selectedRoomData = rooms.find(r => r.slug === selectedRoom);
   const nights = checkIn && checkOut ? differenceInDays(checkOut, checkIn) : 0;
-  const totalPrice = selectedRoomData && nights > 0 ? selectedRoomData.pricePerNight * nights : 0;
+  const totalPrice = selectedRoomData && nights > 0 ? (selectedRoomData.pricePerNight ?? 0) * nights : 0;
 
   return (
     <div className="min-h-screen flex flex-col">

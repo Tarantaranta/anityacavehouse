@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rooms } from '@/data/rooms';
-import { fetchAirbnbCalendar, isDateRangeAvailable } from '@/lib/calendar';
+import { fetchAirbnbCalendar, isDateRangeAvailable, type BlockedDate } from '@/lib/calendar';
 
 /**
  * Oda müsaitlik durumunu kontrol eder
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
     const checkOut = new Date(checkOutStr);
 
     // Airbnb takvimini çek (eğer varsa)
-    let blockedDates = [];
+    let blockedDates: BlockedDate[] = [];
     if (room.airbnbIcalUrl) {
       try {
         blockedDates = await fetchAirbnbCalendar(room.airbnbIcalUrl);

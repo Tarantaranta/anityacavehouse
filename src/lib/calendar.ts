@@ -23,11 +23,12 @@ export async function fetchAirbnbCalendar(icalUrl: string): Promise<BlockedDate[
     const blockedDates: BlockedDate[] = [];
 
     for (const event of Object.values(events)) {
-      if (event.type === 'VEVENT') {
+      if (event && event.type === 'VEVENT') {
         // iCal olaylarından rezervasyon bilgilerini çıkar
         const start = event.start;
         const end = event.end;
-        const summary = event.summary || 'Airbnb Reservation';
+        const summaryRaw = event.summary;
+        const summary = typeof summaryRaw === 'string' ? summaryRaw : (summaryRaw?.val || 'Airbnb Reservation');
 
         if (start && end) {
           blockedDates.push({

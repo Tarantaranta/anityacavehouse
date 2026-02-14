@@ -26,7 +26,7 @@ export function Header() {
   ];
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 w-full border-b border-white/10" id="main-header">
+    <header className="absolute top-0 left-0 right-0 z-[100] w-full border-b border-white/10" id="main-header">
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo - Left (flex-1 for equal spacing) */}

@@ -21,14 +21,15 @@
   "home": {
     "hero": {
       "h1": "Aynı güneş. Aynı taş. Binlerce yıl.",
-      "h2": "Kapadokya'nın kalbinde, zamanın yavaşladığı bağımsız suite evler.",
-      "body": "Taşı oyarak yaşam kuranlar, dua edenler, düşünenler, susanlar…\nHititlerden bugüne bu ışık hiç kaybolmadı.\n\nAnitya Cave House, bu kadim taşların içinde yer alan,\nortak alanı olmayan, tamamen misafirlere ayrılmış üç özel suite evden oluşur.",
+      "h2": "",
+      "body1": "Kapadokya'nın kalbinde,",
+      "body2": "zamanın yavaşladığı bağımsız suite evler.",
       "trust": {
-        "superhost": "12+ Yıl Airbnb Superhost",
+        "superhost": "12+ Yıl Airbnb Süper Ev Sahibi",
         "reviews": "1046+ Doğrulanmış Misafir Yorumu"
       },
       "cta": {
-        "availability": "Müsaitlik Durumunu Kontrol Et",
+        "availability": "Müsaitlik Kontrolü",
         "exploreSuites": "Suite Evleri Keşfet"
       }
     },

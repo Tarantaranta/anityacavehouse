@@ -17,7 +17,6 @@ import {
   Outfit
 } from "next/font/google";
 import "../globals.css";
-import { VisualEditor } from '@/components/dev/VisualEditor';
 
 export const metadata: Metadata = {
   title: 'Anıtya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler',
@@ -149,9 +148,7 @@ export default async function LocaleLayout({
         `}
       >
         <NextIntlClientProvider messages={messages}>
-          <VisualEditor>
-            {children}
-          </VisualEditor>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
