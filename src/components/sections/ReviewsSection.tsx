@@ -50,7 +50,7 @@ export default function ReviewsSection() {
   const t = useTranslations('reviews');
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <section id="reviews" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Header with Badges */}
         <div className="text-center mb-16">

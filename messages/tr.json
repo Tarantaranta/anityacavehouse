@@ -33,17 +33,74 @@
         "exploreSuites": "Suite Evleri Keşfet"
       }
     },
-    "identity": {
-      "title": "Otel değil. Ortak alan yok. Sadece size ait.",
-      "text": "Anitya Cave House bir otel değildir.\nAynı yapının içinde yer alan, ortak alanı olmayan üç bağımsız suite evden oluşur.\n\n• 2 adet mağara suite\n• 1 adet taş suite\n\nHer suite:\n• Kendi girişine sahiptir\n• Kendi özel terasına sahiptir\n• Kendi donanımlı mutfağına sahiptir\n• Kendi oturma alanına ve yatak odasına sahiptir\n\nSuite evlerden biri ayrıca ayrı bir salon alanına sahiptir.\n\nBu evler yaşanan alanlar değildir.\nTamamı yalnızca misafirler için hazırlanmıştır."
-    },
-    "balloon": {
-      "title": "Terastan balonlar görünüyor mu?",
-      "text": "Evet.\nHava koşullarına bağlı olarak, sabah erken saatlerde özel teraslarımızdan sıcak hava balonlarını izlemek mümkündür.\n\nKapadokya'da gün doğumu;\nsessizlik, taş ve gökyüzünde süzülen balonlarla yaşanır.\nBirçok misafirimiz için günün en unutulmaz anı budur."
-    },
-    "terrace": {
-      "title": "Teras manzarası",
-      "text": "Özel teraslarımızdan;\n• Kapadokya'nın eşsiz kaya oluşumlarını\n• Vadileri ve güvercinlikleri\n• Ortahisar kasabasının taş evlerini\n• Açık havalarda, uzakta Erciyes Dağı'nı görmek mümkündür.\n\nManzara, Kapadokya'nın doğal ve yerleşik dokusunu bir arada sunar."
+    "exclusivity": {
+      "heading": "Otel değil. Ortak alan yok. Tamamen size ait.",
+      "description": "Anitya Cave House, klasik bir otel yapısına sahip değildir. Aynı yapı içinde konumlanmış, ortak alanı bulunmayan üç bağımsız suite evden oluşur.",
+      "suiteTypesTitle": "Suite Evlerimiz",
+      "suiteTypes": {
+        "anitya": "Anitya Cave Suite",
+        "sirahane": "Şırahane Cave Suite",
+        "duplex": "Dublex Stone Suite"
+      },
+      "featuresTitle": "Her Suite'te",
+      "features": {
+        "entrance": "Özel giriş",
+        "terrace": "Özel teras",
+        "kitchen": "Donanımlı mutfak",
+        "living": "Ayrı oturma alanı ve yatak odası"
+      },
+      "closing": "Tamamı yalnızca misafirlerimizin mahremiyeti ve konforu için hazırlanmıştır.",
+      "kitchenTitle": "Her suite'te bağımsız donanımlı mutfak",
+      "kitchenIntro": "Her suite evde tam donanımlı bir mutfak bulunur — sembolik bir olanak olarak değil, gerçek bağımsızlık ve konfor için bir alan olarak.",
+      "kitchenFreedom": "Bu özgürlüktür. Kendi ritminizi koruyabilmek, kendi programınıza göre yemek hazırlayabilmek ve otel kahvaltı saatlerine bağlı kalmak yerine kendinizi evinizde hissetmek.",
+      "kitchenEquipment": "Mutfaklarımızda buzdolabı, fırın, ocak, su ısıtıcısı, kahve makinesi, geleneksel Türk çaydanlığı ve tüm temel mutfak eşyaları bulunur. Tencereler, tavalar, servis kapları, çeşitli bardaklar ve günlük kullanım için eksiksiz yemek takımları mevcuttur.",
+      "kitchenWelcome": "Misafirlerimiz gelişlerinde sınırsız filtre kahve, Türk kahvesi, siyah çay, zeytinyağı ve temel baharatlarla karşılanır — ilk andan itibaren kolaylıkla yemek yapabilmeniz için.",
+      "kitchenUseCase": "İster uzun süreli konaklayanlar için, ister çocuklu aileler için, ister kendi beslenme düzeninizi korumak isteyenler için — mutfak size özerklik sunar.",
+      "kitchenClosing": "Anitya'da mutfak bir aksesuar değildir. Sadece kalmak değil, yaşamak deneyiminin bir parçasıdır.",
+      "terraceTitle": "Her suite'in kendine özel terası vardır",
+      "terraceEmphasis": "Taş manzaraları, sessiz vadiler ve Ortahisar silüeti — kapınızın hemen dışında.",
+      "terraceIntro": "Özel teraslarımızdan manzara, Kapadokya'nın karakteristik kaya oluşumlarına, çevreleyen vadilere ve güvercinliklere, Ortahisar'ın taş evlerine açılır. Açık havalarda, uzakta Erciyes Dağı belirir.",
+      "terraceListLabel": "Görebilecekleriniz:",
+      "terraceList": {
+        "item1": "Kapadokya'nın eşsiz kaya oluşumları",
+        "item2": "Vadiler ve tarihi güvercinlikler",
+        "item3": "Ortahisar'ın taş evleri",
+        "item4": "Açık havalarda Erciyes Dağı",
+        "item5": "Gün doğumunda sıcak hava balonları"
+      },
+      "terraceBalloon": "Hava koşulları uygun olduğunda, sabah erken saatlerde sıcak hava balonları ufukta süzülerek gelir — günün sessiz, unutulmaz bir başlangıcı.",
+      "terraceClosing": "Teras bir manzara noktası değildir. Günün başladığı yerdir.",
+      "locationTitle": "Kapadokya'nın kalbinde bir eviniz olsun",
+      "locationSubtitle": "Anitya Cave House (Konumunuz)",
+      "locationIntro": "Ortahisar Eski Kasaba'nın tarihi kalbinde yer alan Anitya Cave House, sizi doğrudan bölgenin özgün taş mimarisi ve kültürel dokusu içine yerleştirir — Kapadokya'nın en ikonik cazibe merkezlerine diğer birçok konaklama tesisinden daha yakın.",
+      "locations": {
+        "ortahisar": {
+          "name": "Ortahisar Kalesi",
+          "distance": "~2 dakika yürüyüş",
+          "description": "Yürüyerek birkaç dakika içinde Ortahisar'ın kaya kalesine ulaşırsınız — çevreleyen vadiler ve kasabalar üzerinde geniş manzaralar sunan görkemli bir antik yapı."
+        },
+        "goreme": {
+          "name": "Göreme Açık Hava Müzesi",
+          "distance": "~7 dakika sürüş (~3,5 km)",
+          "description": "Bizans dönemi mağara kiliseleri ve freskleriyle zengin bu UNESCO Dünya Mirası alanı, sadece kısa bir sürüş mesafesinde."
+        },
+        "redValley": {
+          "name": "Kızılçukur & Gül Vadisi",
+          "distance": "~5 dakika sürüş (~3 km)",
+          "description": "Gün batımı yürüyüşleri ve dramatik manzaralar için mükemmel, bu vadiler kolayca erişilebilir ve Kapadokya'nın en güzel doğal alanları arasındadır."
+        },
+        "threeBeauties": {
+          "name": "Üç Güzeller",
+          "distance": "~8 dakika sürüş (~4 km)",
+          "description": "Dünya çapında kartpostallarda görülen ikonik peri bacası üçlüsü, kısa bir sürüş mesafesinde."
+        },
+        "pancarlik": {
+          "name": "Pancarlık Vadisi & Tarihi Kiliseler",
+          "distance": "~10 dakika sürüş (~4–6 km)",
+          "description": "Biraz daha sakin ama güzel bir vadi, antik kayaya oyulmuş kiliseler ve panoramik manzaralara ev sahipliği yapar."
+        }
+      },
+      "locationClosing": "Bu önemli destinasyonların tümü Anitya'dan kısa bir sürüş mesafesinde, bu da Ortahisar'daki üssünüzü hem huzurlu hem de son derece iyi bağlantılı kılıyor."
     },
     "suiteExperience": {
       "title": "Bir oda değil, bağımsız bir ev",

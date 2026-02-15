@@ -33,17 +33,74 @@
         "exploreSuites": "Explore Suite Homes"
       }
     },
-    "identity": {
-      "title": "Not a hotel. No shared spaces. Yours alone.",
-      "text": "Anitya Cave House is not a hotel.\nIt consists of three independent suite homes with no shared spaces,\nlocated within the same structure.\n\n• 2 cave suites\n• 1 stone suite\n\nEach suite has:\n• Its own entrance\n• Its own private terrace\n• Its own fully equipped kitchen\n• Its own living area and bedroom\n\nOne of the suite homes also has a separate salon area.\n\nThese are not lived-in spaces.\nAll are prepared exclusively for guests."
-    },
-    "balloon": {
-      "title": "Can you see balloons from the terrace?",
-      "text": "Yes.\nWeather permitting, it is possible to watch hot air balloons from our private terraces in the early morning hours.\n\nSunrise in Cappadocia is experienced with silence, stone, and balloons floating in the sky.\n\nFor many of our guests, this is the most unforgettable moment of the day."
-    },
-    "terrace": {
-      "title": "Terrace view",
-      "text": "From our private terraces, you can see:\n• Cappadocia's unique rock formations\n• Valleys and pigeon houses\n• Stone houses of Ortahisar town\n• Mount Erciyes in the distance on clear days\n\nThe view offers both the natural and settled texture of Cappadocia together."
+    "exclusivity": {
+      "heading": "Not a hotel. No shared spaces. Entirely yours.",
+      "description": "Anitya Cave House does not have a classic hotel structure. It consists of three independent suite homes with no shared spaces, located within the same building.",
+      "suiteTypesTitle": "Our Suite Homes",
+      "suiteTypes": {
+        "anitya": "Anitya Cave Suite",
+        "sirahane": "Şırahane Cave Suite",
+        "duplex": "Duplex Stone Suite"
+      },
+      "featuresTitle": "In Each Suite",
+      "features": {
+        "entrance": "Private entrance",
+        "terrace": "Private terrace",
+        "kitchen": "Fully equipped kitchen",
+        "living": "Separate living area and bedroom"
+      },
+      "closing": "All prepared exclusively for the privacy and comfort of our guests.",
+      "kitchenTitle": "Fully equipped independent kitchen in each suite",
+      "kitchenIntro": "Each suite home features a fully equipped kitchen — not as a symbolic amenity, but as a space for genuine independence and comfort.",
+      "kitchenFreedom": "This is freedom. The ability to maintain your own rhythm, prepare meals on your own schedule, and feel at home rather than confined to hotel breakfast hours.",
+      "kitchenEquipment": "Our kitchens include a refrigerator, oven, stovetop, kettle, coffee machine, traditional Turkish teapot, and all essential cookware. You will find pots, pans, serving dishes, a variety of glassware, and complete dining utensils for comfortable daily use.",
+      "kitchenWelcome": "Upon arrival, guests are welcomed with unlimited filter coffee, Turkish coffee, black tea, olive oil, and a selection of basic spices — allowing you to cook with ease from the first moment.",
+      "kitchenUseCase": "Whether you're staying long-term, traveling with children, or simply wish to maintain your own dietary routines, the kitchen offers you autonomy.",
+      "kitchenClosing": "At Anitya, the kitchen is not an accessory. It is part of the experience of living, not just staying.",
+      "terraceTitle": "Each suite has its own private terrace",
+      "terraceEmphasis": "Stone landscapes, quiet valleys, and the skyline of Ortahisar — right outside your door.",
+      "terraceIntro": "From our private terraces, the view opens onto Cappadocia's distinctive rock formations, the surrounding valleys and pigeon houses, and the stone homes of Ortahisar. On clear days, Mount Erciyes appears in the distance.",
+      "terraceListLabel": "You may see:",
+      "terraceList": {
+        "item1": "Cappadocia's unique rock formations",
+        "item2": "Valleys and historic pigeon houses",
+        "item3": "The stone houses of Ortahisar",
+        "item4": "Mount Erciyes on clear days",
+        "item5": "Hot air balloons at sunrise"
+      },
+      "terraceBalloon": "Weather permitting, early mornings often bring hot air balloons drifting across the horizon — a quiet, unforgettable start to the day.",
+      "terraceClosing": "The terrace is not a viewpoint. It is where the day begins.",
+      "locationTitle": "Your home in the heart of Cappadocia",
+      "locationSubtitle": "Anitya Cave House (Your Location)",
+      "locationIntro": "Nestled in the historic heart of Ortahisar's Old Town, Anitya Cave House places you right within the region's authentic stone architecture and cultural texture — closer to Cappadocia's most iconic attractions than most other accommodations.",
+      "locations": {
+        "ortahisar": {
+          "name": "Ortahisar Castle",
+          "distance": "~2 min walk",
+          "description": "Just a few minutes on foot brings you to Ortahisar's rock citadel — a commanding ancient landmark offering sweeping views over the surrounding valleys and towns."
+        },
+        "goreme": {
+          "name": "Göreme Open-Air Museum",
+          "distance": "~7 min drive (~3.5 km)",
+          "description": "This UNESCO World Heritage site, rich with Byzantine cave churches and frescoes, is only a short drive away."
+        },
+        "redValley": {
+          "name": "Red Valley (Kızılçukur) & Rose Valley",
+          "distance": "~5 min drive (~3 km)",
+          "description": "Perfect for sunset walks and dramatic landscapes, these valleys are easily accessible and among Cappadocia's most scenic natural areas."
+        },
+        "threeBeauties": {
+          "name": "The Three Beauties (Üç Güzeller)",
+          "distance": "~8 min drive (~4 km)",
+          "description": "The iconic fairy chimney trio, a Cappadocia symbol seen on postcards worldwide, is within a short drive."
+        },
+        "pancarlik": {
+          "name": "Pancarlık Valley & Historic Churches",
+          "distance": "~10 min drive (~4–6 km)",
+          "description": "A slightly quieter yet beautiful valley, home to ancient rock-cut churches and panoramic views."
+        }
+      },
+      "locationClosing": "These key destinations are all within a short drive from Anitya, making your base in Ortahisar both peaceful and exceptionally well-connected."
     },
     "suiteExperience": {
       "title": "Not a room, an independent home",
