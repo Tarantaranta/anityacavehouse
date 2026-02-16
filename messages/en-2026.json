@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Ortahisar • Cappadocia",
+    "line1": "The same sun.",
+    "line2": "The same stone.",
+    "line3": "Thousands of years.",
+    "subtitle": "In the heart of Cappadocia, Ortahisar. Not a hotel — independent suite homes.",
+    "cta": "Explore Suite Homes",
+    "scroll": "Explore"
+  },
+  "manifesto": {
+    "title": "Not a hotel. No shared spaces. Entirely yours.",
+    "intro": "Anitya Cave House consists of 3 independent suite homes within the same building. Two cave suites, one stone suite. All prepared exclusively for guests."
+  },
+  "notARoom": {
+    "title": "Not a room.",
+    "subtitle": "An independent home.",
+    "intro": "Staying at Anitya is not about entering a room; it's about retreating to your own space.",
+    "item1": "Silence.",
+    "item2": "Privacy.",
+    "item3": "Your own rhythm.",
+    "closing": "You don't share space with anyone. You set the pace of the day."
+  },
+  "kitchen": {
+    "label": "KITCHEN",
+    "title": "A real kitchen in every suite.",
+    "lead": "This is not an \"amenity\"; it's freedom and independence.",
+    "p1": "Refrigerator, oven, stove, kettle, coffee machine, traditional tea pot... Pots, pans, plates, various glasses and complete cutlery set.",
+    "p2": "Upon arrival, you are welcomed with unlimited filter coffee, Turkish coffee and black tea, olive oil and basic spices.",
+    "closing": "At Anitya, the kitchen is not an accessory.",
+    "closingEmphasis": "It's part of the living experience.",
+    "primaryCaption": "Fully equipped kitchen — home rhythm",
+    "secondaryCaption": "Unlimited filter coffee & Turkish coffee"
+  },
+  "terrace": {
+    "label": "TERRACE",
+    "title": "Where the day begins.",
+    "p1": "From our private terraces, you can see Cappadocia's rock formations, valleys and dovecotes, Ortahisar's stone houses, and on clear days, Mount Erciyes in the distance.",
+    "p2": "When weather conditions are suitable, at sunrise",
+    "p2Highlight": "hot air balloons",
+    "p2End": "glide silently across the horizon.",
+    "closing": "The terrace is not a viewpoint.",
+    "closingEmphasis": "It's where the day begins.",
+    "primaryCaption": "Ortahisar silhouette, valleys, stone houses",
+    "secondaryCaption": "Hot air balloons at sunrise when conditions allow"
+  },
+  "suites": {
+    "title": "Three suites. Three separate worlds.",
+    "description": "Each one different, each one independent."
+  }
+}

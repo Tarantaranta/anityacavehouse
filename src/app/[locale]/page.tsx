@@ -1,70 +1,59 @@
-import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
-import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
-import ReviewsSection from '@/components/sections/ReviewsSection';
-import ExclusivitySection from '@/components/sections/ExclusivitySection';
-import HeroSection from '@/components/sections/HeroSection';
-import KitchenSection from '@/components/sections/KitchenSection';
-import TerraceSection from '@/components/sections/TerraceSection';
-import LocationSection from '@/components/sections/LocationSection';
+import Header2026 from '@/components/layout/Header2026';
+import HeroCinematic2026 from '@/components/sections/HeroCinematic2026';
+import ManifestoBlock from '@/components/sections/ManifestoBlock';
+import NotARoomSticky from '@/components/sections/NotARoomSticky';
+import SuitesOverview from '@/components/sections/SuitesOverview';
+import KitchenEditorialAdvanced from '@/components/sections/KitchenEditorialAdvanced';
+import TerraceCinematicAdvanced from '@/components/sections/TerraceCinematicAdvanced';
+import LocationMapSplit from '@/components/sections/LocationMapSplit';
+import BreakfastFreedom from '@/components/sections/BreakfastFreedom';
+import ReviewsMinimal from '@/components/sections/ReviewsMinimal';
+import FinalCTA from '@/components/sections/FinalCTA';
+import { SectionDivider } from '@/components/ui/SectionRhythm';
+import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
+import CustomCursor from '@/components/ui/CustomCursor';
+import CursorHalo from '@/components/ui/CursorHalo';
+import PreloadImages from '@/components/ui/PreloadImages';
 
 export default function HomePage() {
-  const t = useTranslations('home');
+  // Preload critical above-the-fold images
+  const criticalImages = [
+    '/images/cappadocia-cave-house.avif', // Hero image
+    '/images/cappadocia-cave-house-kitchen.avif', // Kitchen section
+    '/images/cappadocia-ortahisar-castle.avif', // Terrace section
+  ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-        {/* Header */}
-        <Header />
+    <SmoothScrollProvider>
+      <div className="min-h-screen flex flex-col">
+        <PreloadImages images={criticalImages} />
+        <CustomCursor />
+        <CursorHalo />
+        <Header2026 />
 
-        {/* Hero Section - Cinematic Crossfade */}
-        <HeroSection />
-
-        {/* Exclusivity Section */}
-        <ExclusivitySection />
-
-        {/* Kitchen Section - Sticky Image + Scrolling Text */}
-        <KitchenSection />
-
-        {/* Terrace Section - Asymmetric Grid + Parallax */}
-        <TerraceSection />
-
-        {/* Location Section - Map + Scrolling Text */}
-        <LocationSection />
-
-        {/* Breakfast Section */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-amber-900 mb-6">
-                {t('breakfast.title')}
-              </h2>
-              <div className="prose prose-xl md:prose-2xl mx-auto text-stone-700 leading-relaxed whitespace-pre-line">
-                {t('breakfast.text')}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <ReviewsSection />
-
-        {/* Final CTA Section */}
-        <section className="relative bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white py-20 md:py-28">
-          <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold">
-              {t('finalCta.title')}
-            </h2>
-            <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto whitespace-pre-line">
-              {t('finalCta.text')}
-            </p>
-            <Button asChild size="lg" variant="secondary" className="bg-white text-amber-900 hover:bg-amber-50 text-lg px-10 py-6">
-              <Link href="/booking">{t('finalCta.cta')}</Link>
-            </Button>
-          </div>
-        </section>
+        <main>
+          <HeroCinematic2026 />
+          <ManifestoBlock />
+          <SectionDivider />
+          <NotARoomSticky />
+          <SectionDivider />
+          <SuitesOverview />
+          <SectionDivider />
+          <KitchenEditorialAdvanced />
+          <SectionDivider />
+          <TerraceCinematicAdvanced />
+          <SectionDivider />
+          <LocationMapSplit />
+          <SectionDivider />
+          <BreakfastFreedom />
+          <SectionDivider />
+          <ReviewsMinimal />
+          <FinalCTA />
+        </main>
 
         <Footer />
       </div>
+    </SmoothScrollProvider>
   );
 }

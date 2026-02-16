@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Ortahisar • Kapadokya",
+    "line1": "Aynı güneş.",
+    "line2": "Aynı taş.",
+    "line3": "Binlerce yıl.",
+    "subtitle": "Kapadokya'nın kalbinde, Ortahisar'da. Otel değil — bağımsız suite evler.",
+    "cta": "Suite Evleri Keşfedin",
+    "scroll": "Keşfet"
+  },
+  "manifesto": {
+    "title": "Otel değil. Ortak alan yok. Tamamen size ait.",
+    "intro": "Anitya Cave House, aynı yapı içinde konumlanan 3 bağımsız suite evden oluşur. İki mağara suite, bir taş suite. Tamamı yalnızca misafirler için hazırlanmıştır."
+  },
+  "notARoom": {
+    "title": "Bir oda değil.",
+    "subtitle": "Bağımsız bir ev.",
+    "intro": "Anitya'da konaklamak, bir odaya girmek değil; kendi alanınıza çekilmek demektir.",
+    "item1": "Sessizlik.",
+    "item2": "Mahremiyet.",
+    "item3": "Kendi ritminiz.",
+    "closing": "Kimseyle alan paylaşmazsınız. Günün temposunu siz belirlersiniz."
+  },
+  "kitchen": {
+    "label": "MUTFAK",
+    "title": "Her suite'te gerçek bir mutfak.",
+    "lead": "Bu bir \"olanak\" değil; özgürlük ve bağımsızlıktır.",
+    "p1": "Buzdolabı, fırın, ocak, kettle, kahve makinesi, geleneksel çaydanlık… Tencere, tava, tabaklar, farklı bardaklar ve eksiksiz çatal-kaşık takımı.",
+    "p2": "Gelişinizde sınırsız filtre kahve, Türk kahvesi ve siyah çay, zeytinyağı ve temel baharatlarla karşılanırsınız.",
+    "closing": "Anitya'da mutfak bir aksesuar değildir.",
+    "closingEmphasis": "Yaşamak deneyiminin bir parçasıdır.",
+    "primaryCaption": "Donanımlı mutfak — ev ritmi",
+    "secondaryCaption": "Sınırsız filtre kahve & Türk kahvesi"
+  },
+  "terrace": {
+    "label": "TERAS",
+    "title": "Günün başladığı yer.",
+    "p1": "Özel teraslarımızdan Kapadokya'nın kaya dokusu, vadiler ve güvercinlikler, Ortahisar'ın taş evleri ve açık havalarda uzakta Erciyes Dağı görünür.",
+    "p2": "Hava koşulları uygun olduğunda, gün doğumunda",
+    "p2Highlight": "sıcak hava balonları",
+    "p2End": "ufukta sessizce süzülür.",
+    "closing": "Teras bir manzara noktası değildir.",
+    "closingEmphasis": "Günün başladığı yerdir.",
+    "primaryCaption": "Ortahisar silüeti, vadiler, taş evler",
+    "secondaryCaption": "Uygun havalarda gün doğumunda balonlar"
+  },
+  "suites": {
+    "title": "Üç suite. Üç ayrı dünya.",
+    "description": "Her biri farklı, her biri bağımsız."
+  }
+}
