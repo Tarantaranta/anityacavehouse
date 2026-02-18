@@ -25,7 +25,6 @@ const ui = {
     guests: 'kişi',
     bookNow: 'Rezervasyon Yap',
     inquire: 'Bilgi Al',
-    freeCancellation: "Ücretsiz iptal (check-in'den 48 saat öncesine kadar)",
     superhostTrust: '12+ Yıl Airbnb Superhost güvencesi',
     support: '7/24 misafir desteği',
     otherSuites: 'Diğer Suitlerimiz',
@@ -41,7 +40,6 @@ const ui = {
     guests: 'guests',
     bookNow: 'Book Now',
     inquire: 'Inquire',
-    freeCancellation: 'Free cancellation (up to 48h before check-in)',
     superhostTrust: '12+ Years Airbnb Superhost trust',
     support: '24/7 guest support',
     otherSuites: 'Other Suites',
@@ -57,7 +55,6 @@ const ui = {
     guests: '人',
     bookNow: '立即预订',
     inquire: '咨询',
-    freeCancellation: '免费取消（入住前48小时）',
     superhostTrust: '12+年Airbnb超赞房东信誉',
     support: '24/7客人支持',
     otherSuites: '其他套房',
@@ -264,10 +261,6 @@ export default async function RoomDetailPage({ params }: PageProps) {
               </div>
 
               <div className="border-t border-line pt-5 space-y-3 text-xs text-ink-2">
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span>{c.freeCancellation}</span>
-                </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{c.superhostTrust}</span>

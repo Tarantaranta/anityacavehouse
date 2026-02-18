@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 export default function Header2026() {
@@ -11,9 +10,9 @@ export default function Header2026() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // next-intl usePathname returns path WITHOUT locale prefix (e.g. "/blog/...")
   const pathname = usePathname();
-  // Ana sayfa: /tr, /en, /zh gibi sadece locale prefix olan path'ler
-  const isHomePage = /^\/[a-z]{2}\/?$/.test(pathname) || pathname === "/";
+  const isHomePage = pathname === "/";
   // Koyu (solid) header: scroll edildiyse VEYA ana sayfa değilse
   const isDark = scrolled || !isHomePage;
 
@@ -22,6 +21,7 @@ export default function Header2026() {
     { href: "/rooms" as const, label: t("rooms") },
     { href: "/experiences" as const, label: t("experiences") },
     { href: "/gallery" as const, label: t("gallery") },
+    { href: "/blog" as const, label: t("blog") },
     { href: "/about" as const, label: t("about") },
     { href: "/contact" as const, label: t("contact") },
   ];
@@ -68,7 +68,7 @@ export default function Header2026() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav lang="en" className="hidden lg:flex items-center gap-6">
               {NAV.map((item) => (
                 <Link
                   key={item.href}
@@ -91,15 +91,15 @@ export default function Header2026() {
             <div className="flex items-center gap-3">
               {/* Language switcher */}
               <div className="hidden md:flex items-center gap-2">
-                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="tr">
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href={pathname} locale="tr">
                   TR
                 </Link>
                 <span className={isDark ? "text-line" : "text-white/30"}>•</span>
-                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="en">
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href={pathname} locale="en">
                   EN
                 </Link>
                 <span className={isDark ? "text-line" : "text-white/30"}>•</span>
-                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="zh">
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href={pathname} locale="zh">
                   中文
                 </Link>
               </div>
@@ -151,7 +151,7 @@ export default function Header2026() {
               </button>
             </div>
 
-            <div className="mt-6 space-y-3">
+            <nav lang="en" className="mt-6 space-y-3">
               {NAV.map((item) => (
                 <Link
                   key={item.href}
@@ -162,16 +162,16 @@ export default function Header2026() {
                   {item.label}
                 </Link>
               ))}
-            </div>
+            </nav>
 
             <div className="mt-8 flex items-center gap-3">
-              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="tr">
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href={pathname} locale="tr">
                 TR
               </Link>
-              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="en">
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href={pathname} locale="en">
                 EN
               </Link>
-              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="zh">
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href={pathname} locale="zh">
                 中文
               </Link>
             </div>

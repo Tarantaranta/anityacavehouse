@@ -1,149 +1,201 @@
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card } from '@/components/ui/card';
+import Header2026 from "@/components/layout/Header2026";
+import { Footer } from "@/components/layout/Footer";
+import PageHero from "@/components/ui/PageHero";
+import SectionShell from "@/components/ui/SectionShell";
+import GalleryGrid, { GalleryImage } from "@/components/ui/GalleryGrid";
+import Reveal from "@/components/ui/Reveal";
+import { Link } from "@/i18n/routing";
 
-export default function GalleryPage() {
-  // Gallery categories
-  const categories = [
-    { id: 'all', label: 'Tümü', count: 24 },
-    { id: 'rooms', label: 'Odalar', count: 12 },
-    { id: 'views', label: 'Manzaralar', count: 8 },
-    { id: 'facilities', label: 'Genel Alanlar', count: 4 },
-  ];
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
 
-  // Placeholder images - will be replaced with real images
-  const placeholderImages = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    category: i < 6 ? 'rooms' : i < 10 ? 'views' : 'facilities',
-    icon: i < 6 ? '🛏️' : i < 10 ? '🎈' : '☕',
-  }));
+// ─── Gallery images (canonical English tags for GalleryGrid filtering) ────────
+
+const GALLERY_IMAGES: GalleryImage[] = [
+  // Terrace
+  {
+    src: "/images/terrace/cappadocia-balloon-terrace.avif",
+    alt: "Anitya terrace — Cappadocia balloon and panorama",
+    tag: "Terrace",
+  },
+  {
+    src: "/images/terrace/cappadocia-hot-air-balloon.avif",
+    alt: "Hot air balloon, Ortahisar silhouette",
+    tag: "Terrace",
+  },
+  {
+    src: "/images/cappadocia-balloon-terrace.avif",
+    alt: "Terrace and Cappadocia skyline",
+    tag: "Terrace",
+  },
+  // Kitchen
+  {
+    src: "/images/kitchen/cave-suit-kitchen.avif",
+    alt: "Anitya suite kitchen — fully equipped",
+    tag: "Kitchen",
+  },
+  {
+    src: "/images/kitchen/cave-house-kitchen.jpg",
+    alt: "Cave house kitchen details",
+    tag: "Kitchen",
+  },
+  {
+    src: "/images/cave-house-kitchen.avif",
+    alt: "Stone wall kitchen, natural light",
+    tag: "Kitchen",
+  },
+  // Interior
+  {
+    src: "/images/cappadocia-cave-house.avif",
+    alt: "Anitya Cave Suite — main living area",
+    tag: "Interior",
+  },
+  {
+    src: "/images/anitya-cave-suite/DSC_5583.avif",
+    alt: "Anitya Cave Suite — bedroom",
+    tag: "Interior",
+  },
+  {
+    src: "/images/anitya-cave-suite/DSC_5602.avif",
+    alt: "Anitya Cave Suite — sitting area",
+    tag: "Interior",
+  },
+  {
+    src: "/images/sirahane-cave-suit/DSC_6221.avif",
+    alt: "Şırahane Cave Suite — interior",
+    tag: "Interior",
+  },
+  {
+    src: "/images/sirahane-cave-suit/14f4c726-980f-47fa-86dd-657129ce2309.jpg",
+    alt: "Şırahane Suite — authentic cave details",
+    tag: "Interior",
+  },
+  {
+    src: "/images/dublex-stone-suit/DSC_5695.avif",
+    alt: "Dublex Stone Suite — two-floor living",
+    tag: "Interior",
+  },
+  {
+    src: "/images/dublex-stone-suit/4e959b8b-adcb-44cb-acbd-1ff5661c067a.jpeg",
+    alt: "Dublex Stone Suite — stone texture",
+    tag: "Interior",
+  },
+  // Ortahisar
+  {
+    src: "/images/cappadocia-ortahisar-castle.avif",
+    alt: "Ortahisar Castle — sunset silhouette",
+    tag: "Ortahisar",
+  },
+  {
+    src: "/images/cave-house-cappadocia.avif",
+    alt: "Cappadocia cave houses — Ortahisar",
+    tag: "Ortahisar",
+  },
+  // Detail
+  {
+    src: "/images/sirahane-cave-suit/156dcea3-c398-401e-b9b0-241a25f92ec5.jpg",
+    alt: "Şırahane — rock-carved shelf detail",
+    tag: "Detail",
+  },
+  {
+    src: "/images/sirahane-cave-suit/30b6c518-1b33-4c00-99d7-f24ca38e261e.jpg",
+    alt: "Stone arch and natural texture",
+    tag: "Detail",
+  },
+  // General
+  { src: "/images/blog-images/1.avif", alt: "Anitya Cave House", tag: "General" },
+  { src: "/images/blog-images/2.avif", alt: "Anitya Cave House", tag: "General" },
+  { src: "/images/blog-images/3.avif", alt: "Anitya Cave House", tag: "General" },
+  { src: "/images/blog-images/4.avif", alt: "Anitya Cave House", tag: "General" },
+  { src: "/images/blog-images/5.avif", alt: "Anitya Cave House", tag: "General" },
+  { src: "/images/blog-images/6.avif", alt: "Anitya Cave House", tag: "General" },
+];
+
+// ─── Locale-aware content ──────────────────────────────────────────────────
+
+const pageContent = {
+  tr: {
+    heroLabel: "Ortahisar · Kapadokya",
+    heroTitle: "Galeri",
+    heroSubtitle: "Taşın dokusu, ışık, teras ve Ortahisar silüeti. Anitya'nın gün içindeki ritmi.",
+    heroImageAlt: "Ortahisar kalesi ve Kapadokya manzarası",
+    instagramEyebrow: "Güncel kareler",
+    instagramTitle: "Daha fazla fotoğraf için",
+    instagramDesc: "Güncel fotoğraflar ve misafirlerimizin paylaşımları için Instagram'da Anitya.",
+    instagramCta: "@anityacavehouse",
+  },
+  en: {
+    heroLabel: "Ortahisar · Cappadocia",
+    heroTitle: "Gallery",
+    heroSubtitle: "Stone texture, light, terrace and Ortahisar silhouette. The daily rhythm of Anitya.",
+    heroImageAlt: "Ortahisar castle and Cappadocia view",
+    instagramEyebrow: "Latest shots",
+    instagramTitle: "For more photos",
+    instagramDesc: "Follow Anitya on Instagram for the latest photos and guest shares.",
+    instagramCta: "@anityacavehouse",
+  },
+  zh: {
+    heroLabel: "奥塔希萨尔 · 卡帕多西亚",
+    heroTitle: "画廊",
+    heroSubtitle: "石头的质感、光线、露台与奥塔希萨尔的轮廓。Anitya的日常节奏。",
+    heroImageAlt: "奥塔希萨尔城堡与卡帕多西亚风景",
+    instagramEyebrow: "最新照片",
+    instagramTitle: "更多照片请关注",
+    instagramDesc: "在Instagram上关注Anitya，获取最新照片和客人分享。",
+    instagramCta: "@anityacavehouse",
+  },
+};
+
+export default async function GalleryPage({ params }: PageProps) {
+  const { locale } = await params;
+  const c = pageContent[locale as keyof typeof pageContent] ?? pageContent.tr;
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-[#F5F1E8]">
+      <Header2026 />
 
-      {/* Page Header */}
-      <section className="bg-gradient-to-br from-amber-50 to-stone-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <Badge className="bg-amber-700 mb-4">
-              Fotoğraf Galerisi
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-playfair font-bold text-amber-900 mb-4">
-              Galeri
-            </h1>
-            <p className="text-lg text-stone-700">
-              Anitya Cave House'un büyüleyici atmosferini, eşsiz odalarını ve
-              Kapadokya'nın muhteşem manzaralarını keşfedin.
+      {/* G0 — Hero */}
+      <PageHero
+        label={c.heroLabel}
+        title={c.heroTitle}
+        subtitle={c.heroSubtitle}
+        imageSrc="/images/cappadocia-ortahisar-castle.avif"
+        imageAlt={c.heroImageAlt}
+      />
+
+      {/* G1 + G2 — Filters + Grid */}
+      <SectionShell>
+        <GalleryGrid images={GALLERY_IMAGES} locale={locale} />
+      </SectionShell>
+
+      {/* G3 — Instagram CTA */}
+      <SectionShell className="pt-0 md:pt-0 pb-20 md:pb-28">
+        <Reveal>
+          <div className="bg-white/40 border border-black/5 rounded-2xl p-10 text-center">
+            <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-4">
+              {c.instagramEyebrow}
             </p>
+            <p className="font-serif font-light text-2xl md:text-3xl text-neutral-900 mb-4">
+              {c.instagramTitle}
+            </p>
+            <p className="text-neutral-600 leading-relaxed mb-8 max-w-[50ch] mx-auto">
+              {c.instagramDesc}
+            </p>
+            <a
+              href="https://instagram.com/anityacavehouse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 border border-neutral-900 text-neutral-900 px-7 py-3 rounded-full text-sm tracking-wide hover:bg-neutral-900 hover:text-white transition-all duration-300"
+            >
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              {c.instagramCta}
+            </a>
           </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="container mx-auto px-4 py-16">
-        <Tabs defaultValue="all" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12">
-            {categories.map((cat) => (
-              <TabsTrigger key={cat.id} value={cat.id} className="data-[state=active]:bg-amber-700">
-                {cat.label}
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  {cat.count}
-                </Badge>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          <TabsContent value="all" className="mt-0">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {placeholderImages.map((img) => (
-                <Card
-                  key={img.id}
-                  className="aspect-square bg-stone-200 overflow-hidden cursor-pointer hover:shadow-2xl transition-all group border-amber-100 hover:border-amber-300"
-                >
-                  <div className="h-full flex items-center justify-center text-6xl group-hover:scale-110 transition-transform">
-                    {img.icon}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="rooms" className="mt-0">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {placeholderImages
-                .filter((img) => img.category === 'rooms')
-                .map((img) => (
-                  <Card
-                    key={img.id}
-                    className="aspect-square bg-stone-200 overflow-hidden cursor-pointer hover:shadow-2xl transition-all group border-amber-100 hover:border-amber-300"
-                  >
-                    <div className="h-full flex items-center justify-center text-6xl group-hover:scale-110 transition-transform">
-                      {img.icon}
-                    </div>
-                  </Card>
-                ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="views" className="mt-0">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {placeholderImages
-                .filter((img) => img.category === 'views')
-                .map((img) => (
-                  <Card
-                    key={img.id}
-                    className="aspect-square bg-stone-200 overflow-hidden cursor-pointer hover:shadow-2xl transition-all group border-amber-100 hover:border-amber-300"
-                  >
-                    <div className="h-full flex items-center justify-center text-6xl group-hover:scale-110 transition-transform">
-                      {img.icon}
-                    </div>
-                  </Card>
-                ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="facilities" className="mt-0">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {placeholderImages
-                .filter((img) => img.category === 'facilities')
-                .map((img) => (
-                  <Card
-                    key={img.id}
-                    className="aspect-square bg-stone-200 overflow-hidden cursor-pointer hover:shadow-2xl transition-all group border-amber-100 hover:border-amber-300"
-                  >
-                    <div className="h-full flex items-center justify-center text-6xl group-hover:scale-110 transition-transform">
-                      {img.icon}
-                    </div>
-                  </Card>
-                ))}
-            </div>
-          </TabsContent>
-        </Tabs>
-
-        {/* Info Banner */}
-        <div className="mt-16 bg-amber-50 border border-amber-200 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-playfair font-bold text-amber-900 mb-3">
-            Daha Fazla Fotoğraf İçin
-          </h3>
-          <p className="text-stone-700 mb-6">
-            Instagram sayfamızdan güncel fotoğraflarımızı ve misafirlerimizin paylaşımlarını görüntüleyebilirsiniz.
-          </p>
-          <a
-            href="https://instagram.com/anityacavehouse"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-shadow font-semibold"
-          >
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            Instagram'da Takip Edin
-          </a>
-        </div>
-      </section>
+        </Reveal>
+      </SectionShell>
 
       <Footer />
     </div>

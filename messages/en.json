@@ -317,7 +317,15 @@
     "newsletter": "Newsletter",
     "newsletterText": "Stay updated with special offers and news",
     "subscribe": "Subscribe",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "certifications": "Certifications & Accreditations",
+    "sustainabilityBy": "Ministry of Environment & Urbanization",
+    "sustainabilityTitle": "Sustainability Certificate",
+    "tourismBy": "Ministry of Culture & Tourism",
+    "tourismTitle": "Tourism Establishment Certificate",
+    "tourismSince": "Since 2014",
+    "airbnbBookOn": "Book on",
+    "airbnbSuperhost": "Superhost"
   },
   "hero": {
     "eyebrow": "Ortahisar • Cappadocia",
@@ -412,6 +420,8 @@
   "location": {
     "title": "In the heart of Ortahisar.\nIn the center of Cappadocia.",
     "description": "You are within the historic fabric of Ortahisar Old Town. Walking to the castle, short drives to Cappadocia's iconic routes.",
+    "place0Name": "Anitya Cave House",
+    "place0Distance": "Your location",
     "place1Name": "Ortahisar Castle",
     "place1Distance": "~2 min walk",
     "place2Name": "Göreme Open-Air Museum",
@@ -428,10 +438,20 @@
   "reviewsSection": {
     "rating": "4.86 / 5",
     "count": "1046+ verified guest reviews",
-    "review1": "Within the stone texture but with modern comfort… the location is perfect and the silence was incredible.",
-    "review2": "The terrace in the mornings is something else… the balloons and Ortahisar silhouette were unforgettable.",
-    "review3": "One of the rare places that truly feels like 'home'. The kitchen and privacy are wonderful.",
-    "review4": "Staying in Ortahisar was the right choice. Away from the crowds of Göreme but close to everything.",
+    "review1": "The cozy space created by Kerem our host was truly relaxing, warm and homey with every convenience and luxury but executed in a low-key artistic way. He really took care of us helping to arrange our balloon experience, making suggestions for off-the-beaten track sites to visit, and arranging airport rides.",
+    "airbnbReview1": "Such a warm and well equipped cave! Our host could not be more helpful, the lighting and technology is superb and the view from the terrasse is breathtaking. The area is so beautiful and there is lots to see and do. Thank you for an excellent stay.",
+    "review2": "Amazing will not justify the lovely experience we got from the hotel's owner Kerem. The man is an absolute help. He knows almost everyone around that region so he can make things happen.",
+    "airbnbReview2": "Unique space! I highly recommend staying here if you want to enjoy Cappadocia in the perfect way that it should be. There are many cave houses to stay in, but the hospitality that these hosts provided was outstanding to me. If I'm ever back in the park I know where I'm staying!",
+    "review3": "Such a warm and well equipped cave! Our host could not be more helpful, the lighting and technology is superb and the view from the terrasse is breathtaking.",
+    "airbnbReview3": "We loved our winter stay in Cappadocia and Anitya Cave House was the perfect home base for us. Our family of three loved staying in quiet Ortahisar, rather than one of the more touristy towns in the region. Never in my life have I experienced such kindness, generosity and service!",
+    "review4": "The house is very cosy and there is no better way to explain it than having a 5* hotel experience without having no other guests right next to you.",
+    "reviewer1": "TripAdvisor Guest",
+    "airbnbReviewer1": "Airbnb Guest",
+    "reviewer2": "Black_Rabbit_X — TripAdvisor",
+    "airbnbReviewer2": "Airbnb Guest",
+    "reviewer3": "TripAdvisor Guest",
+    "airbnbReviewer3": "Airbnb Guest",
+    "reviewer4": "TripAdvisor Guest",
     "verifiedGuest": "Verified Airbnb Guest",
     "viewAll": "View all reviews on Airbnb"
   },
@@ -452,7 +472,6 @@
     "taxIncluded": "Taxes included",
     "bookNow": "Book Now",
     "inquire": "Inquire",
-    "freeCancellation": "Free cancellation (up to 48h before check-in)",
     "superhostTrust": "12+ Years Airbnb Superhost trust",
     "support": "24/7 guest support",
     "otherSuites": "Other Suites",
@@ -475,6 +494,7 @@
     },
     "inputPlaceholder": "Type your message...",
     "send": "Send",
+    "quickReplyHint": "✏️ Or type something different below",
     "error": "Sorry, an error occurred. Please try again or contact us directly: +90 544 494 68 14"
   }
 }

@@ -14,6 +14,7 @@ import {
   AlertTriangle,
   ChevronUp,
   Sparkles,
+  Download,
 } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -21,7 +22,8 @@ import { useTranslations, useLocale } from 'next-intl';
 
 interface Message {
   role: 'user' | 'assistant';
-  content: string;
+  content: string;       // stripped text for display
+  rawContent?: string;   // original with ---HIZLI_CEVAPLAR--- markers, for API history
   quickReplies?: string[];
 }
 
@@ -366,6 +368,83 @@ function parseQuickReplies(raw: string): { text: string; replies: string[] } {
   return { text: raw, replies: [] };
 }
 
+// ─── Travel Plan Detection ─────────────────────────────────────────────────────
+
+function isTravelPlan(content: string): boolean {
+  return (
+    (content.includes('GÜN 1') || content.includes('Day 1') || content.includes('第1天') || content.includes('═══ GÜN')) &&
+    (content.includes('SABAH') || content.includes('Morning') || content.includes('早上') || content.includes('KİŞİSEL'))
+  );
+}
+
+// ─── PDF Generator (print window) ─────────────────────────────────────────────
+
+function generateTravelPlanPDF(content: string, language: string) {
+  const titles: Record<string, string> = {
+    tr: 'Kişisel Kapadokya Gezi Planınız',
+    en: 'Your Personal Cappadocia Travel Plan',
+    zh: '您的个人卡帕多西亚旅游计划',
+  };
+  const title = titles[language] || titles.tr;
+  const date = new Date().toLocaleDateString('tr-TR');
+
+  const escaped = content
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  const html = `<!DOCTYPE html>
+<html lang="${language}">
+<head>
+  <meta charset="UTF-8">
+  <title>${title}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 780px; margin: 0 auto; padding: 40px 32px; color: #1a1a1a; background: #fff; }
+    .header { text-align: center; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 3px solid #b45309; }
+    .logo { font-size: 28px; font-weight: 800; color: #b45309; letter-spacing: -0.5px; }
+    .logo-icon { font-size: 32px; margin-bottom: 4px; }
+    .subtitle { color: #6b7280; font-size: 13px; margin-top: 6px; }
+    .plan-title { font-size: 20px; font-weight: 700; color: #292524; margin: 24px 0 16px; }
+    .content { white-space: pre-wrap; font-size: 14px; line-height: 1.75; color: #374151; font-family: 'Segoe UI', Arial, sans-serif; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center; color: #9ca3af; font-size: 12px; line-height: 1.8; }
+    .footer strong { color: #b45309; }
+    @media print {
+      body { padding: 20px; }
+      .header { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-icon">🏠</div>
+    <div class="logo">Anitya Cave House</div>
+    <div class="subtitle">Ortahisar, Kapadokya, Türkiye &nbsp;|&nbsp; +90 544 494 68 14 &nbsp;|&nbsp; info@anityacavehouse.com</div>
+  </div>
+  <div class="plan-title">${title}</div>
+  <div class="content">${escaped}</div>
+  <div class="footer">
+    <p><strong>Anitya Cave House</strong> &mdash; anityacavehouse.com</p>
+    <p>📱 WhatsApp: +90 544 494 68 14 &nbsp;&nbsp;✉️ info@anityacavehouse.com</p>
+    <p style="margin-top:6px;color:#d1d5db;">${date} tarihinde oluşturuldu</p>
+  </div>
+  <script>window.onload = function(){ setTimeout(function(){ window.print(); }, 400); };<\/script>
+</body>
+</html>`;
+
+  const win = window.open('', '_blank', 'width=900,height=700');
+  if (win) {
+    win.document.write(html);
+    win.document.close();
+  }
+}
+
+// ─── Session ID Generator ──────────────────────────────────────────────────────
+
+function generateSessionId(): string {
+  return `sess_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function ChatBot() {
@@ -381,6 +460,25 @@ export default function ChatBot() {
   const [showQuickQ, setShowQuickQ] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const sessionIdRef = useRef<string>(generateSessionId());
+
+  // ── Auto-save: call after every AI response ──────────────────────────────────
+  const saveConversation = (currentMessages: Message[]) => {
+    const storable = currentMessages.map((m) => ({
+      role: m.role,
+      content: m.rawContent ?? m.content,
+      timestamp: new Date().toISOString(),
+    }));
+    fetch('/api/chat/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: storable,
+        language: locale,
+        sessionId: sessionIdRef.current,
+      }),
+    }).catch(() => { /* silent fail — don't interrupt UX */ });
+  };
 
   const quickQuestions = [
     { key: 'q1', icon: '🏠' },
@@ -419,19 +517,28 @@ export default function ChatBot() {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: [...messages, userMessage], language: locale }),
+        body: JSON.stringify({
+          messages: [...messages, userMessage].map((m) => ({
+            role: m.role,
+            content: m.rawContent ?? m.content,
+          })),
+          language: locale,
+        }),
       });
       if (!response.ok) throw new Error('API error');
       const data = await response.json();
       const { text, replies } = parseQuickReplies(data.message);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: text,
-          quickReplies: replies.length > 0 ? replies : undefined,
-        },
-      ]);
+      const newAssistant: Message = {
+        role: 'assistant',
+        content: text,
+        rawContent: data.message,
+        quickReplies: replies.length > 0 ? replies : undefined,
+      };
+      setMessages((prev) => {
+        const updated = [...prev, newAssistant];
+        saveConversation(updated);
+        return updated;
+      });
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: t('error') }]);
     } finally {
@@ -460,6 +567,11 @@ export default function ChatBot() {
     tr: 'Rezervasyon Sayfasına Git',
     en: 'Go to Booking Page',
     zh: '前往预订页面',
+  };
+  const pdfLabels: Record<string, string> = {
+    tr: 'Planı PDF olarak indir',
+    en: 'Download plan as PDF',
+    zh: '下载PDF计划',
   };
   const mapsLabels: Record<string, string> = {
     tr: 'Haritada Gör',
@@ -563,19 +675,36 @@ export default function ChatBot() {
 
                     {/* Quick Reply Buttons (AI-generated contextual options) */}
                     {message.role === 'assistant' && message.quickReplies && message.quickReplies.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mt-1">
-                        {message.quickReplies.map((reply, i) => (
-                          <button
-                            key={i}
-                            type="button"
-                            onClick={() => sendMessage(reply)}
-                            disabled={isLoading}
-                            className="px-3 py-1.5 text-xs bg-white border border-amber-300 text-amber-700 rounded-full hover:bg-amber-50 hover:border-amber-400 transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
-                          >
-                            {reply}
-                          </button>
-                        ))}
+                      <div className="flex flex-col gap-1.5 mt-1 w-full">
+                        <div className="flex flex-wrap gap-1.5">
+                          {message.quickReplies.map((reply, i) => (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => sendMessage(reply)}
+                              disabled={isLoading}
+                              className="px-3 py-1.5 text-xs bg-white border border-amber-300 text-amber-700 rounded-full hover:bg-amber-50 hover:border-amber-400 transition-all duration-150 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                            >
+                              {reply}
+                            </button>
+                          ))}
+                        </div>
+                        <p className="text-[10px] text-neutral-400 italic pl-0.5">
+                          {t('quickReplyHint')}
+                        </p>
                       </div>
+                    )}
+
+                    {/* PDF Download button for travel plans */}
+                    {message.role === 'assistant' && isTravelPlan(message.content) && (
+                      <button
+                        type="button"
+                        onClick={() => generateTravelPlanPDF(message.content, lang)}
+                        className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition-colors duration-200 shadow-sm"
+                      >
+                        <Download className="w-3.5 h-3.5 flex-shrink-0" />
+                        {pdfLabels[lang]}
+                      </button>
                     )}
 
                     {/* Booking CTA button */}

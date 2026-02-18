@@ -17,19 +17,38 @@ export default function ReviewsMinimal() {
     () => [
       {
         quote: t('review1'),
-        who: t('verifiedGuest'),
+        who: t('reviewer1'),
+        link: 'https://www.tripadvisor.com/Hotel_Review-g297987-d6642555-Reviews-Anitya_Cave_House-Ortahisar_Cappadocia.html',
+      },
+      {
+        quote: t('airbnbReview1'),
+        who: t('airbnbReviewer1'),
+        link: 'https://www.airbnb.com/rooms/2953140',
       },
       {
         quote: t('review2'),
-        who: t('verifiedGuest'),
+        who: t('reviewer2'),
+        link: 'https://www.tripadvisor.com/ShowUserReviews-g297987-d6642555-r243454167-Anitya_Cave_House-Ortahisar_Cappadocia.html',
+      },
+      {
+        quote: t('airbnbReview2'),
+        who: t('airbnbReviewer2'),
+        link: 'https://www.airbnb.com/rooms/2953140',
       },
       {
         quote: t('review3'),
-        who: t('verifiedGuest'),
+        who: t('reviewer3'),
+        link: 'https://www.tripadvisor.com/Hotel_Review-g297987-d6642555-Reviews-Anitya_Cave_House-Ortahisar_Cappadocia.html',
+      },
+      {
+        quote: t('airbnbReview3'),
+        who: t('airbnbReviewer3'),
+        link: 'https://www.airbnb.com/rooms/2953140',
       },
       {
         quote: t('review4'),
-        who: t('verifiedGuest'),
+        who: t('reviewer4'),
+        link: 'https://www.tripadvisor.com/Hotel_Review-g297987-d6642555-Reviews-Anitya_Cave_House-Ortahisar_Cappadocia.html',
       },
     ],
     [t]
@@ -83,7 +102,14 @@ export default function ReviewsMinimal() {
               <p className="text-ink leading-relaxed text-lg md:text-xl font-light">
                 "{reviews[i].quote}"
               </p>
-              <p className="mt-6 text-sm text-ink-2">{reviews[i].who}</p>
+              <a
+                href={reviews[i].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 block text-sm text-ink-2 hover:underline underline-offset-4 transition"
+              >
+                {reviews[i].who}
+              </a>
             </motion.div>
           </AnimatePresence>
 

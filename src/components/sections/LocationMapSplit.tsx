@@ -8,6 +8,11 @@ import { useTranslations, useLocale } from 'next-intl';
 
 const places = [
   {
+    nameKey: "place0Name" as const,
+    distKey: "place0Distance" as const,
+    mapUrl: "https://maps.google.com/?q=Anitya+Cave+House+Ortahisar+Cappadocia",
+  },
+  {
     nameKey: "place1Name" as const,
     distKey: "place1Distance" as const,
     mapUrl: "https://maps.google.com/?q=Ortahisar+Castle+Cappadocia",

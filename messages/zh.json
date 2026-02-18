@@ -317,7 +317,15 @@
     "newsletter": "新闻通讯",
     "newsletterText": "及时了解特别优惠和新闻",
     "subscribe": "订阅",
-    "rights": "版权所有"
+    "rights": "版权所有",
+    "certifications": "认证与资质",
+    "sustainabilityBy": "环境与城市化部",
+    "sustainabilityTitle": "可持续发展证书",
+    "tourismBy": "文化旅游部",
+    "tourismTitle": "旅游经营许可证",
+    "tourismSince": "自2014年起",
+    "airbnbBookOn": "在此预订",
+    "airbnbSuperhost": "超级房东"
   },
   "hero": {
     "eyebrow": "奥塔希萨尔 • 卡帕多奇亚",
@@ -412,6 +420,8 @@
   "location": {
     "title": "奥塔希萨尔的中心。\n卡帕多奇亚的核心。",
     "description": "您身处奥塔希萨尔老城的历史肌理之中。步行至城堡，短途驾车至卡帕多奇亚的标志性路线。",
+    "place0Name": "Anitya Cave House",
+    "place0Distance": "您的位置",
     "place1Name": "奥塔希萨尔城堡",
     "place1Distance": "~步行2分钟",
     "place2Name": "格雷梅露天博物馆",
@@ -428,10 +438,20 @@
   "reviewsSection": {
     "rating": "4.86 / 5",
     "count": "1046+条已验证客人评价",
-    "review1": "石头质感中却有现代舒适……位置完美，宁静令人难以置信。",
-    "review2": "早晨的露台别有洞天……热气球和奥塔希萨尔轮廓令人难忘。",
-    "review3": "真正让人感觉像'家'的罕见之地。厨房和私密性都很棒。",
-    "review4": "住在奥塔希萨尔是正确的选择。远离格雷梅的人群，但又靠近一切。",
+    "review1": "我们的房东Kerem营造的这个温馨空间真的令人放松，温暖如家，每一处便利与奢华都以低调而艺术的方式呈现。他帮我们安排热气球体验，推荐鲜为人知的景点，还安排了机场接送，对我们照料有加。",
+    "airbnbReview1": "多么温馨且设备齐全的洞穴屋！我们的房东体贴入微，灯光和科技设施一流，露台的景色令人叹为观止。这个地区非常美丽，有很多值得看和值得体验的地方。感谢这次出色的住宿！",
+    "review2": "用「惊人」来形容我们从房东Kerem那里获得的美好体验都远远不够。这个人是真正的帮手，几乎认识那个地区的每一个人，能把一切变为可能。",
+    "airbnbReview2": "独一无二的空间！如果您想以最完美的方式体验卡帕多奇亚，强烈推荐在这里入住。虽然有很多洞穴屋可以选择，但这里的房东所提供的热情款待让我印象深刻。如果再来，我知道要住在哪里！",
+    "review3": "多么温馨且设备齐全的洞穴屋！我们的房东体贴入微，灯光和科技设施一流，露台的景色令人叹为观止。",
+    "airbnbReview3": "我们非常喜欢在卡帕多奇亚的冬季之旅，Anitya Cave House是我们完美的据点。我们一家三口很庆幸选择了宁静的奥塔希萨尔，而不是该地区更热闹的旅游小镇。我这辈子从未体验过如此的善意、慷慨与周到服务！",
+    "review4": "这所房子非常舒适，用一句话来形容再好不过：独享整栋房子，体验5星级酒店待遇，身边没有任何其他客人。",
+    "reviewer1": "TripAdvisor 客人",
+    "airbnbReviewer1": "Airbnb 客人",
+    "reviewer2": "Black_Rabbit_X — TripAdvisor",
+    "airbnbReviewer2": "Airbnb 客人",
+    "reviewer3": "TripAdvisor 客人",
+    "airbnbReviewer3": "Airbnb 客人",
+    "reviewer4": "TripAdvisor 客人",
     "verifiedGuest": "已验证Airbnb客人",
     "viewAll": "在Airbnb上查看所有评价"
   },
@@ -452,7 +472,6 @@
     "taxIncluded": "含税",
     "bookNow": "立即预订",
     "inquire": "咨询",
-    "freeCancellation": "免费取消（入住前48小时）",
     "superhostTrust": "12+年Airbnb超赞房东信誉",
     "support": "24/7客人支持",
     "otherSuites": "其他套房",
@@ -475,6 +494,7 @@
     },
     "inputPlaceholder": "输入您的消息...",
     "send": "发送",
+    "quickReplyHint": "✏️ 如需填写其他内容，请在下方输入",
     "error": "抱歉，发生了错误。请重试或直接联系我们：+90 544 494 68 14"
   }
 }

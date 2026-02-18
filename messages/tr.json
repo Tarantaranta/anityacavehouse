@@ -317,7 +317,15 @@
     "newsletter": "Bülten",
     "newsletterText": "Özel teklifler ve haberlerden haberdar olun",
     "subscribe": "Abone Ol",
-    "rights": "Tüm hakları saklıdır"
+    "rights": "Tüm hakları saklıdır",
+    "certifications": "Sertifikalar ve Akreditasyonlar",
+    "sustainabilityBy": "Çevre ve Şehircilik Bakanlığı",
+    "sustainabilityTitle": "Sürdürülebilirlik Sertifikası",
+    "tourismBy": "T.C. Kültür ve Turizm Bakanlığı",
+    "tourismTitle": "Turizm İşletme Belgesi",
+    "tourismSince": "2014'ten Beri",
+    "airbnbBookOn": "Rezerve Et",
+    "airbnbSuperhost": "Superhost"
   },
   "hero": {
     "eyebrow": "Ortahisar • Kapadokya",
@@ -412,6 +420,8 @@
   "location": {
     "title": "Ortahisar'ın kalbinde.\nKapadokya'nın merkezinde.",
     "description": "Ortahisar Eski Kasaba'nın tarihi dokusu içindesiniz. Yürüyerek kaleye, kısa sürüşlerle Kapadokya'nın ikonik rotalarına bağlanırsınız.",
+    "place0Name": "Anitya Cave House",
+    "place0Distance": "Konumunuz",
     "place1Name": "Ortahisar Kalesi",
     "place1Distance": "~2 dk yürüyüş",
     "place2Name": "Göreme Açık Hava Müzesi",
@@ -428,10 +438,20 @@
   "reviewsSection": {
     "rating": "4.86 / 5",
     "count": "1046+ doğrulanmış misafir yorumu",
-    "review1": "Taş dokunun içinde ama modern konforla… konum mükemmel ve sessizlik inanılmazdı.",
-    "review2": "Teras sabahları bambaşka… balonlar ve Ortahisar silüeti unutulmazdı.",
-    "review3": "Gerçekten 'ev gibi' hissettiren nadir yerlerden. Mutfak ve mahremiyet harika.",
-    "review4": "Ortahisar'da kalmak çok doğruymuş. Göreme kalabalığına uzak ama her yere yakın.",
+    "review1": "Ev sahibimiz Kerem'in yarattığı bu samimi mekan gerçekten dinlendirici, sıcak ve ev hissiyatı veren bir ortamdı; her konfor ve lükse alçakgönüllü, sanatsal bir dokunuşla yer verilmişti. Balon deneyimimizi organize etmekte, keşfedilmemiş mekanlar önerirken ve havalimanı transferlerini ayarlarken büyük bir özen gösterdi.",
+    "airbnbReview1": "Ne kadar sıcak ve donanımlı bir mağara evi! Ev sahibimiz bu kadar yardımsever olamazdı; aydınlatma ve teknoloji mükemmel, teras manzarası ise nefes kesici. Bölge son derece güzel, görülecek ve yapılacak pek çok şey var. Harika bir konaklama için teşekkürler.",
+    "review2": "İnanılmaz kelimesi bile evin sahibi Kerem'den aldığımız güzel deneyimi anlatmaya yetmez. Adam gerçek anlamda bir yardım kaynağı. Bölgedeki neredeyse herkesi tanıyor ve her şeyi mümkün kılabiliyor.",
+    "airbnbReview2": "Eşsiz bir mekan! Kapadokya'yı olması gerektiği gibi yaşamak istiyorsanız buraya şiddetle tavsiye ederim. Kalabileceğiniz pek çok mağara evi var; ancak bu ev sahiplerinin sunduğu misafirperverlik benim için benzersizdi. Buraya bir daha gelirsem nerede kalacağımı biliyorum!",
+    "review3": "Ne kadar sıcak ve iyi donanımlı bir mağara evi! Ev sahibimiz bu kadar yardımsever olamazdı; aydınlatma ve teknoloji mükemmel, teras manzarası ise nefes kesici.",
+    "airbnbReview3": "Kapadokya'daki kış tatilimizi çok sevdik ve Anitya Cave House bizim için mükemmel bir üs oldu. Üçlü ailemiz, bölgenin daha turistik kasabaları yerine sakin Ortahisar'da kalmayı çok sevdi. Hayatımda hiç bu kadar nezaket, cömertlik ve hizmetle karşılaşmamıştım!",
+    "review4": "Ev son derece ferah ve bunu anlatmanın en iyi yolu şu: yanınızda başka hiç misafir olmadan 5 yıldızlı otel deneyimi yaşamak.",
+    "reviewer1": "TripAdvisor Misafiri",
+    "airbnbReviewer1": "Airbnb Misafiri",
+    "reviewer2": "Black_Rabbit_X — TripAdvisor",
+    "airbnbReviewer2": "Airbnb Misafiri",
+    "reviewer3": "TripAdvisor Misafiri",
+    "airbnbReviewer3": "Airbnb Misafiri",
+    "reviewer4": "TripAdvisor Misafiri",
     "verifiedGuest": "Verified Airbnb Guest",
     "viewAll": "Airbnb'de tüm yorumları görüntüle"
   },
@@ -452,7 +472,6 @@
     "taxIncluded": "Vergiler dahil",
     "bookNow": "Rezervasyon Yap",
     "inquire": "Bilgi Al",
-    "freeCancellation": "Ücretsiz iptal (check-in'den 48 saat öncesine kadar)",
     "superhostTrust": "12+ Yıl Airbnb Superhost güvencesi",
     "support": "7/24 misafir desteği",
     "otherSuites": "Diğer Suitlerimiz",
@@ -475,6 +494,7 @@
     },
     "inputPlaceholder": "Mesajınızı yazın...",
     "send": "Gönder",
+    "quickReplyHint": "✏️ Farklı bir şey belirtmek istiyorsanız aşağıya yazabilirsiniz",
     "error": "Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin veya bize doğrudan ulaşın: +90 544 494 68 14"
   }
 }

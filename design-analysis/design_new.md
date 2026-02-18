@@ -2158,10 +2158,10 @@ export default function Footer() {
             </div>
 
             <div className="mt-5 space-y-3 text-ink-2">
-              <div>Ortahisar, Nevşehir, Türkiye</div>
+              <div>Ortahisar, ÜRGÜP, Nevşehir, Türkiye</div>
 
-              <a className="block hover:text-ink transition" href="tel:+905363021102">
-                +90 536 302 11 02
+              <a className="block hover:text-ink transition" href="tel:+905354946814">
+                +90 535 494 68 14
               </a>
               <a className="block hover:text-ink transition" href="mailto:info@anityacavehouse.com">
                 info@anityacavehouse.com

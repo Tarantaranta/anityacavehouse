@@ -4,6 +4,6 @@ import { routing } from './i18n/routing';
 export default createMiddleware(routing);
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(tr|en|zh)/:path*']
+  // admin rotaları locale middleware'den dışarıda kalır
+  matcher: ['/((?!_next|api|admin|.*\\..*).*)']
 };
