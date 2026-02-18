@@ -63,7 +63,7 @@ const ANITYA_KNOWLEDGE = `
 - **Detaylı bilgi:** WhatsApp +90 544 494 68 14
 
 ### 3. Dublex Stone Suite (Taş Dubleks Suite)
-- **Büyüklük:** 40 m²
+- **Büyüklük:** 50 m²
 - **Kapasite:** Maksimum 4 misafir
 - **Yatak Düzeni:**
   - Yatak odasında queen yatak

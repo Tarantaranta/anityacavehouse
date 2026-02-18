@@ -82,7 +82,7 @@ The WordPress database (`anityaca_wp142.sql`) did not contain separate Turkish o
 
 #### Dublex Stone Suite
 - **Specifications:**
-  - Size: 40 m²
+  - Size: 50 m²
   - Capacity: Max 4 guests
   - Beds: Queen bed + convertible sofa
 

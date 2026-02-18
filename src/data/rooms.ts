@@ -64,7 +64,7 @@ export const rooms: Room[] = [
       zh: '带露台的洞穴套房',
     },
     description: {
-      tr: '80 metrekare büyüklüğünde, tam donanımlı ve manzaralı teraslı bir mağara ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır. El yapımı, antika ve geleneksel mobilyalarla döşenmiştir.',
+      tr: '90 metrekare büyüklüğünde, tam donanımlı ve manzaralı teraslı bir mağara ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır. El yapımı, antika ve geleneksel mobilyalarla döşenmiştir.',
       en: 'A cavehouse of 80 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation. Fully built and decorated with handmade, antique and traditional furnitures.',
       zh: '80平方米的洞穴房，设施齐全，配有风景露台，为您提供轻松愉快的假期。全部采用手工制作的古董和传统家具装饰。',
     },
@@ -84,15 +84,14 @@ export const rooms: Room[] = [
       '/images/anitya-cave-suite/mix1fq.avif',
       '/images/anitya-cave-suite/bath01qp.avif',
       '/images/anitya-cave-suite/2039102d-9264-4db7-8cc8-a06cb5ad70b9.avif',
-      '/images/anitya-cave-suite/replicate-prediction-azrsw28jksrne0cwd18tveee8w.avif',
     ],
     amenities: {
       houseAmenities: {
         en: [
           'Non-smoking',
-          'Free wireless internet access',
+          'Free high-speed wireless internet access',
           'Living room',
-          'Study table and corner',
+          'Study table, chair and corner',
           'Kitchen',
           'Flat screen 3D LED Smart TV',
           'Sony Blueray Home Theater System',
@@ -107,9 +106,9 @@ export const rooms: Room[] = [
         ],
         tr: [
           'Sigara içilmez',
-          'Ücretsiz kablosuz internet erişimi',
+          'Yüksek hızlı ücretsiz kablosuz internet erişimi',
           'Oturma odası',
-          'Çalışma masası ve köşesi',
+          'Çalışma masası, sandalyesi ve köşesi',
           'Mutfak',
           'Düz ekran 3D LED Akıllı TV',
           'Sony Blueray Ev Sinema Sistemi',
@@ -124,9 +123,9 @@ export const rooms: Room[] = [
         ],
         zh: [
           '禁烟',
-          '免费无线网络',
+          '免费高速无线网络',
           '客厅',
-          '书桌和学习角',
+          '书桌、椅子和学习角',
           '厨房',
           '平板3D LED智能电视',
           '索尼蓝光家庭影院系统',
@@ -269,7 +268,7 @@ export const rooms: Room[] = [
       zh: '正宗洞穴套房',
     },
     capacity: 4,
-    size: '70 m²',
+    size: '65 m²',
     images: [
       '/images/sirahane-cave-suit/156dcea3-c398-401e-b9b0-241a25f92ec5.jpg',
       '/images/sirahane-cave-suit/DSC_6221.avif',
@@ -456,8 +455,8 @@ export const rooms: Room[] = [
       zh: '复式石屋套房',
     },
     description: {
-      tr: '35 metrekare büyüklüğünde, tam donanımlı ve manzaralı teraslı dubleks taş ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır.',
-      en: 'A duplex stone house of 35 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation.',
+      tr: '50 metrekare büyüklüğünde, tam donanımlı ve manzaralı teraslı dubleks taş ev, rahatlatıcı ve keyifli bir tatil için sunulmaktadır.',
+      en: 'A duplex stone house of 50 square meter, fully equipped with a scenic terrace is offered for a relaxing and enjoyable vacation.',
       zh: '35平方米的复式石屋，设施齐全，配有风景露台，为您提供轻松愉快的假期。',
     },
     shortDescription: {
@@ -466,7 +465,7 @@ export const rooms: Room[] = [
       zh: '带露台的复式石屋',
     },
     capacity: 4,
-    size: '40 m²',
+    size: '50 m²',
     images: [
       '/images/dublex-stone-suit/DSC_5695.avif',
       '/images/dublex-stone-suit/DSC_5696.avif',

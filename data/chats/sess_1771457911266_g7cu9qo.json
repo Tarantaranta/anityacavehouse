@@ -1,0 +1,122 @@
+{
+  "id": "sess_1771457911266_g7cu9qo",
+  "startTime": "2026-02-18T23:43:02.603Z",
+  "endTime": "2026-02-18T23:43:02.621Z",
+  "language": "tr",
+  "messages": [
+    {
+      "role": "assistant",
+      "content": "Merhaba! 👋 Anitya Cave House'a hoş geldiniz. Size nasıl yardımcı olabilirim?",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Kişiye özel gezi planı yap 🗺️",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Harika, size özel Kapadokya planınızı hazırlayalım! 🗺️ İlk sorum: Kaç gün kalıyorsunuz? \n\n---HIZLI_CEVAPLAR: 1 gün | 2 gün | 3 gün | 4 gün | 5+ gün---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "1 gün",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "1 gün boyunca Kapadokya'da olacaksınız, harika! Kimlerle geliyorsunuz? \n\n---HIZLI_CEVAPLAR: Çift / Romantik ❤️ | Aile (küçük çocuk) 👶 | Aile (büyük çocuk) 👨‍👩‍👧 | Arkadaş grubu 🎉 | Solo 🎒---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Aile (küçük çocuk) 👶",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Güzel! Aile ile birlikte geliyorsunuz. Kapadokya'da en çok neyi merak ediyorsunuz? \n\n---HIZLI_CEVAPLAR: Tarihi & arkeoloji 🏛️ | Doğa & vadiler 🏞️ | Fotoğraf 📸 | Yemek & yerel lezzetler 🍽️---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Yemek & yerel lezzetler 🍽️",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Yemek ve yerel lezzetler harika bir seçim! Bunun yanında ilginizi çeken başka bir şey var mı?\n\n---HIZLI_CEVAPLAR: Şarap tadımı 🍷 | Yeraltı şehirleri ⛏️ | El sanatları & çömlekçilik 🏺 | Hepsi güzel, sürpriz yap! ✨---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Hepsi güzel, sürpriz yap! ✨",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Anladım, hepsi güzel ve biraz sürpriz seviyorsunuz! Günde ne kadar yürümek istersiniz?\n\n---HIZLI_CEVAPLAR: Çok az (araçtan seyir) 🚗 | Orta (2-4 km) 🚶 | Aktif (5-10 km) 🥾 | Sportif (10km+) 💪---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Aktif (5-10 km) 🥾",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Aktif bir gün planlamak harika olacak! Yeraltı şehirleri etkileyici ama dar ve alçak geçitler var. Nasılsınız bu konuda? \n\n---HIZLI_CEVAPLAR: Sorun yok, görmeliyiz! 🕳️ | Biraz tedirginim ama denerim | Kapalı alan sevmem, atlayalım---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Kapalı alan sevmem, atlayalım",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Anladım, kapalı alanları atlayacağız. Daha önce Kapadokya'ya geldiniz mi? \n\n---HIZLI_CEVAPLAR: İlk kez, her şeyi görmek istiyorum! 🌟 | 2-3 kez geldim, yeni yerler arıyorum 🗺️ | Çok geldim, gizli köşeler olsun 💎---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Çok geldim, gizli köşeler olsun 💎",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Harika, o zaman size gizli köşeleri gösterecek bir plan yapalım! Son bir soru: sabah erken kalkmayı sever misiniz?\n\n---HIZLI_CEVAPLAR: Evet, gün doğumunu seviyorum 🌅 | Öğlen saatlerinde başlarım | Akşam romantizmi, sunset 🌇---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Evet, gün doğumunu seviyorum 🌅",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Gün doğumunu sevmeniz harika! Son sorum: Nasıl gezmek istiyorsunuz?\n\n---HIZLI_CEVAPLAR: Kendi arabamız var 🚗 | Taksi kiralayacağız 🚕 | Özel rehber istiyoruz 🎯 | Grup turuna katılırız 🚌---",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "user",
+      "content": "Taksi kiralayacağız 🚕",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Sizin İçin KİŞİSEL KAPADOKYA PLANIN\n\n📋 ÖZET: 1 gün | Aile (küçük çocuk) | Yemek & yerel lezzetler ve sürprizler\n\n═══ GÜN 1 ═══\n🌅 SABAH (07:00-10:00)\n• Gün doğumunu Göreme Panorama Noktası'nda izleyin — 1 saat — Balonların uçuşunu izlemek için mükemmel bir yer.\n• Ortahisar Kalesi'nin etrafında kısa bir sabah yürüyüşü yaparak güne başlayabilirsiniz.\n\n☀️ ÖĞLEN (10:00-14:00)\n• Avanos'a gidin ve çömlekçilik atölyelerini ziyaret edin — 2 saat — Çocuklarla birlikte keyifli vakit geçirebilir ve kendi çömleklerinizi yapabilirsiniz.\n• Öğle yemeği için Avanos'ta nehir kenarındaki restoranlarda taze alabalık veya Kapadokya'nın meşhur testi kebabını deneyin.\n\n🌆 ÖĞLEDEN SONRA (14:00-18:00)\n• Soğanlı Vadisi'ni ziyaret edin — 2-3 saat — Az turistin bildiği bu bölgede sakin ve huzurlu bir yürüyüş yapabilirsiniz.\n• Sobessos Antik Kenti'ni keşfedin — 1 saat — Yeni keşfedilmiş mozaikleriyle büyüleyici bir yer.\n\n🌅 AKŞAM (18:00-20:00)\n• Gül Vadisi'nde gün batımını izleyin — 1 saat — Kapadokya'nın en güzel sunset noktalarından biri.\n💡 Yerel İpucu: Gül Vadisi'nde gün batımını izlerken yanınıza hafif bir piknik alabilirsiniz, manzaranın tadını çıkarın.\n\n📌 ÖZEL NOTLAR:\n• Müze Kartı almanızı öneririm, çünkü birkaç müze ve antik kent göreceksiniz.\n• Restoran ve atölye ziyaretlerini önceden rezerve etmek isteyebilirsiniz.\n• Taksi ile rahatça gezebilir ve çocuklarla daha az yorulabilirsiniz.\n\nHerhangi bir rezervasyon veya organizasyon konusunda yardıma ihtiyacınız olursa, biz buraday",
+      "timestamp": "2026-02-18T23:43:02.603Z"
+    }
+  ],
+  "messageCount": 21,
+  "hasTravelPlan": true,
+  "topics": [
+    "Balon Turu",
+    "Gezi Planı",
+    "Restoran",
+    "Rezervasyon",
+    "Ulaşım/Transfer"
+  ]
+}
