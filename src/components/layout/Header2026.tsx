@@ -1,19 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const NAV = [
-  { href: "/tr", label: "Ana Sayfa" },
-  { href: "/tr/rooms", label: "Odalar" },
-  { href: "/tr/experiences", label: "Deneyimler" },
-  { href: "/tr/gallery", label: "Galeri" },
-  { href: "/tr/about", label: "Hakkımızda" },
-  { href: "/tr/contact", label: "İletişim" },
-];
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function Header2026() {
+  const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const pathname = usePathname();
+  // Ana sayfa: /tr, /en, /zh gibi sadece locale prefix olan path'ler
+  const isHomePage = /^\/[a-z]{2}\/?$/.test(pathname) || pathname === "/";
+  // Koyu (solid) header: scroll edildiyse VEYA ana sayfa değilse
+  const isDark = scrolled || !isHomePage;
+
+  const NAV = [
+    { href: "/" as const, label: t("home") },
+    { href: "/rooms" as const, label: t("rooms") },
+    { href: "/experiences" as const, label: t("experiences") },
+    { href: "/gallery" as const, label: t("gallery") },
+    { href: "/about" as const, label: t("about") },
+    { href: "/contact" as const, label: t("contact") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,69 +48,73 @@ export default function Header2026() {
       <header
         className={[
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled
+          isDark
             ? "backdrop-blur-md bg-surface/80 border-b border-line"
             : "bg-transparent",
         ].join(" ")}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <div className={["flex items-center justify-between transition-all duration-300", scrolled ? "h-16" : "h-20"].join(" ")}>
+          <div className={["flex items-center justify-between transition-all duration-300", isDark ? "h-16" : "h-20"].join(" ")}>
             {/* Left: Logo */}
-            <a href="/tr" className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-sm bg-ink text-white flex items-center justify-center font-serif font-light">
-                A
+            <Link href="/" className="flex items-center">
+              <div className="relative h-34 w-34 flex-shrink-0">
+                <Image
+                  src="/images/logo.avif"
+                  alt="Anitya Cave House Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
-              <div className="leading-tight">
-                <div className="font-serif text-ink tracking-wide">
-                  Anıtya Cave House
-                </div>
-                <div className="text-xs tracking-[0.18em] uppercase text-ink-2">
-                  Ortahisar • Cappadocia
-                </div>
-              </div>
-            </a>
+            </Link>
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-6">
               {NAV.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-ink-2 hover:text-ink transition"
+                  className={[
+                    "relative text-sm whitespace-nowrap transition-colors group",
+                    isDark ? "text-ink-2 hover:text-ink" : "text-white/80 hover:text-white",
+                  ].join(" ")}
                 >
                   {item.label}
-                </a>
+                  <span className={[
+                    "absolute -bottom-0.5 left-0 h-px w-0 group-hover:w-full transition-all duration-300",
+                    isDark ? "bg-ink" : "bg-white",
+                  ].join(" ")} />
+                </Link>
               ))}
             </nav>
 
             {/* Right: actions */}
             <div className="flex items-center gap-3">
-              {/* Language (placeholder links) */}
+              {/* Language switcher */}
               <div className="hidden md:flex items-center gap-2">
-                <a className="text-xs text-ink-2 hover:text-ink transition" href="/tr">
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="tr">
                   TR
-                </a>
-                <span className="text-line">•</span>
-                <a className="text-xs text-ink-2 hover:text-ink transition" href="/en">
+                </Link>
+                <span className={isDark ? "text-line" : "text-white/30"}>•</span>
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="en">
                   EN
-                </a>
-                <span className="text-line">•</span>
-                <a className="text-xs text-ink-2 hover:text-ink transition" href="/zh">
+                </Link>
+                <span className={isDark ? "text-line" : "text-white/30"}>•</span>
+                <Link className={["text-xs transition-colors", isDark ? "text-ink-2 hover:text-ink" : "text-white/70 hover:text-white"].join(" ")} href="/" locale="zh">
                   中文
-                </a>
+                </Link>
               </div>
 
-              <a
-                href="/tr/booking"
+              <Link
+                href="/booking"
                 className={[
-                  "hidden sm:inline-flex items-center justify-center rounded-md px-5 py-2 text-sm font-medium transition",
-                  scrolled
+                  "hidden sm:inline-flex items-center justify-center rounded-md px-5 py-2 text-sm font-medium whitespace-nowrap transition",
+                  isDark
                     ? "bg-ink text-white hover:bg-ink/90"
                     : "bg-white/10 text-white border border-white/30 hover:bg-white/15 backdrop-blur",
                 ].join(" ")}
               >
-                Rezervasyon
-              </a>
+                {t("booking")}
+              </Link>
 
               {/* Mobile menu button */}
               <button
@@ -108,7 +123,7 @@ export default function Header2026() {
                 className="lg:hidden inline-flex items-center justify-center rounded-md border border-line bg-surface/70 px-3 py-2 text-sm text-ink hover:bg-surface transition"
                 aria-label="Menu"
               >
-                Menü
+                ☰
               </button>
             </div>
           </div>
@@ -125,49 +140,49 @@ export default function Header2026() {
           <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-surface border-l border-line p-6">
             <div className="flex items-center justify-between">
               <div className="text-ink font-serif tracking-wide text-lg">
-                Anıtya
+                Anitya
               </div>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 className="rounded-md border border-line px-3 py-2 text-sm text-ink"
               >
-                Kapat
+                ✕
               </button>
             </div>
 
             <div className="mt-6 space-y-3">
               {NAV.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className="block py-2 text-ink-2 hover:text-ink transition"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="mt-8 flex items-center gap-3">
-              <a className="text-xs text-ink-2 hover:text-ink transition" href="/tr">
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="tr">
                 TR
-              </a>
-              <a className="text-xs text-ink-2 hover:text-ink transition" href="/en">
+              </Link>
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="en">
                 EN
-              </a>
-              <a className="text-xs text-ink-2 hover:text-ink transition" href="/zh">
+              </Link>
+              <Link className="text-xs text-ink-2 hover:text-ink transition" href="/" locale="zh">
                 中文
-              </a>
+              </Link>
             </div>
 
-            <a
-              href="/tr/booking"
+            <Link
+              href="/booking"
               onClick={() => setOpen(false)}
               className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-ink text-white px-5 py-3 text-sm font-medium hover:bg-ink/90 transition"
             >
-              Rezervasyon
-            </a>
+              {t("booking")}
+            </Link>
           </div>
         </div>
       ) : null}

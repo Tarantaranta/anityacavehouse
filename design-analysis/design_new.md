@@ -1212,7 +1212,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Anıtya Cave House",
+  title: "Anitya Cave House",
   description: "Independent suite homes in Ortahisar, Cappadocia.",
 };
 
@@ -1849,7 +1849,7 @@ export default function Header() {
               </div>
               <div className="leading-tight">
                 <div className="font-serif text-ink tracking-wide">
-                  Anıtya Cave House
+                  Anitya Cave House
                 </div>
                 <div className="text-xs tracking-[0.18em] uppercase text-ink-2">
                   Ortahisar • Cappadocia
@@ -1918,7 +1918,7 @@ export default function Header() {
           <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-surface border-l border-line p-6">
             <div className="flex items-center justify-between">
               <div className="text-ink font-serif tracking-wide text-lg">
-                Anıtya
+                Anitya
               </div>
               <button
                 type="button"
@@ -2117,7 +2117,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-serif text-ink tracking-wide text-lg">
-                  Anıtya Cave House
+                  Anitya Cave House
                 </div>
                 <div className="text-xs tracking-[0.18em] uppercase text-ink-2">
                   Ortahisar • Cappadocia
@@ -2190,7 +2190,7 @@ export default function Footer() {
 
         <div className="mt-14 pt-8 border-t border-line flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="text-sm text-ink-2">
-            © {new Date().getFullYear()} Anıtya Cave House. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} Anitya Cave House. Tüm hakları saklıdır.
           </div>
           <div className="text-xs tracking-[0.18em] uppercase text-ink-2">
             Built with Next.js
@@ -3323,8 +3323,8 @@ export async function generateMetadata({
 
   const isTR = lang === "tr";
   const title = isTR
-    ? "Anıtya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler"
-    : "Anıtya Cave House – Independent Suite Homes in Ortahisar, Cappadocia";
+    ? "Anitya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler"
+    : "Anitya Cave House – Independent Suite Homes in Ortahisar, Cappadocia";
 
   const description = isTR
     ? "Ortahisar’da, ortak alanı olmayan 3 bağımsız suite ev: 2 mağara suite, 1 taş suite. Özel teras, donanımlı mutfak, sakinlik ve mahremiyet."
@@ -3347,7 +3347,7 @@ export async function generateMetadata({
       title,
       description,
       url,
-      siteName: "Anıtya Cave House",
+      siteName: "Anitya Cave House",
       locale: lang,
       type: "website",
       images: [
@@ -3355,7 +3355,7 @@ export async function generateMetadata({
           url: "https://anityacavehouse.com/og.jpg",
           width: 1200,
           height: 630,
-          alt: "Anıtya Cave House",
+          alt: "Anitya Cave House",
         },
       ],
     },
@@ -3462,7 +3462,7 @@ export default function HeroCinematic() {
       >
         <Image
           src="/images/hero-1.jpg"
-          alt="Anıtya Cave House"
+          alt="Anitya Cave House"
           fill
           priority
           className="object-cover"

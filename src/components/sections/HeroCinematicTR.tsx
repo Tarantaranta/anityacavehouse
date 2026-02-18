@@ -28,7 +28,7 @@ export default function HeroCinematicTR() {
       >
         <Image
           src="/images/cappadocia-cave-house.avif"
-          alt="Anıtya Cave House - Terrace sunrise atmosphere"
+          alt="Anitya Cave House - Terrace sunrise atmosphere"
           fill
           className="object-cover object-center"
           priority

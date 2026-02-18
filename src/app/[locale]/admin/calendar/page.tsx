@@ -142,9 +142,9 @@ export default function CalendarAdminPage() {
               {['1', '2', '3'].map((roomId) => {
                 const exportUrl = typeof window !== 'undefined' ? getExportUrl(roomId) : '';
                 const roomNames = {
-                  '1': 'Anıtya Cave House',
-                  '2': 'Anıtya Cave House with Hammam',
-                  '3': 'Anıtya Dublex Stone House',
+                  '1': 'Anitya Cave House',
+                  '2': 'Anitya Cave House with Hammam',
+                  '3': 'Anitya Dublex Stone House',
                 };
 
                 return (

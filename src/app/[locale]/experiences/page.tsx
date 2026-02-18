@@ -1,189 +1,175 @@
-import { useTranslations } from 'next-intl';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import {
-  Sunrise,
-  Wine,
-  MapPin,
-  Camera,
-  Tent,
-  Mountain,
-  Utensils,
-  Bike
-} from 'lucide-react';
+import Header2026 from "@/components/layout/Header2026";
+import { Footer } from "@/components/layout/Footer";
+import ParallaxImage from "@/components/ui/ParallaxImage";
+import Reveal from "@/components/ui/Reveal";
+import ExperiencesGrid from "@/components/sections/ExperiencesGrid";
 
 export default function ExperiencesPage() {
-  const t = useTranslations('experiences');
-
-  // Placeholder experiences - will be filled with real content later
-  const experiences = [
-    {
-      icon: Sunrise,
-      title: 'Sıcak Hava Balonu Turu',
-      description: 'Kapadokya\'nın eşsiz manzarasını gün doğumunda kuş bakışı keşfedin.',
-      category: 'Macera',
-      duration: '3-4 saat',
-    },
-    {
-      icon: Wine,
-      title: 'Kapadokya Şarap Tadımı',
-      description: 'Bölgenin ünlü şaraplarını tarihi şarap mahzenlerinde tadın.',
-      category: 'Gastronomi',
-      duration: '2-3 saat',
-    },
-    {
-      icon: MapPin,
-      title: 'Yeraltı Şehri Turu',
-      description: 'Antik yeraltı şehirlerinin gizemli dünyasını keşfedin.',
-      category: 'Tarih',
-      duration: '2-3 saat',
-    },
-    {
-      icon: Camera,
-      title: 'Fotoğraf Safari',
-      description: 'Kapadokya\'nın en fotojenik noktalarında profesyonel fotoğraf turları.',
-      category: 'Sanat',
-      duration: '4-5 saat',
-    },
-    {
-      icon: Mountain,
-      title: 'Vadi Yürüyüşleri',
-      description: 'Güvercinlik, Aşk ve İhlara vadilerinde rehberli yürüyüşler.',
-      category: 'Doğa',
-      duration: '3-4 saat',
-    },
-    {
-      icon: Tent,
-      title: 'ATV Safari',
-      description: 'Peribacaları arasında heyecan dolu off-road macerası.',
-      category: 'Macera',
-      duration: '2 saat',
-    },
-    {
-      icon: Utensils,
-      title: 'Geleneksel Türk Mutfağı',
-      description: 'Yerel ailelerle birlikte geleneksel yemek pişirme deneyimi.',
-      category: 'Gastronomi',
-      duration: '3-4 saat',
-    },
-    {
-      icon: Bike,
-      title: 'Bisiklet Turları',
-      description: 'Kapadokya\'nın saklı köşelerini bisikletle keşfedin.',
-      category: 'Doğa',
-      duration: '3-4 saat',
-    },
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-surface">
+      <Header2026 />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-50 to-stone-100 py-12 sm:py-16 md:py-20 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-            <Badge className="bg-amber-700 mb-2 sm:mb-4 text-xs sm:text-sm">
-              Unutulmaz Anılar
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-amber-900 leading-tight px-2">
-              Kapadokya Deneyimleri
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-stone-700 leading-relaxed px-4">
-              Kapadokya'nın büyüsünü keşfetmek için özenle seçilmiş aktiviteler ve turlar.
-              Her deneyim, bölgenin eşsiz kültürünü ve doğal güzelliklerini yakından tanımanızı sağlar.
-            </p>
-          </div>
-        </div>
-      </section>
+      <main className="flex-1">
+        {/* ══════════════════════════════════════════════════════════════
+            E0 — EXPERIENCES HERO
+            Ana sayfanın devamı: bone zemin, serif başlık, ParallaxImage
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface pt-28 pb-10 md:pt-36 md:pb-12">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
 
-      {/* Coming Soon Notice */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
-        <div className="max-w-3xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-6 sm:p-8 text-center">
-          <p className="text-amber-900 text-base sm:text-lg font-medium">
-            🚧 Bu sayfa hazırlanıyor
-          </p>
-          <p className="text-stone-600 text-sm sm:text-base mt-2">
-            Yakında daha detaylı deneyim içerikleri, fotoğraflar ve rezervasyon bilgileriyle buluşacağız.
-          </p>
-        </div>
-      </section>
+            {/* Eyebrow + H1 + Description */}
+            <div className="mb-10 md:mb-14 space-y-4">
+              <Reveal>
+                <p className="text-xs tracking-[0.18em] uppercase text-ink-2">
+                  Ortahisar · Kapadokya
+                </p>
+              </Reveal>
 
-      <Separator className="container mx-auto" />
+              <Reveal delayMs={80}>
+                <h1 className="text-5xl md:text-7xl font-serif font-light tracking-tight text-ink leading-[1.05]">
+                  Kapadokya Deneyimleri
+                </h1>
+              </Reveal>
 
-      {/* Experiences Grid */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-bold text-amber-900 mb-3 sm:mb-4 px-2">
-            Popüler Deneyimler
-          </h2>
-          <p className="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto px-4">
-            Konaklamanızı daha özel kılacak aktiviteler
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {experiences.map((experience, index) => {
-            const Icon = experience.icon;
-            return (
-              <Card
-                key={index}
-                className="border-amber-100 hover:border-amber-300 transition-all hover:shadow-xl group"
-              >
-                <CardContent className="p-6 sm:p-8">
-                  <div className="bg-amber-100 group-hover:bg-amber-200 transition-colors w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4">
-                    <Icon className="h-7 w-7 sm:h-8 sm:w-8 text-amber-700" />
-                  </div>
-
-                  <div className="flex items-center gap-2 mb-3 flex-wrap">
-                    <Badge variant="outline" className="text-xs">
-                      {experience.category}
-                    </Badge>
-                    <span className="text-xs text-stone-500">
-                      {experience.duration}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-amber-900 mb-2 sm:mb-3">
-                    {experience.title}
-                  </h3>
-
-                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                    {experience.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Info Section */}
-      <section className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white py-12 sm:py-16 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-bold mb-3 sm:mb-4 px-2">
-              Deneyimlerinizi Planlayalım
-            </h2>
-            <p className="text-amber-100 text-base sm:text-lg leading-relaxed px-4">
-              Anıtya Cave House olarak, misafirlerimize Kapadokya'daki en iyi deneyimleri
-              sunmak için yerel rehberler ve tur operatörleriyle işbirliği yapıyoruz.
-              Rezervasyonlarınız için bize ulaşın, size en uygun programı oluşturalım.
-            </p>
-            <div className="pt-4 sm:pt-6">
-              <p className="text-amber-200 font-medium text-sm sm:text-base">
-                📧 info@anityacavehouse.com
-              </p>
-              <p className="text-amber-200 font-medium text-sm sm:text-base mt-2">
-                📱 WhatsApp: +90 XXX XXX XX XX
-              </p>
+              <Reveal delayMs={160}>
+                <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-[68ch]">
+                  Kapadokya'nın büyüsünü keşfetmek için özenle seçilmiş aktiviteler ve
+                  rotalar. Her deneyim, bölgenin eşsiz kültürünü ve doğal güzelliklerini
+                  yakından tanımanızı sağlar.
+                </p>
+              </Reveal>
             </div>
+
+            {/* Sinematik hero görsel */}
+            <Reveal delayMs={220}>
+              <ParallaxImage
+                src="/images/cappadocia-ortahisar-castle.avif"
+                alt="Kapadokya – Ortahisar manzarası"
+                className="w-full aspect-[16/9] rounded-2xl"
+                strength={16}
+                priority
+              />
+            </Reveal>
+
+            {/* Badge pills */}
+            <Reveal delayMs={300}>
+              <div className="mt-8 flex flex-wrap gap-2.5">
+                {[
+                  "Sakin tempo",
+                  "Yerel rehberler",
+                  "Özenle seçilmiş rotalar",
+                  "Size göre plan",
+                ].map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-black/10 bg-white/60 backdrop-blur-sm px-4 py-2 text-sm text-neutral-800"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            E1 + E2 — Kategori filtresi + Editoryal kartlar (Client)
+        ══════════════════════════════════════════════════════════════ */}
+        <ExperiencesGrid />
+
+        {/* ══════════════════════════════════════════════════════════════
+            E3 — MİNİ MANİFESTO
+            "Deneyimler, programa değil size uyar."
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface-2 py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <div className="rounded-2xl border border-black/5 bg-white/40 p-8 md:p-12">
+                <Reveal delayMs={60}>
+                  <p className="text-xs tracking-[0.18em] uppercase text-ink-2 mb-5">
+                    Ritim
+                  </p>
+                </Reveal>
+
+                <Reveal delayMs={120}>
+                  <h2 className="text-3xl md:text-4xl font-serif font-light tracking-tight text-ink leading-snug max-w-xl mb-6">
+                    Deneyimler, programa değil size uyar.
+                  </h2>
+                </Reveal>
+
+                <Reveal delayMs={180}>
+                  <p className="text-base text-ink-2 leading-relaxed max-w-2xl">
+                    Bazı sabahlar erken başlar — balonun sepetiyle birlikte güneşle
+                    yükselirsiniz. Bazı günler sadece yürümek, bir vadiyi sessizce
+                    dinlemek istersiniz. Bazı akşamlar ise masada uzun süre oturmak,
+                    yerel bir şarabı yavaş içmek. Burada her ikisi de mümkün.
+                    Konaklamanız boyunca sizin için bir program hazırlayabiliriz —
+                    ya da sadece haritayı uzatıp yolunuzu kendiniz çizebilirsiniz.
+                  </p>
+                </Reveal>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            E4 — PLANLAMA CTA
+            Tek net çıkış: WhatsApp + E-posta
+        ══════════════════════════════════════════════════════════════ */}
+        <section id="planlama" className="bg-surface py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <p className="text-xs tracking-[0.18em] uppercase text-ink-2 mb-6">
+                Planlama
+              </p>
+            </Reveal>
+
+            <Reveal delayMs={80}>
+              <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-ink leading-[1.05] max-w-2xl mb-6">
+                Deneyimlerinizi birlikte planlayalım.
+              </h2>
+            </Reveal>
+
+            <Reveal delayMs={140}>
+              <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-2xl mb-10">
+                Anitya Cave House olarak yerel rehberler ve tur operatörleriyle
+                yakın ilişkideyiz. Size en uygun programı oluşturmak için bize
+                yazın; balondan bisiklete, mahzenden mutfağa kadar her şeyi ayarlayalım.
+              </p>
+            </Reveal>
+
+            <Reveal delayMs={200}>
+              <div className="flex flex-col sm:flex-row gap-4">
+                {/* WhatsApp – primary */}
+                <a
+                  href="https://wa.me/90XXXXXXXXXX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 text-white px-6 py-3 text-sm font-medium hover:bg-neutral-800 transition-colors"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4 fill-current flex-shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.526 5.847L0 24l6.353-1.497A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.37l-.36-.213-3.728.878.944-3.637-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z" />
+                  </svg>
+                  WhatsApp ile yazın
+                </a>
+
+                {/* E-posta – secondary */}
+                <a
+                  href="mailto:info@anityacavehouse.com"
+                  className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white/50 px-6 py-3 text-sm font-medium hover:bg-white/70 transition-colors text-ink"
+                >
+                  info@anityacavehouse.com
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

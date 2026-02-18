@@ -8,9 +8,18 @@
     "about": "About",
     "more": "more.."
   },
+  "chapters": {
+    "manifesto": "Manifesto",
+    "independentHomes": "Independent Homes",
+    "kitchen": "Kitchen",
+    "terrace": "Terrace",
+    "location": "Location",
+    "morningRhythm": "Morning Rhythm",
+    "guestStories": "Guest Stories"
+  },
   "nav": {
     "home": "Home",
-    "rooms": "Rooms",
+    "rooms": "Suites",
     "experiences": "Experiences",
     "gallery": "Gallery",
     "blog": "Blog",
@@ -35,6 +44,9 @@
     },
     "exclusivity": {
       "heading": "Not a hotel. No shared spaces. Entirely yours.",
+      "headingLine1": "Not a hotel.",
+      "headingLine2": "No shared spaces.",
+      "headingLine3": "Entirely yours.",
       "description": "Anitya Cave House does not have a classic hotel structure. It consists of three independent suite homes with no shared spaces, located within the same building.",
       "suiteTypesTitle": "Our Suite Homes",
       "suiteTypes": {
@@ -289,7 +301,7 @@
   },
   "reviews": {
     "title": "What Our Guests Say",
-    "subtitle": "Read reviews from travelers around the world who experienced the magic of Anıtya Cave House",
+    "subtitle": "Read reviews from travelers around the world who experienced the magic of Anitya Cave House",
     "viewAllReviews": "View All Reviews on Airbnb",
     "verifiedGuests": "verified guests"
   },
@@ -306,5 +318,163 @@
     "newsletterText": "Stay updated with special offers and news",
     "subscribe": "Subscribe",
     "rights": "All rights reserved"
+  },
+  "hero": {
+    "eyebrow": "Ortahisar • Cappadocia",
+    "line1": "The same sun.",
+    "line2": "The same stone.",
+    "line3": "Thousands of years.",
+    "subtitle": "In the heart of Cappadocia, Ortahisar. Not a hotel — independent suite homes.",
+    "cta": "Explore Suite Homes",
+    "scroll": "Explore",
+    "badge1": "No shared spaces",
+    "badge2": "Private entrance",
+    "badge3": "Private terrace",
+    "badge4": "Fully equipped kitchen",
+    "badge5": "Ortahisar center"
+  },
+  "manifesto": {
+    "title": "Not a hotel. No shared spaces. Entirely yours.",
+    "intro": "Anitya Cave House consists of 3 independent suite homes within the same building. Two cave suites, one stone suite. All prepared exclusively for guests."
+  },
+  "notARoom": {
+    "title": "Not a room.",
+    "subtitle": "An independent home.",
+    "intro": "Staying at Anitya is not about entering a room; it's about retreating to your own space.",
+    "item1": "Silence.",
+    "item2": "Privacy.",
+    "item3": "Your own rhythm.",
+    "closing": "You don't share space with anyone. You set the pace of the day."
+  },
+  "kitchen": {
+    "label": "KITCHEN",
+    "title": "A real kitchen in every suite.",
+    "lead": "This is not an \"amenity\"; it's freedom and independence.",
+    "p1": "Refrigerator, oven, stove, kettle, coffee machine, traditional tea pot... Pots, pans, plates, various glasses and complete cutlery set.",
+    "p2": "Upon arrival, you are welcomed with unlimited filter coffee, Turkish coffee and black tea, olive oil and basic spices.",
+    "closing": "At Anitya, the kitchen is not an accessory.",
+    "closingEmphasis": "It's part of the living experience.",
+    "primaryCaption": "Fully equipped kitchen — home rhythm",
+    "secondaryCaption": "Unlimited filter coffee & Turkish coffee",
+    "item1": "Refrigerator",
+    "item2": "Oven & stove",
+    "item3": "Kettle & coffee machine",
+    "item4": "Traditional tea pot",
+    "item5": "Pots & pans",
+    "item6": "Complete cutlery set"
+  },
+  "terrace": {
+    "label": "TERRACE",
+    "sectionTitle": "Our private terraces.",
+    "title": "Where the day begins.",
+    "p1": "From our private terraces, you can see Cappadocia's rock formations, valleys and dovecotes, Ortahisar's stone houses, and on clear days, Mount Erciyes in the distance.",
+    "p2": "When weather conditions are suitable, at sunrise",
+    "p2Highlight": "hot air balloons",
+    "p2End": "glide silently across the horizon.",
+    "closing": "The terrace is not a viewpoint.",
+    "closingEmphasis": "It's where the day begins.",
+    "primaryCaption": "Ortahisar silhouette, valleys, stone houses",
+    "secondaryCaption": "Hot air balloons at sunrise when conditions allow"
+  },
+  "suites": {
+    "title": "Three suites. Three separate worlds.",
+    "description": "Each one different, each one independent.",
+    "detail": "One of our suite homes also features an independent salon area."
+  },
+  "trustBar": {
+    "label": "Verified guest trust",
+    "stats": "12+ Years Superhost • 4.86/5 • 1046+ reviews",
+    "description": "The common thread from hundreds of stays:",
+    "keywords": "silence, privacy, home comfort",
+    "feature1": "No shared spaces",
+    "feature2": "Private terrace",
+    "feature3": "Fully equipped kitchen",
+    "feature4": "Ortahisar center",
+    "stat1Value": "12+",
+    "stat1Label": "Years Superhost",
+    "stat2Value": "4.86",
+    "stat2Label": "Guest Rating",
+    "stat3Value": "1046+",
+    "stat3Label": "Verified Reviews"
+  },
+  "signatureManifesto": {
+    "line1": "Not a \"room\" in Cappadocia.",
+    "line2": "A home within the stone, entirely yours.",
+    "description": "Completely independent. No fixed schedule. No crowds. Just silence, privacy, and your own rhythm.",
+    "tagline": "Ortahisar • Independent Suites"
+  },
+  "breakfast": {
+    "title": "The morning belongs to you.",
+    "tagline": "No morning schedule.\nNo breakfast time.\nOnly your time.",
+    "description": "Breakfast options within a 2-minute walk, a wide variety of restaurants within 4-5 minutes. Ordering to the suite is also possible.",
+    "closing": "Outside if you wish, or at home.\nAt your own rhythm."
+  },
+  "location": {
+    "title": "In the heart of Ortahisar.\nIn the center of Cappadocia.",
+    "description": "You are within the historic fabric of Ortahisar Old Town. Walking to the castle, short drives to Cappadocia's iconic routes.",
+    "place1Name": "Ortahisar Castle",
+    "place1Distance": "~2 min walk",
+    "place2Name": "Göreme Open-Air Museum",
+    "place2Distance": "~7 min drive",
+    "place3Name": "Red Valley & Rose Valley",
+    "place3Distance": "~5 min drive",
+    "place4Name": "Three Beauties",
+    "place4Distance": "~8 min drive",
+    "place5Name": "Pancarlık Valley",
+    "place5Distance": "~10 min drive",
+    "caption": "Ortahisar silhouette, valleys, stone houses",
+    "openInMaps": "Open in Maps →"
+  },
+  "reviewsSection": {
+    "rating": "4.86 / 5",
+    "count": "1046+ verified guest reviews",
+    "review1": "Within the stone texture but with modern comfort… the location is perfect and the silence was incredible.",
+    "review2": "The terrace in the mornings is something else… the balloons and Ortahisar silhouette were unforgettable.",
+    "review3": "One of the rare places that truly feels like 'home'. The kitchen and privacy are wonderful.",
+    "review4": "Staying in Ortahisar was the right choice. Away from the crowds of Göreme but close to everything.",
+    "verifiedGuest": "Verified Airbnb Guest",
+    "viewAll": "View all reviews on Airbnb"
+  },
+  "finalCta": {
+    "title": "For those who want to experience Cappadocia like home.",
+    "description": "Not for crowded hotels; for those who choose silence, space, and independence.",
+    "cta": "Book Now"
+  },
+  "roomDetail": {
+    "backToSuites": "All Suites",
+    "description": "Description",
+    "amenities": "Suite Amenities",
+    "houseAmenities": "House Amenities",
+    "kitchen": "Kitchen",
+    "guestServices": "Guest Services",
+    "guests": "guests",
+    "perNight": "/ night",
+    "taxIncluded": "Taxes included",
+    "bookNow": "Book Now",
+    "inquire": "Inquire",
+    "freeCancellation": "Free cancellation (up to 48h before check-in)",
+    "superhostTrust": "12+ Years Airbnb Superhost trust",
+    "support": "24/7 guest support",
+    "otherSuites": "Other Suites",
+    "viewDetails": "View Details"
+  },
+  "chatbot": {
+    "title": "Anitya Assistant",
+    "subtitle": "We're here to help you",
+    "openChat": "Open Chat",
+    "closeChat": "Close Chat",
+    "welcome": "Hello! 👋 Welcome to Anitya Cave House. How can I help you today?",
+    "quickQuestionsTitle": "Popular Questions:",
+    "quickQuestions": {
+      "q1": "Can you tell me about the suites?",
+      "q2": "What can I do in Ortahisar?",
+      "q3": "How can I book a balloon tour?",
+      "q4": "What kitchen equipment do you have?",
+      "q5": "How about prices and availability?",
+      "q6": "Create my personal travel plan 🗺️"
+    },
+    "inputPlaceholder": "Type your message...",
+    "send": "Send",
+    "error": "Sorry, an error occurred. Please try again or contact us directly: +90 544 494 68 14"
   }
 }

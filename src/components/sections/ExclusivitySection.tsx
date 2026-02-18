@@ -3,13 +3,23 @@
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
 
 export default function ExclusivitySection() {
   const t = useTranslations('home.exclusivity');
   const ref = useRef(null);
+  const sectionRef = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -26,6 +36,7 @@ export default function ExclusivitySection() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative py-24 md:py-32 z-10"
       style={{ backgroundColor: '#D4C4A8' }}
     >
@@ -42,6 +53,7 @@ export default function ExclusivitySection() {
                 {/* Small Detail Image (Now on Top) */}
                 <motion.div
                   className="relative w-3/4 ml-auto aspect-[16/10] overflow-hidden rounded-sm shadow-md group"
+                  style={reduce ? undefined : { y: y1 }}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -60,6 +72,7 @@ export default function ExclusivitySection() {
                 {/* Large Primary Image (Now on Bottom) */}
                 <motion.div
                   className="relative w-full aspect-[4/3] overflow-hidden rounded-sm shadow-lg group"
+                  style={reduce ? undefined : { y: y2 }}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -83,13 +96,15 @@ export default function ExclusivitySection() {
 
             {/* Heading */}
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-stone-900 leading-relaxed"
+              className="font-light tracking-wide text-stone-900 leading-relaxed"
               custom={0}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
               variants={fadeInVariants}
             >
-              {t('heading')}
+              <span className="block text-4xl md:text-5xl lg:text-6xl mb-2">{t('headingLine1')}</span>
+              <span className="block text-3xl md:text-4xl mb-2">{t('headingLine2')}</span>
+              <span className="block text-3xl md:text-4xl">{t('headingLine3')}</span>
             </motion.h2>
 
             {/* Description Paragraph */}

@@ -8,7 +8,7 @@ export interface AirbnbReview {
 }
 
 // Top 10 curated reviews from Airbnb
-// Based on actual guest feedback patterns for Anıtya Cave House
+// Based on actual guest feedback patterns for Anitya Cave House
 export const topReviews: AirbnbReview[] = [
   {
     id: "1",

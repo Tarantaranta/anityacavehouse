@@ -1,135 +1,335 @@
-import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/routing';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { rooms } from '@/data/rooms';
-import { Users, Maximize, Euro } from 'lucide-react';
-import Image from 'next/image';
+import Header2026 from "@/components/layout/Header2026";
+import { Footer } from "@/components/layout/Footer";
+import { rooms } from "@/data/rooms";
+import ParallaxImage from "@/components/ui/ParallaxImage";
+import Reveal from "@/components/ui/Reveal";
+import RoomFeatureCard from "@/components/ui/RoomFeatureCard";
+import ReviewSourceNote from "@/components/ui/ReviewSourceNote";
+import { Link } from "@/i18n/routing";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+// ─── Locale-aware static content ───────────────────────────────────────────
+
+const pageContent = {
+  tr: {
+    eyebrow: "Ortahisar · Kapadokya",
+    h1: "Suitlerimiz",
+    description:
+      "Kapadokya'nın eşsiz mağara mimarisinde, tamamen bağımsız ve özel suitlerimizde konforun tadını çıkarın.",
+    badges: [
+      "3 bağımsız suite",
+      "2 mağara · 1 taş",
+      "Özel giriş",
+      "Özel teras",
+      "Donanımlı mutfak",
+    ],
+    trustLabel: "Doğrulanmış misafir güveni",
+    stats: [
+      { value: "12+", label: "Yıl Superhost" },
+      { value: "4.86", label: "Misafir Puanı" },
+      { value: "1046+", label: "Doğrulanmış Yorum" },
+    ],
+    trustNote: "Yüzlerce konaklamadan süzülen ortak cümle: ",
+    trustKeywords: "sessizlik, mahremiyet, ev konforu.",
+    capacityUnit: "kişi",
+    typeLabels: ["Mağara", "Mağara", "Taş"] as string[],
+    roomHighlights: [
+      [
+        "Bağımsız yaşam alanı",
+        "Küvetli özel banyo",
+        "Donanımlı mutfak",
+        "Özel teras",
+        "Wi-Fi",
+      ],
+      [
+        "Otantik mağara mimarisi",
+        "Donanımlı mutfak",
+        "Özel teras",
+        "Wi-Fi",
+        "Sessizlik",
+      ],
+      [
+        "İki katlı yaşam alanı",
+        "Donanımlı mutfak",
+        "Özel teras",
+        "Wi-Fi",
+        "Kapadokya manzarası",
+      ],
+    ] as string[][],
+    detailsLabel: "Detaylar",
+    bookingLabel: "Rezervasyon",
+    ctaTitle: "Hangi suite'i seçeceğinize karar veremediniz mi?",
+    ctaDesc:
+      "Size en uygun odayı bulmak için ekibimiz yardımcı olmaktan mutluluk duyar.",
+    ctaBtn: "Bize Ulaşın",
+  },
+  en: {
+    eyebrow: "Ortahisar · Cappadocia",
+    h1: "Our Suites",
+    description:
+      "Experience complete independence in our private cave suites, nestled in the unique architecture of Cappadocia.",
+    badges: [
+      "3 independent suites",
+      "2 cave · 1 stone",
+      "Private entrance",
+      "Private terrace",
+      "Equipped kitchen",
+    ],
+    trustLabel: "Verified guest trust",
+    stats: [
+      { value: "12+", label: "Year Superhost" },
+      { value: "4.86", label: "Guest Rating" },
+      { value: "1046+", label: "Verified Reviews" },
+    ],
+    trustNote: "A phrase distilled from hundreds of stays: ",
+    trustKeywords: "silence, privacy, home comfort.",
+    capacityUnit: "guests",
+    typeLabels: ["Cave", "Cave", "Stone"] as string[],
+    roomHighlights: [
+      [
+        "Independent living space",
+        "Private bathroom with bathtub",
+        "Equipped kitchen",
+        "Private terrace",
+        "Wi-Fi",
+      ],
+      [
+        "Authentic cave architecture",
+        "Equipped kitchen",
+        "Private terrace",
+        "Wi-Fi",
+        "Silence",
+      ],
+      [
+        "Two-floor living",
+        "Equipped kitchen",
+        "Private terrace",
+        "Wi-Fi",
+        "Cappadocia view",
+      ],
+    ] as string[][],
+    detailsLabel: "Details",
+    bookingLabel: "Book Now",
+    ctaTitle: "Can't decide which suite?",
+    ctaDesc:
+      "Our team is delighted to help you find the perfect suite for your stay.",
+    ctaBtn: "Contact Us",
+  },
+  zh: {
+    eyebrow: "奥塔希萨尔 · 卡帕多西亚",
+    h1: "我们的套房",
+    description: "在卡帕多西亚独特的洞穴建筑中，享受完全独立的私人套房。",
+    badges: [
+      "3个独立套房",
+      "2洞穴·1石",
+      "私人入口",
+      "私人露台",
+      "设备齐全的厨房",
+    ],
+    trustLabel: "已验证的客人信任",
+    stats: [
+      { value: "12+", label: "年超级房东" },
+      { value: "4.86", label: "客人评分" },
+      { value: "1046+", label: "已验证评论" },
+    ],
+    trustNote: "从数百次住宿中提炼的共同感受：",
+    trustKeywords: "宁静、隐私、家的舒适。",
+    capacityUnit: "人",
+    typeLabels: ["洞穴", "洞穴", "石屋"] as string[],
+    roomHighlights: [
+      [
+        "独立生活空间",
+        "带浴缸的私人浴室",
+        "设备齐全的厨房",
+        "私人露台",
+        "Wi-Fi",
+      ],
+      ["正宗洞穴建筑", "设备齐全的厨房", "私人露台", "Wi-Fi", "宁静"],
+      [
+        "两层生活空间",
+        "设备齐全的厨房",
+        "私人露台",
+        "Wi-Fi",
+        "卡帕多西亚美景",
+      ],
+    ] as string[][],
+    detailsLabel: "详情",
+    bookingLabel: "预订",
+    ctaTitle: "无法决定选哪个套房？",
+    ctaDesc: "我们的团队很乐意帮助您找到最适合您的套房。",
+    ctaBtn: "联系我们",
+  },
+};
+
+type SupportedLocale = keyof typeof pageContent;
+
+// ───────────────────────────────────────────────────────────────────────────
+
 export default async function RoomsPage({ params }: PageProps) {
   const { locale } = await params;
-  const t = await getTranslations('rooms');
+  const l: SupportedLocale = locale in pageContent
+    ? (locale as SupportedLocale)
+    : "tr";
+  const c = pageContent[l];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-surface">
+      <Header2026 />
 
-      {/* Page Header */}
-      <section className="bg-gradient-to-br from-amber-50 to-stone-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-playfair font-bold text-amber-900 mb-4">
-              Odalarımız
-            </h1>
-            <p className="text-lg text-stone-700">
-              Kapadokya'nın eşsiz mağara mimarisinde, modern konforun tadını çıkarın.
-              Her odamız özenle tasarlanmış ve size unutulmaz bir deneyim sunmak için hazırlanmıştır.
-            </p>
+      <main className="flex-1">
+        {/* ══════════════════════════════════════════════════════════════
+            R0 — ROOMS HERO
+            Ana sayfanın devamı: bone zemin, serif başlık, ParallaxImage
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface pt-28 pb-20 md:pt-36 md:pb-28">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+
+            {/* Eyebrow + H1 + Description */}
+            <div className="mb-10 md:mb-14 space-y-4">
+              <Reveal>
+                <p className="text-xs tracking-[0.18em] uppercase text-ink-2">
+                  {c.eyebrow}
+                </p>
+              </Reveal>
+
+              <Reveal delayMs={80}>
+                <h1 className="text-5xl md:text-7xl font-serif font-light tracking-tight text-ink leading-[1.05]">
+                  {c.h1}
+                </h1>
+              </Reveal>
+
+              <Reveal delayMs={160}>
+                <p className="text-base md:text-lg text-ink-2 leading-relaxed max-w-[68ch]">
+                  {c.description}
+                </p>
+              </Reveal>
+            </div>
+
+            {/* Sinematik hero görsel */}
+            <Reveal delayMs={220}>
+              <ParallaxImage
+                src="/images/cappadocia-ortahisar-castle.avif"
+                alt="Ortahisar Kalesi – Kapadokya"
+                className="w-full aspect-[16/9] rounded-2xl"
+                strength={16}
+                priority
+              />
+            </Reveal>
+
+            {/* Badge pills */}
+            <Reveal delayMs={300}>
+              <div className="mt-8 flex flex-wrap gap-2.5">
+                {c.badges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-black/10 bg-white/60 backdrop-blur-sm px-4 py-2 text-sm text-ink-2"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Rooms Grid */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {rooms.map((room) => (
-            <Card key={room.id} className="overflow-hidden border-amber-100 hover:border-amber-300 transition-all hover:shadow-xl group">
-              {/* Room Image */}
-              <div className="relative h-64 bg-stone-200 overflow-hidden">
-                {room.featured && (
-                  <Badge className="absolute top-4 left-4 z-10 bg-amber-700">
-                    Featured
-                  </Badge>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-[1]" />
-                {/* Placeholder image - will be replaced with actual images */}
-                <div className="absolute inset-0 flex items-center justify-center text-stone-400 bg-stone-100">
-                  <span className="text-6xl">🏛️</span>
+        {/* ══════════════════════════════════════════════════════════════
+            R1 — TRUST MINI
+            TrustBar'ın sade, inline versiyonu; rozet tekrarı yok
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface-2 py-20 md:py-24">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <p className="text-xs tracking-[0.18em] uppercase text-ink-2 mb-8">
+                {c.trustLabel}
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+              {c.stats.map((stat, i) => (
+                <Reveal key={stat.label} delayMs={i * 80}>
+                  <div className="rounded-2xl border border-black/5 bg-white/50 p-6">
+                    <p className="text-4xl md:text-5xl font-light font-serif text-ink tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-sm text-ink-2 tracking-wide">
+                      {stat.label}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <ReviewSourceNote />
+
+            <Reveal delayMs={200}>
+              <p className="border-t border-line pt-6 mt-2 text-ink-2 leading-relaxed text-sm md:text-base">
+                {c.trustNote}
+                <span className="text-ink italic">{c.trustKeywords}</span>
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            R2 — ROOMS LIST (Editoryal)
+            Her oda: alternatif sol/sağ yerleşim, az metin, güçlü görsel
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <div className="space-y-24 md:space-y-32">
+              {rooms.map((room, i) => (
+                <RoomFeatureCard
+                  key={room.id}
+                  title={room.name[l]}
+                  description={room.description[l]}
+                  imageSrc={room.images[0]}
+                  imageAlt={room.name[l]}
+                  capacity={room.capacity}
+                  capacityUnit={c.capacityUnit}
+                  sizeSqm={room.size}
+                  typeLabel={c.typeLabels[i]}
+                  detailsHref={`/rooms/${room.slug}`}
+                  bookingHref={`/booking?room=${room.slug}`}
+                  highlights={c.roomHighlights[i]}
+                  detailsLabel={c.detailsLabel}
+                  bookingLabel={c.bookingLabel}
+                  reverse={i % 2 === 1}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════════════════════
+            R3 — DECISION CTA
+            "Hangi suite'i seçeceğinize karar veremediniz mi?"
+        ══════════════════════════════════════════════════════════════ */}
+        <section className="bg-surface-2 py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <div className="rounded-2xl border border-black/5 bg-white/40 p-10 md:p-14">
+                <h2 className="text-3xl md:text-4xl font-serif font-light tracking-tight text-ink leading-snug max-w-2xl">
+                  {c.ctaTitle}
+                </h2>
+                <p className="mt-5 text-base text-ink-2 leading-relaxed max-w-xl">
+                  {c.ctaDesc}
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full bg-neutral-900 text-white px-7 py-3.5 text-sm font-medium hover:bg-neutral-800 transition-colors"
+                  >
+                    {c.ctaBtn}
+                  </Link>
                 </div>
               </div>
-
-              <CardHeader>
-                <CardTitle className="text-2xl font-playfair text-amber-900">
-                  {room.name[locale as keyof typeof room.name]}
-                </CardTitle>
-                <CardDescription className="text-stone-600">
-                  {room.shortDescription[locale as keyof typeof room.shortDescription]}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                {/* Room Info */}
-                <div className="flex gap-4 text-sm text-stone-600">
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span>{room.capacity} Kişi</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Maximize className="h-4 w-4" />
-                    <span>{room.size}</span>
-                  </div>
-                </div>
-
-                {/* Price - Contact for rates */}
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-semibold text-amber-900">
-                    Contact for rates
-                  </span>
-                </div>
-
-                {/* Amenities Preview */}
-                <div className="flex flex-wrap gap-2">
-                  {room.amenities.houseAmenities.slice(0, 4).map((amenity, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
-                      {amenity.includes('WiFi') && '📶'}
-                      {amenity.includes('TV') && '📺'}
-                      {amenity.includes('Kitchen') && '🍳'}
-                      {amenity.includes('heating') && '🔥'}
-                      {amenity.slice(0, 20)}...
-                    </Badge>
-                  ))}
-                  {room.amenities.houseAmenities.length > 4 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{room.amenities.houseAmenities.length - 4} more
-                    </Badge>
-                  )}
-                </div>
-              </CardContent>
-
-              <CardFooter className="flex gap-3">
-                <Button asChild variant="outline" className="flex-1">
-                  <Link href={`/rooms/${room.slug}`}>Detaylar</Link>
-                </Button>
-                <Button asChild className="flex-1 bg-amber-700 hover:bg-amber-800">
-                  <Link href={`/booking?room=${room.slug}`}>Rezervasyon</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-amber-900 text-white py-16">
-        <div className="container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold">
-            Hangi Odayı Seçeceğinize Karar Veremediniz Mi?
-          </h2>
-          <p className="text-lg text-amber-100 max-w-2xl mx-auto">
-            Size en uygun odayı bulmak için ekibimiz yardımcı olmaktan mutluluk duyar.
-          </p>
-          <Button asChild size="lg" variant="secondary" className="bg-white text-amber-900 hover:bg-amber-50">
-            <Link href="/contact">Bize Ulaşın</Link>
-          </Button>
-        </div>
-      </section>
+            </Reveal>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

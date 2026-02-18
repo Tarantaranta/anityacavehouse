@@ -1,6 +1,8 @@
 import { Footer } from '@/components/layout/Footer';
 import Header2026 from '@/components/layout/Header2026';
 import HeroCinematic2026 from '@/components/sections/HeroCinematic2026';
+import TrustBar from '@/components/sections/TrustBar';
+import SignatureManifesto from '@/components/sections/SignatureManifesto';
 import ManifestoBlock from '@/components/sections/ManifestoBlock';
 import NotARoomSticky from '@/components/sections/NotARoomSticky';
 import SuitesOverview from '@/components/sections/SuitesOverview';
@@ -12,8 +14,6 @@ import ReviewsMinimal from '@/components/sections/ReviewsMinimal';
 import FinalCTA from '@/components/sections/FinalCTA';
 import { SectionDivider } from '@/components/ui/SectionRhythm';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
-import CustomCursor from '@/components/ui/CustomCursor';
-import CursorHalo from '@/components/ui/CursorHalo';
 import PreloadImages from '@/components/ui/PreloadImages';
 
 export default function HomePage() {
@@ -28,12 +28,13 @@ export default function HomePage() {
     <SmoothScrollProvider>
       <div className="min-h-screen flex flex-col">
         <PreloadImages images={criticalImages} />
-        <CustomCursor />
-        <CursorHalo />
         <Header2026 />
 
         <main>
           <HeroCinematic2026 />
+          <TrustBar />
+          <SignatureManifesto />
+          <SectionDivider />
           <ManifestoBlock />
           <SectionDivider />
           <NotARoomSticky />
@@ -53,6 +54,7 @@ export default function HomePage() {
         </main>
 
         <Footer />
+
       </div>
     </SmoothScrollProvider>
   );

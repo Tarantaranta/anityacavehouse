@@ -34,10 +34,10 @@ export function Header() {
             <Link href="/" className="flex items-center" id="header-logo">
               <Image
                 src="/images/header-logo.avif"
-                alt="Anıtya Cave House Logo"
+                alt="Anitya Cave House Logo"
                 width={1200}
                 height={912}
-                className="h-20 md:h-24 w-auto drop-shadow-lg"
+                className="h-24 md:h-28 w-auto drop-shadow-lg"
                 priority
               />
             </Link>

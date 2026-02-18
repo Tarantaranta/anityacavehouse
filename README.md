@@ -1,4 +1,4 @@
-# Anıtya Cave House - Official Website
+# Anitya Cave House - Official Website
 
 Modern, çok dilli (TR/EN/ZH) Next.js 15 tabanlı Kapadokya mağara otel web sitesi.
 
@@ -158,13 +158,13 @@ Detaylı proje görevleri için [TODO.md](./TODO.md) dosyasına bakın.
 
 ## 📄 Lisans
 
-© 2026 Anıtya Cave House. Tüm hakları saklıdır.
+© 2026 Anitya Cave House. Tüm hakları saklıdır.
 
 ## 📞 İletişim
 
 - **Website:** https://anityacavehouse.com
 - **Email:** info@anityacavehouse.com
-- **Airbnb:** [Anıtya Cave House](https://www.airbnb.com/...)
+- **Airbnb:** [Anitya Cave House](https://www.airbnb.com/...)
 - **Instagram:** [@anityacavehouse](https://instagram.com/anityacavehouse)
 
 ## 🙏 Teşekkürler

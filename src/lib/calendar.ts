@@ -98,10 +98,10 @@ export function generateICalFeed(bookings: any[]): string {
   const icalLines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Anıtya Cave House//Booking System//EN',
+    'PRODID:-//Anitya Cave House//Booking System//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
-    'X-WR-CALNAME:Anıtya Cave House Reservations',
+    'X-WR-CALNAME:Anitya Cave House Reservations',
     'X-WR-TIMEZONE:Europe/Istanbul',
   ];
 
@@ -119,7 +119,7 @@ export function generateICalFeed(bookings: any[]): string {
       `CREATED:${created}`,
       `DESCRIPTION:Direct booking via anityacavehouse.com`,
       `LAST-MODIFIED:${created}`,
-      `LOCATION:Anıtya Cave House\\, Göreme\\, Cappadocia`,
+      `LOCATION:Anitya Cave House\\, Göreme\\, Cappadocia`,
       `SEQUENCE:0`,
       `STATUS:CONFIRMED`,
       `SUMMARY:Reserved - ${booking.guestName}`,

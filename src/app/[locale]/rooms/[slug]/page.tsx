@@ -1,270 +1,327 @@
 import { notFound } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { Header } from '@/components/layout/Header';
+import Header2026 from '@/components/layout/Header2026';
 import { Footer } from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { rooms, getRoomBySlug } from '@/data/rooms';
-import {
-  Users,
-  Maximize,
-  ChevronLeft,
-  CheckCircle2
-} from 'lucide-react';
+import RoomGallery from '@/components/ui/RoomGallery';
+import Reveal from '@/components/ui/Reveal';
+import Image from 'next/image';
+import { Users, Maximize, ChevronLeft, CheckCircle2 } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
+// ─── Locale-aware UI labels ────────────────────────────────────────────────
+
+const ui = {
+  tr: {
+    backToSuites: 'Tüm Suitlerimiz',
+    description: 'Açıklama',
+    amenities: 'Oda Olanakları',
+    houseAmenities: 'Ev Olanakları',
+    kitchen: 'Mutfak',
+    guestServices: 'Misafir Hizmetleri',
+    guests: 'kişi',
+    bookNow: 'Rezervasyon Yap',
+    inquire: 'Bilgi Al',
+    freeCancellation: "Ücretsiz iptal (check-in'den 48 saat öncesine kadar)",
+    superhostTrust: '12+ Yıl Airbnb Superhost güvencesi',
+    support: '7/24 misafir desteği',
+    otherSuites: 'Diğer Suitlerimiz',
+    viewDetails: 'Detayları Gör',
+  },
+  en: {
+    backToSuites: 'All Suites',
+    description: 'Description',
+    amenities: 'Suite Amenities',
+    houseAmenities: 'House Amenities',
+    kitchen: 'Kitchen',
+    guestServices: 'Guest Services',
+    guests: 'guests',
+    bookNow: 'Book Now',
+    inquire: 'Inquire',
+    freeCancellation: 'Free cancellation (up to 48h before check-in)',
+    superhostTrust: '12+ Years Airbnb Superhost trust',
+    support: '24/7 guest support',
+    otherSuites: 'Other Suites',
+    viewDetails: 'View Details',
+  },
+  zh: {
+    backToSuites: '所有套房',
+    description: '描述',
+    amenities: '套房设施',
+    houseAmenities: '房间设施',
+    kitchen: '厨房',
+    guestServices: '客人服务',
+    guests: '人',
+    bookNow: '立即预订',
+    inquire: '咨询',
+    freeCancellation: '免费取消（入住前48小时）',
+    superhostTrust: '12+年Airbnb超赞房东信誉',
+    support: '24/7客人支持',
+    otherSuites: '其他套房',
+    viewDetails: '查看详情',
+  },
+};
+
+type SupportedLocale = keyof typeof ui;
+
 export async function generateStaticParams() {
-  return rooms.map((room) => ({
-    slug: room.slug,
-  }));
+  return rooms.map((room) => ({ slug: room.slug }));
 }
 
 export default async function RoomDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
+  const l: SupportedLocale = locale in ui ? (locale as SupportedLocale) : 'tr';
+  const c = ui[l];
   const room = getRoomBySlug(slug);
 
-  if (!room) {
-    notFound();
-  }
+  if (!room) notFound();
+
+  const name = room.name[l];
+  const description = room.description[l];
+  const shortDesc = room.shortDescription[l];
+  const specs = room.specifications;
+  const specialNote = room.specialNote[l];
+
+  const houseAmenities = room.amenities.houseAmenities[l];
+  const kitchenAmenities = room.amenities.kitchen[l];
+  const guestServices = room.amenities.guestServices[l];
+
+  const otherRooms = rooms.filter((r) => r.id !== room.id).slice(0, 3);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <div className="min-h-screen flex flex-col bg-surface">
+      <Header2026 />
 
-      {/* Back Button */}
-      <div className="border-b bg-white">
-        <div className="container mx-auto px-4 py-4">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/rooms" className="flex items-center gap-2">
-              <ChevronLeft className="h-4 w-4" />
-              Tüm Odalar
-            </Link>
-          </Button>
+      {/* ── Back navigation ────────────────────────────────────────────── */}
+      <div className="pt-20 bg-surface border-b border-line">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-4">
+          <Link
+            href="/rooms"
+            className="inline-flex items-center gap-2 text-sm text-ink-2 hover:text-ink transition-colors"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            {c.backToSuites}
+          </Link>
         </div>
       </div>
 
-      {/* Room Images Gallery */}
-      <section className="bg-stone-100 py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Main Image */}
-            <div className="relative h-96 md:h-[600px] bg-stone-200 rounded-lg overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-stone-400">
-                <span className="text-8xl">🏛️</span>
-              </div>
-              {room.featured && (
-                <Badge className="absolute top-4 left-4 bg-amber-700">
-                  ⭐ Featured Room
-                </Badge>
-              )}
-            </div>
-
-            {/* Thumbnail Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="relative h-44 md:h-[290px] bg-stone-200 rounded-lg overflow-hidden"
-                >
-                  <div className="absolute inset-0 flex items-center justify-center text-stone-400">
-                    <span className="text-4xl">📷</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* ── Gallery ───────────────────────────────────────────────────── */}
+      <section className="bg-surface-2 py-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <RoomGallery images={room.images ?? []} alt={name} />
         </div>
       </section>
 
-      {/* Room Details */}
-      <section className="container mx-auto px-4 py-12">
+      {/* ── Room Details ──────────────────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Left Column - Room Info */}
-          <div className="lg:col-span-2 space-y-8">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-playfair font-bold text-amber-900 mb-4">
-                {room.name[locale as keyof typeof room.name]}
-              </h1>
-              <p className="text-xl text-stone-600">
-                {room.shortDescription[locale as keyof typeof room.shortDescription]}
-              </p>
-            </div>
 
-            <div className="flex gap-6 text-stone-700">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-amber-700" />
-                <span>{room.capacity} Kişi</span>
+          {/* Left: Room Info */}
+          <div className="lg:col-span-2 space-y-10">
+
+            {/* Title + capacity */}
+            <Reveal>
+              <div>
+                <p className="text-xs tracking-[0.18em] uppercase text-ink-2 mb-3">
+                  {room.subtitle[l]}
+                </p>
+                <h1 className="text-4xl md:text-5xl font-serif font-light tracking-tight text-ink leading-tight">
+                  {name}
+                </h1>
+                <p className="mt-3 text-base text-ink-2">{shortDesc}</p>
+                <div className="mt-5 flex flex-wrap gap-5 text-sm text-ink-2">
+                  <span className="flex items-center gap-1.5">
+                    <Users className="h-4 w-4 text-ink-3" />
+                    {room.capacity} {c.guests}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Maximize className="h-4 w-4 text-ink-3" />
+                    {room.size}
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Maximize className="h-5 w-5 text-amber-700" />
-                <span>{room.size}m²</span>
+            </Reveal>
+
+            <div className="border-t border-line" />
+
+            {/* Description */}
+            <Reveal>
+              <div>
+                <h2 className="text-xl font-serif font-light text-ink mb-4">
+                  {c.description}
+                </h2>
+                <p className="text-base text-ink-2 leading-relaxed">{description}</p>
               </div>
-            </div>
+            </Reveal>
 
-            <Separator />
-
-            <div>
-              <h2 className="text-2xl font-playfair font-bold text-amber-900 mb-4">
-                Açıklama
-              </h2>
-              <p className="text-stone-700 leading-relaxed text-lg">
-                {room.description[locale as keyof typeof room.description]}
-              </p>
-            </div>
-
-            <Separator />
-
-            <div>
-              <h2 className="text-2xl font-playfair font-bold text-amber-900 mb-6">
-                Oda Olanakları
-              </h2>
-
-              {/* House Amenities */}
-              <h3 className="text-lg font-semibold text-amber-800 mb-3">Ev Olanakları</h3>
-              <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                {room.amenities.houseAmenities.map((amenity: string) => (
-                  <div
-                    key={amenity}
-                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{amenity}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Kitchen */}
-              <h3 className="text-lg font-semibold text-amber-800 mb-3">Mutfak</h3>
-              <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                {room.amenities.kitchen.map((amenity: string) => (
-                  <div
-                    key={amenity}
-                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{amenity}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Guest Services */}
-              <h3 className="text-lg font-semibold text-amber-800 mb-3">Misafir Hizmetleri</h3>
+            {/* Specifications */}
+            <Reveal>
               <div className="grid sm:grid-cols-2 gap-4">
-                {room.amenities.guestServices.map((amenity: string) => (
+                {[
+                  { label: specs.beds[l] },
+                  { label: specs.house[l] },
+                  { label: specs.bathrooms[l] },
+                  { label: specs.terrace[l] },
+                  { label: specs.extraBed[l] },
+                  { label: specs.decoration[l] },
+                ].map((spec, i) => (
                   <div
-                    key={amenity}
-                    className="flex items-center gap-3 p-3 rounded-lg border border-amber-100 bg-amber-50/50"
+                    key={i}
+                    className="rounded-2xl border border-black/5 bg-white/50 p-4 text-sm text-ink-2 leading-relaxed"
                   >
-                    <CheckCircle2 className="h-5 w-5 text-amber-600 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{amenity}</span>
+                    {spec.label}
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
+
+            <div className="border-t border-line" />
+
+            {/* Amenities */}
+            <Reveal>
+              <div className="space-y-8">
+                <h2 className="text-xl font-serif font-light text-ink">
+                  {c.amenities}
+                </h2>
+
+                {/* House Amenities */}
+                <div>
+                  <h3 className="text-sm font-medium text-ink-2 tracking-widest uppercase mb-4">
+                    {c.houseAmenities}
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {houseAmenities.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-4 w-4 text-ink-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-ink-2">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Kitchen */}
+                <div>
+                  <h3 className="text-sm font-medium text-ink-2 tracking-widest uppercase mb-4">
+                    {c.kitchen}
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {kitchenAmenities.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-4 w-4 text-ink-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-ink-2">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Guest Services */}
+                <div>
+                  <h3 className="text-sm font-medium text-ink-2 tracking-widest uppercase mb-4">
+                    {c.guestServices}
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {guestServices.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-4 w-4 text-ink-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-ink-2">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Special Note */}
+            {specialNote && (
+              <Reveal>
+                <div className="rounded-2xl border border-black/5 bg-white/40 p-6 text-sm text-ink-2 leading-relaxed">
+                  {specialNote}
+                </div>
+              </Reveal>
+            )}
           </div>
 
-          {/* Right Column - Booking Card */}
+          {/* Right: Booking Card */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-20 border-amber-200">
-              <CardContent className="p-6 space-y-6">
-                <div>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-4xl font-bold text-amber-900">
-                      ${room.pricePerNight}
-                    </span>
-                    <span className="text-stone-600">/ gece</span>
-                  </div>
-                  <p className="text-sm text-stone-500">
-                    Vergiler ve kahvaltı dahil
-                  </p>
-                </div>
+            <div className="sticky top-24 rounded-2xl border border-black/5 bg-white/60 backdrop-blur-sm p-6 space-y-5">
 
-                <Separator />
+              <div className="space-y-3">
+                <Link
+                  href={`/booking?room=${room.slug}`}
+                  className="block w-full text-center rounded-full bg-neutral-900 text-white px-7 py-3.5 text-sm font-medium hover:bg-neutral-800 transition-colors"
+                >
+                  {c.bookNow}
+                </Link>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center rounded-full border border-black/10 bg-transparent text-ink px-7 py-3.5 text-sm font-medium hover:bg-black/5 transition-colors"
+                >
+                  {c.inquire}
+                </Link>
+              </div>
 
-                <div className="space-y-3">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="w-full bg-amber-700 hover:bg-amber-800 text-lg"
-                  >
-                    <Link href={`/booking?room=${room.slug}`}>
-                      Rezervasyon Yap
-                    </Link>
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="w-full border-amber-700 text-amber-900 hover:bg-amber-50"
-                  >
-                    <Link href="/contact">
-                      Bilgi Al
-                    </Link>
-                  </Button>
+              <div className="border-t border-line pt-5 space-y-3 text-xs text-ink-2">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span>{c.freeCancellation}</span>
                 </div>
-
-                <div className="pt-4 space-y-2 text-sm text-stone-600">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>Ücretsiz iptal (check-in'den 48 saat öncesine kadar)</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>12+ Years Airbnb Superhost güvencesi</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>7/24 müşteri desteği</span>
-                  </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span>{c.superhostTrust}</span>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span>{c.support}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Similar Rooms */}
-      <section className="bg-stone-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-playfair font-bold text-amber-900 mb-8">
-            Diğer Odalarımız
-          </h2>
+      {/* ── Other Suites ──────────────────────────────────────────────── */}
+      <section className="bg-surface-2 py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <h2 className="text-2xl md:text-3xl font-serif font-light text-ink mb-10">
+              {c.otherSuites}
+            </h2>
+          </Reveal>
           <div className="grid md:grid-cols-3 gap-6">
-            {rooms
-              .filter((r) => r.id !== room.id)
-              .slice(0, 3)
-              .map((r) => (
-                <Card key={r.id} className="overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="relative h-48 bg-stone-200">
-                    <div className="absolute inset-0 flex items-center justify-center text-stone-400">
-                      <span className="text-5xl">🏛️</span>
+            {otherRooms.map((r, i) => (
+              <Reveal key={r.id} delayMs={i * 80}>
+                <div className="rounded-2xl border border-black/5 bg-white/50 overflow-hidden hover:shadow-lg transition-shadow">
+                  {r.images && r.images.length > 0 && (
+                    <div className="relative h-48">
+                      <Image
+                        src={r.images[0]}
+                        alt={r.name[l]}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                     </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-playfair font-bold text-amber-900 mb-2">
-                      {r.name[locale as keyof typeof r.name]}
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-lg font-serif font-light text-ink mb-1">
+                      {r.name[l]}
                     </h3>
-                    <p className="text-stone-600 mb-4 text-sm">
-                      {r.shortDescription[locale as keyof typeof r.shortDescription]}
+                    <p className="text-sm text-ink-2 mb-5">
+                      {r.shortDescription[l]}
                     </p>
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-2xl font-bold text-amber-900">
-                        ${r.pricePerNight}
-                      </span>
-                      <span className="text-stone-600 text-sm">/ gece</span>
-                    </div>
-                    <Button asChild className="w-full bg-amber-700 hover:bg-amber-800">
-                      <Link href={`/rooms/${r.slug}`}>Detayları Gör</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                    <Link
+                      href={`/rooms/${r.slug}`}
+                      className="inline-flex items-center justify-center rounded-full border border-black/10 bg-transparent text-ink px-5 py-2.5 text-sm hover:bg-black/5 transition-colors"
+                    >
+                      {c.viewDetails}
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

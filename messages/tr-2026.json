@@ -47,5 +47,21 @@
   "suites": {
     "title": "Üç suite. Üç ayrı dünya.",
     "description": "Her biri farklı, her biri bağımsız."
+  },
+  "trustBar": {
+    "label": "Doğrulanmış misafir güveni",
+    "stats": "12+ Yıl Superhost • 4.86/5 • 1046+ yorum",
+    "description": "Yüzlerce konaklamadan süzülen ortak cümle:",
+    "keywords": "sessizlik, mahremiyet, ev konforu",
+    "feature1": "Ortak alan yok",
+    "feature2": "Özel teras",
+    "feature3": "Donanımlı mutfak",
+    "feature4": "Ortahisar merkez"
+  },
+  "signatureManifesto": {
+    "line1": "Kapadokya'da bir \"oda\" değil.",
+    "line2": "Taşın içinde, size ait bir ev.",
+    "description": "Ortak alan yok. Sabit program yok. Kalabalık yok. Sadece sessizlik, mahremiyet ve kendi ritminiz.",
+    "tagline": "Ortahisar • Bağımsız Suite Evler"
   }
 }

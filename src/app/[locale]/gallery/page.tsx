@@ -35,7 +35,7 @@ export default function GalleryPage() {
               Galeri
             </h1>
             <p className="text-lg text-stone-700">
-              Anıtya Cave House'un büyüleyici atmosferini, eşsiz odalarını ve
+              Anitya Cave House'un büyüleyici atmosferini, eşsiz odalarını ve
               Kapadokya'nın muhteşem manzaralarını keşfedin.
             </p>
           </div>

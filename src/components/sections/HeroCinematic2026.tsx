@@ -3,10 +3,11 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function HeroCinematic2026() {
   const t = useTranslations();
+  const locale = useLocale();
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +31,7 @@ export default function HeroCinematic2026() {
       >
         <Image
           src="/images/cappadocia-cave-house.avif"
-          alt="Anıtya Cave House - Terrace sunrise atmosphere"
+          alt="Anitya Cave House - Terrace sunrise atmosphere"
           fill
           className="object-cover object-center"
           priority
@@ -83,7 +84,7 @@ export default function HeroCinematic2026() {
           {/* Main Heading - Word by word reveal */}
           <h1 className="font-serif text-white mb-8">
             <motion.span
-              className="block text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] mb-2"
+              className="block text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -91,7 +92,7 @@ export default function HeroCinematic2026() {
               {t('hero.line1')}
             </motion.span>
             <motion.span
-              className="block text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] mb-2"
+              className="block text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -99,7 +100,7 @@ export default function HeroCinematic2026() {
               {t('hero.line2')}
             </motion.span>
             <motion.span
-              className="block text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1]"
+              className="block text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
@@ -123,10 +124,10 @@ export default function HeroCinematic2026() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
-            className="mt-12"
+            className="mt-10 md:mt-12"
           >
             <a
-              href="/tr/rooms"
+              href={`/${locale}/rooms`}
               className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-md border border-white/20 hover:bg-white/20 transition-all duration-300 group"
             >
               <span className="font-light tracking-wide">{t('hero.cta')}</span>
@@ -144,6 +145,23 @@ export default function HeroCinematic2026() {
                 />
               </svg>
             </a>
+          </motion.div>
+
+          {/* Trust badges – single occurrence of key features */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 2.0 }}
+            className="mt-8 flex flex-wrap justify-center gap-2"
+          >
+            {(["badge1", "badge2", "badge3", "badge4", "badge5"] as const).map((key) => (
+              <span
+                key={key}
+                className="rounded-full border border-white/20 bg-white/10 backdrop-blur px-4 py-1.5 text-xs text-white/80 font-light"
+              >
+                {t(`hero.${key}`)}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
 

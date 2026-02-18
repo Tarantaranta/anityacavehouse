@@ -14,6 +14,7 @@ export default function ImageCardAdvanced({
   parallaxStrength = 20,
   enable3D = false,
   variant = "default",
+  objectPosition = "center",
 }: {
   src: string;
   alt: string;
@@ -24,6 +25,7 @@ export default function ImageCardAdvanced({
   parallaxStrength?: number;
   enable3D?: boolean;
   variant?: "default" | "editorial";
+  objectPosition?: string;
 }) {
   const reduce = useReducedMotion();
   const cardRef = useRef<HTMLDivElement>(null);
@@ -84,6 +86,7 @@ export default function ImageCardAdvanced({
           fill
           priority={priority}
           className="object-cover"
+          style={{ objectPosition }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
         />
         {caption ? (
@@ -127,6 +130,7 @@ export default function ImageCardAdvanced({
           fill
           priority={priority}
           className="object-cover"
+          style={{ objectPosition }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
         />
       </motion.div>

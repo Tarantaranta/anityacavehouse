@@ -6,12 +6,12 @@
 @theme inline {
   /* Design Tokens - 2026 Quiet Luxury */
   /* Surfaces */
-  --color-surface: rgb(250 250 249);        /* stone-50 vibe */
-  --color-surface-2: rgb(245 245 244);      /* stone-100 vibe */
+  --color-surface: #F5F1E8;                 /* kemik beyaz / bone white */
+  --color-surface-2: #EFEAE2;              /* açık kireç taşı / light limestone */
 
   /* Text */
-  --color-ink: rgb(23 23 23);               /* neutral-900 */
-  --color-ink-2: rgb(64 64 64);             /* neutral-700 */
+  --color-ink: #1C1C1C;                    /* koyu kömür / dark charcoal */
+  --color-ink-2: #2A2A2A;                  /* antrasit / anthracite */
 
   /* Lines */
   --color-line: rgb(214 211 209);           /* stone-300 */
@@ -30,7 +30,7 @@
 
   /* Cavotagoo-inspired color palette */
   --color-gold: #d4af37;
-  --color-champagne: #f5f3ee;
+  --color-champagne: #EFEAE2;
   --color-deep-blue: #003366;
   --color-charcoal: #2c2c2c;
   --color-warm-gray: #666666;
@@ -75,8 +75,8 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.17 0 0);
+  --background: #F5F1E8;
+  --foreground: #1C1C1C;
   --card: oklch(0.99 0 0);
   --card-foreground: oklch(0.17 0 0);
   --popover: oklch(1 0 0);

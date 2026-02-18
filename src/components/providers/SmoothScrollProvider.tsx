@@ -15,7 +15,6 @@ export default function SmoothScrollProvider({
         lerp: 0.08,
         duration: 1.2,
         smoothWheel: true,
-        smoothTouch: false,
         wheelMultiplier: 0.8,
       }}
     >

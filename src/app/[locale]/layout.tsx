@@ -8,10 +8,11 @@ import {
   Cormorant_Garamond,
 } from "next/font/google";
 import ScrollProgress from '@/components/ui/ScrollProgress';
+import ChatBot from '@/components/chat/ChatBot';
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: 'Anıtya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler',
+  title: 'Anitya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler',
   description: 'Anitya Cave House, Kapadokya Ortahisar\'da yer alan, ortak alanı olmayan bağımsız mağara ve taş suite evlerden oluşan küçük bir konaklama evidir. Özel teras, donanımlı mutfak ve mahremiyet odaklı tasarım.',
 };
 
@@ -57,6 +58,7 @@ export default async function LocaleLayout({
         <ScrollProgress />
         <NextIntlClientProvider messages={messages}>
           {children}
+          <ChatBot />
         </NextIntlClientProvider>
       </body>
     </html>

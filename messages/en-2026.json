@@ -47,5 +47,21 @@
   "suites": {
     "title": "Three suites. Three separate worlds.",
     "description": "Each one different, each one independent."
+  },
+  "trustBar": {
+    "label": "Verified guest trust",
+    "stats": "12+ Years Superhost • 4.86/5 • 1046+ reviews",
+    "description": "The common thread from hundreds of stays:",
+    "keywords": "silence, privacy, home comfort",
+    "feature1": "No shared spaces",
+    "feature2": "Private terrace",
+    "feature3": "Fully equipped kitchen",
+    "feature4": "Ortahisar center"
+  },
+  "signatureManifesto": {
+    "line1": "Not a \"room\" in Cappadocia.",
+    "line2": "A home within the stone, entirely yours.",
+    "description": "No shared spaces. No fixed schedule. No crowds. Just silence, privacy, and your own rhythm.",
+    "tagline": "Ortahisar • Independent Suites"
   }
 }

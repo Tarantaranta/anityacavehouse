@@ -54,7 +54,7 @@ export default function HeroSection() {
           <div className="relative w-[560px] md:w-[800px] lg:w-[1000px] aspect-video">
             <Image
               src="/images/logo.avif"
-              alt="Anıtya Cave House Logo"
+              alt="Anitya Cave House Logo"
               fill
               className="object-contain drop-shadow-2xl"
               priority

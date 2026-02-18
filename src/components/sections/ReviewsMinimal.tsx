@@ -3,36 +3,36 @@
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
+import SectionChapter from "@/components/ui/SectionChapter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslations } from 'next-intl';
 
 export default function ReviewsMinimal() {
   const reduce = useReducedMotion();
+  const t = useTranslations('reviewsSection');
+  const tChapter = useTranslations('chapters');
 
   const reviews = useMemo(
     () => [
       {
-        quote:
-          "Taş dokunun içinde ama modern konforla… konum mükemmel ve sessizlik inanılmazdı.",
-        who: "Verified Airbnb Guest",
+        quote: t('review1'),
+        who: t('verifiedGuest'),
       },
       {
-        quote:
-          "Teras sabahları bambaşka… balonlar ve Ortahisar silüeti unutulmazdı.",
-        who: "Verified Airbnb Guest",
+        quote: t('review2'),
+        who: t('verifiedGuest'),
       },
       {
-        quote:
-          "Gerçekten 'ev gibi' hissettiren nadir yerlerden. Mutfak ve mahremiyet harika.",
-        who: "Verified Airbnb Guest",
+        quote: t('review3'),
+        who: t('verifiedGuest'),
       },
       {
-        quote:
-          "Ortahisar'da kalmak çok doğruymuş. Göreme kalabalığına uzak ama her yere yakın.",
-        who: "Verified Airbnb Guest",
+        quote: t('review4'),
+        who: t('verifiedGuest'),
       },
     ],
-    []
+    [t]
   );
 
   const [i, setI] = useState(0);
@@ -54,13 +54,14 @@ export default function ReviewsMinimal() {
   return (
     <Section tone="warm">
       <Container>
+        <SectionChapter number="07" label={tChapter('guestStories')} />
         <Reveal>
           <div className="flex flex-col gap-3">
             <p className="text-ink text-4xl md:text-6xl font-light tracking-wide font-serif">
-              4.86 / 5
+              {t('rating')}
             </p>
             <p className="text-ink-2 text-base md:text-lg">
-              1046+ doğrulanmış misafir yorumu
+              {t('count')}
             </p>
           </div>
         </Reveal>
@@ -124,7 +125,7 @@ export default function ReviewsMinimal() {
               href="https://www.airbnb.com/rooms/2953140"
               className="text-ink underline underline-offset-4 hover:opacity-80 transition"
             >
-              Airbnb'de tüm yorumları görüntüle
+              {t('viewAll')}
             </a>
           </div>
         </div>

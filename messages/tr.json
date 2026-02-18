@@ -8,9 +8,18 @@
     "about": "Hakkımızda",
     "more": "devamı.."
   },
+  "chapters": {
+    "manifesto": "Manifesto",
+    "independentHomes": "Bağımsız Evler",
+    "kitchen": "Mutfak",
+    "terrace": "Teras",
+    "location": "Konum",
+    "morningRhythm": "Sabah Ritmi",
+    "guestStories": "Misafir Hikayeleri"
+  },
   "nav": {
     "home": "Ana Sayfa",
-    "rooms": "Odalar",
+    "rooms": "Suitlerimiz",
     "experiences": "Deneyimler",
     "gallery": "Galeri",
     "blog": "Blog",
@@ -35,6 +44,9 @@
     },
     "exclusivity": {
       "heading": "Otel değil. Ortak alan yok. Tamamen size ait.",
+      "headingLine1": "Otel değil.",
+      "headingLine2": "Ortak alan yok.",
+      "headingLine3": "Tamamen size ait.",
       "description": "Anitya Cave House, klasik bir otel yapısına sahip değildir. Aynı yapı içinde konumlanmış, ortak alanı bulunmayan üç bağımsız suite evden oluşur.",
       "suiteTypesTitle": "Suite Evlerimiz",
       "suiteTypes": {
@@ -289,7 +301,7 @@
   },
   "reviews": {
     "title": "Misafirlerimiz Ne Diyor",
-    "subtitle": "Anıtya Cave House'un büyüsünü deneyimleyen dünyanın dört bir yanından gezginlerin yorumlarını okuyun",
+    "subtitle": "Anitya Cave House'un büyüsünü deneyimleyen dünyanın dört bir yanından gezginlerin yorumlarını okuyun",
     "viewAllReviews": "Airbnb'de Tüm Yorumları Görüntüle",
     "verifiedGuests": "doğrulanmış misafir"
   },
@@ -306,5 +318,163 @@
     "newsletterText": "Özel teklifler ve haberlerden haberdar olun",
     "subscribe": "Abone Ol",
     "rights": "Tüm hakları saklıdır"
+  },
+  "hero": {
+    "eyebrow": "Ortahisar • Kapadokya",
+    "line1": "Aynı güneş.",
+    "line2": "Aynı taş.",
+    "line3": "Binlerce yıl.",
+    "subtitle": "Kapadokya'nın kalbinde, Ortahisar'da. Otel değil — bağımsız suite evler.",
+    "cta": "Suite Evleri Keşfedin",
+    "scroll": "Keşfet",
+    "badge1": "Ortak alan yok",
+    "badge2": "Özel giriş",
+    "badge3": "Özel teras",
+    "badge4": "Donanımlı mutfak",
+    "badge5": "Ortahisar merkez"
+  },
+  "manifesto": {
+    "title": "Otel değil. Ortak alan yok. Tamamen size ait.",
+    "intro": "Anitya Cave House, aynı yapı içinde konumlanan 3 bağımsız suite evden oluşur. İki mağara suite, bir taş suite. Tamamı yalnızca misafirler için hazırlanmıştır."
+  },
+  "notARoom": {
+    "title": "Bir oda değil.",
+    "subtitle": "Bağımsız bir ev.",
+    "intro": "Anitya'da konaklamak, bir odaya girmek değil; kendi alanınıza çekilmek demektir.",
+    "item1": "Sessizlik.",
+    "item2": "Mahremiyet.",
+    "item3": "Kendi ritminiz.",
+    "closing": "Kimseyle alan paylaşmazsınız. Günün temposunu siz belirlersiniz."
+  },
+  "kitchen": {
+    "label": "MUTFAK",
+    "title": "Her suite'te gerçek bir mutfak.",
+    "lead": "Bu bir \"olanak\" değil; özgürlük ve bağımsızlıktır.",
+    "p1": "Buzdolabı, fırın, ocak, kettle, kahve makinesi, geleneksel çaydanlık… Tencere, tava, tabaklar, farklı bardaklar ve eksiksiz çatal-kaşık takımı.",
+    "p2": "Gelişinizde sınırsız filtre kahve, Türk kahvesi ve siyah çay, zeytinyağı ve temel baharatlarla karşılanırsınız.",
+    "closing": "Anitya'da mutfak bir aksesuar değildir.",
+    "closingEmphasis": "Yaşamak deneyiminin bir parçasıdır.",
+    "primaryCaption": "Donanımlı mutfak — ev ritmi",
+    "secondaryCaption": "Sınırsız filtre kahve & Türk kahvesi",
+    "item1": "Buzdolabı",
+    "item2": "Fırın & ocak",
+    "item3": "Kettle & kahve makinesi",
+    "item4": "Geleneksel çaydanlık",
+    "item5": "Tencere & tava takımı",
+    "item6": "Eksiksiz çatal-kaşık seti"
+  },
+  "terrace": {
+    "label": "TERAS",
+    "sectionTitle": "Özel teraslarımız.",
+    "title": "Günün başladığı yer.",
+    "p1": "Özel teraslarımızdan Kapadokya'nın kaya dokusu, vadiler ve güvercinlikler, Ortahisar'ın taş evleri ve açık havalarda uzakta Erciyes Dağı görünür.",
+    "p2": "Hava koşulları uygun olduğunda, gün doğumunda",
+    "p2Highlight": "sıcak hava balonları",
+    "p2End": "ufukta sessizce süzülür.",
+    "closing": "Teras bir manzara noktası değildir.",
+    "closingEmphasis": "Günün başladığı yerdir.",
+    "primaryCaption": "Ortahisar silüeti, vadiler, taş evler",
+    "secondaryCaption": "Uygun havalarda gün doğumunda balonlar"
+  },
+  "suites": {
+    "title": "Üç suite. Üç ayrı dünya.",
+    "description": "Her biri farklı, her biri bağımsız.",
+    "detail": "Suite evlerden biri ayrıca bağımsız bir salon alanına sahiptir."
+  },
+  "trustBar": {
+    "label": "Doğrulanmış misafir güveni",
+    "stats": "12+ Yıl Superhost • 4.86/5 • 1046+ yorum",
+    "description": "Yüzlerce konaklamadan süzülen ortak cümle:",
+    "keywords": "sessizlik, mahremiyet, ev konforu",
+    "feature1": "Ortak alan yok",
+    "feature2": "Özel teras",
+    "feature3": "Donanımlı mutfak",
+    "feature4": "Ortahisar merkez",
+    "stat1Value": "12+",
+    "stat1Label": "Yıl Superhost",
+    "stat2Value": "4.86",
+    "stat2Label": "Misafir Puanı",
+    "stat3Value": "1046+",
+    "stat3Label": "Doğrulanmış Yorum"
+  },
+  "signatureManifesto": {
+    "line1": "Kapadokya'da bir \"oda\" değil.",
+    "line2": "Taşın içinde, size ait bir ev.",
+    "description": "Tamamen bağımsız. Sabit program yok. Kalabalık yok. Sadece sessizlik, mahremiyet ve kendi ritminiz.",
+    "tagline": "Ortahisar • Bağımsız Suite Evler"
+  },
+  "breakfast": {
+    "title": "Sabah size ait.",
+    "tagline": "Sabahın programı yok.\nKahvaltı saati yok.\nSadece sizin zamanınız var.",
+    "description": "2 dakikalık yürüme mesafesinde kahvaltı seçenekleri, 4–5 dakikalık mesafede geniş restoran çeşitliliği. Suite evlere sipariş de mümkün.",
+    "closing": "İsterseniz dışarıda, isterseniz evinizde.\nKendi ritminizde."
+  },
+  "location": {
+    "title": "Ortahisar'ın kalbinde.\nKapadokya'nın merkezinde.",
+    "description": "Ortahisar Eski Kasaba'nın tarihi dokusu içindesiniz. Yürüyerek kaleye, kısa sürüşlerle Kapadokya'nın ikonik rotalarına bağlanırsınız.",
+    "place1Name": "Ortahisar Kalesi",
+    "place1Distance": "~2 dk yürüyüş",
+    "place2Name": "Göreme Açık Hava Müzesi",
+    "place2Distance": "~7 dk sürüş",
+    "place3Name": "Kızılçukur & Gül Vadisi",
+    "place3Distance": "~5 dk sürüş",
+    "place4Name": "Üç Güzeller",
+    "place4Distance": "~8 dk sürüş",
+    "place5Name": "Pancarlık Vadisi",
+    "place5Distance": "~10 dk sürüş",
+    "caption": "Ortahisar silüeti, vadiler, taş evler",
+    "openInMaps": "Haritada Aç →"
+  },
+  "reviewsSection": {
+    "rating": "4.86 / 5",
+    "count": "1046+ doğrulanmış misafir yorumu",
+    "review1": "Taş dokunun içinde ama modern konforla… konum mükemmel ve sessizlik inanılmazdı.",
+    "review2": "Teras sabahları bambaşka… balonlar ve Ortahisar silüeti unutulmazdı.",
+    "review3": "Gerçekten 'ev gibi' hissettiren nadir yerlerden. Mutfak ve mahremiyet harika.",
+    "review4": "Ortahisar'da kalmak çok doğruymuş. Göreme kalabalığına uzak ama her yere yakın.",
+    "verifiedGuest": "Verified Airbnb Guest",
+    "viewAll": "Airbnb'de tüm yorumları görüntüle"
+  },
+  "finalCta": {
+    "title": "Kapadokya'yı bir ev gibi yaşamak isteyenler için.",
+    "description": "Kalabalık otelleri değil; sessizliği, alanı ve bağımsızlığı seçenler için.",
+    "cta": "Rezervasyon"
+  },
+  "roomDetail": {
+    "backToSuites": "Tüm Suitlerimiz",
+    "description": "Açıklama",
+    "amenities": "Oda Olanakları",
+    "houseAmenities": "Ev Olanakları",
+    "kitchen": "Mutfak",
+    "guestServices": "Misafir Hizmetleri",
+    "guests": "kişi",
+    "perNight": "/ gece",
+    "taxIncluded": "Vergiler dahil",
+    "bookNow": "Rezervasyon Yap",
+    "inquire": "Bilgi Al",
+    "freeCancellation": "Ücretsiz iptal (check-in'den 48 saat öncesine kadar)",
+    "superhostTrust": "12+ Yıl Airbnb Superhost güvencesi",
+    "support": "7/24 misafir desteği",
+    "otherSuites": "Diğer Suitlerimiz",
+    "viewDetails": "Detayları Gör"
+  },
+  "chatbot": {
+    "title": "Anitya Asistan",
+    "subtitle": "Size yardımcı olmak için buradayız",
+    "openChat": "Sohbeti Aç",
+    "closeChat": "Sohbeti Kapat",
+    "welcome": "Merhaba! 👋 Anitya Cave House'a hoş geldiniz. Size nasıl yardımcı olabilirim?",
+    "quickQuestionsTitle": "Popüler Sorular:",
+    "quickQuestions": {
+      "q1": "Suite'ler hakkında bilgi alabilir miyim?",
+      "q2": "Ortahisar'da neler yapabilirim?",
+      "q3": "Balon turu nasıl rezerve edebilirim?",
+      "q4": "Mutfak donanımları neler?",
+      "q5": "Fiyatlar ve müsaitlik nasıl?",
+      "q6": "Kişiye özel gezi planı yap 🗺️"
+    },
+    "inputPlaceholder": "Mesajınızı yazın...",
+    "send": "Gönder",
+    "error": "Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin veya bize doğrudan ulaşın: +90 544 494 68 14"
   }
 }

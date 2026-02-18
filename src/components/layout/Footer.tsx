@@ -16,7 +16,7 @@ export function Footer() {
           {/* About */}
           <div>
             <h3 className="text-2xl font-playfair font-bold text-white mb-4">
-              Anıtya Cave House
+              Anitya Cave House
             </h3>
             <p className="text-sm leading-relaxed">
               {t('description')}
@@ -119,7 +119,7 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <p>
-            © {currentYear} Anıtya Cave House. {t('rights')}
+            © {currentYear} Anitya Cave House. {t('rights')}
           </p>
           <p className="text-stone-500 mt-2 md:mt-0">
             Built with Next.js 15 & Tailwind CSS

@@ -8,9 +8,18 @@
     "about": "关于我们",
     "more": "更多.."
   },
+  "chapters": {
+    "manifesto": "宣言",
+    "independentHomes": "独立住宅",
+    "kitchen": "厨房",
+    "terrace": "露台",
+    "location": "位置",
+    "morningRhythm": "早晨节奏",
+    "guestStories": "客人故事"
+  },
   "nav": {
     "home": "首页",
-    "rooms": "客房",
+    "rooms": "套房",
     "experiences": "体验",
     "gallery": "画廊",
     "blog": "博客",
@@ -35,6 +44,9 @@
     },
     "exclusivity": {
       "heading": "不是酒店。没有共享空间。完全属于您。",
+      "headingLine1": "不是酒店。",
+      "headingLine2": "没有共享空间。",
+      "headingLine3": "完全属于您。",
       "description": "Anitya Cave House 没有传统酒店结构。它由三座独立的套房住宅组成，位于同一建筑内，没有任何共享空间。",
       "suiteTypesTitle": "我们的套房",
       "suiteTypes": {
@@ -104,23 +116,23 @@
     },
     "suiteExperience": {
       "title": "不是房间,而是独立的家",
-      "text": "在 Anıtya 住宿意味着体验的不仅是一个房间,\n而是属于您的独立住宅。\n\n• 宁静\n• 隐私\n• 您自己的节奏\n• 您自己的厨房\n• 您自己的露台\n\n您不与任何人共享空间。\n您设定自己一天的节奏。"
+      "text": "在 Anitya 住宿意味着体验的不仅是一个房间,\n而是属于您的独立住宅。\n\n• 宁静\n• 隐私\n• 您自己的节奏\n• 您自己的厨房\n• 您自己的露台\n\n您不与任何人共享空间。\n您设定自己一天的节奏。"
     },
     "kitchen": {
       "title": "每个套房都配备全套厨房",
-      "text": "我们所有的套房住宅都配有全套厨房设备。\n\n这不仅仅是舒适;\n更是自由和独立。\n\n• 适合长期住宿的客人\n• 适合带孩子的客人\n• 适合希望保持自己饮食习惯的客人\n\nAnıtya 适合那些更喜欢家庭舒适而非酒店早餐时间表的人。"
+      "text": "我们所有的套房住宅都配有全套厨房设备。\n\n这不仅仅是舒适;\n更是自由和独立。\n\n• 适合长期住宿的客人\n• 适合带孩子的客人\n• 适合希望保持自己饮食习惯的客人\n\nAnitya 适合那些更喜欢家庭舒适而非酒店早餐时间表的人。"
     },
     "breakfast": {
       "title": "早餐和用餐选择",
-      "text": "Anıtya Cave House 不提供固定的早餐服务。\n\n相反:\n• 步行 2 分钟内有提供优质早餐的餐厅\n• 步行 4-5 分钟内有许多不同选择,从传统土耳其早餐到世界美食\n\n也可以从 Ortahisar 中心的餐厅订购早餐和餐食送到套房。\n\n我们的客人可以选择在外用餐,\n或在家中,按照自己的节奏用餐。"
+      "text": "Anitya Cave House 不提供固定的早餐服务。\n\n相反:\n• 步行 2 分钟内有提供优质早餐的餐厅\n• 步行 4-5 分钟内有许多不同选择,从传统土耳其早餐到世界美食\n\n也可以从 Ortahisar 中心的餐厅订购早餐和餐食送到套房。\n\n我们的客人可以选择在外用餐,\n或在家中,按照自己的节奏用餐。"
     },
     "location": {
       "title": "步行即可到达 Ortahisar 中心",
-      "text": "Anıtya Cave House 距离 Ortahisar 小镇中心约 5 分钟步行路程。\n\n远离 Göreme 的拥挤,\n却位于卡帕多西亚的正中心。\n\nOrtahisar 是卡帕多西亚最正宗的定居点之一,\n拥有历史、石头建筑和宁静。"
+      "text": "Anitya Cave House 距离 Ortahisar 小镇中心约 5 分钟步行路程。\n\n远离 Göreme 的拥挤,\n却位于卡帕多西亚的正中心。\n\nOrtahisar 是卡帕多西亚最正宗的定居点之一,\n拥有历史、石头建筑和宁静。"
     },
     "finalCta": {
       "title": "为那些想像在家一样体验卡帕多西亚的人",
-      "text": "Anıtya Cave House 适合那些选择不拥挤的酒店,\n而是宁静、空间和独立的人。",
+      "text": "Anitya Cave House 适合那些选择不拥挤的酒店,\n而是宁静、空间和独立的人。",
       "cta": "立即预订"
     }
   },
@@ -289,7 +301,7 @@
   },
   "reviews": {
     "title": "客人评价",
-    "subtitle": "阅读来自世界各地体验过 Anıtya Cave House 魔力的旅行者的评价",
+    "subtitle": "阅读来自世界各地体验过 Anitya Cave House 魔力的旅行者的评价",
     "viewAllReviews": "在 Airbnb 上查看所有评价",
     "verifiedGuests": "已验证客人"
   },
@@ -306,5 +318,163 @@
     "newsletterText": "及时了解特别优惠和新闻",
     "subscribe": "订阅",
     "rights": "版权所有"
+  },
+  "hero": {
+    "eyebrow": "奥塔希萨尔 • 卡帕多奇亚",
+    "line1": "同样的阳光。",
+    "line2": "同样的石头。",
+    "line3": "千年时光。",
+    "subtitle": "卡帕多奇亚中心地带，奥塔希萨尔。不是酒店——独立套房住宅。",
+    "cta": "探索套房住宅",
+    "scroll": "探索",
+    "badge1": "无共享空间",
+    "badge2": "私人入口",
+    "badge3": "私人露台",
+    "badge4": "设施齐全的厨房",
+    "badge5": "奥塔希萨尔中心"
+  },
+  "manifesto": {
+    "title": "不是酒店。没有共享空间。完全属于您。",
+    "intro": "Anitya洞穴之家由同一建筑内的3个独立套房组成。两个洞穴套房，一个石头套房。全部专为客人准备。"
+  },
+  "notARoom": {
+    "title": "不是一个房间。",
+    "subtitle": "是一个独立的家。",
+    "intro": "在Anitya住宿不是进入一个房间；而是退回到您自己的空间。",
+    "item1": "宁静。",
+    "item2": "私密性。",
+    "item3": "您自己的节奏。",
+    "closing": "您不与任何人共享空间。您决定一天的节奏。"
+  },
+  "kitchen": {
+    "label": "厨房",
+    "title": "每个套房都有真正的厨房。",
+    "lead": "这不是一种\"便利设施\"；这是自由和独立。",
+    "p1": "冰箱、烤箱、炉灶、水壶、咖啡机、传统茶壶...锅、平底锅、盘子、各种玻璃杯和完整的餐具套装。",
+    "p2": "抵达时，我们为您准备无限量的滤挂咖啡、土耳其咖啡和红茶、橄榄油和基本香料。",
+    "closing": "在Anitya，厨房不是配件。",
+    "closingEmphasis": "它是生活体验的一部分。",
+    "primaryCaption": "设施齐全的厨房——家的节奏",
+    "secondaryCaption": "无限量滤挂咖啡和土耳其咖啡",
+    "item1": "冰箱",
+    "item2": "烤箱和炉灶",
+    "item3": "水壶和咖啡机",
+    "item4": "传统茶壶",
+    "item5": "锅具和平底锅",
+    "item6": "完整餐具套装"
+  },
+  "terrace": {
+    "label": "露台",
+    "sectionTitle": "我们的私人露台。",
+    "title": "一天开始的地方。",
+    "p1": "从我们的私人露台，您可以看到卡帕多奇亚的岩石构造、山谷和鸽子房，奥塔希萨尔的石屋，天气晴朗时还能看到远处的埃尔吉耶斯山。",
+    "p2": "当天气条件合适时，日出时分",
+    "p2Highlight": "热气球",
+    "p2End": "静静地滑过天际。",
+    "closing": "露台不是观景点。",
+    "closingEmphasis": "这是一天开始的地方。",
+    "primaryCaption": "奥塔希萨尔轮廓、山谷、石屋",
+    "secondaryCaption": "天气允许时日出的热气球"
+  },
+  "suites": {
+    "title": "三个套房。三个独立的世界。",
+    "description": "每一个都不同，每一个都独立。",
+    "detail": "其中一套套房还配有独立的客厅区域。"
+  },
+  "trustBar": {
+    "label": "已验证的客人信任",
+    "stats": "12+年超赞房东 • 4.86/5 • 1046+条评论",
+    "description": "数百次住宿的共同主题：",
+    "keywords": "宁静、私密性、家的舒适",
+    "feature1": "无共享空间",
+    "feature2": "私人露台",
+    "feature3": "设施齐全的厨房",
+    "feature4": "奥塔希萨尔中心",
+    "stat1Value": "12+",
+    "stat1Label": "年超赞房东",
+    "stat2Value": "4.86",
+    "stat2Label": "客人评分",
+    "stat3Value": "1046+",
+    "stat3Label": "已验证评论"
+  },
+  "signatureManifesto": {
+    "line1": "不是卡帕多奇亚的一个\"房间\"。",
+    "line2": "是石头中的家，完全属于您。",
+    "description": "完全独立。没有固定时间表。没有人群。只有宁静、私密和您自己的节奏。",
+    "tagline": "奥塔希萨尔 • 独立套房"
+  },
+  "breakfast": {
+    "title": "早晨属于您。",
+    "tagline": "没有早晨计划。\n没有早餐时间。\n只有您的时间。",
+    "description": "步行2分钟内有早餐选择，步行4-5分钟内有各种餐厅。也可订餐至套房。",
+    "closing": "随心在外或在家。\n按您自己的节奏。"
+  },
+  "location": {
+    "title": "奥塔希萨尔的中心。\n卡帕多奇亚的核心。",
+    "description": "您身处奥塔希萨尔老城的历史肌理之中。步行至城堡，短途驾车至卡帕多奇亚的标志性路线。",
+    "place1Name": "奥塔希萨尔城堡",
+    "place1Distance": "~步行2分钟",
+    "place2Name": "格雷梅露天博物馆",
+    "place2Distance": "~驾车7分钟",
+    "place3Name": "红谷与玫瑰谷",
+    "place3Distance": "~驾车5分钟",
+    "place4Name": "三美人",
+    "place4Distance": "~驾车8分钟",
+    "place5Name": "Pancarlık山谷",
+    "place5Distance": "~驾车10分钟",
+    "caption": "奥塔希萨尔轮廓、山谷、石屋",
+    "openInMaps": "在地图中查看 →"
+  },
+  "reviewsSection": {
+    "rating": "4.86 / 5",
+    "count": "1046+条已验证客人评价",
+    "review1": "石头质感中却有现代舒适……位置完美，宁静令人难以置信。",
+    "review2": "早晨的露台别有洞天……热气球和奥塔希萨尔轮廓令人难忘。",
+    "review3": "真正让人感觉像'家'的罕见之地。厨房和私密性都很棒。",
+    "review4": "住在奥塔希萨尔是正确的选择。远离格雷梅的人群，但又靠近一切。",
+    "verifiedGuest": "已验证Airbnb客人",
+    "viewAll": "在Airbnb上查看所有评价"
+  },
+  "finalCta": {
+    "title": "为那些想像在家一样体验卡帕多奇亚的人。",
+    "description": "不为拥挤的酒店；为选择宁静、空间和独立的人。",
+    "cta": "立即预订"
+  },
+  "roomDetail": {
+    "backToSuites": "所有套房",
+    "description": "描述",
+    "amenities": "套房设施",
+    "houseAmenities": "房间设施",
+    "kitchen": "厨房",
+    "guestServices": "客人服务",
+    "guests": "人",
+    "perNight": "/ 晚",
+    "taxIncluded": "含税",
+    "bookNow": "立即预订",
+    "inquire": "咨询",
+    "freeCancellation": "免费取消（入住前48小时）",
+    "superhostTrust": "12+年Airbnb超赞房东信誉",
+    "support": "24/7客人支持",
+    "otherSuites": "其他套房",
+    "viewDetails": "查看详情"
+  },
+  "chatbot": {
+    "title": "Anitya助手",
+    "subtitle": "我们在这里为您提供帮助",
+    "openChat": "打开聊天",
+    "closeChat": "关闭聊天",
+    "welcome": "您好！👋 欢迎来到Anitya Cave House。我能为您做些什么？",
+    "quickQuestionsTitle": "常见问题：",
+    "quickQuestions": {
+      "q1": "您能告诉我关于套房的信息吗？",
+      "q2": "在奥塔希萨尔可以做什么？",
+      "q3": "如何预订热气球之旅？",
+      "q4": "有哪些厨房设备？",
+      "q5": "价格和可用性如何？",
+      "q6": "为我制定个性化旅游计划 🗺️"
+    },
+    "inputPlaceholder": "输入您的消息...",
+    "send": "发送",
+    "error": "抱歉，发生了错误。请重试或直接联系我们：+90 544 494 68 14"
   }
 }

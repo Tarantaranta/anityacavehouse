@@ -1,253 +1,154 @@
-import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Award, Heart, Home, Sparkles, Star, Users } from 'lucide-react';
 
-export default function AboutPage() {
-  const t = useTranslations('about');
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
 
-  const values = [
-    {
-      icon: Heart,
-      title: 'Misafir Memnuniyeti',
-      description: 'Her misafirimiz bizim için özel. Mükemmel bir deneyim sunmak için çalışıyoruz.',
-    },
-    {
-      icon: Home,
-      title: 'Otantik Deneyim',
-      description: 'Kapadokya\'nın gerçek ruhunu yaşatıyoruz, modern konforla birleştirerek.',
-    },
-    {
-      icon: Sparkles,
-      title: 'Kalite & Konfor',
-      description: 'En yüksek standartlarda hizmet ve konaklama sunuyoruz.',
-    },
-    {
-      icon: Users,
-      title: 'Yerel Bağlantı',
-      description: 'Bölgenin kültürü ve topluluğuyla güçlü bağlarımız var.',
-    },
-  ];
-
-  const achievements = [
-    { icon: Star, text: '12+ Years Airbnb Superhost', year: '2020-2026' },
-    { icon: Award, text: '4.9/5.0 Misafir Puanı', year: '500+ Yorum' },
-    { icon: Users, text: '2000+ Mutlu Misafir', year: 'Son 3 yıl' },
-  ];
+export default async function AboutPage({ params }: PageProps) {
+  await params;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#f7f4ef]">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-50 to-stone-100 py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <Badge className="bg-amber-700 mb-4">
-              Kapadokya'nın Kalbinde
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-playfair font-bold text-amber-900 leading-tight">
-              Anıtya Cave House Hakkında
-            </h1>
-            <p className="text-xl text-stone-700 leading-relaxed">
-              Geleneksel Kapadokya mimarisini modern lüks ile birleştiren,
-              ailece işletilen butik mağara otelimize hoş geldiniz.
-            </p>
-          </div>
-        </div>
+      {/* Hero */}
+      <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto w-full">
+        <p className="text-xs uppercase tracking-[0.22em] text-stone-400 mb-6">
+          HAKKIMIZDA
+        </p>
+        <h1 className="font-serif font-light text-4xl md:text-6xl text-stone-900 tracking-wide leading-tight">
+          Yaşayan Bir Süreklilik
+        </h1>
       </section>
 
-      {/* Story Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-amber-900">
-              Hikayemiz
-            </h2>
-            <div className="space-y-4 text-stone-700 leading-relaxed">
-              <p>
-                Anıtya Cave House, Kapadokya'nın büyüleyici doğal güzellikleri arasında,
-                yüzyıllık kayalara oyulmuş bir mimari harikasıdır. 2015 yılında ailece
-                başladığımız bu yolculukta, bölgenin eşsiz kültürel mirasını koruyarak,
-                modern konforla harmanlıyoruz.
-              </p>
-              <p>
-                Her odamız, binlerce yıllık volkanik kayaların içine ustalıkla işlenmiştir.
-                Doğal taş duvarlar ve geleneksel mimarinin yanı sıra, çağdaş amenities ve
-                premium hizmet sunarak, misafirlerimize unutulmaz bir deneyim yaşatıyoruz.
-              </p>
-              <p>
-                Göreme'nin merkezinde yer alan otelimiz, sıcak hava balonlarının gökyüzünü
-                süslediği eşsiz manzaraya ev sahipliği yapar. Airbnb Superhost statümüz ve
-                yüzlerce beş yıldızlı yorumumuz, misafir memnuniyetine verdiğimiz önemi
-                göstermektedir.
-              </p>
-            </div>
-          </div>
+      {/* Divider */}
+      <div className="w-full h-px bg-stone-200" />
 
-          <div className="relative">
-            <div className="aspect-[4/5] bg-stone-200 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-stone-400">
-                <div className="text-center">
-                  <span className="text-8xl mb-4 block">🏛️</span>
-                  <p className="text-lg">Anıtya Cave House</p>
-                </div>
-              </div>
-            </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-amber-100 rounded-2xl -z-10" />
-          </div>
-        </div>
-      </section>
+      {/* Main narrative */}
+      <article className="max-w-3xl mx-auto px-6 py-20 space-y-16">
 
-      <Separator className="container mx-auto" />
-
-      {/* Values Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-amber-900 mb-4">
-            Değerlerimiz
-          </h2>
-          <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-            Anıtya Cave House'u özel kılan değerler
+        {/* Block 1 — History */}
+        <div className="space-y-6">
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Ortahisar, MÖ 1800'lerden bu yana sayısız uygarlığın izini taşır. Hititler, Persler,
+            Romalılar, Bizanslılar, Selçuklular ve Osmanlılar bu coğrafyada yaşadı. Kapadokya'nın
+            volkanik kayaları, sadece jeolojik değil, insani bir hafızayı da saklar.
+          </p>
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Anitya Cave House, 400 yılı aşkın geçmişe sahip bu taşın içinde konumlanır.
+            Ancak hikâyesi bundan çok daha eskidir.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <Card key={index} className="border-amber-100 hover:border-amber-300 transition-all hover:shadow-xl text-center">
-                <CardContent className="p-8">
-                  <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-amber-700" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-amber-900 mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-stone-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+        {/* Block 2 — Poetic geology */}
+        <div className="border-l-2 border-stone-300 pl-8 space-y-4">
+          <p className="font-serif text-xl md:text-2xl font-light text-stone-800 leading-relaxed">
+            Kapadokya bir zamanlar denizdi.
+          </p>
+          <p className="font-serif text-xl md:text-2xl font-light text-stone-800 leading-relaxed">
+            Sonra volkanlar yükseldi.
+          </p>
+          <p className="text-base text-stone-500 leading-relaxed mt-4">
+            Rüzgâr, su ve ateş milyonlarca yıl boyunca bu toprağı şekillendirdi.
+            Ortaya çıkan kaya kütleleri uzun süre sessizdi. Sahipsizdi.
+            Sonra insanlar geldi. Oydu, yerleşti, barındı, üretti, dua etti, bekledi.
+          </p>
         </div>
-      </section>
 
-      {/* Achievements */}
-      <section className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-center mb-12">
-            Başarılarımız
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {achievements.map((achievement, index) => {
-              const Icon = achievement.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="bg-white/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-                    <Icon className="h-10 w-10" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">
-                    {achievement.text}
-                  </h3>
-                  <p className="text-amber-100">
-                    {achievement.year}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        {/* Block 3 — Kuşaklar */}
+        <div className="space-y-6">
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Bu taş, kaç kuşak gördü bilmiyoruz.
+            Kaç çocuk burada büyüdü, kaç insan burada uyudu, kaç mevsim geçti — bilmiyoruz.
+            Ama biliyoruz ki her dönem, bu kayaya kendi izini bıraktı.
+          </p>
         </div>
-      </section>
 
-      {/* Location Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 relative">
-            <div className="aspect-square bg-stone-200 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-stone-400">
-                <div className="text-center">
-                  <span className="text-8xl mb-4 block">🎈</span>
-                  <p className="text-lg">Kapadokya</p>
-                </div>
-              </div>
-            </div>
-            {/* Decorative element */}
-            <div className="absolute -top-6 -left-6 w-48 h-48 bg-amber-100 rounded-2xl -z-10" />
-          </div>
-
-          <div className="order-1 lg:order-2 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-amber-900">
-              Kapadokya'nın Kalbi: Göreme
-            </h2>
-            <div className="space-y-4 text-stone-700 leading-relaxed">
-              <p>
-                UNESCO Dünya Mirası Listesi'nde yer alan Göreme, benzersiz peribacaları,
-                yeraltı şehirleri ve tarihi kaya kilise kompleksleriyle ünlüdür.
-              </p>
-              <p>
-                Otelimiz, bu büyüleyici kasabanın merkezinde, tüm önemli noktalara yürüme
-                mesafesinde konumlanmıştır. Göreme Açık Hava Müzesi'ne 10 dakika, en iyi
-                restaurant ve kafelere 5 dakika mesafedeyiz.
-              </p>
-              <p>
-                Her sabah, odanızın balkonundan veya terasımızdan yüzlerce sıcak hava
-                balonunun gökyüzünü süslediği muhteşem manzarayı izleyebilirsiniz.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                <p className="text-sm text-stone-600 mb-1">Havaalanı</p>
-                <p className="text-2xl font-bold text-amber-900">45 dk</p>
-              </div>
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                <p className="text-sm text-stone-600 mb-1">Göreme Merkez</p>
-                <p className="text-2xl font-bold text-amber-900">5 dk</p>
-              </div>
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                <p className="text-sm text-stone-600 mb-1">Açık Hava Müzesi</p>
-                <p className="text-2xl font-bold text-amber-900">10 dk</p>
-              </div>
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                <p className="text-sm text-stone-600 mb-1">Panoramik Nokta</p>
-                <p className="text-2xl font-bold text-amber-900">8 dk</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="bg-stone-50 py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold text-amber-900 mb-4">
-              Ekibimiz
-            </h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Deneyiminizi unutulmaz kılmak için buradayız
+        {/* Block 4 — Mekanlar */}
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-stone-400">Salon</p>
+            <p className="text-base text-stone-600 leading-relaxed">
+              Yüzyıllar önce gündelik yaşamın bir parçasıydı.
+              Kayaya oyulmuş raf nişleri, o dönemin izlerini bugün hâlâ fısıldar.
             </p>
           </div>
-
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-stone-700 leading-relaxed text-lg mb-8">
-              Anıtya Cave House olarak, ailece işlettiğimiz otelimizde misafirlerimize
-              kendi evlerinde gibi hissettirmeyi amaçlıyoruz. Yerel bilgimiz, sıcak
-              misafirperverliğimiz ve detaylara gösterdiğimiz özen ile size rehberlik
-              etmekten mutluluk duyarız.
-            </p>
-            <p className="text-stone-600 italic">
-              "Misafirlerimiz ailemizdendi. Her konuk özel, her anı değerli."
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-stone-400">Yatak Odası</p>
+            <p className="text-base text-stone-600 leading-relaxed">
+              Geçmişte bir ibadet alanıydı.
+              Sessizlik, o dönemden bugüne kalan en belirgin miras.
             </p>
           </div>
         </div>
-      </section>
+
+        {/* Divider line */}
+        <div className="h-px bg-stone-200" />
+
+        {/* Block 5 — Biz kimiz */}
+        <div className="space-y-6">
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Biz bir doktor ve bir oyuncuyuz.
+            Bu mekânı ilk gördüğümüzde taşın yalnızlığını değil, sürekliliğini hissettik.
+            Köyün ustalarıyla birlikte, yapının özgün dokusunu koruyarak restore ettik.
+            Eklemekten çok ortaya çıkarmayı tercih ettik.
+          </p>
+        </div>
+
+        {/* Block 6 — Anitya'nın anlamı */}
+        <div className="bg-stone-100 rounded-sm px-8 py-10 space-y-5">
+          <p className="text-xs uppercase tracking-[0.22em] text-stone-400">Anitya</p>
+          <p className="font-serif text-2xl md:text-3xl font-light text-stone-800 leading-relaxed">
+            Anitya kelimesi "süreksizlik" anlamına gelir.
+          </p>
+          <div className="space-y-2 text-base text-stone-500 leading-relaxed">
+            <p>Hiçbir şey kalıcı değildir.</p>
+            <p>Ne uygarlıklar.</p>
+            <p>Ne yapılar.</p>
+            <p>Ne de biz.</p>
+          </div>
+        </div>
+
+        {/* Block 7 — Kapanış */}
+        <div className="space-y-6">
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Bu mağara bir zamanlar başka bir hayatın parçasıydı.
+            Sonra başka bir dönemin.
+            Şimdi ise modern dünyanın insanlarını ağırlıyor.
+          </p>
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            Taş değişmiyor gibi görünür.
+            Ama içinden geçen hayat sürekli değişir.
+          </p>
+          <p className="font-serif text-xl md:text-2xl font-light text-stone-800 leading-relaxed mt-8">
+            Anitya, bu akışın küçük bir durağıdır.
+          </p>
+        </div>
+
+      </article>
+
+      {/* Footer stats bar */}
+      <div className="w-full border-t border-stone-200 bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <p className="font-serif text-3xl font-light text-stone-900">400+</p>
+            <p className="text-xs text-stone-400 uppercase tracking-[0.18em] mt-1">Yıllık taş</p>
+          </div>
+          <div>
+            <p className="font-serif text-3xl font-light text-stone-900">4.9</p>
+            <p className="text-xs text-stone-400 uppercase tracking-[0.18em] mt-1">Airbnb puanı</p>
+          </div>
+          <div>
+            <p className="font-serif text-3xl font-light text-stone-900">12+</p>
+            <p className="text-xs text-stone-400 uppercase tracking-[0.18em] mt-1">Yıllık Superhost</p>
+          </div>
+          <div>
+            <p className="font-serif text-3xl font-light text-stone-900">3</p>
+            <p className="text-xs text-stone-400 uppercase tracking-[0.18em] mt-1">Bağımsız suite</p>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </div>
