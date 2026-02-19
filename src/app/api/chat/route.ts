@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+export const dynamic = 'force-dynamic';
 
 // Anitya Cave House'un detaylı bilgi bankası
 const ANITYA_KNOWLEDGE = `
@@ -1005,6 +1003,7 @@ Aşağıda tüm bilgi bankası var. Bu bilgileri kullanarak misafirlere yardımc
 ${ANITYA_KNOWLEDGE}
 `;
 
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const completion = await openai.chat.completions.create({
       model: process.env.OPENAI_MODEL || 'gpt-4o',
       messages: [
