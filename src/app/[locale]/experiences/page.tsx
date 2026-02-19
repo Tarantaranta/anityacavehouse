@@ -101,7 +101,7 @@ export default async function ExperiencesPage({
             {/* Hero image */}
             <Reveal delayMs={220}>
               <ParallaxImage
-                src="/images/cappadocia-ortahisar-castle.avif"
+                src="/images/activities/main-activities-pic.avif"
                 alt={c.imageAlt}
                 className="w-full aspect-[16/9] rounded-2xl"
                 strength={16}

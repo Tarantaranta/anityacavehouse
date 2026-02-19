@@ -110,6 +110,28 @@ const GALLERY_IMAGES: GalleryImage[] = [
   { src: "/images/blog-images/4.avif", alt: "Anitya Cave House", tag: "General" },
   { src: "/images/blog-images/5.avif", alt: "Anitya Cave House", tag: "General" },
   { src: "/images/blog-images/6.avif", alt: "Anitya Cave House", tag: "General" },
+  // Activities
+  { src: "/images/activities/balloon.avif", alt: "Hot Air Balloon Ride — Cappadocia", tag: "Activities" },
+  { src: "/images/activities/balloon-2.avif", alt: "Sunrise / Sunset Panorama Transfer", tag: "Activities" },
+  { src: "/images/activities/atv-turu.avif", alt: "ATV Safari — Fairy chimneys", tag: "Activities" },
+  { src: "/images/activities/bisiklet-turu.avif", alt: "Cycling Tours — Cappadocia", tag: "Activities" },
+  { src: "/images/activities/blue-tour.avif", alt: "Blue Tour — Hidden Valleys & Ihlara", tag: "Activities" },
+  { src: "/images/activities/foto-safari.avif", alt: "Photography Safari — Golden Hour", tag: "Activities" },
+  { src: "/images/activities/geleneksek-turk-mutfagi.avif", alt: "Traditional Turkish Cooking", tag: "Activities" },
+  { src: "/images/activities/green-tour.avif", alt: "Green Tour — South Cappadocia", tag: "Activities" },
+  { src: "/images/activities/horseback-riding.avif", alt: "Horseback Riding — Fairy Chimneys", tag: "Activities" },
+  { src: "/images/activities/jeep-safari.avif", alt: "Jeep Safari — Off-road Cappadocia", tag: "Activities" },
+  { src: "/images/activities/main-activities-pic.avif", alt: "Cappadocia Activities", tag: "Activities" },
+  { src: "/images/activities/pottery.avif", alt: "Pottery Workshop — Avanos", tag: "Activities" },
+  { src: "/images/activities/private-tour.avif", alt: "Private Custom Tour — Cappadocia", tag: "Activities" },
+  { src: "/images/activities/red-tour.avif", alt: "Red Tour — North Cappadocia", tag: "Activities" },
+  { src: "/images/activities/sarap-tadim.avif", alt: "Cappadocia Wine Tasting", tag: "Activities" },
+  { src: "/images/activities/turkish-hammam.avif", alt: "Turkish Hammam Experience", tag: "Activities" },
+  { src: "/images/activities/turkish-night.avif", alt: "Turkish Night — Folk Dances", tag: "Activities" },
+  { src: "/images/activities/vadi-yuruyusu.avif", alt: "Valley Hikes — Cappadocia", tag: "Activities" },
+  { src: "/images/activities/whirling-dervishes.avif", alt: "Whirling Dervishes Ceremony", tag: "Activities" },
+  { src: "/images/activities/yeralti-sehri.avif", alt: "Underground City Tour", tag: "Activities" },
+  { src: "/images/activities/Vintage%20Classic%20Car%20%26%20Balloon%20Photoshoot.avif", alt: "Vintage Classic Car & Balloon Photoshoot", tag: "Activities" },
 ];
 
 // ─── Locale-aware content ──────────────────────────────────────────────────
@@ -160,7 +182,7 @@ export default async function GalleryPage({ params }: PageProps) {
         label={c.heroLabel}
         title={c.heroTitle}
         subtitle={c.heroSubtitle}
-        imageSrc="/images/cappadocia-ortahisar-castle.avif"
+        imageSrc="/images/cave-house.avif"
         imageAlt={c.heroImageAlt}
       />
 

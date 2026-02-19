@@ -26,6 +26,7 @@ const FILTER_LABELS: Record<string, Record<string, string>> = {
     Ortahisar: "Ortahisar",
     Detail: "Detay",
     General: "Genel",
+    Activities: "Aktiviteler",
   },
   en: {
     all: "All",
@@ -35,6 +36,7 @@ const FILTER_LABELS: Record<string, Record<string, string>> = {
     Ortahisar: "Ortahisar",
     Detail: "Detail",
     General: "General",
+    Activities: "Activities",
   },
   zh: {
     all: "全部",
@@ -44,6 +46,7 @@ const FILTER_LABELS: Record<string, Record<string, string>> = {
     Ortahisar: "奥塔希萨尔",
     Detail: "细节",
     General: "综合",
+    Activities: "活动",
   },
 };
 
@@ -53,7 +56,7 @@ const ARIA_LABELS: Record<string, { close: string; prev: string; next: string }>
   zh: { close: "关闭", prev: "上一张", next: "下一张" },
 };
 
-const CANONICAL_TAGS = ["Terrace", "Interior", "Kitchen", "Ortahisar", "Detail", "General"];
+const CANONICAL_TAGS = ["Terrace", "Interior", "Kitchen", "Ortahisar", "Detail", "General", "Activities"];
 
 export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps) {
   const [activeTag, setActiveTag] = useState("all");

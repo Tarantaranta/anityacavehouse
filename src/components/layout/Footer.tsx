@@ -306,13 +306,37 @@ export function Footer() {
 
         <Separator className="mb-8 bg-stone-700" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>
+        <div className="flex flex-col items-center gap-4 text-sm">
+          <p className="text-stone-500">
             © {currentYear} Anitya Cave House. {t('rights')}
           </p>
-          <p className="text-stone-500 mt-2 md:mt-0">
-            Built with Next.js 15 & Tailwind CSS
-          </p>
+
+          {/* Made by Qiboo Studio — centered */}
+          <a
+            href="https://qiboo.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2.5 group pb-2"
+            aria-label="Qiboo Studio — Web Design & Development"
+          >
+            <span className="text-[10px] uppercase tracking-widest text-stone-600 group-hover:text-stone-400 transition-colors select-none">
+              Designed &amp; developed by
+            </span>
+            <div className="flex items-center gap-2">
+              <div className="w-[22px] h-[22px] rounded-md overflow-hidden bg-white flex-shrink-0 opacity-85 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
+                <Image
+                  src="/images/qiboo-logo.png"
+                  alt="Qiboo Studio icon"
+                  width={22}
+                  height={22}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="text-[13px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent group-hover:from-orange-300 group-hover:via-red-400 group-hover:to-rose-400 transition-all duration-300">
+                Qiboo Studio
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </footer>

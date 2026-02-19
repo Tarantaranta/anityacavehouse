@@ -440,6 +440,7 @@ export const rooms: Room[] = [
     },
     featured: true,
     airbnbCalendarId: '2',
+    airbnbIcalUrl: 'https://www.airbnb.com.tr/calendar/ical/12251096.ics?t=590511410c72461da20cfb12b5341bb6',
   },
   {
     id: '3',
@@ -625,6 +626,7 @@ export const rooms: Room[] = [
     },
     featured: true,
     airbnbCalendarId: '3',
+    airbnbIcalUrl: 'https://www.airbnb.com.tr/calendar/ical/3661690.ics?t=530e4051351248a3a1156d2a93b33743',
   },
 ];
 
