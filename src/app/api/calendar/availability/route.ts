@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { rooms } from '@/data/rooms';
 import { fetchAirbnbCalendar, isDateRangeAvailable, type BlockedDate } from '@/lib/calendar';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Oda müsaitlik durumunu kontrol eder
  * GET /api/calendar/availability?roomId=1&checkIn=2026-03-01&checkOut=2026-03-05

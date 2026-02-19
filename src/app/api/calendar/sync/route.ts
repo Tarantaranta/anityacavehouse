@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { rooms } from '@/data/rooms';
 import { fetchAirbnbCalendar } from '@/lib/calendar';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Tüm Airbnb takvimlerini senkronize eder
  * GET /api/calendar/sync
