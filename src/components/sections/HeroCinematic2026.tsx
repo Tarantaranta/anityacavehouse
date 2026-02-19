@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -10,24 +10,31 @@ export default function HeroCinematic2026() {
   const locale = useLocale();
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // Parallax values
+  // Parallax values — disabled on mobile to prevent GPU blurriness
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
   const maskOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [0.3, 0.5, 0.7]);
 
+  const disableParallax = reduce || isMobile;
+
   return (
-    <section ref={containerRef} className="relative h-screen overflow-hidden">
-      {/* Background Layer - Parallax */}
+    <section ref={containerRef} className="relative h-[100svh] overflow-hidden">
+      {/* Background Layer - Parallax on desktop only */}
       <motion.div
         className="absolute inset-0 z-0"
-        style={{ y: reduce ? 0 : bgY }}
+        style={{ y: disableParallax ? 0 : bgY }}
       >
         <Image
           src="/images/cappadocia-cave-house.avif"
@@ -43,7 +50,7 @@ export default function HeroCinematic2026() {
       {/* Cinematic Mask - Dark gradient from bottom */}
       <motion.div
         className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
-        style={{ opacity: reduce ? 0.3 : maskOpacity }}
+        style={{ opacity: disableParallax ? 0.4 : maskOpacity }}
       />
 
       {/* Stone Overlay */}
@@ -57,12 +64,12 @@ export default function HeroCinematic2026() {
         }}
       />
 
-      {/* Content - Fades on scroll */}
+      {/* Content - Fades on scroll (desktop only) */}
       <motion.div
         className="relative z-40 h-full flex flex-col items-center justify-center text-center px-6"
         style={{
-          y: reduce ? 0 : contentY,
-          opacity: reduce ? 1 : contentOpacity,
+          y: disableParallax ? 0 : contentY,
+          opacity: disableParallax ? 1 : contentOpacity,
         }}
       >
         <motion.div

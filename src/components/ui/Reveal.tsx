@@ -79,7 +79,7 @@ export default function Reveal({
         transform: shown ? "translateY(0)" : `translateY(${slideDistance}px)`,
         filter: blur && !shown ? "blur(3px)" : "none",
         transition: "opacity 700ms ease-out, transform 700ms ease-out, filter 600ms ease-out",
-        willChange: "opacity, transform",
+        willChange: shown ? "auto" : "opacity, transform",
       }}
     >
       {children}
