@@ -46,8 +46,8 @@ export default function HeroCinematic2026() {
         style={{ opacity: reduce ? 0.3 : maskOpacity }}
       />
 
-      {/* Stone Blur Overlay - Subtle texture */}
-      <div className="absolute inset-0 z-20 backdrop-blur-[0.5px] bg-ink/5" />
+      {/* Stone Overlay */}
+      <div className="absolute inset-0 z-20 bg-ink/5" />
 
       {/* Fine Grain */}
       <div

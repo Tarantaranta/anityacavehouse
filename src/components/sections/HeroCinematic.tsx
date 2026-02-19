@@ -44,6 +44,8 @@ export default function HeroCinematic() {
             alt={slides[0].alt}
             fill
             priority
+            quality={90}
+            sizes="100vw"
             className="object-cover"
           />
         ) : (
@@ -61,6 +63,8 @@ export default function HeroCinematic() {
                 alt={slides[index].alt}
                 fill
                 priority={index === 0}
+                quality={90}
+                sizes="100vw"
                 className="object-cover"
               />
               {/* micro cinematic zoom */}

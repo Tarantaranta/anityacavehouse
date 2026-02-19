@@ -11,6 +11,7 @@ interface ParallaxImageProps {
   strength?: number;
   priority?: boolean;
   sizes?: string;
+  quality?: number;
 }
 
 /**
@@ -25,6 +26,7 @@ export default function ParallaxImage({
   strength = 16,
   priority = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
+  quality = 90,
 }: ParallaxImageProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -79,6 +81,7 @@ export default function ParallaxImage({
           className="object-cover"
           priority={priority}
           sizes={sizes}
+          quality={quality}
         />
       </div>
       {/* Subtle gradient overlay – adds depth without darkening */}

@@ -147,156 +147,76 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Social & Newsletter */}
+          {/* Social & Badges */}
           <div>
             <h4 className="text-white font-semibold mb-4">{t('followUs')}</h4>
-            <div className="flex gap-4 mb-6">
-              <a
-                href="https://instagram.com/anityacavehouse"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="hover:text-amber-400 transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
+            <div className="flex flex-wrap gap-3">
+
+              {/* Instagram */}
+              <a href="https://instagram.com/anityacavehouse" target="_blank" rel="noopener noreferrer"
+                 className="group relative" aria-label="Instagram">
+                <div className="h-7 w-7 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-amber-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                  <Instagram className="h-3.5 w-3.5 text-white" />
+                </div>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Instagram
+                </span>
               </a>
-              <a
-                href="https://facebook.com/anityacavehouse"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="hover:text-amber-400 transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
+
+              {/* Facebook */}
+              <a href="https://facebook.com/anityacavehouse" target="_blank" rel="noopener noreferrer"
+                 className="group relative" aria-label="Facebook">
+                <div className="h-7 w-7 rounded-full bg-[#1877F2] flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                  <Facebook className="h-3.5 w-3.5 text-white" />
+                </div>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Facebook
+                </span>
               </a>
-              <a
-                href="https://www.tripadvisor.com/Hotel_Review-g642050-d30600700-Reviews-Anitya_Cave_House-Ortahisar_Nevsehir_Province_Central_Anatolia.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TripAdvisor"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <TripAdvisorIcon className="h-5 w-5" />
+
+              {/* TripAdvisor */}
+              <a href="https://www.tripadvisor.com/Hotel_Review-g642050-d30600700-Reviews-Anitya_Cave_House-Ortahisar_Nevsehir_Province_Central_Anatolia.html"
+                 target="_blank" rel="noopener noreferrer" className="group relative" aria-label="TripAdvisor">
+                <TripAdvisorIcon className="h-7 w-7 transition-transform duration-200 group-hover:scale-110" />
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  TripAdvisor
+                </span>
               </a>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-2 text-sm">{t('newsletter')}</h5>
-              <p className="text-xs mb-3">{t('newsletterText')}</p>
-              {/* Newsletter form will be added later */}
+
+              {/* Airbnb Superhost */}
+              <a href="https://www.airbnb.com/users/show/583936259" target="_blank" rel="noopener noreferrer"
+                 className="group relative" aria-label="Airbnb Superhost">
+                <div className="h-7 w-7 rounded-full overflow-hidden transition-transform duration-200 group-hover:scale-110">
+                  <Image src="/images/Ekran Resmi 2026-02-19 01.01.16.png" alt="Airbnb" width={28} height={28} className="h-full w-full object-cover" />
+                </div>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Airbnb · ★ {t('airbnbSuperhost')}
+                </span>
+              </a>
+
+              {/* Yeşil Yıldız */}
+              <div className="group relative cursor-default">
+                <YesilYildizIcon className="h-7 w-7 transition-transform duration-200 group-hover:scale-110" />
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  {t('sustainabilityTitle')}
+                </span>
+              </div>
+
+              {/* T.C. Kültür ve Turizm Bakanlığı */}
+              <div className="group relative cursor-default">
+                <div className="h-7 w-7 rounded-full overflow-hidden bg-white transition-transform duration-200 group-hover:scale-110">
+                  <Image src="/images/Ekran Resmi 2026-02-19 00.46.49.png" alt="T.C. Kültür ve Turizm Bakanlığı" width={28} height={28} className="h-full w-full object-cover" />
+                </div>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  {t('tourismTitle')}
+                </span>
+              </div>
+
             </div>
           </div>
         </div>
 
         <Separator className="my-8 bg-stone-700" />
-
-        {/* Certifications & Badges */}
-        <div className="mb-8">
-          <p className="text-xs uppercase tracking-widest text-stone-500 text-center mb-4">
-            {t('certifications')}
-          </p>
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-stone-800 rounded-lg overflow-hidden">
-
-            {/* TripAdvisor */}
-            <a
-              href="https://www.tripadvisor.com/Hotel_Review-g642050-d30600700-Reviews-Anitya_Cave_House-Ortahisar_Nevsehir_Province_Central_Anatolia.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 group"
-              aria-label="TripAdvisor"
-            >
-              <TripAdvisorIcon className="h-8 w-8 flex-shrink-0" />
-              <div>
-                <p className="text-[10px] text-stone-500 leading-tight">Reviews on</p>
-                <p className="text-xs font-semibold text-white group-hover:text-[#34E0A1] transition-colors leading-tight">
-                  TripAdvisor
-                </p>
-              </div>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href="https://instagram.com/anityacavehouse"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 group"
-              aria-label="Instagram"
-            >
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-amber-400 flex items-center justify-center flex-shrink-0">
-                <Instagram className="h-4 w-4 text-white" />
-              </div>
-              <div>
-                <p className="text-[10px] text-stone-500 leading-tight">Follow us on</p>
-                <p className="text-xs font-semibold text-white group-hover:text-pink-400 transition-colors leading-tight">
-                  Instagram
-                </p>
-              </div>
-            </a>
-
-            {/* T.C. Çevre ve Şehircilik Bakanlığı – Sürdürülebilirlik */}
-            <div className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3">
-              <YesilYildizIcon className="h-8 w-8 flex-shrink-0" />
-              <div>
-                <p className="text-[10px] text-stone-500 leading-tight">{t('sustainabilityBy')}</p>
-                <p className="text-xs font-semibold text-white leading-tight">
-                  {t('sustainabilityTitle')}
-                </p>
-              </div>
-            </div>
-
-            {/* T.C. Kültür ve Turizm Bakanlığı */}
-            <div className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3">
-              <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 bg-white">
-                <Image
-                  src="/images/Ekran Resmi 2026-02-19 00.46.49.png"
-                  alt="T.C. Kültür ve Turizm Bakanlığı"
-                  width={32}
-                  height={32}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-[10px] text-stone-500 leading-tight">{t('tourismBy')}</p>
-                <p className="text-xs font-semibold text-white leading-tight">
-                  {t('tourismTitle')}
-                </p>
-                <p className="text-[10px] text-amber-500 leading-tight mt-0.5">
-                  {t('tourismSince')}
-                </p>
-              </div>
-            </div>
-
-            {/* Airbnb Superhost */}
-            <a
-              href="https://www.airbnb.com/users/show/583936259"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 col-span-2 lg:col-span-1 group"
-              aria-label="Airbnb Superhost"
-            >
-              <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="/images/Ekran Resmi 2026-02-19 01.01.16.png"
-                  alt="Airbnb"
-                  width={32}
-                  height={32}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-[10px] text-stone-500 leading-tight">{t('airbnbBookOn')}</p>
-                <p className="text-xs font-semibold text-white group-hover:text-[#FF5A5F] transition-colors leading-tight">
-                  Airbnb
-                </p>
-                <p className="text-[10px] text-amber-400 font-semibold leading-tight mt-0.5">
-                  ★ {t('airbnbSuperhost')}
-                </p>
-              </div>
-            </a>
-
-          </div>
-        </div>
-
-        <Separator className="mb-8 bg-stone-700" />
 
         <div className="flex flex-col items-center gap-4 text-sm">
           <p className="text-stone-500">
