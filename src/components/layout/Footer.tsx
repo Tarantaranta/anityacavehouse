@@ -191,111 +191,103 @@ export function Footer() {
 
         {/* Certifications & Badges */}
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-widest text-stone-500 text-center mb-6">
+          <p className="text-xs uppercase tracking-widest text-stone-500 text-center mb-4">
             {t('certifications')}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-stone-800 rounded-lg overflow-hidden">
 
             {/* TripAdvisor */}
             <a
               href="https://www.tripadvisor.com/Hotel_Review-g642050-d30600700-Reviews-Anitya_Cave_House-Ortahisar_Nevsehir_Province_Central_Anatolia.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 group"
+              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 group"
               aria-label="TripAdvisor"
             >
-              <TripAdvisorIcon className="h-12 w-12 flex-shrink-0" />
+              <TripAdvisorIcon className="h-8 w-8 flex-shrink-0" />
               <div>
-                <p className="text-[11px] text-stone-500 leading-tight">Reviews on</p>
-                <p className="text-sm font-semibold text-white group-hover:text-[#34E0A1] transition-colors leading-tight">
+                <p className="text-[10px] text-stone-500 leading-tight">Reviews on</p>
+                <p className="text-xs font-semibold text-white group-hover:text-[#34E0A1] transition-colors leading-tight">
                   TripAdvisor
                 </p>
               </div>
             </a>
-
-            <span className="text-stone-700 text-2xl hidden md:block select-none">|</span>
 
             {/* Instagram */}
             <a
               href="https://instagram.com/anityacavehouse"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 group"
+              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 group"
               aria-label="Instagram"
             >
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-amber-400 flex items-center justify-center flex-shrink-0">
-                <Instagram className="h-6 w-6 text-white" />
+              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-600 via-pink-500 to-amber-400 flex items-center justify-center flex-shrink-0">
+                <Instagram className="h-4 w-4 text-white" />
               </div>
               <div>
-                <p className="text-[11px] text-stone-500 leading-tight">Follow us on</p>
-                <p className="text-sm font-semibold text-white group-hover:text-pink-400 transition-colors leading-tight">
+                <p className="text-[10px] text-stone-500 leading-tight">Follow us on</p>
+                <p className="text-xs font-semibold text-white group-hover:text-pink-400 transition-colors leading-tight">
                   Instagram
                 </p>
               </div>
             </a>
 
-            <span className="text-stone-700 text-2xl hidden md:block select-none">|</span>
-
             {/* T.C. Çevre ve Şehircilik Bakanlığı – Sürdürülebilirlik */}
-            <div className="flex items-center gap-3">
-              <YesilYildizIcon className="h-12 w-12 flex-shrink-0" />
+            <div className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3">
+              <YesilYildizIcon className="h-8 w-8 flex-shrink-0" />
               <div>
-                <p className="text-[11px] text-stone-500 leading-tight">{t('sustainabilityBy')}</p>
-                <p className="text-sm font-semibold text-white leading-tight">
+                <p className="text-[10px] text-stone-500 leading-tight">{t('sustainabilityBy')}</p>
+                <p className="text-xs font-semibold text-white leading-tight">
                   {t('sustainabilityTitle')}
                 </p>
               </div>
             </div>
 
-            <span className="text-stone-700 text-2xl hidden md:block select-none">|</span>
-
             {/* T.C. Kültür ve Turizm Bakanlığı */}
-            <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full overflow-hidden flex-shrink-0 bg-white">
+            <div className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3">
+              <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 bg-white">
                 <Image
                   src="/images/Ekran Resmi 2026-02-19 00.46.49.png"
                   alt="T.C. Kültür ve Turizm Bakanlığı"
-                  width={48}
-                  height={48}
+                  width={32}
+                  height={32}
                   className="h-full w-full object-cover"
                 />
               </div>
               <div>
-                <p className="text-[11px] text-stone-500 leading-tight">{t('tourismBy')}</p>
-                <p className="text-sm font-semibold text-white leading-tight">
+                <p className="text-[10px] text-stone-500 leading-tight">{t('tourismBy')}</p>
+                <p className="text-xs font-semibold text-white leading-tight">
                   {t('tourismTitle')}
                 </p>
-                <p className="text-[11px] text-amber-500 leading-tight mt-0.5">
+                <p className="text-[10px] text-amber-500 leading-tight mt-0.5">
                   {t('tourismSince')}
                 </p>
               </div>
             </div>
-
-            <span className="text-stone-700 text-2xl hidden md:block select-none">|</span>
 
             {/* Airbnb Superhost */}
             <a
               href="https://www.airbnb.com/users/show/583936259"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 group"
+              className="bg-stone-900 flex items-center justify-center gap-2.5 px-4 py-3 col-span-2 lg:col-span-1 group"
               aria-label="Airbnb Superhost"
             >
-              <div className="h-12 w-12 rounded-full overflow-hidden flex-shrink-0">
+              <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/images/Ekran Resmi 2026-02-19 01.01.16.png"
                   alt="Airbnb"
-                  width={48}
-                  height={48}
+                  width={32}
+                  height={32}
                   className="h-full w-full object-cover"
                 />
               </div>
               <div>
-                <p className="text-[11px] text-stone-500 leading-tight">{t('airbnbBookOn')}</p>
-                <p className="text-sm font-semibold text-white group-hover:text-[#FF5A5F] transition-colors leading-tight">
+                <p className="text-[10px] text-stone-500 leading-tight">{t('airbnbBookOn')}</p>
+                <p className="text-xs font-semibold text-white group-hover:text-[#FF5A5F] transition-colors leading-tight">
                   Airbnb
                 </p>
-                <p className="text-[11px] text-amber-400 font-semibold leading-tight mt-0.5">
+                <p className="text-[10px] text-amber-400 font-semibold leading-tight mt-0.5">
                   ★ {t('airbnbSuperhost')}
                 </p>
               </div>
