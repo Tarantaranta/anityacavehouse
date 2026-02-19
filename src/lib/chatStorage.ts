@@ -1,5 +1,3 @@
-import { kv } from '@vercel/kv';
-
 export interface StoredMessage {
   role: 'user' | 'assistant';
   content: string;
@@ -15,35 +13,6 @@ export interface ChatSession {
   messageCount: number;
   hasTravelPlan: boolean;
   topics: string[];
-}
-
-// Her chat oturumu "chat:{id}" key'iyle, indeks ise "chat:index" sorted set'iyle tutulur.
-// Score olarak timestamp (ms) kullanılır — zrange ile en yeni → en eski sıralama yapılır.
-
-export async function saveChat(session: ChatSession): Promise<void> {
-  await Promise.all([
-    kv.set(`chat:${session.id}`, session),
-    kv.zadd('chat:index', {
-      score: new Date(session.endTime).getTime(),
-      member: session.id,
-    }),
-  ]);
-}
-
-export async function getAllChats(): Promise<ChatSession[]> {
-  // Newest first: rev:true ile score'a göre azalan sıra
-  const ids = await kv.zrange<string[]>('chat:index', 0, -1, { rev: true });
-  if (!ids || ids.length === 0) return [];
-
-  const sessions = await Promise.all(
-    ids.map((id) => kv.get<ChatSession>(`chat:${id}`))
-  );
-
-  return sessions.filter((s): s is ChatSession => s !== null);
-}
-
-export async function getChat(id: string): Promise<ChatSession | null> {
-  return kv.get<ChatSession>(`chat:${id}`);
 }
 
 export function detectTopics(messages: StoredMessage[]): string[] {
