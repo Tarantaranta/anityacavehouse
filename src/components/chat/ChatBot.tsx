@@ -404,7 +404,7 @@ function generateTravelPlanPDF(content: string, language: string) {
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 780px; margin: 0 auto; padding: 40px 32px; color: #1a1a1a; background: #fff; }
     .header { text-align: center; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 3px solid #b45309; }
-    .logo-wrapper { display: inline-block; background: #C8BEAF; border-radius: 10px; padding: 14px 32px; margin-bottom: 14px; }
+    .logo-wrapper { display: inline-block; padding: 14px 32px; margin-bottom: 14px; }
     .logo-img { height: 52px; width: auto; display: block; }
     .logo { font-size: 28px; font-weight: 800; color: #b45309; letter-spacing: -0.5px; }
     .subtitle { color: #6b7280; font-size: 13px; margin-top: 6px; }

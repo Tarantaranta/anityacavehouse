@@ -37,7 +37,7 @@ const POSTS: Record<string, BlogPost[]> = {
         "Her sabah farklı bir tablo. Anitya'nın terasından izlenen sıcak hava balonları, Kapadokya'nın en unutulmaz anlarından birini sunar.",
       category: "Ortahisar",
       date: "Kasım 2025",
-      imageSrc: "/images/blog-images/3.avif",
+      imageSrc: "/images/anitya-cave-suite/tmpnxcvbn0s.png.avif",
       href: "/blog/teras-sabahlari-balonlar-ve-sessizlik",
     },
     {
@@ -93,7 +93,7 @@ const POSTS: Record<string, BlogPost[]> = {
         "Every morning a different painting. The hot air balloons watched from Anitya's terrace offer one of Cappadocia's most unforgettable moments.",
       category: "Ortahisar",
       date: "November 2025",
-      imageSrc: "/images/blog-images/3.avif",
+      imageSrc: "/images/anitya-cave-suite/tmpnxcvbn0s.png.avif",
       href: "/blog/teras-sabahlari-balonlar-ve-sessizlik",
     },
     {
@@ -149,7 +149,7 @@ const POSTS: Record<string, BlogPost[]> = {
         "每个早晨都是不同的画面。从Anitya露台望去的热气球，呈现卡帕多西亚最难忘的时刻之一。",
       category: "奥塔希萨尔",
       date: "2025年11月",
-      imageSrc: "/images/blog-images/3.avif",
+      imageSrc: "/images/anitya-cave-suite/tmpnxcvbn0s.png.avif",
       href: "/blog/teras-sabahlari-balonlar-ve-sessizlik",
     },
     {

@@ -158,7 +158,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <PageHero
         label={c.heroLabel}
         title={c.heroTitle}
-        imageSrc="/images/blog-images/3.avif"
+        imageSrc="/images/anitya-cave-suite/tmpnxcvbn0s.png.avif"
         imageAlt={c.imageAlt}
       />
 

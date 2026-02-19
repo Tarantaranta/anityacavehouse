@@ -1014,7 +1014,7 @@ ${ANITYA_KNOWLEDGE}
         ...messages,
       ],
       temperature: 0.7,
-      max_tokens: 500, // Kısa cevaplar için
+      max_tokens: 3000, // Gezi planları için yeterli alan
     });
 
     const assistantMessage = completion.choices[0].message;

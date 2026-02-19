@@ -62,6 +62,11 @@ const GALLERY_IMAGES: GalleryImage[] = [
     tag: "Interior",
   },
   {
+    src: "/images/anitya-cave-suite/tmpnxcvbn0s.png.avif",
+    alt: "Anitya Cave Suite — interior detail",
+    tag: "Interior",
+  },
+  {
     src: "/images/sirahane-cave-suit/DSC_6221.avif",
     alt: "Şırahane Cave Suite — interior",
     tag: "Interior",

@@ -84,6 +84,7 @@ export const rooms: Room[] = [
       '/images/anitya-cave-suite/mix1fq.avif',
       '/images/anitya-cave-suite/bath01qp.avif',
       '/images/anitya-cave-suite/2039102d-9264-4db7-8cc8-a06cb5ad70b9.avif',
+      '/images/anitya-cave-suite/tmpnxcvbn0s.png.avif',
     ],
     amenities: {
       houseAmenities: {
