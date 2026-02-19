@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import { kv } from '@vercel/kv';
 
 export interface StoredMessage {
   role: 'user' | 'assistant';
@@ -18,49 +17,33 @@ export interface ChatSession {
   topics: string[];
 }
 
-const CHATS_DIR = path.join(process.cwd(), 'data', 'chats');
+// Her chat oturumu "chat:{id}" key'iyle, indeks ise "chat:index" sorted set'iyle tutulur.
+// Score olarak timestamp (ms) kullanılır — zrange ile en yeni → en eski sıralama yapılır.
 
-function ensureDirectory() {
-  if (!fs.existsSync(CHATS_DIR)) {
-    fs.mkdirSync(CHATS_DIR, { recursive: true });
-  }
+export async function saveChat(session: ChatSession): Promise<void> {
+  await Promise.all([
+    kv.set(`chat:${session.id}`, session),
+    kv.zadd('chat:index', {
+      score: new Date(session.endTime).getTime(),
+      member: session.id,
+    }),
+  ]);
 }
 
-export function saveChat(session: ChatSession): void {
-  ensureDirectory();
-  const filePath = path.join(CHATS_DIR, `${session.id}.json`);
-  fs.writeFileSync(filePath, JSON.stringify(session, null, 2), 'utf-8');
+export async function getAllChats(): Promise<ChatSession[]> {
+  // Newest first: rev:true ile score'a göre azalan sıra
+  const ids = await kv.zrange<string[]>('chat:index', 0, -1, { rev: true });
+  if (!ids || ids.length === 0) return [];
+
+  const sessions = await Promise.all(
+    ids.map((id) => kv.get<ChatSession>(`chat:${id}`))
+  );
+
+  return sessions.filter((s): s is ChatSession => s !== null);
 }
 
-export function getAllChats(): ChatSession[] {
-  ensureDirectory();
-  try {
-    const files = fs.readdirSync(CHATS_DIR).filter((f) => f.endsWith('.json'));
-    const sessions: ChatSession[] = [];
-    for (const file of files) {
-      try {
-        const raw = fs.readFileSync(path.join(CHATS_DIR, file), 'utf-8');
-        sessions.push(JSON.parse(raw) as ChatSession);
-      } catch {
-        // skip corrupted files
-      }
-    }
-    return sessions.sort(
-      (a, b) => new Date(b.endTime).getTime() - new Date(a.endTime).getTime()
-    );
-  } catch {
-    return [];
-  }
-}
-
-export function getChat(id: string): ChatSession | null {
-  const filePath = path.join(CHATS_DIR, `${id}.json`);
-  if (!fs.existsSync(filePath)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf-8')) as ChatSession;
-  } catch {
-    return null;
-  }
+export async function getChat(id: string): Promise<ChatSession | null> {
+  return kv.get<ChatSession>(`chat:${id}`);
 }
 
 export function detectTopics(messages: StoredMessage[]): string[] {
@@ -107,7 +90,14 @@ export function detectTopics(messages: StoredMessage[]): string[] {
     topics.add('Fiyat');
   if (allText.includes('mutfak') || allText.includes('kitchen') || allText.includes('厨房'))
     topics.add('Mutfak');
-  if (allText.includes('kızıl tur') || allText.includes('red tour') || allText.includes('yeşil tur') || allText.includes('green tour') || allText.includes('mavi tur') || allText.includes('blue tour'))
+  if (
+    allText.includes('kızıl tur') ||
+    allText.includes('red tour') ||
+    allText.includes('yeşil tur') ||
+    allText.includes('green tour') ||
+    allText.includes('mavi tur') ||
+    allText.includes('blue tour')
+  )
     topics.add('Tur Rotası');
 
   return Array.from(topics);

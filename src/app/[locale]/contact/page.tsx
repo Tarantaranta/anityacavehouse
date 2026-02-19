@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import ContactCard from "@/components/ui/ContactCard";
 import Reveal from "@/components/ui/Reveal";
+import ContactForm from "@/components/contact/ContactForm";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -92,85 +93,7 @@ export default async function ContactPage({ params }: PageProps) {
       {/* C2 — İletişim formu */}
       <SectionShell className="pt-0 md:pt-0">
         <Reveal>
-          <div className="max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-3">
-              Mesaj gönderin
-            </p>
-            <h2 className="font-serif font-light text-3xl md:text-4xl text-neutral-900 mb-10">
-              Size geri dönelim
-            </h2>
-
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                    Ad Soyad
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Adınız Soyadınız"
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-white/60 text-neutral-900 placeholder:text-neutral-400 text-sm focus:outline-none focus:border-neutral-400 transition-colors"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                    E-posta
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="ornek@email.com"
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-white/60 text-neutral-900 placeholder:text-neutral-400 text-sm focus:outline-none focus:border-neutral-400 transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                    Giriş tarihi{" "}
-                    <span className="text-neutral-400 normal-case">(opsiyonel)</span>
-                  </label>
-                  <input
-                    type="date"
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-white/60 text-neutral-700 text-sm focus:outline-none focus:border-neutral-400 transition-colors"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                    Çıkış tarihi{" "}
-                    <span className="text-neutral-400 normal-case">(opsiyonel)</span>
-                  </label>
-                  <input
-                    type="date"
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-white/60 text-neutral-700 text-sm focus:outline-none focus:border-neutral-400 transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                  Mesajınız
-                </label>
-                <textarea
-                  rows={5}
-                  placeholder="Planlarınızı, sorularınızı veya özel taleplerinizi yazın…"
-                  className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-white/60 text-neutral-900 placeholder:text-neutral-400 text-sm focus:outline-none focus:border-neutral-400 transition-colors resize-none"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <button
-                  type="submit"
-                  className="px-8 py-3.5 rounded-full bg-neutral-900 text-white text-sm tracking-wide hover:bg-neutral-700 transition-colors duration-300"
-                >
-                  Mesaj Gönder
-                </button>
-                <p className="text-xs text-neutral-400">
-                  Verileriniz KVKK kapsamında işlenir ve üçüncü taraflarla paylaşılmaz.
-                </p>
-              </div>
-            </form>
-          </div>
+          <ContactForm />
         </Reveal>
       </SectionShell>
 

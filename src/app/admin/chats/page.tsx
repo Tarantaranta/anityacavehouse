@@ -40,7 +40,6 @@ interface ChatSession {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const LANG_LABELS: Record<string, string> = { tr: '🇹🇷 Türkçe', en: '🇬🇧 English', zh: '🇨🇳 中文' };
-const ADMIN_PASSWORD = '!Anitya@2014-';
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleString('tr-TR', {
@@ -115,21 +114,32 @@ function MessageBubble({ msg }: { msg: StoredMessage }) {
 
 // ─── Login Screen ─────────────────────────────────────────────────────────────
 
-function LoginScreen({ onLogin }: { onLogin: () => void }) {
+function LoginScreen({ onLogin }: { onLogin: (pw: string) => void }) {
   const [pw, setPw] = useState('');
   const [error, setError] = useState(false);
   const [shake, setShake] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handle = (e: React.FormEvent) => {
+  const handle = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (pw === ADMIN_PASSWORD) {
-      sessionStorage.setItem('anitya_admin_auth', '1');
-      onLogin();
-    } else {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/admin/chats', {
+        headers: { 'x-admin-password': pw },
+      });
+      if (res.ok) {
+        sessionStorage.setItem('anitya_admin_pw', pw);
+        onLogin(pw);
+      } else {
+        setError(true);
+        setShake(true);
+        setTimeout(() => setShake(false), 600);
+        setPw('');
+      }
+    } catch {
       setError(true);
-      setShake(true);
-      setTimeout(() => setShake(false), 600);
-      setPw('');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -160,9 +170,10 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
           </div>
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-br from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold rounded-xl transition-all text-sm"
+            disabled={loading}
+            className="w-full py-3 bg-gradient-to-br from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold rounded-xl transition-all text-sm disabled:opacity-60"
           >
-            Giriş Yap
+            {loading ? 'Doğrulanıyor…' : 'Giriş Yap'}
           </button>
         </form>
       </div>
@@ -224,7 +235,7 @@ function ConversationModal({ session, onClose }: { session: ChatSession; onClose
 
 // ─── Main Dashboard ───────────────────────────────────────────────────────────
 
-function Dashboard() {
+function Dashboard({ password }: { password: string }) {
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -237,7 +248,7 @@ function Dashboard() {
 
   useEffect(() => {
     fetch('/api/admin/chats', {
-      headers: { 'x-admin-password': ADMIN_PASSWORD },
+      headers: { 'x-admin-password': password },
     })
       .then((r) => {
         if (!r.ok) throw new Error('Unauthorized');
@@ -601,17 +612,16 @@ function Dashboard() {
 // ─── Root Page ────────────────────────────────────────────────────────────────
 
 export default function AdminChatsPage() {
-  const [authed, setAuthed] = useState(false);
+  const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem('anitya_admin_auth') === '1') {
-      setAuthed(true);
-    }
+    const saved = sessionStorage.getItem('anitya_admin_pw');
+    if (saved) setPassword(saved);
     setChecked(true);
   }, []);
 
   if (!checked) return null;
-  if (!authed) return <LoginScreen onLogin={() => setAuthed(true)} />;
-  return <Dashboard />;
+  if (!password) return <LoginScreen onLogin={(pw) => setPassword(pw)} />;
+  return <Dashboard password={password} />;
 }

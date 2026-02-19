@@ -223,12 +223,12 @@ export function Footer() {
             © {currentYear} Anitya Cave House. {t('rights')}
           </p>
 
-          {/* Made by Qiboo Studio — centered */}
+          {/* Made by Qiboo Studio — desktop: centered in footer */}
           <a
             href="https://qiboo.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 group pb-2"
+            className="hidden md:flex items-center gap-2.5 group pb-2"
             aria-label="Qiboo Studio — Web Design & Development"
           >
             <span className="text-[10px] uppercase tracking-widest text-stone-600 group-hover:text-stone-400 transition-colors select-none">
@@ -248,6 +248,28 @@ export function Footer() {
                 Qiboo Studio
               </span>
             </div>
+          </a>
+
+          {/* Made by Qiboo Studio — mobile: fixed bottom-left */}
+          <a
+            href="https://qiboo.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:hidden fixed bottom-4 left-4 z-40 flex items-center gap-2 group bg-black/40 backdrop-blur-sm px-3 py-2 rounded-full"
+            aria-label="Qiboo Studio — Web Design & Development"
+          >
+            <div className="w-[18px] h-[18px] rounded-sm overflow-hidden bg-white flex-shrink-0 opacity-90">
+              <Image
+                src="/images/qiboo-logo.png"
+                alt="Qiboo Studio icon"
+                width={18}
+                height={18}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="text-[11px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent">
+              Qiboo Studio
+            </span>
           </a>
         </div>
       </div>

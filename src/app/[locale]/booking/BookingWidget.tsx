@@ -22,12 +22,17 @@ const content = {
     guests: 'Misafir Sayısı',
     person: 'kişi',
     cta: 'Müsaitliği Kontrol Et',
-    ctaNote: 'Ödeme entegrasyonu yakında aktif olacak',
+    ctaChecking: 'Kontrol Ediliyor…',
+    ctaNote: 'Airbnb takvimi ile gerçek zamanlı kontrol',
     whatsapp: 'WhatsApp ile Rezervasyon Yap',
-    whatsappNote: 'Şimdilik rezervasyon için WhatsApp\'tan yazın',
+    whatsappNote: 'Seçtiğiniz tarihler müsait! Rezervasyon için WhatsApp\'tan yazın.',
+    whatsappNoteUnavailable: 'Seçtiğiniz tarihler müsait değil. Farklı tarihler deneyin.',
     nights: 'gece',
     noSuiteError: 'Lütfen bir suite seçin',
     noDatesError: 'Lütfen giriş ve çıkış tarihlerini seçin',
+    availableLabel: 'Müsait',
+    unavailableLabel: 'Dolu',
+    checkError: 'Müsaitlik kontrol edilemedi, lütfen tekrar deneyin.',
     panelTitle: 'Tarihleri ve Misafir Sayısını Belirleyin',
     trustLine1: '12+ Yıl Airbnb Superhost',
     trustLine2: '4.86 / 5 — 1046+ Doğrulanmış Yorum',
@@ -49,12 +54,17 @@ const content = {
     guests: 'Guests',
     person: 'guest',
     cta: 'Check Availability',
-    ctaNote: 'Payment integration coming soon',
+    ctaChecking: 'Checking…',
+    ctaNote: 'Real-time check against Airbnb calendar',
     whatsapp: 'Book via WhatsApp',
-    whatsappNote: 'For now, book directly via WhatsApp',
+    whatsappNote: 'These dates are available! Book directly via WhatsApp.',
+    whatsappNoteUnavailable: 'These dates are not available. Please try different dates.',
     nights: 'nights',
     noSuiteError: 'Please select a suite',
     noDatesError: 'Please select check-in and check-out dates',
+    availableLabel: 'Available',
+    unavailableLabel: 'Not Available',
+    checkError: 'Could not check availability, please try again.',
     panelTitle: 'Select Dates & Guests',
     trustLine1: '12+ Years Airbnb Superhost',
     trustLine2: '4.86 / 5 — 1046+ Verified Reviews',
@@ -76,12 +86,17 @@ const content = {
     guests: '宾客人数',
     person: '人',
     cta: '查看空房情况',
-    ctaNote: '支付功能即将上线',
+    ctaChecking: '查询中…',
+    ctaNote: '与Airbnb日历实时同步核查',
     whatsapp: '通过WhatsApp预订',
-    whatsappNote: '现在请通过WhatsApp联系我们预订',
+    whatsappNote: '所选日期有空房！请通过WhatsApp联系预订。',
+    whatsappNoteUnavailable: '所选日期无空房，请尝试其他日期。',
     nights: '晚',
     noSuiteError: '请选择一个套房',
     noDatesError: '请选择入住和退房日期',
+    availableLabel: '有空房',
+    unavailableLabel: '已满房',
+    checkError: '无法检查空房情况，请重试。',
     panelTitle: '选择日期和宾客人数',
     trustLine1: '12年+ Airbnb超级房东',
     trustLine2: '4.86 / 5 — 1046+ 条已验证评价',
@@ -103,9 +118,11 @@ export default function BookingWidget({ locale }: Props) {
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState(2);
   const [error, setError] = useState('');
-  const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [availability, setAvailability] = useState<'idle' | 'checking' | 'available' | 'unavailable' | 'error'>('idle');
 
   const selectedRoomData = rooms.find((r) => r.id === selectedRoom);
+
+  const resetAvailability = () => setAvailability('idle');
 
   // Night count calculation
   const nightCount =
@@ -119,7 +136,7 @@ export default function BookingWidget({ locale }: Props) {
         )
       : 0;
 
-  const handleCTA = () => {
+  const handleCTA = async () => {
     if (!selectedRoom) {
       setError(c.noSuiteError);
       document.getElementById('suite-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -130,7 +147,17 @@ export default function BookingWidget({ locale }: Props) {
       return;
     }
     setError('');
-    setShowWhatsApp(true);
+    setAvailability('checking');
+    try {
+      const res = await fetch(
+        `/api/calendar/availability?roomId=${selectedRoom}&checkIn=${checkIn}&checkOut=${checkOut}`
+      );
+      if (!res.ok) throw new Error('API error');
+      const data = await res.json();
+      setAvailability(data.isAvailable ? 'available' : 'unavailable');
+    } catch {
+      setAvailability('error');
+    }
   };
 
   const buildWhatsAppMessage = () => {
@@ -226,6 +253,7 @@ export default function BookingWidget({ locale }: Props) {
                     onClick={() => {
                       setSelectedRoom(room.id);
                       setError('');
+                      resetAvailability();
                       if (guests > room.capacity) setGuests(room.capacity);
                     }}
                     className={[
@@ -332,6 +360,7 @@ export default function BookingWidget({ locale }: Props) {
                         setCheckIn(e.target.value);
                         if (checkOut && e.target.value >= checkOut) setCheckOut('');
                         setError('');
+                        resetAvailability();
                       }}
                       className="w-full border border-line rounded-sm px-3 py-2.5 text-sm text-ink bg-surface focus:outline-none focus:border-stone-500 transition-colors font-light"
                     />
@@ -347,6 +376,7 @@ export default function BookingWidget({ locale }: Props) {
                       onChange={(e) => {
                         setCheckOut(e.target.value);
                         setError('');
+                        resetAvailability();
                       }}
                       className="w-full border border-line rounded-sm px-3 py-2.5 text-sm text-ink bg-surface focus:outline-none focus:border-stone-500 transition-colors font-light"
                     />
@@ -416,31 +446,49 @@ export default function BookingWidget({ locale }: Props) {
                 {/* Divider */}
                 <div className="h-px bg-line" />
 
-                {/* WhatsApp panel (shown after CTA) */}
+                {/* Availability result */}
                 <AnimatePresence>
-                  {showWhatsApp && (
+                  {(availability === 'available' || availability === 'unavailable' || availability === 'error') && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
-                      <div className="bg-stone-50 border border-stone-200 rounded-sm p-4 mb-4">
-                        <p className="text-xs text-stone-500 font-light leading-relaxed mb-3">
-                          {c.whatsappNote}
+                      {availability === 'available' && (
+                        <div className="bg-emerald-50 border border-emerald-200 rounded-sm p-4 mb-4">
+                          <p className="text-xs font-semibold text-emerald-700 flex items-center gap-1.5 mb-2">
+                            <Check className="w-3.5 h-3.5" /> {c.availableLabel}
+                          </p>
+                          <p className="text-xs text-emerald-600 font-light leading-relaxed mb-3">
+                            {c.whatsappNote}
+                          </p>
+                          <a
+                            href={`https://wa.me/905444946814?text=${buildWhatsAppMessage()}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1fbd5a] text-white text-xs tracking-widest uppercase font-medium py-3 px-4 rounded-sm transition-colors"
+                          >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            {c.whatsapp}
+                          </a>
+                        </div>
+                      )}
+                      {availability === 'unavailable' && (
+                        <div className="bg-red-50 border border-red-200 rounded-sm p-4 mb-4">
+                          <p className="text-xs font-semibold text-red-600 mb-1">✕ {c.unavailableLabel}</p>
+                          <p className="text-xs text-red-500 font-light leading-relaxed">
+                            {c.whatsappNoteUnavailable}
+                          </p>
+                        </div>
+                      )}
+                      {availability === 'error' && (
+                        <p className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-sm p-3 mb-4">
+                          {c.checkError}
                         </p>
-                        <a
-                          href={`https://wa.me/905444946814?text=${buildWhatsAppMessage()}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1fbd5a] text-white text-xs tracking-widest uppercase font-medium py-3 px-4 rounded-sm transition-colors"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                          </svg>
-                          {c.whatsapp}
-                        </a>
-                      </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -449,10 +497,13 @@ export default function BookingWidget({ locale }: Props) {
                 <button
                   type="button"
                   onClick={handleCTA}
-                  className="w-full bg-stone-900 hover:bg-stone-800 text-white text-xs tracking-[0.2em] uppercase py-4 px-6 flex items-center justify-center gap-2 transition-colors duration-300 rounded-sm group"
+                  disabled={availability === 'checking'}
+                  className="w-full bg-stone-900 hover:bg-stone-800 disabled:opacity-60 text-white text-xs tracking-[0.2em] uppercase py-4 px-6 flex items-center justify-center gap-2 transition-colors duration-300 rounded-sm group"
                 >
-                  {c.cta}
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  {availability === 'checking' ? c.ctaChecking : c.cta}
+                  {availability !== 'checking' && (
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  )}
                 </button>
 
                 <p className="text-center text-xs text-stone-400 font-light tracking-wide">

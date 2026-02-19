@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { headers } from "next/headers";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default async function RootLayout({
 }>) {
   const headersList = await headers();
   const locale = headersList.get("x-next-intl-locale") ?? "tr";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html
@@ -39,7 +41,10 @@ export default async function RootLayout({
       className={`${inter.variable} ${cormorant.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-surface text-ink antialiased">{children}</body>
+      <body className="bg-surface text-ink antialiased">
+        {children}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
+      </body>
     </html>
   );
 }

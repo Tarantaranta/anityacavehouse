@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       topics,
     };
 
-    saveChat(session);
+    await saveChat(session);
     return NextResponse.json({ success: true, id: session.id });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Unknown error';
