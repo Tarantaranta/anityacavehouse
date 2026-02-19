@@ -20,8 +20,8 @@ export default function HeroCinematicTR() {
   const maskOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [0.3, 0.5, 0.7]);
 
   return (
-    <section ref={containerRef} className="relative h-screen overflow-hidden">
-      {/* Background Layer - Parallax */}
+    <section ref={containerRef} className="relative h-[100svh] overflow-hidden">
+      {/* Background Layer - Parallax (desktop only) */}
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y: reduce ? 0 : bgY }}
@@ -30,10 +30,11 @@ export default function HeroCinematicTR() {
           src="/images/cappadocia-cave-house.avif"
           alt="Anitya Cave House - Terrace sunrise atmosphere"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center md:scale-110"
           priority
           quality={95}
           sizes="100vw"
+          style={{ willChange: "transform" }}
         />
       </motion.div>
 
@@ -43,8 +44,8 @@ export default function HeroCinematicTR() {
         style={{ opacity: reduce ? 0.3 : maskOpacity }}
       />
 
-      {/* Stone Blur Overlay - Subtle texture */}
-      <div className="absolute inset-0 z-20 backdrop-blur-[0.5px] bg-ink/5" />
+      {/* Subtle dark overlay - no blur */}
+      <div className="absolute inset-0 z-20 bg-ink/5" />
 
       {/* Fine Grain */}
       <div

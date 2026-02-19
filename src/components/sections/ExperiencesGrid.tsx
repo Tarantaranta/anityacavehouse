@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 import Reveal from "@/components/ui/Reveal";
@@ -845,6 +845,8 @@ const EXPERIENCES: Record<string, Experience[]> = {
 export default function ExperiencesGrid({ locale = "tr" }: { locale?: string }) {
   const [selectedKey, setSelectedKey] = useState<CategoryKey>("all");
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
 
   const labels = CATEGORY_LABELS[locale] ?? CATEGORY_LABELS.tr;
   const experiences = EXPERIENCES[locale] ?? EXPERIENCES.tr;
@@ -999,6 +1001,20 @@ export default function ExperiencesGrid({ locale = "tr" }: { locale?: string }) 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setModalIndex(null)}
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+                touchStartY.current = e.touches[0].clientY;
+              }}
+              onTouchEnd={(e) => {
+                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                const dy = e.changedTouches[0].clientY - touchStartY.current;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+                  if (dx > 0)
+                    setModalIndex((i) => i !== null ? (i - 1 + filtered.length) % filtered.length : 0);
+                  else
+                    setModalIndex((i) => i !== null ? (i + 1) % filtered.length : 0);
+                }
+              }}
             >
               <motion.div
                 className="relative w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto bg-white sm:rounded-2xl shadow-2xl"

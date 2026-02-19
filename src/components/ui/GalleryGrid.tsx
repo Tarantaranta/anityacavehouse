@@ -61,7 +61,10 @@ const CANONICAL_TAGS = ["Terrace", "Interior", "Kitchen", "Ortahisar", "Detail",
 export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps) {
   const [activeTag, setActiveTag] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [imageLoading, setImageLoading] = useState(false);
   const lightboxRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
 
   const labels = FILTER_LABELS[locale] ?? FILTER_LABELS.tr;
   const aria = ARIA_LABELS[locale] ?? ARIA_LABELS.tr;
@@ -73,6 +76,11 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
 
   const filtered =
     activeTag === "all" ? images : images.filter((img) => img.tag === activeTag);
+
+  // Reset loading state when index changes
+  useEffect(() => {
+    if (lightboxIndex !== null) setImageLoading(true);
+  }, [lightboxIndex]);
 
   // ESC to close lightbox
   useEffect(() => {
@@ -138,11 +146,25 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
           onClick={(e) => {
             if (e.target === lightboxRef.current) setLightboxIndex(null);
           }}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+            touchStartY.current = e.touches[0].clientY;
+          }}
+          onTouchEnd={(e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            const dy = e.changedTouches[0].clientY - touchStartY.current;
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+              if (dx > 0)
+                setLightboxIndex((i) => i !== null ? (i - 1 + filtered.length) % filtered.length : 0);
+              else
+                setLightboxIndex((i) => i !== null ? (i + 1) % filtered.length : 0);
+            }
+          }}
         >
           {/* Close */}
           <button
             onClick={() => setLightboxIndex(null)}
-            className="absolute top-5 right-5 text-white/80 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            className="absolute top-5 right-5 text-white/80 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 z-10"
             aria-label={aria.close}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -158,31 +180,48 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
                   i !== null ? (i - 1 + filtered.length) % filtered.length : 0
                 )
               }
-              className="absolute left-3 md:left-6 text-white/70 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+              className="absolute left-3 md:left-6 text-white/70 hover:text-white transition-colors w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25 z-10"
               aria-label={aria.prev}
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
                 <path d="M10 2L4 8l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           )}
 
-          {/* Image */}
+          {/* Image + spinner */}
           <div className="relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden">
+            {imageLoading && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <svg className="w-8 h-8 text-white/50 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"/>
+                </svg>
+              </div>
+            )}
             <Image
+              key={filtered[lightboxIndex].src}
               src={filtered[lightboxIndex].src}
               alt={filtered[lightboxIndex].alt}
               fill
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 80vw"
               priority
+              onLoad={() => setImageLoading(false)}
             />
           </div>
 
-          {/* Caption */}
-          <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-xs tracking-wide">
-            {filtered[lightboxIndex].alt}
+          {/* Counter */}
+          <p className="absolute top-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.15em] tabular-nums z-10">
+            {lightboxIndex + 1} / {filtered.length}
           </p>
+
+          {/* Caption — only shown after image loaded */}
+          {!imageLoading && (
+            <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-xs tracking-wide text-center max-w-xs px-4 z-10">
+              {filtered[lightboxIndex].alt}
+            </p>
+          )}
 
           {/* Next */}
           {filtered.length > 1 && (
@@ -192,10 +231,10 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
                   i !== null ? (i + 1) % filtered.length : 0
                 )
               }
-              className="absolute right-3 md:right-6 text-white/70 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+              className="absolute right-3 md:right-6 text-white/70 hover:text-white transition-colors w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25 z-10"
               aria-label={aria.next}
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
                 <path d="M6 2l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
