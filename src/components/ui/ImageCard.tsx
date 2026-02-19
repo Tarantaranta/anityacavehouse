@@ -32,7 +32,7 @@ export default function ImageCard({
   if (reduce) {
     return (
       <figure className={`relative overflow-hidden rounded-sm shadow-soft ${aspectClass} ${className}`}>
-        <Image src={src} alt={alt} fill priority={priority} className="object-cover" />
+        <Image src={src} alt={alt} fill priority={priority} className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={85} />
         {caption ? (
           <figcaption className="absolute inset-x-0 bottom-0 bg-black/35 text-white text-sm px-4 py-3">
             {caption}
@@ -55,7 +55,7 @@ export default function ImageCard({
         whileHover={{ scale: 1.03 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <Image src={src} alt={alt} fill priority={priority} className="object-cover" />
+        <Image src={src} alt={alt} fill priority={priority} className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={85} />
       </motion.div>
 
       {/* ultra subtle vignette for luxury readability */}

@@ -88,6 +88,7 @@ export default function ImageCardAdvanced({
           className="object-cover"
           style={{ objectPosition }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+          quality={85}
         />
         {caption ? (
           <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent text-white text-sm px-5 py-4">
@@ -132,6 +133,7 @@ export default function ImageCardAdvanced({
           className="object-cover"
           style={{ objectPosition }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+          quality={85}
         />
       </motion.div>
 

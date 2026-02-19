@@ -218,59 +218,35 @@ export function Footer() {
 
         <Separator className="my-8 bg-stone-700" />
 
-        <div className="flex flex-col items-center gap-4 text-sm">
-          <p className="text-stone-500">
-            © {currentYear} Anitya Cave House. {t('rights')}
-          </p>
-
-          {/* Made by Qiboo Studio — desktop: centered in footer */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+          {/* Designed by Qiboo Studio — footer sol */}
           <a
             href="https://qiboo.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2.5 group pb-2"
+            className="flex items-center gap-2 group"
             aria-label="Qiboo Studio — Web Design & Development"
           >
             <span className="text-[10px] uppercase tracking-widest text-stone-600 group-hover:text-stone-400 transition-colors select-none">
-              Designed &amp; developed by
+              Designed by
             </span>
-            <div className="flex items-center gap-2">
-              <div className="w-[22px] h-[22px] rounded-md overflow-hidden bg-white flex-shrink-0 opacity-85 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
-                <Image
-                  src="/images/qiboo-logo.png"
-                  alt="Qiboo Studio icon"
-                  width={22}
-                  height={22}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <span className="text-[13px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent group-hover:from-orange-300 group-hover:via-red-400 group-hover:to-rose-400 transition-all duration-300">
-                Qiboo Studio
-              </span>
-            </div>
-          </a>
-
-          {/* Made by Qiboo Studio — mobile: fixed bottom-left */}
-          <a
-            href="https://qiboo.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="md:hidden fixed bottom-4 left-4 z-40 flex items-center gap-2 group bg-black/40 backdrop-blur-sm px-3 py-2 rounded-full"
-            aria-label="Qiboo Studio — Web Design & Development"
-          >
-            <div className="w-[18px] h-[18px] rounded-sm overflow-hidden bg-white flex-shrink-0 opacity-90">
+            <div className="w-[20px] h-[20px] rounded-md overflow-hidden bg-white flex-shrink-0 opacity-85 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
               <Image
                 src="/images/qiboo-logo.png"
                 alt="Qiboo Studio icon"
-                width={18}
-                height={18}
+                width={20}
+                height={20}
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-[11px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent">
+            <span className="text-[12px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent group-hover:from-orange-300 group-hover:via-red-400 group-hover:to-rose-400 transition-all duration-300">
               Qiboo Studio
             </span>
           </a>
+
+          <p className="text-stone-500">
+            © {currentYear} Anitya Cave House. {t('rights')}
+          </p>
         </div>
       </div>
     </footer>

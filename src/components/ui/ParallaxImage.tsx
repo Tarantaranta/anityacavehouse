@@ -33,6 +33,8 @@ export default function ParallaxImage({
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Disable parallax on mobile — scale(1.06) + translateY causes GPU blurriness
+    if (window.matchMedia("(max-width: 768px)").matches) return;
 
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
@@ -68,11 +70,11 @@ export default function ParallaxImage({
       ref={wrapperRef}
       className={["relative overflow-hidden", className].join(" ")}
     >
-      {/* Inner div scales slightly so edges don't show during parallax */}
+      {/* Inner div: scale(1.06) only on desktop (via JS above). Mobile stays scale(1.0) */}
       <div
         ref={innerRef}
         className="absolute inset-0"
-        style={{ transform: "scale(1.06)" }}
+        style={{ transform: "scale(1.0)" }}
       >
         <Image
           src={src}

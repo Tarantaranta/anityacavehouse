@@ -129,6 +129,7 @@ export default function Lightbox({
           className="object-contain"
           sizes="(max-width: 768px) 100vw, 90vw"
           priority
+          quality={90}
           onLoad={() => setImageLoading(false)}
         />
       </div>

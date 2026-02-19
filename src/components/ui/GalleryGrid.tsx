@@ -131,6 +131,7 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={85}
             />
             {/* Subtle overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20 pointer-events-none" />
@@ -207,6 +208,7 @@ export default function GalleryGrid({ images, locale = "tr" }: GalleryGridProps)
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 80vw"
               priority
+              quality={90}
               onLoad={() => setImageLoading(false)}
             />
           </div>
