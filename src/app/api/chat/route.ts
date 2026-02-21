@@ -746,6 +746,21 @@ A: Kapadokya'yı gezmek için araba veya turlar önerilir. Ortahisar içinde yü
 
 export async function POST(req: NextRequest) {
   try {
+    // Rate limiting - Spam koruması (harici servis yok, in-memory)
+    const clientIP = req.headers.get('x-forwarded-for') ||
+                     req.headers.get('x-real-ip') ||
+                     'unknown';
+
+    const { checkSimpleRateLimit } = await import('./simple-ratelimit');
+    const rateLimitResult = checkSimpleRateLimit(clientIP);
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        { error: rateLimitResult.message },
+        { status: 429 }
+      );
+    }
+
     const { messages, language = 'tr' } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {

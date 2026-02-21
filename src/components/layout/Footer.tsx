@@ -3,6 +3,14 @@ import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Separator } from '@/components/ui/separator';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import localFont from 'next/font/local';
+
+// Tektur font for Qiboo branding
+const tekturFont = localFont({
+  src: '../../../public/fonts/Tektur-VariableFont_wdth,wght.ttf',
+  display: 'swap',
+  variable: '--font-tektur',
+});
 
 /**
  * TripAdvisor owl icon — iki büyük yuvarlak göz (binoküler baykuş),
@@ -239,7 +247,7 @@ export function Footer() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-[12px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent group-hover:from-orange-300 group-hover:via-red-400 group-hover:to-rose-400 transition-all duration-300">
+            <span className={`text-[12px] font-semibold tracking-wide bg-gradient-to-r from-orange-400 via-red-500 to-rose-600 bg-clip-text text-transparent group-hover:from-orange-300 group-hover:via-red-400 group-hover:to-rose-400 transition-all duration-300 ${tekturFont.className}`}>
               Qiboo Studio
             </span>
           </a>

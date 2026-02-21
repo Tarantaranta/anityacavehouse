@@ -42,8 +42,8 @@ export default function HeroCinematic2026() {
           fill
           className="object-cover object-center"
           priority
-          quality={95}
-          sizes="100vw"
+          quality={100}
+          sizes="(max-width: 768px) 100vw, (max-width: 1920px) 100vw, 2048px"
         />
       </motion.div>
 

@@ -47,3 +47,8 @@ anitya_old_website_files/data/*.sql
 
 # public old site images (should not be committed)
 public/images/old-site/
+
+# Sentry Config File
+.env.sentry-build-plugin
+.data
+rate-limits.json
