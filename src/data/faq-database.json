@@ -1,0 +1,279 @@
+{
+  "faqs": [
+    {
+      "id": "balloon-tour-price",
+      "question_tr": "Balon turu ne kadar?",
+      "question_en": "How much is the balloon tour?",
+      "question_zh": "热气球之旅多少钱？",
+      "answer_tr": "Kapadokya'da balon turları genellikle €150-250 arasında değişiyor. Standart turlar sabah 05:00-06:00 arası başlar ve yaklaşık 1 saat sürer. Size en iyi fiyatı alabilirim ve hemen rezerve edebilirim - hangi tarih düşünüyorsunuz?",
+      "answer_en": "Hot air balloon tours in Cappadocia typically range from €150-250. Standard tours start around 05:00-06:00 AM and last approximately 1 hour. I can get you the best price and book immediately - which date are you considering?",
+      "answer_zh": "卡帕多西亚的热气球之旅通常在€150-250之间。标准之旅在早上05:00-06:00左右开始，持续约1小时。我可以为您获得最优惠的价格并立即预订 - 您考虑哪个日期？",
+      "confidence_threshold": 0.82,
+      "category": "activities"
+    },
+    {
+      "id": "suite-types",
+      "question_tr": "Hangi odalarınız var?",
+      "question_en": "What rooms do you have?",
+      "question_zh": "你们有什么房间？",
+      "answer_tr": "3 bağımsız suite'imiz var:\n\n1. Anitya Cave Suite (90 m²) - Maksimum 6 misafir, orijinal mağara\n2. Şırahane Cave Suite - Maksimum 4 misafir, otantik mağara\n3. Dublex Stone Suite (50 m²) - Maksimum 4 misafir, dubleks yapı\n\nHangisi ilginizi çekiyor?",
+      "answer_en": "We have 3 independent suites:\n\n1. Anitya Cave Suite (90 m²) - Max 6 guests, original cave\n2. Şırahane Cave Suite - Max 4 guests, authentic cave\n3. Dublex Stone Suite (50 m²) - Max 4 guests, duplex structure\n\nWhich one interests you?",
+      "answer_zh": "我们有3个独立套房：\n\n1. Anitya Cave Suite (90 m²) - 最多6位客人，原始洞穴\n2. Şırahane Cave Suite - 最多4位客人，正宗洞穴\n3. Dublex Stone Suite (50 m²) - 最多4位客人，复式结构\n\n您对哪个感兴趣？",
+      "confidence_threshold": 0.85,
+      "category": "accommodation"
+    },
+    {
+      "id": "checkin-checkout",
+      "question_tr": "Check-in ve check-out saatleri nedir?",
+      "question_en": "What are the check-in and check-out times?",
+      "question_zh": "入住和退房时间是什么时候？",
+      "answer_tr": "Check-in saat 14:00, check-out saat 11:00'dir. Erken check-in veya geç check-out için müsaitlik durumuna göre yardımcı olabiliriz.",
+      "answer_en": "Check-in is at 14:00 and check-out is at 11:00. We can help with early check-in or late check-out based on availability.",
+      "answer_zh": "入住时间是14:00，退房时间是11:00。根据可用性，我们可以帮助您提前入住或延迟退房。",
+      "confidence_threshold": 0.88,
+      "category": "policies"
+    },
+    {
+      "id": "airport-transfer",
+      "question_tr": "Havalimanı transferi var mı?",
+      "question_en": "Do you have airport transfer?",
+      "question_zh": "你们提供机场接送服务吗？",
+      "answer_tr": "Evet, hem Kayseri (45 dk, ~€40-50) hem de Nevşehir (30 dk, ~€30-40) havalimanlarından transfer organize edebiliriz. Uçuş bilgilerinizi paylaşırsanız hemen ayarlayabilirim.",
+      "answer_en": "Yes, we can arrange transfers from both Kayseri Airport (45 min, ~€40-50) and Nevşehir Airport (30 min, ~€30-40). Share your flight details and I'll arrange it immediately.",
+      "answer_zh": "是的，我们可以安排从开塞利机场（45分钟，约€40-50）和内夫谢希尔机场（30分钟，约€30-40）的接送服务。分享您的航班详情，我马上安排。",
+      "confidence_threshold": 0.86,
+      "category": "transport"
+    },
+    {
+      "id": "restaurant-recommendation",
+      "question_tr": "Yakında hangi restoranları önerirsiniz?",
+      "question_en": "Which restaurants do you recommend nearby?",
+      "question_zh": "您推荐附近哪些餐厅？",
+      "answer_tr": "Akşam yemeği için Narin Restaurant'ı şiddetle tavsiye ederim - Ortahisar'ın en iyisi! Yakın alternatifler: Seten (150m, 2 dk), Dibek (200m, manzara), Aravan Evi (450m, serpme kahvaltı). Rezervasyon yapmamı ister misiniz?",
+      "answer_en": "I highly recommend Narin Restaurant for dinner - the best in Ortahisar! Close alternatives: Seten (150m, 2 min), Dibek (200m, great view), Aravan Evi (450m, Turkish breakfast). Would you like me to make a reservation?",
+      "answer_zh": "我强烈推荐Narin Restaurant作为晚餐 - 奥塔希萨尔最好的！附近的选择：Seten（150米，2分钟），Dibek（200米，美景），Aravan Evi（450米，土耳其早餐）。您需要我预订吗？",
+      "confidence_threshold": 0.84,
+      "category": "dining"
+    },
+    {
+      "id": "breakfast-options",
+      "question_tr": "Kahvaltı var mı?",
+      "question_en": "Do you have breakfast?",
+      "question_zh": "你们提供早餐吗？",
+      "answer_tr": "Sabit kahvaltı servisi yok (butik konsept), ancak suite'lere özel Türk kahvaltısı siparişi verebilirsiniz. Tam donanımlı mutfağınızda kendiniz de hazırlayabilirsiniz - ücretsiz çay, kahve, baharatlar mevcut.",
+      "answer_en": "We don't have a fixed breakfast service (boutique concept), but you can order a special Turkish breakfast to your suite. You can also prepare your own in the fully equipped kitchen - free tea, coffee, and spices provided.",
+      "answer_zh": "我们没有固定的早餐服务（精品概念），但您可以订购特殊的土耳其早餐送到套房。您也可以在设备齐全的厨房里自己准备 - 提供免费茶、咖啡和香料。",
+      "confidence_threshold": 0.87,
+      "category": "amenities"
+    },
+    {
+      "id": "parking",
+      "question_tr": "Otopark var mı?",
+      "question_en": "Is there parking?",
+      "question_zh": "有停车场吗？",
+      "answer_tr": "Evet, ücretsiz otopark mevcut.",
+      "answer_en": "Yes, free parking is available.",
+      "answer_zh": "是的，有免费停车场。",
+      "confidence_threshold": 0.90,
+      "category": "amenities"
+    },
+    {
+      "id": "wifi-speed",
+      "question_tr": "Wi-Fi hızlı mı?",
+      "question_en": "Is the Wi-Fi fast?",
+      "question_zh": "Wi-Fi快吗？",
+      "answer_tr": "Evet, tüm suite'lerde ücretsiz hızlı Wi-Fi mevcut. Uzaktan çalışma için uygun.",
+      "answer_en": "Yes, free high-speed Wi-Fi is available in all suites. Suitable for remote work.",
+      "answer_zh": "是的，所有套房都提供免费高速Wi-Fi。适合远程工作。",
+      "confidence_threshold": 0.89,
+      "category": "amenities"
+    },
+    {
+      "id": "cancellation-policy",
+      "question_tr": "İptal politikanız nedir?",
+      "question_en": "What is your cancellation policy?",
+      "question_zh": "您的取消政策是什么？",
+      "answer_tr": "Rezervasyonlar iptal edilemez ve değiştirilemez. Ücretsiz iptal mevcut değildir.",
+      "answer_en": "Reservations cannot be cancelled or modified. Free cancellation is not available.",
+      "answer_zh": "预订无法取消或修改。不提供免费取消。",
+      "confidence_threshold": 0.92,
+      "category": "policies"
+    },
+    {
+      "id": "distance-goreme",
+      "question_tr": "Göreme'ye ne kadar uzakta?",
+      "question_en": "How far is Göreme?",
+      "question_zh": "距离格雷梅有多远？",
+      "answer_tr": "Göreme Açık Hava Müzesi ~7 dakika sürüş (~3.5 km) mesafesinde. Ortahisar Kalesi ise sadece 2 dakika yürüyüş!",
+      "answer_en": "Göreme Open Air Museum is ~7 minutes drive (~3.5 km). Ortahisar Castle is just a 2-minute walk!",
+      "answer_zh": "格雷梅露天博物馆距离约7分钟车程（约3.5公里）。奥塔希萨尔城堡仅需步行2分钟！",
+      "confidence_threshold": 0.86,
+      "category": "location"
+    },
+    {
+      "id": "baby-equipment",
+      "question_tr": "Bebek ekipmanı var mı?",
+      "question_en": "Do you have baby equipment?",
+      "question_zh": "你们有婴儿设备吗？",
+      "answer_tr": "Evet, bebek karyolası ve mama sandalyesi mevcut. Tam mutfak da ailelere çok kolaylık sağlıyor.",
+      "answer_en": "Yes, baby crib and high chair are available. The full kitchen is also very convenient for families.",
+      "answer_zh": "是的，有婴儿床和高脚椅。全设备厨房对家庭也非常方便。",
+      "confidence_threshold": 0.90,
+      "category": "amenities"
+    },
+    {
+      "id": "red-tour",
+      "question_tr": "Kızıl tur nedir?",
+      "question_en": "What is the Red Tour?",
+      "question_zh": "什么是红线之旅？",
+      "answer_tr": "Kızıl Tur, Kapadokya'nın en popüler tam gün turu! Uçhisar Kalesi, Göreme Müzesi, Paşabağ, Zelve, Avanos'u kapsıyor. Grup turu €30-50/kişi, özel tur €200-350. Organize edeyim mi?",
+      "answer_en": "The Red Tour is Cappadocia's most popular full-day tour! It covers Uçhisar Castle, Göreme Museum, Paşabağ, Zelve, Avanos. Group tour €30-50/person, private tour €200-350. Shall I arrange it?",
+      "answer_zh": "红线之旅是卡帕多西亚最受欢迎的全日游！包括乌奇希萨尔城堡、格雷梅博物馆、帕夏贝、泽尔韦、阿瓦诺斯。团队游€30-50/人，私人游€200-350。我帮您安排吗？",
+      "confidence_threshold": 0.83,
+      "category": "tours"
+    },
+    {
+      "id": "atv-price",
+      "question_tr": "ATV turu ne kadar?",
+      "question_en": "How much is the ATV tour?",
+      "question_zh": "ATV之旅多少钱？",
+      "answer_tr": "ATV Safari €40-60/kişi (tek ATV) veya €60-80 (çift ATV). En popüler sunset turu Gül Vadisi'nde. Size organize edebilirim!",
+      "answer_en": "ATV Safari €40-60/person (single ATV) or €60-80 (double ATV). The most popular is the sunset tour in Rose Valley. I can arrange it for you!",
+      "answer_zh": "ATV Safari €40-60/人（单人ATV）或€60-80（双人ATV）。最受欢迎的是玫瑰谷的日落之旅。我可以为您安排！",
+      "confidence_threshold": 0.84,
+      "category": "activities"
+    },
+    {
+      "id": "museum-pass",
+      "question_tr": "Müze kartı nedir?",
+      "question_en": "What is the museum pass?",
+      "question_zh": "什么是博物馆通行证？",
+      "answer_tr": "Kapadokya Müze Kartı €65, 13 müze ve sit alanını kapsıyor (Göreme, Zelve, Kaymaklı vb.), 10 gün geçerli. 3+ müze gezecekseniz KESİNLİKLE alın - çok tasarruf sağlar!",
+      "answer_en": "Museum Pass Cappadocia is €65, covers 13 museums and sites (Göreme, Zelve, Kaymaklı etc.), valid for 10 days. If visiting 3+ museums, DEFINITELY get it - huge savings!",
+      "answer_zh": "卡帕多西亚博物馆通行证€65，涵盖13个博物馆和遗址（格雷梅、泽尔韦、卡伊马克勒等），有效期10天。如果参观3个以上博物馆，一定要买 - 非常省钱！",
+      "confidence_threshold": 0.85,
+      "category": "tours"
+    },
+    {
+      "id": "sunset-spots",
+      "question_tr": "En iyi sunset noktaları nereler?",
+      "question_en": "What are the best sunset spots?",
+      "question_zh": "最佳日落观赏点在哪里？",
+      "answer_tr": "Ortahisar'a en yakın sunset noktaları:\n1. Kızılçukur (Red Valley) - ~5 dk araba\n2. Gül Vadisi (Rose Valley) - ~5 dk araba\n3. Ortahisar Kalesi tepesi - 2 dk yürüyüş!\n4. Uçhisar Kalesi - 10 dk araba",
+      "answer_en": "Best sunset spots near Ortahisar:\n1. Kızılçukur (Red Valley) - ~5 min drive\n2. Gül Vadisi (Rose Valley) - ~5 min drive\n3. Ortahisar Castle top - 2 min walk!\n4. Uçhisar Castle - 10 min drive",
+      "answer_zh": "奥塔希萨尔附近最佳日落观赏点：\n1. Kızılçukur（红谷）- 约5分钟车程\n2. Gül Vadisi（玫瑰谷）- 约5分钟车程\n3. 奥塔希萨尔城堡顶部 - 步行2分钟！\n4. 乌奇希萨尔城堡 - 10分钟车程",
+      "confidence_threshold": 0.84,
+      "category": "experiences"
+    },
+    {
+      "id": "balloon-booking-advance",
+      "question_tr": "Balon turunu kaç gün önceden rezerve etmeliyim?",
+      "question_en": "How many days in advance should I book the balloon tour?",
+      "question_zh": "我应该提前几天预订热气球之旅？",
+      "answer_tr": "2-3 gün önceden rezervasyon ŞİDDETLE önerilir. Yüksek sezonda (Nisan-Ekim) 1 hafta önceden. Şimdi tarih söylerseniz hemen ayarlayayım!",
+      "answer_en": "Booking 2-3 days in advance is STRONGLY recommended. During high season (April-October), 1 week in advance. If you tell me the date now, I'll arrange it immediately!",
+      "answer_zh": "强烈建议提前2-3天预订。旺季（4月至10月）建议提前1周。如果您现在告诉我日期，我马上安排！",
+      "confidence_threshold": 0.86,
+      "category": "activities"
+    },
+    {
+      "id": "suite-capacity",
+      "question_tr": "Suite'ler kaç kişilik?",
+      "question_en": "What is the capacity of the suites?",
+      "question_zh": "套房可容纳多少人？",
+      "answer_tr": "Anitya Cave Suite: Max 6 kişi, Şırahane Cave Suite: Max 4 kişi, Dublex Stone Suite: Max 4 kişi. Kaç kişi kalacaksınız?",
+      "answer_en": "Anitya Cave Suite: Max 6 guests, Şırahane Cave Suite: Max 4 guests, Dublex Stone Suite: Max 4 guests. How many people will be staying?",
+      "answer_zh": "Anitya Cave Suite：最多6人，Şırahane Cave Suite：最多4人，Dublex Stone Suite：最多4人。您有多少人入住？",
+      "confidence_threshold": 0.88,
+      "category": "accommodation"
+    },
+    {
+      "id": "pet-policy",
+      "question_tr": "Evcil hayvan kabul ediyor musunuz?",
+      "question_en": "Do you accept pets?",
+      "question_zh": "你们接受宠物吗？",
+      "answer_tr": "Evcil hayvan politikamız hakkında +90 544 494 68 14 numaralı WhatsApp hattımızdan bilgi alabilirsiniz.",
+      "answer_en": "For our pet policy, please contact us via WhatsApp at +90 544 494 68 14.",
+      "answer_zh": "关于我们的宠物政策，请通过WhatsApp联系我们：+90 544 494 68 14。",
+      "confidence_threshold": 0.89,
+      "category": "policies"
+    },
+    {
+      "id": "payment-methods",
+      "question_tr": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      "question_en": "What payment methods do you accept?",
+      "question_zh": "你们接受哪些付款方式？",
+      "answer_tr": "Kredi kartı, havale ve nakit ödeme kabul ediyoruz.",
+      "answer_en": "We accept credit card, bank transfer, and cash payment.",
+      "answer_zh": "我们接受信用卡、银行转账和现金支付。",
+      "confidence_threshold": 0.90,
+      "category": "policies"
+    },
+    {
+      "id": "best-time-visit",
+      "question_tr": "Kapadokya'yı ziyaret için en iyi zaman ne zaman?",
+      "question_en": "When is the best time to visit Cappadocia?",
+      "question_zh": "什么时候是参观卡帕多西亚的最佳时间？",
+      "answer_tr": "Her mevsim güzel! Bahar (Nisan-Mayıs) ve sonbahar (Eylül-Ekim) ideal - güzel hava, az kalabalık. Kış (Aralık-Şubat) kar manzarası eşsiz ama %60 daha az turist.",
+      "answer_en": "Every season is beautiful! Spring (April-May) and autumn (September-October) are ideal - nice weather, fewer crowds. Winter (December-February) has unique snow views but 60% fewer tourists.",
+      "answer_zh": "每个季节都很美！春季（4-5月）和秋季（9-10月）最理想 - 天气好，游客少。冬季（12-2月）有独特的雪景，但游客少60%。",
+      "confidence_threshold": 0.82,
+      "category": "general"
+    },
+    {
+      "id": "car-rental",
+      "question_tr": "Araç kiralamalı mıyım?",
+      "question_en": "Should I rent a car?",
+      "question_zh": "我应该租车吗？",
+      "answer_tr": "ÖNERİLİR! Kapadokya'yı gezmek için en özgür seçenek. €23-37/gün (sedan), €35-55/gün (SUV). İstediğiniz zaman sunset için durabilirsiniz. Organize edelim mi?",
+      "answer_en": "RECOMMENDED! The most free option for exploring Cappadocia. €23-37/day (sedan), €35-55/day (SUV). You can stop for sunset whenever you want. Shall we arrange it?",
+      "answer_zh": "推荐！探索卡帕多西亚最自由的选择。€23-37/天（轿车），€35-55/天（SUV）。您可以随时停车观赏日落。我们帮您安排吗？",
+      "confidence_threshold": 0.83,
+      "category": "transport"
+    },
+    {
+      "id": "kitchen-amenities",
+      "question_tr": "Mutfakta neler var?",
+      "question_en": "What's in the kitchen?",
+      "question_zh": "厨房里有什么？",
+      "answer_tr": "Tam donanımlı mutfak: Fırın (Anitya & Şırahane'de), ocak, buzdolabı, su ısıtıcısı, kahve makinesi, tüm araç gereçler. ÜCRETSİZ: Çaylar, kahve, zeytinyağı, baharatlar, bulaşık deterjanı.",
+      "answer_en": "Fully equipped kitchen: Oven (in Anitya & Şırahane), stove, refrigerator, kettle, coffee maker, all utensils. FREE: Teas, coffee, olive oil, spices, dish soap.",
+      "answer_zh": "设备齐全的厨房：烤箱（Anitya和Şırahane），炉灶，冰箱，水壶，咖啡机，所有厨具。免费：茶，咖啡，橄榄油，香料，洗洁精。",
+      "confidence_threshold": 0.87,
+      "category": "amenities"
+    },
+    {
+      "id": "green-tour",
+      "question_tr": "Yeşil tur nedir?",
+      "question_en": "What is the Green Tour?",
+      "question_zh": "什么是绿线之旅？",
+      "answer_tr": "Yeşil Tur: Yeraltı şehri (Derinkuyu), Ihlara Vadisi yürüyüşü, Selime Manastırı. Tam gün, €35-55/kişi. Rehberli tur önerilir (Ihlara için rehber şart). Organize edeyim mi?",
+      "answer_en": "Green Tour: Underground city (Derinkuyu), Ihlara Valley hike, Selime Monastery. Full day, €35-55/person. Guided tour recommended (guide essential for Ihlara). Shall I arrange it?",
+      "answer_zh": "绿线之旅：地下城市（代林库尤）、伊赫拉拉峡谷徒步、塞利梅修道院。全日游，€35-55/人。建议有导游（伊赫拉拉需要导游）。我帮您安排吗？",
+      "confidence_threshold": 0.84,
+      "category": "tours"
+    },
+    {
+      "id": "travel-plan-create",
+      "question_tr": "Bana gezi planı hazırlayabilir misin?",
+      "question_en": "Can you create a travel plan for me?",
+      "question_zh": "你能为我制定旅行计划吗？",
+      "answer_tr": "Tabii ki! Size özel bir Kapadokya planı hazırlayayım. İlk sorum: Kaç gün kalıyorsunuz?\n---HIZLI_CEVAPLAR: 1 gün | 2 gün | 3 gün | 4 gün | 5+ gün---",
+      "answer_en": "Of course! Let me prepare a personalized Cappadocia plan for you. My first question: How many days are you staying?\n---HIZLI_CEVAPLAR: 1 day | 2 days | 3 days | 4 days | 5+ days---",
+      "answer_zh": "当然！让我为您准备一个个性化的卡帕多西亚计划。我的第一个问题：您会停留几天？\n---HIZLI_CEVAPLAR: 1天 | 2天 | 3天 | 4天 | 5天以上---",
+      "confidence_threshold": 0.81,
+      "category": "planning"
+    },
+    {
+      "id": "walking-distance-castle",
+      "question_tr": "Ortahisar Kalesi'ne yürüyerek gidilebilir mi?",
+      "question_en": "Can you walk to Ortahisar Castle?",
+      "question_zh": "可以步行去奥塔希萨尔城堡吗？",
+      "answer_tr": "Evet! Ortahisar Kalesi sadece ~2 dakika yürüyüş mesafesinde. Kasaba merkezi ~5 dakika yürüyüş.",
+      "answer_en": "Yes! Ortahisar Castle is just ~2 minutes walk away. The town center is ~5 minutes walk.",
+      "answer_zh": "是的！奥塔希萨尔城堡仅需步行约2分钟。城镇中心步行约5分钟。",
+      "confidence_threshold": 0.89,
+      "category": "location"
+    }
+  ]
+}
