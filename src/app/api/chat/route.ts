@@ -785,7 +785,7 @@ export async function POST(req: NextRequest) {
       faqMatch = await findSimilarFAQ(lastUserMessage, language);
 
       if (faqMatch.isCached) {
-        console.log(`✅ FAQ Topic Detected: ${faqMatch.faqId} (${(faqMatch.confidence * 100).toFixed(1)}% match)`);
+        console.log(`✅ FAQ Topic Detected: ${faqMatch.faqId} (${((faqMatch.confidence || 0) * 100).toFixed(1)}% match)`);
         console.log(`   Using FAQ as context for GPT-4o-mini to ensure intelligent response`);
       }
     }
@@ -1155,7 +1155,7 @@ ${ANITYA_KNOWLEDGE}
       const faqContext = `
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 FAQ TOPIC DETECTED: ${faqMatch.faqId} (${(faqMatch.confidence * 100).toFixed(1)}% confidence)
+🎯 FAQ TOPIC DETECTED: ${faqMatch.faqId} (${((faqMatch.confidence || 0) * 100).toFixed(1)}% confidence)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Category: ${faqMatch.category}

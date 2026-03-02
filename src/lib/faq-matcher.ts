@@ -58,7 +58,7 @@ export async function findSimilarFAQ(
     let highestSimilarity = 0;
 
     for (const faq of faqDatabase.faqs) {
-      const faqVec = faq.embeddings[language];
+      const faqVec = faq.embeddings[language as keyof typeof faq.embeddings];
 
       // Skip if embedding doesn't exist for this language
       if (!faqVec) continue;
