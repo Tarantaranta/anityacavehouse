@@ -762,7 +762,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { messages, language = 'tr', stream: enableStreaming = true } = await req.json();
+    const { messages, language = 'tr', stream: enableStreaming = false } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
