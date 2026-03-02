@@ -762,7 +762,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { messages, language = 'tr' } = await req.json();
+    const { messages, language = 'tr', stream: enableStreaming = true } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -1179,36 +1179,103 @@ Remember: You're an intelligent assistant, not a template system!
     }
 
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    const completion = await openai.chat.completions.create({
-      model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content: enhancedSystemPrompt,
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // STREAMING RESPONSE - Users see response immediately! (Default: ON)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    if (enableStreaming) {
+      const stream = await openai.chat.completions.create({
+        model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: enhancedSystemPrompt,
+          },
+          ...messages,
+        ],
+        temperature: 0.7,
+        max_tokens: 3000,
+        store: true, // ⚡ Enable prompt caching
+        stream: true, // ⚡ Enable streaming for fast UX!
+      });
+
+    // Create a ReadableStream to send chunks to the client
+    const encoder = new TextEncoder();
+
+    const readableStream = new ReadableStream({
+      async start(controller) {
+        try {
+          // Send metadata first (FAQ info, caching status)
+          const metadata = {
+            faqAssisted: faqMatch?.isCached || false,
+            faqId: faqMatch?.faqId,
+            faqConfidence: faqMatch?.confidence,
+            faqCategory: faqMatch?.category,
+          };
+
+          // Send metadata as first chunk
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'metadata', data: metadata })}\n\n`));
+
+          // Stream the content
+          for await (const chunk of stream) {
+            const content = chunk.choices[0]?.delta?.content || '';
+            if (content) {
+              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'content', data: content })}\n\n`));
+            }
+          }
+
+          // Send done signal
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: 'done' })}\n\n`));
+          controller.close();
+        } catch (error) {
+          console.error('Streaming error:', error);
+          controller.error(error);
+        }
+      },
+    });
+
+      return new Response(readableStream, {
+        headers: {
+          'Content-Type': 'text/event-stream',
+          'Cache-Control': 'no-cache',
+          'Connection': 'keep-alive',
         },
-        ...messages,
-      ],
-      temperature: 0.7,
-      max_tokens: 3000, // Gezi planları için yeterli alan
-      store: true, // ⚡ Enable prompt caching (HYBRID OPTIMIZATION)
-    });
+      });
+    }
 
-    const assistantMessage = completion.choices[0].message;
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // NON-STREAMING FALLBACK (for backward compatibility)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    else {
+      const completion = await openai.chat.completions.create({
+        model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content: enhancedSystemPrompt,
+          },
+          ...messages,
+        ],
+        temperature: 0.7,
+        max_tokens: 3000,
+        store: true,
+      });
 
-    // Check if prompt cache was used (OpenAI returns cached_tokens in usage)
-    const promptCachedTokens = (completion.usage as any)?.prompt_tokens_details?.cached_tokens || 0;
-    const promptCacheHit = promptCachedTokens > 0;
+      const assistantMessage = completion.choices[0].message;
+      const promptCachedTokens = (completion.usage as any)?.prompt_tokens_details?.cached_tokens || 0;
+      const promptCacheHit = promptCachedTokens > 0;
 
-    return NextResponse.json({
-      message: assistantMessage.content,
-      faqAssisted: faqMatch?.isCached || false, // FAQ provided context?
-      faqId: faqMatch?.faqId,
-      faqConfidence: faqMatch?.confidence,
-      faqCategory: faqMatch?.category,
-      promptCached: promptCacheHit, // Prompt cached by OpenAI?
-      promptCachedTokens,
-      usage: completion.usage,
-    });
+      return NextResponse.json({
+        message: assistantMessage.content,
+        faqAssisted: faqMatch?.isCached || false,
+        faqId: faqMatch?.faqId,
+        faqConfidence: faqMatch?.confidence,
+        faqCategory: faqMatch?.category,
+        promptCached: promptCacheHit,
+        promptCachedTokens,
+        usage: completion.usage,
+      });
+    }
   } catch (error: any) {
     console.error('Chat API Error:', error);
     return NextResponse.json(
