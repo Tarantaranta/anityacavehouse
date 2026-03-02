@@ -518,6 +518,7 @@ export default function ChatBot() {
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -528,22 +529,109 @@ export default function ChatBot() {
             content: m.rawContent ?? m.content,
           })),
           language: locale,
+          stream: true, // ⚡ Enable streaming for fast responses
         }),
       });
+
       if (!response.ok) throw new Error('API error');
-      const data = await response.json();
-      const { text, replies } = parseQuickReplies(data.message);
-      const newAssistant: Message = {
-        role: 'assistant',
-        content: text,
-        rawContent: data.message,
-        quickReplies: replies.length > 0 ? replies : undefined,
-      };
-      setMessages((prev) => {
-        const updated = [...prev, newAssistant];
-        saveConversation(updated);
-        return updated;
-      });
+
+      const contentType = response.headers.get('content-type');
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // STREAMING RESPONSE (Server-Sent Events)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      if (contentType?.includes('text/event-stream')) {
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
+
+        let fullContent = '';
+        let fullRawContent = '';
+        let assistantMessageIndex = -1;
+
+        // Add empty assistant message that will be updated in real-time
+        setMessages((prev) => {
+          assistantMessageIndex = prev.length;
+          return [...prev, { role: 'assistant', content: '' }];
+        });
+
+        if (reader) {
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+
+              // Decode the chunk
+              const chunk = decoder.decode(value, { stream: true });
+              const lines = chunk.split('\n');
+
+              for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                  const jsonStr = line.slice(6); // Remove "data: " prefix
+
+                  try {
+                    const parsed = JSON.parse(jsonStr);
+
+                    if (parsed.type === 'content') {
+                      // Append content chunk
+                      fullRawContent += parsed.data;
+                      const { text } = parseQuickReplies(fullRawContent);
+                      fullContent = text;
+
+                      // Update message in real-time
+                      setMessages((prev) => {
+                        const updated = [...prev];
+                        updated[assistantMessageIndex] = {
+                          role: 'assistant',
+                          content: fullContent,
+                          rawContent: fullRawContent,
+                        };
+                        return updated;
+                      });
+                    } else if (parsed.type === 'done') {
+                      // Streaming complete - parse quick replies
+                      const { text, replies } = parseQuickReplies(fullRawContent);
+                      setMessages((prev) => {
+                        const updated = [...prev];
+                        updated[assistantMessageIndex] = {
+                          role: 'assistant',
+                          content: text,
+                          rawContent: fullRawContent,
+                          quickReplies: replies.length > 0 ? replies : undefined,
+                        };
+                        saveConversation(updated);
+                        return updated;
+                      });
+                    }
+                  } catch (e) {
+                    // Ignore JSON parse errors (incomplete chunks)
+                  }
+                }
+              }
+            }
+          } catch (streamError) {
+            console.error('Stream reading error:', streamError);
+            throw streamError;
+          }
+        }
+      }
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // FALLBACK: Non-streaming JSON response (backward compatible)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      else {
+        const data = await response.json();
+        const { text, replies } = parseQuickReplies(data.message);
+        const newAssistant: Message = {
+          role: 'assistant',
+          content: text,
+          rawContent: data.message,
+          quickReplies: replies.length > 0 ? replies : undefined,
+        };
+        setMessages((prev) => {
+          const updated = [...prev, newAssistant];
+          saveConversation(updated);
+          return updated;
+        });
+      }
     } catch {
       setMessages((prev) => [...prev, { role: 'assistant', content: t('error') }]);
     } finally {
