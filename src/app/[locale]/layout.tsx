@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import ScrollProgress from '@/components/ui/ScrollProgress';
 import ChatBot from '@/components/chat/ChatBot';
+import ImageProtectionProvider from '@/components/providers/ImageProtectionProvider';
 
 export const metadata: Metadata = {
   title: 'Anitya Cave House – Ortahisar Kapadokya Bağımsız Suite Evler',
@@ -32,9 +33,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <ScrollProgress />
-      {children}
-      <ChatBot />
+      <ImageProtectionProvider>
+        <ScrollProgress />
+        {children}
+        <ChatBot />
+      </ImageProtectionProvider>
     </NextIntlClientProvider>
   );
 }

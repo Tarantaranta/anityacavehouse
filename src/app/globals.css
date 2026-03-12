@@ -188,10 +188,42 @@
     letter-spacing: 0.01em;
   }
 
-  /* 2026 premium image behavior */
-  img {
+  /* ========================================
+     ENHANCED IMAGE PROTECTION - 2026
+     Zero-overhead CSS-only protection layer
+     ======================================== */
+
+  /* Enhanced image protection */
+  img, picture, figure, [role="img"] {
+    /* Prevent drag-to-save */
+    -webkit-user-drag: none;
+    user-drag: none;
+
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    /* Prevent iOS long-press save menu */
+    -webkit-touch-callout: none;
+
+    /* Allow click but prevent drag */
+    pointer-events: auto;
+  }
+
+  /* Next.js Image wrapper protection */
+  span[style*="position:relative"] > img,
+  span[style*="display:block"] > img {
+    -webkit-touch-callout: none;
     -webkit-user-drag: none;
     user-select: none;
+  }
+
+  /* Gallery/Lightbox extra protection */
+  [class*="lightbox"] img,
+  [class*="gallery"] img {
+    pointer-events: none; /* More aggressive for galleries */
   }
 
   button, .btn {
@@ -473,5 +505,29 @@
 
   :lang(zh) .editable-trust-badges {
     transform: translate(207px, -102px) scale(1) rotate(0deg) !important;
+  }
+
+  /* ========================================
+     GPU ACCELERATION FOR ANIMATIONS
+     Optimize for animation-heavy site
+     ======================================== */
+
+  /* GPU acceleration utility class */
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Smart will-change usage - only during animations */
+  @media (prefers-reduced-motion: no-preference) {
+    img {
+      will-change: auto;
+    }
+
+    img:hover,
+    .group:hover img {
+      will-change: transform;
+    }
   }
 }

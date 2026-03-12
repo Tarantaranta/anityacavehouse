@@ -30,6 +30,31 @@ export default function Lightbox({
     setImageLoading(true);
   }, [current]);
 
+  // Preload adjacent images for instant navigation
+  useEffect(() => {
+    const preloadAdjacentImages = () => {
+      // Calculate previous and next indices (with wrapping)
+      const prev = (current - 1 + images.length) % images.length;
+      const next = (current + 1) % images.length;
+
+      // Preload both adjacent images
+      [images[prev], images[next]].forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
+    };
+
+    // Use requestIdleCallback for non-blocking preload
+    // Falls back to setTimeout if not supported
+    if ("requestIdleCallback" in window) {
+      const idleCallback = window.requestIdleCallback(preloadAdjacentImages);
+      return () => window.cancelIdleCallback(idleCallback);
+    } else {
+      const timeout = setTimeout(preloadAdjacentImages, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [current, images]);
+
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -51,6 +76,8 @@ export default function Lightbox({
   return (
     <div
       className="fixed inset-0 z-[200] flex items-center justify-center"
+      onContextMenu={(e) => e.preventDefault()}
+      style={{ touchAction: 'pan-x pan-y' }}
       onTouchStart={(e) => {
         touchStartX.current = e.touches[0].clientX;
         touchStartY.current = e.touches[0].clientY;
