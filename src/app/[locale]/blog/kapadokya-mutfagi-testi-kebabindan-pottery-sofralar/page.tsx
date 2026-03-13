@@ -234,9 +234,34 @@ const pageContent = {
 export default async function BlogPostPage({ params }: PageProps) {
   const { locale } = await params;
   const c = pageContent[locale as keyof typeof pageContent] ?? pageContent.tr;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'kapadokya-mutfagi-testi-kebabindan-pottery-sofralar';
+
+  const metadata = {
+    tr: { title: 'Kapadokya Mutfağı: Testi Kebabından Pottery Sofralarına', author: 'Anitya Cave House' },
+    en: { title: 'Cappadocia Cuisine: From Testi Kebab to Pottery Tables', author: 'Anitya Cave House' },
+    zh: { title: '卡帕多西亚美食：从陶罐烤肉到陶器餐桌', author: 'Anitya Cave House' },
+  };
+  const meta = metadata[locale as keyof typeof metadata] || metadata.tr;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F1E8]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: meta.title,
+            author: { '@type': 'Organization', name: meta.author },
+            publisher: { '@type': 'Organization', name: 'Anitya Cave House', logo: { '@type': 'ImageObject', url: `${baseUrl}/images/cappadocia-cave-house.avif` } },
+            datePublished: '2025-10-01T00:00:00Z',
+            dateModified: '2025-10-01T00:00:00Z',
+            url: `${baseUrl}/${locale}/blog/${slug}`,
+            inLanguage: locale,
+          }),
+        }}
+      />
       <Header2026 />
 
       {/* Hero */}
