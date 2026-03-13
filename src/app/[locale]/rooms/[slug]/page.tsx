@@ -146,6 +146,27 @@ export default async function RoomDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-surface">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'HotelRoom',
+            name: name,
+            description: description,
+            image: room.images,
+            occupancy: {
+              '@type': 'QuantitativeValue',
+              maxValue: room.capacity,
+            },
+            amenityFeature: [
+              ...houseAmenities.map(a => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
+              ...kitchenAmenities.map(a => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
+              ...guestServices.map(a => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
+            ],
+          }),
+        }}
+      />
       <Header2026 />
 
       {/* ── Back navigation ────────────────────────────────────────────── */}
