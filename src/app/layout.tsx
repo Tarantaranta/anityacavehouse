@@ -41,7 +41,59 @@ export default async function RootLayout({
       className={`${inter.variable} ${cormorant.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="bg-surface text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LodgingBusiness',
+              '@id': 'https://anityacavehouse.com',
+              name: 'Anitya Cave House',
+              alternateName: 'Anitya洞穴之家',
+              description: 'Independent cave and stone suite houses in Ortahisar, Cappadocia with private terraces and equipped kitchens.',
+              url: 'https://anityacavehouse.com',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Ortahisar',
+                addressRegion: 'Nevşehir',
+                postalCode: '50650',
+                addressCountry: 'TR',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 38.6392,
+                longitude: 34.8596,
+              },
+              image: [
+                'https://anityacavehouse.com/images/cappadocia-cave-house.avif',
+                'https://anityacavehouse.com/images/anitya-cave-suite/hero.jpg',
+              ],
+              priceRange: '$$',
+              amenityFeature: [
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Private Terrace',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Full Kitchen',
+                  value: true,
+                },
+                {
+                  '@type': 'LocationFeatureSpecification',
+                  name: 'Cave Architecture',
+                  value: true,
+                },
+              ],
+            }),
+          }}
+        />
         {children}
         {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>

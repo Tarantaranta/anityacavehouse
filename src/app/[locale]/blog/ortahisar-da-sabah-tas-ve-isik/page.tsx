@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'ortahisar-da-sabah-tas-ve-isik';
+
+  const metadata = {
+    tr: {
+      title: 'Ortahisar\'da Sabah, Taş ve Işık',
+      description: 'Güneş henüz kaleyi aşmadan, Ortahisar\'ın sabahı taşın sessizliğiyle başlar. Kapadokya\'nın kalbinde volkanik kayaların hikayesi.',
+    },
+    en: {
+      title: 'Morning in Ortahisar: Stone and Light',
+      description: 'Before the sun rises over the castle, Ortahisar mornings begin with the silence of stone. The story of volcanic rocks in the heart of Cappadocia.',
+    },
+    zh: {
+      title: '奥塔希萨尔的早晨：石头与光',
+      description: '太阳还未升过城堡，奥塔希萨尔的早晨从石头的寂静开始。卡帕多西亚中心火山岩的故事。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'ortahisar, kapadokya sabah, tüf taşı, ortahisar kalesi, kapadokya gezilecek yerler'
+      : locale === 'en'
+      ? 'ortahisar, cappadocia morning, tufa rock, ortahisar castle, cappadocia places to visit'
+      : '奥塔希萨尔, 卡帕多西亚早晨, 凝灰岩, 奥塔希萨尔城堡',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2026-01-15T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 const content = {

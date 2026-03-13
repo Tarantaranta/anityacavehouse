@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'guvercin-vadisi-gun-batimi-yuruyus-rehberi';
+
+  const metadata = {
+    tr: {
+      title: 'Güvercin Vadisi\'nden Gün Batımı: Yürüyüş Rehberi',
+      description: 'Ortahisar yakınındaki Güvercinlik Vadisi, peribacaları ve meyve bahçeleri arasında eşsiz bir yürüyüş rotası sunar. Gün batımı rehberi.',
+    },
+    en: {
+      title: 'Sunset from Pigeon Valley: Hiking Guide',
+      description: 'Pigeon Valley near Ortahisar offers a unique hiking route among fairy chimneys and orchards. Sunset hiking guide.',
+    },
+    zh: {
+      title: '鸽子谷日落：徒步指南',
+      description: '奥塔希萨尔附近的鸽子谷，在仙人烟囱和果园之间提供独特的徒步路线。日落徒步指南。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'güvercin vadisi, kapadokya yürüyüş, ortahisar yürüyüş rotaları, kapadokya gün batımı, peribacaları'
+      : locale === 'en'
+      ? 'pigeon valley, cappadocia hiking, ortahisar hiking routes, cappadocia sunset, fairy chimneys'
+      : '鸽子谷, 卡帕多西亚徒步, 奥塔希萨尔徒步路线, 日落, 仙人烟囱',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2025-12-01T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 const content = {

@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'kapadokya-mutfagi-testi-kebabindan-pottery-sofralar';
+
+  const metadata = {
+    tr: {
+      title: 'Kapadokya Mutfağı: Testi Kebabından Pottery Sofralarına',
+      description: 'Kapadokya mutfağının ikonik lezzeti testi kebabı, yeraltı şırahaneleri ve bölgeye özgü üzümler. Toprağın lezzete dönüştüğü mutfak kültürü.',
+    },
+    en: {
+      title: 'Cappadocia Cuisine: From Testi Kebab to Pottery Tables',
+      description: 'The iconic testi kebab of Cappadocian cuisine, underground wine cellars, and indigenous grapes. A culinary culture where earth becomes flavor.',
+    },
+    zh: {
+      title: '卡帕多西亚美食：从陶罐烤肉到陶器餐桌',
+      description: '卡帕多西亚美食的标志性菜肴陶罐烤肉、地下酒窖和本地葡萄。土地变成美味的烹饪文化。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'testi kebabı, kapadokya mutfağı, avanos çömlekçilik, kapadokya şarap, yerel lezzetler'
+      : locale === 'en'
+      ? 'testi kebab, cappadocia cuisine, avanos pottery, cappadocia wine, local flavors'
+      : '陶罐烤肉, 卡帕多西亚美食, 阿瓦诺斯陶器, 葡萄酒, 当地美食',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2025-10-01T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 // ─── Locale-aware content ──────────────────────────────────────────────────

@@ -7,6 +7,7 @@ import RoomGallery from '@/components/ui/RoomGallery';
 import Reveal from '@/components/ui/Reveal';
 import Image from 'next/image';
 import { Users, Maximize, ChevronLeft, CheckCircle2 } from 'lucide-react';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -66,6 +67,61 @@ type SupportedLocale = keyof typeof ui;
 
 export async function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const room = getRoomBySlug(slug);
+
+  if (!room) return {};
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const name = room.name[l] || room.name.tr;
+  const description = room.shortDescription[l] || room.shortDescription.tr;
+  const baseUrl = 'https://anityacavehouse.com';
+
+  return {
+    title: `${name} | Anitya Cave House`,
+    description: description,
+    keywords: locale === 'tr'
+      ? `${name}, kapadokya oda, mağara suite, ortahisar konaklama, özel teras`
+      : locale === 'en'
+      ? `${name}, cappadocia room, cave suite, ortahisar accommodation, private terrace`
+      : `${name}, 卡帕多西亚房间, 洞穴套房, 奥塔希萨尔住宿`,
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/rooms/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/rooms/${slug}`,
+        'en': `${baseUrl}/en/rooms/${slug}`,
+        'zh': `${baseUrl}/zh/rooms/${slug}`,
+        'x-default': `${baseUrl}/en/rooms/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: name,
+      description: description,
+      url: `${baseUrl}/${locale}/rooms/${slug}`,
+      images: room.images && room.images.length > 0 ? [
+        {
+          url: `${baseUrl}${room.images[0]}`,
+          width: 1200,
+          height: 630,
+          alt: name,
+        },
+      ] : [],
+      locale: locale,
+      type: 'website',
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: name,
+      description: description,
+      images: room.images && room.images.length > 0 ? [`${baseUrl}${room.images[0]}`] : [],
+    },
+  };
 }
 
 export default async function RoomDetailPage({ params }: PageProps) {

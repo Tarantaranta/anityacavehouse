@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'tuf-tasinin-hikayesi-milyonlarca-yillik-bir-miras';
+
+  const metadata = {
+    tr: {
+      title: 'Tüf Taşının Hikâyesi: Milyonlarca Yıllık Bir Miras',
+      description: 'Kapadokya\'nın tüf taşları Erciyes\'in volkanik külleriyle oluştu. Milyonlarca yıllık jeolojik sürecin ve medeniyetlerin mirası.',
+    },
+    en: {
+      title: 'The Story of Tufa Stone: A Million-Year Legacy',
+      description: 'Cappadocia\'s tufa rocks formed from volcanic ash of Erciyes. A legacy of millions of years of geological process and civilizations.',
+    },
+    zh: {
+      title: '凝灰岩的故事：数百万年的遗产',
+      description: '卡帕多西亚的凝灰岩由埃尔吉耶火山灰形成。数百万年地质过程和文明的遗产。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'tüf taşı, kapadokya jeolojisi, volkanik kayalar, erciyes, peribacaları'
+      : locale === 'en'
+      ? 'tufa stone, cappadocia geology, volcanic rocks, erciyes, fairy chimneys'
+      : '凝灰岩, 卡帕多西亚地质, 火山岩, 仙人烟囱',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2025-09-01T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 const content = {

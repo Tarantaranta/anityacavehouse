@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'teras-sabahlari-balonlar-ve-sessizlik';
+
+  const metadata = {
+    tr: {
+      title: 'Teras Sabahları: Balonlar ve Sessizlik',
+      description: 'Anitya\'nın terasında balon gösterisini izlemek. Kapadokya\'da sabahın büyüsü, sessizlik ve uçan renkli balonlar.',
+    },
+    en: {
+      title: 'Terrace Mornings: Balloons and Silence',
+      description: 'Watching the balloon show from Anitya\'s terrace. The magic of morning in Cappadocia, silence and flying colorful balloons.',
+    },
+    zh: {
+      title: '露台的早晨：气球与寂静',
+      description: '从Anitya的露台观看气球表演。卡帕多西亚早晨的魔力、宁静和飞翔的彩色气球。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'kapadokya balonu, teras manzarası, ortahisar, sabah deneyimi, balon izleme'
+      : locale === 'en'
+      ? 'cappadocia balloon, terrace view, ortahisar, morning experience, balloon watching'
+      : '卡帕多西亚气球, 露台景观, 奥塔希萨尔, 早晨体验, 观看气球',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2025-11-01T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 const content = {

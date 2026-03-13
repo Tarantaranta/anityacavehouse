@@ -4,9 +4,70 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const baseUrl = 'https://anityacavehouse.com';
+  const slug = 'kapadokyada-sicak-hava-balonu-pratik-her-sey';
+
+  const metadata = {
+    tr: {
+      title: 'Kapadokya\'da Sıcak Hava Balonu: Pratik Her Şey',
+      description: 'Kapadokya sıcak hava balonu turu için pratik rehber. Fiyatlar, en iyi şirketler, rezervasyon ipuçları ve bilinmesi gerekenler.',
+    },
+    en: {
+      title: 'Hot Air Balloon in Cappadocia: Practical Everything',
+      description: 'Practical guide for Cappadocia hot air balloon tours. Prices, best companies, booking tips and everything you need to know.',
+    },
+    zh: {
+      title: '卡帕多西亚热气球：实用指南',
+      description: '卡帕多西亚热气球之旅的实用指南。价格、最佳公司、预订技巧和您需要了解的一切。',
+    },
+  };
+
+  const l = locale as 'tr' | 'en' | 'zh';
+  const meta = metadata[l] || metadata.tr;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: locale === 'tr'
+      ? 'kapadokya balon, sıcak hava balonu fiyatları, balon turu rezervasyon, kapadokya gezi ipuçları'
+      : locale === 'en'
+      ? 'cappadocia balloon, hot air balloon prices, balloon tour booking, cappadocia travel tips'
+      : '卡帕多西亚热气球, 热气球价格, 热气球旅游预订, 旅游贴士',
+
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blog/${slug}`,
+      languages: {
+        'tr': `${baseUrl}/tr/blog/${slug}`,
+        'en': `${baseUrl}/en/blog/${slug}`,
+        'zh': `${baseUrl}/zh/blog/${slug}`,
+        'x-default': `${baseUrl}/en/blog/${slug}`,
+      },
+    },
+
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
+      type: 'article',
+      publishedTime: '2025-08-01T00:00:00Z',
+      authors: ['Anitya Cave House'],
+      locale: locale,
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 const content = {
