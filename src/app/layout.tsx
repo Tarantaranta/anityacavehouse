@@ -45,6 +45,15 @@ export default async function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Webmaster Analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "window.WEBMASTER_SITE_ID = 'anityacavehouse.com';",
+          }}
+        />
+        <script src="https://qiboowebmasterapp.vercel.app/tracking/webmaster-analytics.js" async />
+        {/* End Webmaster Analytics */}
       </head>
       <body className="bg-surface text-ink antialiased">
         <script
