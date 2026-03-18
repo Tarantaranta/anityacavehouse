@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { headers } from "next/headers";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { WebmasterTracking } from "@/components/analytics/WebmasterTracking";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -45,15 +46,6 @@ export default async function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Webmaster Analytics */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "window.WEBMASTER_SITE_ID = 'anityacavehouse.com';",
-          }}
-        />
-        <script src="https://qiboowebmasterapp.vercel.app/tracking/webmaster-analytics.js" async />
-        {/* End Webmaster Analytics */}
       </head>
       <body className="bg-surface text-ink antialiased">
         <script
@@ -106,6 +98,7 @@ export default async function RootLayout({
         />
         {children}
         {gaId && <GoogleAnalytics gaId={gaId} />}
+        <WebmasterTracking />
         <Analytics />
       </body>
     </html>
