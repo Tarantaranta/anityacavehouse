@@ -21,6 +21,7 @@
     "home": "首页",
     "rooms": "套房",
     "experiences": "体验",
+    "activities": "活动",
     "gallery": "画廊",
     "blog": "博客",
     "about": "关于我们",
@@ -496,5 +497,99 @@
     "send": "发送",
     "quickReplyHint": "✏️ 如需填写其他内容，请在下方输入",
     "error": "抱歉，发生了错误。请重试或直接联系我们：+90 544 494 68 14"
+  },
+  "activities": {
+    "hero": {
+      "eyebrow": "For Airbnb Guests",
+      "title": "Your Cappadocia Experiences,",
+      "titleAccent": "Curated & Simplified",
+      "subtitle": "Relax — we already selected the most reliable options for you.",
+      "exploreButton": "Explore Packages",
+      "buildButton": "Build Your Own Plan",
+      "badge1": "Curated",
+      "badge2": "Local Partners",
+      "badge3": "Guest-Friendly"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Simple planning",
+      "step1Title": "Choose",
+      "step1Description": "Pick a package or build your own",
+      "step2Title": "Review",
+      "step2Description": "See estimated total",
+      "step3Title": "Send",
+      "step3Description": "Share via WhatsApp",
+      "step4Title": "Relax",
+      "step4Description": "We finalize everything"
+    },
+    "balloon": {
+      "title": "Choose Balloon Style",
+      "subtitle": "Two options",
+      "premiumLabel": "Recommended",
+      "dynamicLabel": "Budget",
+      "depositNote": "€50/person deposit via Airbnb included."
+    },
+    "packages": {
+      "oneDayTitle": "1 Day",
+      "twoDayTitle": "2 Days",
+      "threeDayTitle": "3 Days",
+      "selectLabel": "Select"
+    },
+    "builder": {
+      "title": "Build Custom Plan",
+      "subtitle": "Select and see total",
+      "daysLabel": "Days",
+      "styleLabel": "Style",
+      "balloonLabel": "Balloon",
+      "activitiesLabel": "Activities",
+      "summaryTitle": "Selection",
+      "estimatedLabel": "Estimated Total",
+      "estimateNote": "Final pricing confirmed together.",
+      "sendButton": "Send via WhatsApp",
+      "styleGroup": "Group",
+      "stylePrivate": "Private",
+      "styleMixed": "Mixed",
+      "premiumBalloon": "Premium",
+      "dynamicBalloon": "Dynamic",
+      "durationLabel": "Duration",
+      "balloonTypeLabel": "Balloon",
+      "activitiesCountLabel": "Activities",
+      "day": "Day",
+      "days": "Days"
+    },
+    "trust": {
+      "title": "Why Book With Us",
+      "subtitle": "Curated for you",
+      "reason1Title": "Selected Partners",
+      "reason1Description": "Trusted operators.",
+      "reason2Title": "Less Research",
+      "reason2Description": "We did the work.",
+      "reason3Title": "Simple",
+      "reason3Description": "Choose, review, send.",
+      "reason4Title": "Local Support",
+      "reason4Description": "We're here to help."
+    },
+    "notes": {
+      "title": "Important Notes",
+      "subtitle": "Key details",
+      "balloonTitle": "Balloon Pricing",
+      "balloonContent": "€50 deposit via Airbnb. Final price 1 day before.",
+      "privateTitle": "Private Tours",
+      "privateContent": "Based on 2 guests. Extra: Red +€25, Green +€45/pp.",
+      "includesTitle": "Includes",
+      "includesContent": "Pick-up, guide, fees, lunch.",
+      "paymentTitle": "Payment",
+      "paymentContent": "Cash or card. Card: 5% fee.",
+      "cancellationTitle": "Cancellation",
+      "cancellationContent": "Weather: reschedule or refund.",
+      "blueSwapTitle": "Blue Tour",
+      "blueSwapContent": "Swap for Green on request."
+    },
+    "contact": {
+      "title": "Ready?",
+      "description": "Send selection. We review together.",
+      "button": "Send WhatsApp",
+      "note": "Questions? Contact us."
+    }
   }
 }

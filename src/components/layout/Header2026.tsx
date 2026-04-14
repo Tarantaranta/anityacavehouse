@@ -20,6 +20,7 @@ export default function Header2026() {
     { href: "/" as const, label: t("home") },
     { href: "/rooms" as const, label: t("rooms") },
     { href: "/experiences" as const, label: t("experiences") },
+    { href: "/activities" as const, label: t("activities") },
     { href: "/gallery" as const, label: t("gallery") },
     { href: "/blog" as const, label: t("blog") },
     { href: "/about" as const, label: t("about") },
