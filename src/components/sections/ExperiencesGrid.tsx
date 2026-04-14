@@ -131,7 +131,7 @@ const EXPERIENCES: Record<string, Experience[]> = {
       description: content.description,
       longDescription: content.longDescription,
       imageSrc: exp.image,
-      highlights: content.highlights,
+      highlights: content.highlights || [],
     }
   }),
 
@@ -145,7 +145,7 @@ const EXPERIENCES: Record<string, Experience[]> = {
       description: content.description,
       longDescription: content.longDescription,
       imageSrc: exp.image,
-      highlights: content.highlights,
+      highlights: content.highlights || [],
     }
   }),
 
@@ -159,7 +159,7 @@ const EXPERIENCES: Record<string, Experience[]> = {
       description: content.description,
       longDescription: content.longDescription,
       imageSrc: exp.image,
-      highlights: content.highlights,
+      highlights: content.highlights || [],
     }
   }),
 };
