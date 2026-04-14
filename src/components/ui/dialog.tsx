@@ -40,19 +40,22 @@ export function Dialog({ open, onOpenChange, children }: DialogProps) {
 
 interface DialogContentProps {
   children: React.ReactNode
-  onClose: () => void
+  onClose?: () => void
+  className?: string
 }
 
-export function DialogContent({ children, onClose }: DialogContentProps) {
+export function DialogContent({ children, onClose, className = "" }: DialogContentProps) {
   return (
-    <div className="relative bg-surface border border-border/40 rounded-2xl shadow-2xl">
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-10 p-2 rounded-full bg-surface/80 backdrop-blur-sm border border-border/40 hover:bg-surface-2 transition-colors duration-200"
-        aria-label="Close"
-      >
-        <X className="w-4 h-4 text-ink" strokeWidth={2} />
-      </button>
+    <div className={`relative bg-surface border border-border/40 rounded-2xl shadow-2xl ${className}`}>
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-surface/80 backdrop-blur-sm border border-border/40 hover:bg-surface-2 transition-colors duration-200"
+          aria-label="Close"
+        >
+          <X className="w-4 h-4 text-ink" strokeWidth={2} />
+        </button>
+      )}
       {children}
     </div>
   )

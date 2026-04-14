@@ -36,7 +36,7 @@ export default function ActivityModal({
 
   return (
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
-      <DialogContent className="sm:max-w-2xl mx-4">
+      <DialogContent className="sm:max-w-2xl mx-4" onClose={onClose}>
         {/* Image */}
         <div className="relative aspect-[21/9] overflow-hidden rounded-t-xl bg-surface-2">
           <Image
