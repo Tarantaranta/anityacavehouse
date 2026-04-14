@@ -61,21 +61,21 @@ export function DialogContent({ children, onClose, className = "" }: DialogConte
   )
 }
 
-export function DialogHeader({ children }: { children: React.ReactNode }) {
-  return <div className="space-y-2">{children}</div>
+export function DialogHeader({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`space-y-2 ${className}`}>{children}</div>
 }
 
-export function DialogTitle({ children }: { children: React.ReactNode }) {
+export function DialogTitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <h2 className="text-2xl md:text-3xl font-serif text-ink tracking-tight leading-tight">
+    <h2 className={`text-2xl md:text-3xl font-serif text-ink tracking-tight leading-tight ${className}`}>
       {children}
     </h2>
   )
 }
 
-export function DialogDescription({ children }: { children: React.ReactNode }) {
+export function DialogDescription({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className="text-[14px] text-muted-foreground/70 font-light italic leading-relaxed">
+    <p className={`text-[14px] text-muted-foreground/70 font-light italic leading-relaxed ${className}`}>
       {children}
     </p>
   )
