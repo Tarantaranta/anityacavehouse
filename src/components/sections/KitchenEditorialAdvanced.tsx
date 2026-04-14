@@ -36,7 +36,7 @@ export default function KitchenEditorialAdvanced() {
             />
 
             {/* Caption badge */}
-            <p className="text-xs text-neutral-500 tracking-wide">
+            <p className="text-xs text-neutral-600 tracking-wide">
               {tK('primaryCaption')}
             </p>
           </div>

@@ -55,10 +55,10 @@ export default function ContactForm() {
             </svg>
           </div>
           <h3 className="font-serif font-light text-2xl text-neutral-900 mb-2">Mesajınız iletildi</h3>
-          <p className="text-sm text-neutral-500 mb-6">En kısa sürede size geri döneceğiz.</p>
+          <p className="text-sm text-neutral-600 mb-6">En kısa sürede size geri döneceğiz.</p>
           <button
             onClick={() => setStatus('idle')}
-            className="text-xs uppercase tracking-[0.18em] text-neutral-500 underline underline-offset-4 hover:text-neutral-800 transition-colors"
+            className="text-xs uppercase tracking-[0.18em] text-neutral-600 underline underline-offset-4 hover:text-neutral-800 transition-colors"
           >
             Yeni mesaj gönder
           </button>
@@ -69,7 +69,7 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-3">
+      <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-3">
         Mesaj gönderin
       </p>
       <h2 className="font-serif font-light text-3xl md:text-4xl text-neutral-900 mb-10">
@@ -79,7 +79,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="grid sm:grid-cols-2 gap-5">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+            <label htmlFor="name" className="text-xs uppercase tracking-[0.18em] text-neutral-600">
               Ad Soyad <span className="text-neutral-400 normal-case">(zorunlu)</span>
             </label>
             <input
@@ -92,7 +92,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="email" className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+            <label htmlFor="email" className="text-xs uppercase tracking-[0.18em] text-neutral-600">
               E-posta <span className="text-neutral-400 normal-case">(zorunlu)</span>
             </label>
             <input
@@ -108,7 +108,7 @@ export default function ContactForm() {
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div className="space-y-2">
-            <label htmlFor="checkIn" className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+            <label htmlFor="checkIn" className="text-xs uppercase tracking-[0.18em] text-neutral-600">
               Giriş tarihi <span className="text-neutral-400 normal-case">(opsiyonel)</span>
             </label>
             <input
@@ -119,7 +119,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="checkOut" className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+            <label htmlFor="checkOut" className="text-xs uppercase tracking-[0.18em] text-neutral-600">
               Çıkış tarihi <span className="text-neutral-400 normal-case">(opsiyonel)</span>
             </label>
             <input
@@ -132,7 +132,7 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="message" className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+          <label htmlFor="message" className="text-xs uppercase tracking-[0.18em] text-neutral-600">
             Mesajınız <span className="text-neutral-400 normal-case">(zorunlu)</span>
           </label>
           <textarea

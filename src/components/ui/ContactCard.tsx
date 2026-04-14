@@ -30,7 +30,7 @@ export default function ContactCard({
 
       {/* Content */}
       <div>
-        <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+        <p className="text-xs uppercase tracking-[0.2em] text-neutral-600 mb-2">
           {title}
         </p>
         <a
@@ -40,7 +40,7 @@ export default function ContactCard({
           {linkLabel ?? detail}
         </a>
         {subDetail && (
-          <p className="text-sm text-neutral-500 mt-1">{subDetail}</p>
+          <p className="text-sm text-neutral-600 mt-1">{subDetail}</p>
         )}
       </div>
     </div>

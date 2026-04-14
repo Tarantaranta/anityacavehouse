@@ -84,7 +84,9 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <ImageProtectionProvider>
         <ScrollProgress />
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <ChatBot />
       </ImageProtectionProvider>
     </NextIntlClientProvider>

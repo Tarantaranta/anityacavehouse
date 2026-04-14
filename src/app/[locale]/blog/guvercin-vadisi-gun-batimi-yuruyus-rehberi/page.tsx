@@ -304,7 +304,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <p className="font-serif text-xl md:text-2xl font-light text-neutral-800 leading-relaxed">
                   {c.pullQuote}
                 </p>
-                <p className="text-sm text-neutral-500">{c.pullQuoteAttrib}</p>
+                <p className="text-sm text-neutral-600">{c.pullQuoteAttrib}</p>
               </div>
             </Reveal>
 

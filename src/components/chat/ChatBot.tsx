@@ -710,7 +710,12 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className={windowClass}>
+        <div
+          className={windowClass}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="chatbot-title"
+        >
           {/* Header */}
           <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-5 py-3.5 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-3">
@@ -718,7 +723,7 @@ export default function ChatBot() {
                 <MessageCircle className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-semibold text-base leading-tight">{t('title')}</h3>
+                <h3 id="chatbot-title" className="font-semibold text-base leading-tight">{t('title')}</h3>
                 <p className="text-[11px] text-amber-100">{t('subtitle')}</p>
               </div>
             </div>
@@ -828,12 +833,12 @@ export default function ChatBot() {
                                   <p className="text-xs font-semibold text-neutral-800 leading-tight truncate">
                                     {place.name}
                                   </p>
-                                  <p className="text-[10px] text-neutral-500 leading-tight mt-0.5">
+                                  <p className="text-[10px] text-neutral-600 leading-tight mt-0.5">
                                     {place.category[lang]}
                                   </p>
                                 </div>
                               </div>
-                              <div className="flex items-center gap-1 text-[10px] text-neutral-500 mb-2">
+                              <div className="flex items-center gap-1 text-[10px] text-neutral-600 mb-2">
                                 <MapPin className="w-3 h-3 flex-shrink-0" />
                                 <span className="truncate">{place.address}</span>
                               </div>
@@ -877,7 +882,7 @@ export default function ChatBot() {
               onClick={() => setShowQuickQ((v) => !v)}
               className="w-full flex items-center justify-between px-4 py-2 hover:bg-neutral-50 transition-colors group"
             >
-              <span className="flex items-center gap-1.5 text-[11px] font-semibold text-neutral-500 tracking-wide uppercase group-hover:text-amber-600 transition-colors">
+              <span className="flex items-center gap-1.5 text-[11px] font-semibold text-neutral-600 tracking-wide uppercase group-hover:text-amber-600 transition-colors">
                 <Sparkles className="w-3 h-3" />
                 {t('quickQuestionsTitle')}
               </span>

@@ -25,7 +25,7 @@ export default function PageHero({
       {/* Text row */}
       <div className="max-w-6xl mx-auto px-5 md:px-8 pb-10">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-4">
+          <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-4">
             {label}
           </p>
         </Reveal>

@@ -200,7 +200,7 @@ export default async function GalleryPage({ params }: PageProps) {
       <SectionShell className="pt-0 md:pt-0 pb-20 md:pb-28">
         <Reveal>
           <div className="bg-white/40 border border-black/5 rounded-2xl p-10 text-center">
-            <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-4">
+            <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-4">
               {c.instagramEyebrow}
             </p>
             <p className="font-serif font-light text-2xl md:text-3xl text-neutral-900 mb-4">

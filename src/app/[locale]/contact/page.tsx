@@ -54,7 +54,7 @@ export default async function ContactPage({ params }: PageProps) {
       {/* C1 — Contact cards */}
       <SectionShell>
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-10">
+          <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-10">
             Ulaşım kanalları
           </p>
         </Reveal>
@@ -102,13 +102,13 @@ export default async function ContactPage({ params }: PageProps) {
         <Reveal>
           <div className="bg-white/40 border border-black/5 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row gap-10 items-start">
             <div className="flex-1">
-              <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 mb-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-4">
                 Konum
               </p>
               <p className="font-serif font-light text-2xl md:text-3xl text-neutral-900 mb-1">
                 Anitya Cave House
               </p>
-              <p className="text-sm text-neutral-500 mb-5">
+              <p className="text-sm text-neutral-600 mb-5">
                 Ortahisar, Kapadokya
               </p>
               <p className="text-neutral-600 leading-relaxed text-sm max-w-[48ch] mb-6">

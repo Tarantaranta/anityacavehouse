@@ -53,14 +53,17 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'LodgingBusiness',
+              '@type': ['LodgingBusiness', 'LocalBusiness'],
               '@id': 'https://anityacavehouse.com',
               name: 'Anitya Cave House',
               alternateName: 'Anitya洞穴之家',
               description: 'Independent cave and stone suite houses in Ortahisar, Cappadocia with private terraces and equipped kitchens.',
               url: 'https://anityacavehouse.com',
+              telephone: '+905354946814',
+              email: 'info@anityacavehouse.com',
               address: {
                 '@type': 'PostalAddress',
+                streetAddress: 'Ortahisar Mahallesi',
                 addressLocality: 'Ortahisar',
                 addressRegion: 'Nevşehir',
                 postalCode: '50650',
@@ -76,6 +79,17 @@ export default async function RootLayout({
                 'https://anityacavehouse.com/images/anitya-cave-suite/hero.jpg',
               ],
               priceRange: '$$',
+              openingHoursSpecification: {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                opens: '00:00',
+                closes: '23:59',
+              },
+              sameAs: [
+                'https://instagram.com/anityacavehouse',
+                'https://facebook.com/anityacavehouse',
+                'https://www.tripadvisor.com/Hotel_Review-g642050-d30600700-Reviews-Anitya_Cave_House-Ortahisar_Nevsehir_Province_Central_Anatolia.html',
+              ],
               amenityFeature: [
                 {
                   '@type': 'LocationFeatureSpecification',

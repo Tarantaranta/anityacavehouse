@@ -179,7 +179,7 @@ export default async function AboutPage({ params }: PageProps) {
                 </p>
               </Reveal>
               <Reveal delayMs={120}>
-                <p className="text-base text-neutral-500 leading-relaxed mt-4">
+                <p className="text-base text-neutral-600 leading-relaxed mt-4">
                   {c.poeticBody}
                 </p>
               </Reveal>
@@ -243,7 +243,7 @@ export default async function AboutPage({ params }: PageProps) {
                 </p>
               </Reveal>
               <Reveal delayMs={120}>
-                <div className="space-y-2 text-base text-neutral-500 leading-relaxed">
+                <div className="space-y-2 text-base text-neutral-600 leading-relaxed">
                   {c.anityaItems.map((item, i) => (
                     <p key={i}>{item}</p>
                   ))}

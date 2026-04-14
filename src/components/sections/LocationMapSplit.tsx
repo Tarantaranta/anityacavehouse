@@ -80,7 +80,7 @@ export default function LocationMapSplit() {
               />
             </div>
 
-            <p className="text-xs text-neutral-500 tracking-wide">
+            <p className="text-xs text-neutral-600 tracking-wide">
               {t('caption')}
             </p>
           </div>

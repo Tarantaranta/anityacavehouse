@@ -259,11 +259,11 @@ export default function ExperiencesGrid({ locale = "tr" }: { locale?: string }) 
                   <div className="p-6">
                     {/* Category + Duration */}
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="text-xs tracking-[0.12em] uppercase text-neutral-500">
+                      <span className="text-xs tracking-[0.12em] uppercase text-neutral-600">
                         {labels[exp.categoryKey]}
                       </span>
                       <span className="text-neutral-300 select-none">·</span>
-                      <span className="text-xs text-neutral-500">
+                      <span className="text-xs text-neutral-600">
                         {exp.duration}
                       </span>
                     </div>
@@ -296,7 +296,7 @@ export default function ExperiencesGrid({ locale = "tr" }: { locale?: string }) 
                     <a
                       href="#planlama"
                       onClick={(e) => e.stopPropagation()}
-                      className="text-sm text-neutral-500 hover:text-ink transition-colors"
+                      className="text-sm text-neutral-600 hover:text-ink transition-colors"
                     >
                       {ctaLabel}
                     </a>
@@ -405,11 +405,11 @@ export default function ExperiencesGrid({ locale = "tr" }: { locale?: string }) 
                 <div className="p-6 md:p-8">
                   {/* Category + Duration + Counter */}
                   <div className="flex items-center gap-2.5 mb-3">
-                    <span className="text-xs tracking-[0.12em] uppercase text-neutral-500">
+                    <span className="text-xs tracking-[0.12em] uppercase text-neutral-600">
                       {labels[exp.categoryKey as CategoryKey]}
                     </span>
                     <span className="text-neutral-300 select-none">·</span>
-                    <span className="text-xs text-neutral-500">{exp.duration}</span>
+                    <span className="text-xs text-neutral-600">{exp.duration}</span>
                     <span className="ml-auto text-xs text-neutral-400 tabular-nums">
                       {modalIndex + 1} / {filtered.length}
                     </span>

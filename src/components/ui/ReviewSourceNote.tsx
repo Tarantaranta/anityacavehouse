@@ -41,7 +41,7 @@ export default function ReviewSourceNote({
   return (
     <div
       className={[
-        "mt-6 flex flex-wrap items-center gap-2 text-xs tracking-wide text-neutral-500",
+        "mt-6 flex flex-wrap items-center gap-2 text-xs tracking-wide text-neutral-600",
         className,
       ].join(" ")}
     >

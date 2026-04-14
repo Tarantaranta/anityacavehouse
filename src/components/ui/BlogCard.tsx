@@ -37,7 +37,7 @@ export default function BlogCard({ post, delayMs = 0 }: BlogCardProps) {
           </div>
 
           {/* Meta */}
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 mb-2">
+          <p className="text-xs uppercase tracking-[0.2em] text-neutral-600 mb-2">
             {category}
             {date && (
               <span className="text-neutral-400"> · {date}</span>

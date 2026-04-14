@@ -46,6 +46,13 @@ export default function Header2026() {
 
   return (
     <>
+      {/* Skip to main content link for keyboard navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-amber-600 focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-amber-400"
+      >
+        Skip to main content
+      </a>
       <header
         className={[
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",

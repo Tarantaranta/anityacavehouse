@@ -287,7 +287,7 @@ export default async function BlogPage({ params }: PageProps) {
             >
               {h.prev}
             </button>
-            <span className="text-sm text-neutral-500 px-3">{h.page}</span>
+            <span className="text-sm text-neutral-600 px-3">{h.page}</span>
             <button
               disabled
               className="px-6 py-2.5 rounded-full border border-black/10 bg-white/50 text-sm text-neutral-400 cursor-default"
