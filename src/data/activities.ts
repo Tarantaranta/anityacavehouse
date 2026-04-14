@@ -461,7 +461,10 @@ export function generatePackageWhatsAppLink(
       : "🎈 Balloon: Flexible Price Balloon (€50 deposit + remaining confirmed 1 day before)",
     tr: balloonChoice === "premium"
       ? "🎈 Balon: Premium Balon (Sabit €250)"
-      : "🎈 Balon: Esnek Fiyatlı Balon (€50 depozito + kalan 1 gün önce onaylanır)"
+      : "🎈 Balon: Esnek Fiyatlı Balon (€50 depozito + kalan 1 gün önce onaylanır)",
+    zh: balloonChoice === "premium"
+      ? "🎈 气球：高级气球（固定€250）"
+      : "🎈 气球：灵活价格气球（€50押金+剩余部分在1天前确认）"
   }
 
   const messages = {
@@ -488,7 +491,19 @@ ${balloonChoice ? balloonText.tr : ""}
 
 Bize nihai dökümü ve müsaitliği onaylamada yardımcı olabilir misiniz?
 
-Teşekkürler!`
+Teşekkürler!`,
+    zh: `您好！我们想在Anitya Cave House住宿期间安排"${packageName}"套餐。
+
+📦 套餐：${packageName}
+💰 标示总价：每人€${price}
+${balloonChoice ? balloonText.zh : ""}
+
+📅 我们的日期：${contactInfo.dates}
+👥 客人人数：${contactInfo.guests}
+
+您能帮我们确认最终明细和可用性吗？
+
+谢谢！`
   }
 
   const message = messages[locale] || messages.en
@@ -507,7 +522,8 @@ export function generatePackageEmailLink(
 ): string {
   const subjects = {
     en: `Package Inquiry: ${packageName} - Anitya Cave House`,
-    tr: `Paket Talebi: ${packageName} - Anitya Cave House`
+    tr: `Paket Talebi: ${packageName} - Anitya Cave House`,
+    zh: `套餐咨询：${packageName} - Anitya Cave House`
   }
 
   const balloonText = {
@@ -516,7 +532,10 @@ export function generatePackageEmailLink(
       : "Balloon: Flexible Price Balloon (€50 deposit + remaining confirmed 1 day before)",
     tr: balloonChoice === "premium"
       ? "Balon: Premium Balon (Sabit €250)"
-      : "Balon: Esnek Fiyatlı Balon (€50 depozito + kalan 1 gün önce onaylanır)"
+      : "Balon: Esnek Fiyatlı Balon (€50 depozito + kalan 1 gün önce onaylanır)",
+    zh: balloonChoice === "premium"
+      ? "气球：高级气球（固定€250）"
+      : "气球：灵活价格气球（€50押金+剩余部分在1天前确认）"
   }
 
   const bodies = {
@@ -547,7 +566,21 @@ Misafir sayısı: ${contactInfo.guests}
 
 Bize nihai dökümü ve müsaitliği onaylamada yardımcı olabilir misiniz?
 
-Teşekkürler!`
+Teşekkürler!`,
+    zh: `您好！
+
+我们想在Anitya Cave House住宿期间安排"${packageName}"套餐。
+
+套餐：${packageName}
+标示总价：每人€${price}
+${balloonChoice ? balloonText.zh : ""}
+
+我们的日期：${contactInfo.dates}
+客人人数：${contactInfo.guests}
+
+您能帮我们确认最终明细和可用性吗？
+
+谢谢！`
   }
 
   const subject = subjects[locale] || subjects.en
