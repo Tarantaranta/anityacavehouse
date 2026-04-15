@@ -95,8 +95,9 @@ export default async function FAQPage({ params }: PageProps) {
   };
 
   // Breadcrumb Schema
+  const homeText = locale === 'tr' ? 'Ana Sayfa' : locale === 'zh' ? '首页' : 'Home';
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: t('home') || 'Home', path: `/${locale}` },
+    { name: homeText, path: `/${locale}` },
     { name: t('title'), path: `/${locale}/faq` },
   ]);
 
