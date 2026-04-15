@@ -82,13 +82,16 @@ export default function Header2026() {
                   key={item.href}
                   href={item.href}
                   className={[
-                    "relative text-sm whitespace-nowrap transition-colors group",
-                    isDark ? "text-ink-2 hover:text-ink" : "text-white/80 hover:text-white",
+                    "relative text-sm whitespace-nowrap transition-colors group rounded-sm px-2 py-1 -mx-2",
+                    "focus-visible:outline-2 focus-visible:outline-offset-2",
+                    isDark
+                      ? "text-ink-2 hover:text-ink focus-visible:outline-amber-600"
+                      : "text-white/80 hover:text-white focus-visible:outline-white",
                   ].join(" ")}
                 >
                   {item.label}
                   <span className={[
-                    "absolute -bottom-0.5 left-0 h-px w-0 group-hover:w-full transition-all duration-300",
+                    "absolute -bottom-0.5 left-2 h-px w-0 group-hover:w-[calc(100%-1rem)] group-focus-visible:w-[calc(100%-1rem)] transition-all duration-300",
                     isDark ? "bg-ink" : "bg-white",
                   ].join(" ")} />
                 </Link>

@@ -679,6 +679,35 @@
       "button": "Seçiminizi WhatsApp ile Gönderin",
       "note": "Önce sorularınız mı var? Çekinmeden ulaşın — konaklamanız için aktiviteleri planlamanıza yardımcı olmak için buradayız.",
       "message": "Merhaba, Anitya Cave House'daki konaklamımız için aktiviteleri görüşmek istiyorum."
+    },
+    "faq": {
+      "metaTitle": "Sıkça Sorulan Sorular | Anitya Cave House",
+      "metaDescription": "Anitya Cave House, Kapadokya konaklama, rezervasyon, fiyatlar ve tesisler hakkında sıkça sorulan sorular.",
+      "eyebrow": "Sıkça Sorulan Sorular",
+      "title": "Size Yardımcı Olalım",
+      "subtitle": "Anitya Cave House hakkında en çok merak edilen sorular ve cevapları",
+      "q1": "Check-in ve check-out saatleri nedir?",
+      "a1": "Check-in saat 14:00'te başlar ve check-out saat 11:00'a kadar yapılmalıdır. Erken check-in veya geç check-out için lütfen önceden bizimle iletişime geçin.",
+      "q2": "Havalimanı transferi sağlıyor musunuz?",
+      "a2": "Evet, Nevşehir ve Kayseri havalimanlarından ücretli transfer hizmeti sunuyoruz. Rezervasyon sırasında veya konaklamadan önce talebinizi iletebilirsiniz.",
+      "q3": "Kahvaltı dahil mi?",
+      "a3": "Odalarımızda tam donanımlı mutfak bulunmaktadır. Dilediğiniz gibi kendi kahvaltınızı hazırlayabilir veya Ortahisar'daki yerel restoranlarda serpme kahvaltı keyfi yapabilirsiniz.",
+      "q4": "WiFi var mı?",
+      "a4": "Evet, tüm odalarımızda ücretsiz yüksek hızlı WiFi mevcuttur.",
+      "q5": "Sıcak hava balonu turunu nasıl rezerve edebilirim?",
+      "a5": "Sıcak hava balonu turları için size güvenilir firmalarla iletişime geçmenizde yardımcı olabiliriz. Konaklamadan önce veya check-in sırasında talebinizi bildirin.",
+      "q6": "Otopark imkanı var mı?",
+      "a6": "Evet, misafirlerimiz için ücretsiz açık otopark alanımız mevcuttur.",
+      "q7": "Evcil hayvan kabul ediliyor mu?",
+      "a7": "Üzgünüz, şu anda evcil hayvan kabul etmiyoruz.",
+      "q8": "İptal politikanız nedir?",
+      "a8": "İptal koşulları rezervasyon dönemine ve sezona göre değişiklik gösterebilir. Detaylı iptal politikası rezervasyon onayınızda belirtilecektir.",
+      "q9": "En yakın market veya restoran ne kadar uzakta?",
+      "a9": "Ortahisar merkezi yürüme mesafesindedir (2-5 dakika). Marketler, restoranlar ve kafeler kolayca erişilebilir mesafededir.",
+      "q10": "Odada klima var mı?",
+      "a10": "Evet, tüm odalarımızda klima bulunmaktadır. Ayrıca mağara mimarisi sayesinde doğal izolasyon sağlanır.",
+      "stillHaveQuestions": "Hala sorunuz mu var?",
+      "contactUs": "Bize Ulaşın"
     }
   }
 }

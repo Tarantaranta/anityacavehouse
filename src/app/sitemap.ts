@@ -1,7 +1,25 @@
 import { MetadataRoute } from 'next';
+import { readdirSync } from 'fs';
+import { join } from 'path';
 
 const locales = ['tr', 'en', 'zh'] as const;
 const baseUrl = 'https://anityacavehouse.com';
+
+// Dynamically get blog post slugs from filesystem
+function getBlogPostSlugs(): string[] {
+  try {
+    const blogDir = join(process.cwd(), 'src/app/[locale]/blog');
+    const entries = readdirSync(blogDir, { withFileTypes: true });
+
+    return entries
+      .filter(entry => entry.isDirectory())
+      .map(entry => entry.name);
+  } catch (error) {
+    // Fallback to empty array if directory doesn't exist
+    console.warn('Blog directory not found, using empty blog posts array');
+    return [];
+  }
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -9,21 +27,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/rooms',
     '/booking',
     '/experiences',
+    '/activities',
     '/blog',
     '/gallery',
     '/contact',
     '/about',
+    '/faq',
   ];
 
-  // Blog post slugs
-  const blogPosts = [
-    'ortahisar-da-sabah-tas-ve-isik',
-    'guvercin-vadisi-gun-batimi-yuruyus-rehberi',
-    'kapadokya-mutfagi-testi-kebabindan-pottery-sofralar',
-    'tuf-tasinin-hikayesi-milyonlarca-yillik-bir-miras',
-    'kapadokyada-sicak-hava-balonu-pratik-her-sey',
-    'teras-sabahlari-balonlar-ve-sessizlik',
-  ];
+  // Dynamically fetch blog posts
+  const blogPosts = getBlogPostSlugs();
 
   // Room slugs
   const roomSlugs = [
@@ -69,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     });
 
-    // Blog posts
+    // Blog posts (dynamically generated)
     blogPosts.forEach((slug) => {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/blog/${slug}`,

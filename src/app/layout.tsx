@@ -107,6 +107,13 @@ export default async function RootLayout({
                   value: true,
                 },
               ],
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.86',
+                reviewCount: '1046',
+                bestRating: '5',
+                worstRating: '1',
+              },
             }),
           }}
         />

@@ -679,6 +679,38 @@
       "button": "Share Your Ideas",
       "note": "Have questions first? Reach out anytime — we're here to guide you with care.",
       "message": "Hello, I'd like to discuss activities during our stay at Anitya Cave House."
+    },
+    "faq": {
+      "metaTitle": "Frequently Asked Questions | Anitya Cave House",
+      "metaDescription": "Frequently asked questions about Anitya Cave House, accommodation in Cappadocia, bookings, prices and facilities.",
+      "eyebrow": "Frequently Asked Questions",
+      "title": "How Can We Help?",
+      "subtitle": "Answers to the most frequently asked questions about Anitya Cave House",
+      "q1": "What are the check-in and check-out times?",
+      "a1": "Check-in starts at 2:00 PM and check-out is until 11:00 AM. Please contact us in advance for early check-in or late check-out.",
+      "q2": "Do you provide airport transfer?",
+      "a2": "Yes, we offer paid transfer service from Nevşehir and Kayseri airports. You can request this during booking or before your stay.",
+      "q3": "Is breakfast included?",
+      "a3": "Our rooms have fully equipped kitchens. You can prepare your own breakfast as you wish or enjoy a traditional Turkish breakfast at local restaurants in Ortahisar.",
+      "q4": "Is WiFi available?",
+      "a4": "Yes, free high-speed WiFi is available in all our rooms.",
+      "q5": "How can I book a hot air balloon tour?",
+      "a5": "We can help you get in touch with reliable balloon companies. Please let us know your request before your stay or during check-in.",
+      "q6": "Is parking available?",
+      "a6": "Yes, free open-air parking is available for our guests.",
+      "q7": "Are pets allowed?",
+      "a7": "Sorry, we do not accept pets at this time.",
+      "q8": "What is your cancellation policy?",
+      "a8": "Cancellation terms may vary depending on the booking period and season. Detailed cancellation policy will be stated in your booking confirmation.",
+      "q9": "How far is the nearest market or restaurant?",
+      "a9": "Ortahisar center is within walking distance (2-5 minutes). Markets, restaurants and cafes are easily accessible.",
+      "q10": "Do the rooms have air conditioning?",
+      "a10": "Yes, all our rooms have air conditioning. Additionally, the cave architecture provides natural insulation.",
+      "stillHaveQuestions": "Still have questions?",
+      "contactUs": "Contact Us"
+    },
+    "blog": {
+      "relatedPosts": "Related Posts"
     }
   }
 }
