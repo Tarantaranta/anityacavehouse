@@ -220,6 +220,28 @@ export function Footer() {
                 </span>
               </div>
 
+              {/* Kayak Travel Awards */}
+              <a
+                href="https://www.kayak.co.uk/UErguep-Hotels-Anitya-Cave-House.770171.ksp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Kayak Travel Awards"
+              >
+                <div className="h-7 w-7 rounded-full overflow-hidden bg-white transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
+                  <Image
+                    src="https://content.r9cdn.net/seo-res/badges/v5/WHITE_MEDIUM_TRAVEL_AWARDS.png"
+                    alt="Kayak Travel Awards"
+                    width={28}
+                    height={28}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 bg-stone-800 border border-stone-700 text-stone-300 text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  {t('kayakAwardsTitle')}
+                </span>
+              </a>
+
             </div>
           </div>
         </div>
