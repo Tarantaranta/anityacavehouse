@@ -4,9 +4,33 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import BlogCard, { BlogPost } from "@/components/ui/BlogCard";
 import Reveal from "@/components/ui/Reveal";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'Blog – Kapadokya Rehberi | Anitya Cave House',
+    en: 'Blog – Cappadocia Guide | Anitya Cave House',
+    zh: '博客 – 卡帕多西亚指南 | Anitya洞穴之家',
+  };
+  const descriptions = {
+    tr: 'Kapadokya\'da ritim, mekân, yürüyüş rotaları, Ortahisar\'ın sakin detayları. Yerel rehber ve ipuçları.',
+    en: 'Rhythm, place, walking routes, and the quiet details of Ortahisar. Local guide and tips.',
+    zh: '节奏、地方、徒步路线，以及奥塔希萨尔的宁静细节。本地指南和建议。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/blog',
+    locale: l,
+  });
 }
 
 // ─── Posts per locale ────────────────────────────────────────────────────────

@@ -4,6 +4,8 @@ import Header2026 from '@/components/layout/Header2026';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { generateBreadcrumbSchema } from '@/lib/schema';
+import { Breadcrumbs } from '@/components/seo';
+import { Locale } from '@/lib/seo-config';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -101,6 +103,11 @@ export default async function FAQPage({ params }: PageProps) {
     { name: t('title'), path: `/${locale}/faq` },
   ]);
 
+  const breadcrumbItems = [
+    { name: homeText, url: '/' },
+    { name: t('title'), url: '/faq' },
+  ];
+
   return (
     <>
       <script
@@ -114,6 +121,10 @@ export default async function FAQPage({ params }: PageProps) {
       <Header2026 />
       <main id="main-content" className="min-h-screen bg-surface pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
+          {/* Breadcrumbs */}
+          <div className="mb-8">
+            <Breadcrumbs items={breadcrumbItems} locale={locale as Locale} />
+          </div>
           {/* Header */}
           <div className="text-center mb-16">
             <p className="text-xs uppercase tracking-[0.22em] text-neutral-600 mb-4">

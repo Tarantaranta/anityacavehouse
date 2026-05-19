@@ -8,6 +8,9 @@ import Container from "@/components/ui/Container"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 import Reveal from "@/components/ui/Reveal"
 
+// Note: This is a client component, metadata should be moved to a layout or separate metadata file
+// For now, keeping it as client component
+
 // Activity sections
 import ActivitiesHero from "@/components/sections/activities/ActivitiesHero"
 import HowItWorks from "@/components/sections/activities/HowItWorks"

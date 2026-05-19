@@ -16,6 +16,9 @@ import { SectionDivider } from '@/components/ui/SectionRhythm';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import PreloadImages from '@/components/ui/PreloadImages';
 import { Metadata } from 'next';
+import { StructuredData } from '@/components/seo';
+import { generateHotelSchema, generateLocalBusinessSchema } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -91,7 +94,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+  const l = locale as Locale;
+
+  // Generate structured data schemas
+  const hotelSchema = generateHotelSchema(l);
+  const businessSchema = generateLocalBusinessSchema(l);
+
   // Preload critical above-the-fold images
   const criticalImages = [
     '/images/cappadocia-cave-house.avif', // Hero image
@@ -102,6 +112,7 @@ export default function HomePage() {
   return (
     <SmoothScrollProvider>
       <div className="min-h-screen flex flex-col">
+        <StructuredData data={[hotelSchema, businessSchema]} />
         <PreloadImages images={criticalImages} />
         <Header2026 />
 

@@ -8,6 +8,8 @@ import Reveal from '@/components/ui/Reveal';
 import Image from 'next/image';
 import { Users, Maximize, ChevronLeft, CheckCircle2 } from 'lucide-react';
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/seo';
+import { Locale, siteConfig } from '@/lib/seo-config';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -144,6 +146,13 @@ export default async function RoomDetailPage({ params }: PageProps) {
 
   const otherRooms = rooms.filter((r) => r.id !== room.id).slice(0, 3);
 
+  const breadcrumbLabels = {
+    tr: { home: 'Ana Sayfa', rooms: 'Suitlerimiz' },
+    en: { home: 'Home', rooms: 'Our Suites' },
+    zh: { home: '首页', rooms: '我们的套房' },
+  };
+  const bl = breadcrumbLabels[l] || breadcrumbLabels.tr;
+
   return (
     <div className="min-h-screen flex flex-col bg-surface">
       <script
@@ -159,6 +168,13 @@ export default async function RoomDetailPage({ params }: PageProps) {
               '@type': 'QuantitativeValue',
               maxValue: room.capacity,
             },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: siteConfig.business.aggregateRating.ratingValue,
+              reviewCount: siteConfig.business.aggregateRating.reviewCount,
+              bestRating: siteConfig.business.aggregateRating.bestRating,
+              worstRating: siteConfig.business.aggregateRating.worstRating,
+            },
             amenityFeature: [
               ...houseAmenities.map(a => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
               ...kitchenAmenities.map(a => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
@@ -169,16 +185,17 @@ export default async function RoomDetailPage({ params }: PageProps) {
       />
       <Header2026 />
 
-      {/* ── Back navigation ────────────────────────────────────────────── */}
+      {/* ── Back navigation & Breadcrumbs ────────────────────────────────────────────── */}
       <div className="pt-20 bg-surface border-b border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-4">
-          <Link
-            href="/rooms"
-            className="inline-flex items-center gap-2 text-sm text-ink-2 hover:text-ink transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {c.backToSuites}
-          </Link>
+          <Breadcrumbs
+            items={[
+              { name: bl.home, url: '/' },
+              { name: bl.rooms, url: '/rooms' },
+              { name: name, url: `/rooms/${slug}` },
+            ]}
+            locale={l}
+          />
         </div>
       </div>
 

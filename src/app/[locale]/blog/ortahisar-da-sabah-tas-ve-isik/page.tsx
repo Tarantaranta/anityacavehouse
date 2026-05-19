@@ -5,6 +5,8 @@ import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/seo';
+import { Locale } from '@/lib/seo-config';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -242,6 +244,7 @@ const content = {
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { locale } = await params;
+  const l = locale as Locale;
   const c = content[locale as keyof typeof content] ?? content.tr;
   const baseUrl = 'https://anityacavehouse.com';
   const slug = 'ortahisar-da-sabah-tas-ve-isik';
@@ -252,6 +255,13 @@ export default async function BlogPostPage({ params }: PageProps) {
     zh: { title: '奥塔希萨尔的早晨：石头与光', author: 'Anitya Cave House' },
   };
   const meta = metadata[locale as keyof typeof metadata] || metadata.tr;
+
+  const breadcrumbLabels = {
+    tr: { home: 'Ana Sayfa', blog: 'Blog' },
+    en: { home: 'Home', blog: 'Blog' },
+    zh: { home: '首页', blog: '博客' },
+  };
+  const bl = breadcrumbLabels[l] || breadcrumbLabels.tr;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F1E8]">
@@ -273,6 +283,18 @@ export default async function BlogPostPage({ params }: PageProps) {
         }}
       />
       <Header2026 />
+
+      {/* Breadcrumbs */}
+      <div className="max-w-6xl mx-auto px-5 md:px-8 pt-24">
+        <Breadcrumbs
+          items={[
+            { name: bl.home, url: '/' },
+            { name: bl.blog, url: '/blog' },
+            { name: meta.title, url: `/blog/${slug}` },
+          ]}
+          locale={l}
+        />
+      </div>
 
       {/* Hero */}
       <PageHero

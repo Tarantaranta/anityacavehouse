@@ -4,9 +4,33 @@ import PageHero from "@/components/ui/PageHero";
 import SectionShell from "@/components/ui/SectionShell";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'Hakkımızda – Anitya Cave House Hikayesi | Kapadokya',
+    en: 'About Us – Anitya Cave House Story | Cappadocia',
+    zh: '关于我们 – Anitya洞穴之家故事 | 卡帕多西亚',
+  };
+  const descriptions = {
+    tr: '400 yılı aşkın geçmişe sahip taş evimizin hikayesi. Ortahisar\'ın tarihi ve Anitya felsefesi.',
+    en: 'The story of our 400-year-old stone house. History of Ortahisar and the Anitya philosophy.',
+    zh: '我们拥有400多年历史的石头房子的故事。奥塔希萨尔的历史和Anitya哲学。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/about',
+    locale: l,
+  });
 }
 
 // ─── Locale-aware content ──────────────────────────────────────────────────

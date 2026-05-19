@@ -5,9 +5,33 @@ import SectionShell from "@/components/ui/SectionShell";
 import ContactCard from "@/components/ui/ContactCard";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/contact/ContactForm";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'İletişim – Anitya Cave House | Kapadokya Rezervasyon',
+    en: 'Contact – Anitya Cave House | Cappadocia Booking',
+    zh: '联系我们 – Anitya洞穴之家 | 卡帕多西亚预订',
+  };
+  const descriptions = {
+    tr: 'Anitya Cave House ile iletişime geçin. Rezervasyon, fiyat bilgisi ve sorularınız için.',
+    en: 'Contact Anitya Cave House. For reservations, pricing information, and inquiries.',
+    zh: '联系Anitya洞穴之家。预订、价格信息和咨询。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/contact',
+    locale: l,
+  });
 }
 
 function PhoneIcon() {

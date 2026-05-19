@@ -3,6 +3,34 @@ import { Footer } from "@/components/layout/Footer";
 import ParallaxImage from "@/components/ui/ParallaxImage";
 import Reveal from "@/components/ui/Reveal";
 import ExperiencesGrid from "@/components/sections/ExperiencesGrid";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'Kapadokya Deneyimleri – Aktiviteler ve Rotalar | Anitya',
+    en: 'Cappadocia Experiences – Activities and Routes | Anitya',
+    zh: '卡帕多西亚体验 – 活动和路线 | Anitya',
+  };
+  const descriptions = {
+    tr: 'Kapadokya\'da yapılacaklar: Balon turu, vadilerde yürüyüş, yerel mutfak, tarihi yerler.',
+    en: 'Things to do in Cappadocia: Balloon tour, valley hikes, local cuisine, historical sites.',
+    zh: '在卡帕多西亚要做的事情：热气球之旅、山谷徒步、当地美食、历史遗迹。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/experiences',
+    locale: l,
+  });
+}
 
 const pageContent = {
   tr: {

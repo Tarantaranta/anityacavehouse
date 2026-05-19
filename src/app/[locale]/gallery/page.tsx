@@ -5,9 +5,33 @@ import SectionShell from "@/components/ui/SectionShell";
 import GalleryGrid, { GalleryImage } from "@/components/ui/GalleryGrid";
 import Reveal from "@/components/ui/Reveal";
 import { Link } from "@/i18n/routing";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'Galeri – Anitya Cave House Fotoğrafları | Kapadokya',
+    en: 'Gallery – Anitya Cave House Photos | Cappadocia',
+    zh: '画廊 – Anitya洞穴之家照片 | 卡帕多西亚',
+  };
+  const descriptions = {
+    tr: 'Anitya Cave House\'un mağara suite\'leri, terasları ve Kapadokya manzaralarının fotoğraf galerisi.',
+    en: 'Photo gallery of Anitya Cave House cave suites, terraces, and Cappadocia views.',
+    zh: 'Anitya洞穴之家洞穴套房、露台和卡帕多西亚景观的照片库。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/gallery',
+    locale: l,
+  });
 }
 
 // ─── Gallery images (canonical English tags for GalleryGrid filtering) ────────

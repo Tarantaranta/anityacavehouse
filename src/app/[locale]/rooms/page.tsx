@@ -6,9 +6,33 @@ import Reveal from "@/components/ui/Reveal";
 import RoomFeatureCard from "@/components/ui/RoomFeatureCard";
 import ReviewSourceNote from "@/components/ui/ReviewSourceNote";
 import { Link } from "@/i18n/routing";
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { Locale } from '@/lib/seo-config';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const titles = {
+    tr: 'Suitlerimiz – Mağara ve Taş Suite Evler | Anitya Cave House',
+    en: 'Our Suites – Cave & Stone Suite Houses | Anitya Cave House',
+    zh: '我们的套房 – 洞穴和石头套房 | Anitya洞穴之家',
+  };
+  const descriptions = {
+    tr: 'Her biri kendine özgü karaktere sahip bağımsız mağara ve taş suite evlerimizi keşfedin. Özel mutfak, teras ve modern konfor.',
+    en: 'Discover our independent cave and stone suite houses, each with its own unique character. Private kitchen, terrace, and modern comfort.',
+    zh: '探索我们独立的洞穴和石头套房，每间都有独特的个性。私人厨房、露台和现代舒适。',
+  };
+  const l = locale as Locale;
+  return generatePageMetadata({
+    title: titles[l] || titles.tr,
+    description: descriptions[l] || descriptions.tr,
+    path: '/rooms',
+    locale: l,
+  });
 }
 
 // ─── Locale-aware static content ───────────────────────────────────────────

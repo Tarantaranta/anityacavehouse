@@ -1,9 +1,19 @@
 import { MetadataRoute } from 'next';
-import { readdirSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
 
 const locales = ['tr', 'en', 'zh'] as const;
 const baseUrl = 'https://anityacavehouse.com';
+
+// Get file modification date for accurate lastModified
+function getLastModified(filePath: string): Date {
+  try {
+    const stats = statSync(filePath);
+    return stats.mtime;
+  } catch {
+    return new Date();
+  }
+}
 
 // Dynamically get blog post slugs from filesystem
 function getBlogPostSlugs(): string[] {
@@ -50,11 +60,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Main routes for each locale
   locales.forEach((locale) => {
     routes.forEach((route) => {
+      const filePath = join(process.cwd(), `src/app/[locale]${route}/page.tsx`);
+      const lastModified = getLastModified(filePath);
+
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: route === '' ? 'daily' : route === '/blog' ? 'weekly' : 'monthly',
-        priority: route === '' ? 1.0 : route === '/rooms' || route === '/booking' ? 0.9 : 0.8,
+        lastModified,
+        changeFrequency: route === '' ? 'weekly' : route === '/blog' ? 'weekly' : 'monthly',
+        priority: route === '' ? 1.0 : route === '/rooms' || route === '/booking' ? 0.9 : route === '/blog' ? 0.8 : 0.7,
         alternates: {
           languages: {
             tr: `${baseUrl}/tr${route}`,
@@ -67,9 +80,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Individual room pages
     roomSlugs.forEach((slug) => {
+      const filePath = join(process.cwd(), `src/app/[locale]/rooms/[slug]/page.tsx`);
+      const lastModified = getLastModified(filePath);
+
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/rooms/${slug}`,
-        lastModified: new Date(),
+        lastModified,
         changeFrequency: 'monthly',
         priority: 0.9,
         alternates: {
@@ -84,11 +100,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Blog posts (dynamically generated)
     blogPosts.forEach((slug) => {
+      const filePath = join(process.cwd(), `src/app/[locale]/blog/${slug}/page.tsx`);
+      const lastModified = getLastModified(filePath);
+
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/blog/${slug}`,
-        lastModified: new Date(),
+        lastModified,
         changeFrequency: 'monthly',
-        priority: 0.7,
+        priority: 0.75,
         alternates: {
           languages: {
             tr: `${baseUrl}/tr/blog/${slug}`,
