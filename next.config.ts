@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.airbnb.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'content.r9cdn.net',
+      },
     ],
   },
 };
